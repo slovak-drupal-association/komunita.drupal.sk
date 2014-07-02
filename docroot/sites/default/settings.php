@@ -217,14 +217,6 @@
  *   );
  * @endcode
  */
-$databases['default']['default'] = array(
-  'driver' => 'mysql',
-  'database' => 'slovakdadev',
-  'username' => 's9846',
-  'password' => 'tSA6SKcjoKuMa2i',
-  'host' => 'staging-3383.prod.hosting.acquia.com',
-  'prefix' => '',
-);
 
 /**
  * Location of the site configuration files.
@@ -279,7 +271,7 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'uWDA2LWJYSr7k_x5n43afjrjT31CaLZbPvqeRFyDqOn-87Ham7kXyam7auU85T4CnF1bU9bU5Q';
+$settings['hash_salt'] = '';
 
 /**
  * Access control for update.php script.
