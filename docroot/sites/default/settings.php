@@ -271,7 +271,7 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = 'bu-e_n6W4N2pgyo2mWTa0pPgkdGmXt0ryanY7ZWz8Nh30_q1QYiJpvbZQv-fJGJiQpABKcM7Og';
 
 /**
  * Access control for update.php script.
@@ -637,3 +637,16 @@ ini_set('session.cookie_lifetime', 2000000);
   // require '/var/www/site-php/slovakda/slovakda-settings.inc';
 // }
 
+$databases['default']['default'] = array (
+  'database' => 'slovakdadev',
+  'username' => 's9846',
+  'password' => 'tSA6SKcjoKuMa2i',
+  'prefix' => '',
+  'host' => 'staging-3383.prod.hosting.acquia.com',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+$settings['install_profile'] = 'standard';
+$config_directories['active'] = 'sites/default/files/config_hkcrgxn34YRHzE9KRZIYSXgPQIyX34aM9E8yRM0U66TxPwdZDIrKh8Y-nQIkLod51ZNJCCjuJw/active';
+$config_directories['staging'] = 'sites/default/files/config_hkcrgxn34YRHzE9KRZIYSXgPQIyX34aM9E8yRM0U66TxPwdZDIrKh8Y-nQIkLod51ZNJCCjuJw/staging';
