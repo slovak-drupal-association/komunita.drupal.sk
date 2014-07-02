@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update functions for Honeypot.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function honeypot_schema() {
+  $schema['honeypot_user'] = array(
+    'description' => 'Table that stores failed attempts to submit a form.',
+    'fields' => array(
+      'uid' => array(
+        'description' => 'Foreign key to {users}.uid; uniquely identifies a Drupal user to whom this ACL data applies.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'timestamp' => array(
+        'description' => 'Date/time when the form submission failed, as Unix timestamp.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+    ),
+    'indexes' => array(
+      'uid' => array('uid'),
+      'timestamp' => array('timestamp'),
+    ),
+  );
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function honeypot_install() {
+  drupal_set_message(t("Honeypot installed successfully. Please !link to protect your forms from spam bots.", array(
+    '!link' => l(t('configure Honeypot'), 'admin/config/content/honeypot'),
+  )));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function honeypot_uninstall() {
+  // Clear the bootstrap cache.
+  \Drupal::cache('bootstrap')->deleteAll();
+}
+
+/**
+ * Upgrade Honeypot settings from Drupal 7 to Drupal 8.
+ */
+function honeypot_update_8000() {
+  // If the variables table exists, there might be variables to be updated.
+  if (db_table_exists('variable')) {
+    // Get all the old variables.
+    $variables_to_update = db_query("SELECT name FROM {variable} WHERE name LIKE 'honeypot_%'")->fetchCol();
+
+    if (!empty($variables_to_update)) {
+      // Build a map of old variable names to new honeypot.settings names.
+      $variable_map = array();
+      foreach ($variables_to_update as $variable) {
+        $variable_map[$variable] = substr($variable, 9, strlen($variable));
+      }
+
+      update_variables_to_config('honeypot.settings', $variable_map);
+    }
+  }
+}
