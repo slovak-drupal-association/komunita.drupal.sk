@@ -1,0 +1,8 @@
+name: Texy
+type: module
+description: 'Filters an easy to read Texy! syntax into XHTML.'
+package: Filters
+version: 8.x-1.0
+core: 8.x
+dependencies:
+  - filter
