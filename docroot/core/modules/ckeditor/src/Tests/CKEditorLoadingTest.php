@@ -11,6 +11,8 @@ use Drupal\simpletest\WebTestBase;
 
 /**
  * Tests loading of CKEditor.
+ *
+ * @group ckeditor
  */
 class CKEditorLoadingTest extends WebTestBase {
 
@@ -21,15 +23,7 @@ class CKEditorLoadingTest extends WebTestBase {
    */
   public static $modules = array('filter', 'editor', 'ckeditor', 'node');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'CKEditor loading',
-      'description' => 'Tests loading of CKEditor.',
-      'group' => 'CKEditor',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Create text format, associate CKEditor.

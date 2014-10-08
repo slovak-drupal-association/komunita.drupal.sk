@@ -9,12 +9,15 @@ namespace Drupal\views\Tests;
 
 use Drupal\comment\CommentInterface;
 use Drupal\Core\Language\LanguageInterface;
+use Drupal\Core\Url;
 use Drupal\simpletest\WebTestBase;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Views;
 
 /**
- * Tests for views default views.
+ * Tests the default views provided by views.
+ *
+ * @group views
  */
 class DefaultViewsTest extends ViewTestBase {
 
@@ -36,14 +39,6 @@ class DefaultViewsTest extends ViewTestBase {
     'glossary' => array('all'),
   );
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Default views',
-      'description' => 'Tests the default views provided by views',
-      'group' => 'Views',
-    );
-  }
-
   protected function setUp() {
     parent::setUp();
 
@@ -51,9 +46,9 @@ class DefaultViewsTest extends ViewTestBase {
     $this->drupalCreateContentType(array('type' => 'page', 'name' => 'Basic page'));
 
     $this->vocabulary = entity_create('taxonomy_vocabulary', array(
-      'name' => $this->randomName(),
-      'description' => $this->randomName(),
-      'vid' => drupal_strtolower($this->randomName()),
+      'name' => $this->randomMachineName(),
+      'description' => $this->randomMachineName(),
+      'vid' => drupal_strtolower($this->randomMachineName()),
       'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
       'help' => '',
       'nodes' => array('page' => 'page'),
@@ -61,10 +56,10 @@ class DefaultViewsTest extends ViewTestBase {
     ));
     $this->vocabulary->save();
 
-    // Setup a field and instance.
-    $this->field_name = drupal_strtolower($this->randomName());
-    entity_create('field_config', array(
-      'name' => $this->field_name,
+    // Create a field.
+    $this->field_name = drupal_strtolower($this->randomMachineName());
+    entity_create('field_storage_config', array(
+      'field_name' => $this->field_name,
       'entity_type' => 'node',
       'type' => 'taxonomy_term_reference',
       'settings' => array(
@@ -76,7 +71,7 @@ class DefaultViewsTest extends ViewTestBase {
         ),
       )
     ))->save();
-    entity_create('field_instance_config', array(
+    entity_create('field_config', array(
       'field_name' => $this->field_name,
       'entity_type' => 'node',
       'bundle' => 'page',
@@ -100,7 +95,7 @@ class DefaultViewsTest extends ViewTestBase {
       if ($i % 2) {
         $values['promote'] = TRUE;
       }
-      $values['body'][]['value'] = l('Node ' . 1, 'node/' . 1);
+      $values['body'][]['value'] = \Drupal::l('Node ' . 1, new Url('entity.node.canonical', ['node' => 1]));
 
       $node = $this->drupalCreateNode($values);
 
@@ -159,8 +154,8 @@ class DefaultViewsTest extends ViewTestBase {
     $filter_formats = filter_formats();
     $format = array_pop($filter_formats);
     $term = entity_create('taxonomy_term', array(
-      'name' => $this->randomName(),
-      'description' => $this->randomName(),
+      'name' => $this->randomMachineName(),
+      'description' => $this->randomMachineName(),
       // Use the first available text format.
       'format' => $format->format,
       'vid' => $vocabulary->id(),

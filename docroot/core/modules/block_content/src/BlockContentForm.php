@@ -10,8 +10,9 @@ namespace Drupal\block_content;
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\LanguageInterface;
-use Drupal\Core\Language\LanguageManager;
+use Drupal\Core\Language\LanguageManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -29,9 +30,16 @@ class BlockContentForm extends ContentEntityForm {
   /**
    * The language manager.
    *
-   * @var \Drupal\Core\Language\LanguageManager
+   * @var \Drupal\Core\Language\LanguageManagerInterface
    */
   protected $languageManager;
+
+  /**
+   * The block content entity.
+   *
+   * @var \Drupal\block_content\BlockContentInterface
+   */
+  protected $entity;
 
   /**
    * Constructs a BlockContentForm object.
@@ -40,10 +48,10 @@ class BlockContentForm extends ContentEntityForm {
    *   The entity manager.
    * @param \Drupal\Core\Entity\EntityStorageInterface $block_content_storage
    *   The custom block storage.
-   * @param \Drupal\Core\Language\LanguageManager $language_manager
+   * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
    *   The language manager.
    */
-  public function __construct(EntityManagerInterface $entity_manager, EntityStorageInterface $block_content_storage, LanguageManager $language_manager) {
+  public function __construct(EntityManagerInterface $entity_manager, EntityStorageInterface $block_content_storage, LanguageManagerInterface $language_manager) {
     parent::__construct($entity_manager);
     $this->blockContentStorage = $block_content_storage;
     $this->languageManager = $language_manager;
@@ -83,7 +91,7 @@ class BlockContentForm extends ContentEntityForm {
   /**
    * {@inheritdoc}
    */
-  public function form(array $form, array &$form_state) {
+  public function form(array $form, FormStateInterface $form_state) {
     $block = $this->entity;
     $account = $this->currentUser();
 
@@ -159,89 +167,75 @@ class BlockContentForm extends ContentEntityForm {
       '#title' => $this->t('Revision log message'),
       '#rows' => 4,
       '#default_value' => $block->getRevisionLog(),
-      '#description' => $this->t('Briefly desribe the changes you have made.'),
+      '#description' => $this->t('Briefly describe the changes you have made.'),
     );
 
     return parent::form($form, $form_state, $block);
   }
 
   /**
-   * Overrides \Drupal\Core\Entity\EntityForm::submit().
-   *
-   * Updates the custom block object by processing the submitted values.
-   *
-   * This function can be called by a "Next" button of a wizard to update the
-   * form state's entity with the current step's values before proceeding to the
-   * next step.
+   * {@inheritdoc}
    */
-  public function submit(array $form, array &$form_state) {
-    // Build the block object from the submitted values.
-    $block = parent::submit($form, $form_state);
+  public function save(array $form, FormStateInterface $form_state) {
+    $block = $this->entity;
 
     // Save as a new revision if requested to do so.
-    if (!empty($form_state['values']['revision'])) {
+    if (!$form_state->isValueEmpty('revision')) {
       $block->setNewRevision();
     }
 
-    return $block;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function save(array $form, array &$form_state) {
-    $block = $this->entity;
     $insert = $block->isNew();
     $block->save();
-    $watchdog_args = array('@type' => $block->bundle(), '%info' => $block->label());
+    $context = array('@type' => $block->bundle(), '%info' => $block->label());
+    $logger = $this->logger('block_content');
     $block_type = entity_load('block_content_type', $block->bundle());
     $t_args = array('@type' => $block_type->label(), '%info' => $block->label());
 
     if ($insert) {
-      watchdog('content', '@type: added %info.', $watchdog_args, WATCHDOG_NOTICE);
+      $logger->notice('@type: added %info.', $context);
       drupal_set_message($this->t('@type %info has been created.', $t_args));
     }
     else {
-      watchdog('content', '@type: updated %info.', $watchdog_args, WATCHDOG_NOTICE);
+      $logger->notice('@type: updated %info.', $context);
       drupal_set_message($this->t('@type %info has been updated.', $t_args));
     }
 
     if ($block->id()) {
-      $form_state['values']['id'] = $block->id();
-      $form_state['id'] = $block->id();
+      $form_state->setValue('id', $block->id());
+      $form_state->set('id', $block->id());
       if ($insert) {
         if (!$theme = $block->getTheme()) {
           $theme = $this->config('system.theme')->get('default');
         }
-        $form_state['redirect_route'] = array(
-          'route_name' => 'block.admin_add',
-          'route_parameters' => array(
+        $form_state->setRedirect(
+          'block.admin_add',
+          array(
             'plugin_id' => 'block_content:' . $block->uuid(),
             'theme' => $theme,
-          ),
+          )
         );
       }
       else {
-        $form_state['redirect_route']['route_name'] = 'block_content.list';
+        $form_state->setRedirect('block_content.list');
       }
     }
     else {
       // In the unlikely case something went wrong on save, the block will be
       // rebuilt and block form redisplayed.
       drupal_set_message($this->t('The block could not be saved.'), 'error');
-      $form_state['rebuild'] = TRUE;
+      $form_state->setRebuild();
     }
   }
 
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, array &$form_state) {
+  public function validateForm(array &$form, FormStateInterface $form_state) {
     if ($this->entity->isNew()) {
-      $exists = $this->blockContentStorage->loadByProperties(array('info' => $form_state['values']['info']));
+      $exists = $this->blockContentStorage->loadByProperties(array('info' => $form_state->getValue('info')));
       if (!empty($exists)) {
-        $this->setFormError('info', $form_state, $this->t('A block with description %name already exists.', array(
-          '%name' => $form_state['values']['info'][0]['value'],
+        $form_state->setErrorByName('info', $this->t('A block with description %name already exists.', array(
+          '%name' => $form_state->getValue(array('info', 0, 'value')),
         )));
       }
     }

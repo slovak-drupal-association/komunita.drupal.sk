@@ -86,7 +86,7 @@ abstract class RESTTestBase extends WebTestBase {
         $curl_options = array(
           CURLOPT_HTTPGET => TRUE,
           CURLOPT_CUSTOMREQUEST => 'GET',
-          CURLOPT_URL => url($url, $options),
+          CURLOPT_URL => _url($url, $options),
           CURLOPT_NOBODY => FALSE,
           CURLOPT_HTTPHEADER => array('Accept: ' . $mime_type),
         );
@@ -97,7 +97,7 @@ abstract class RESTTestBase extends WebTestBase {
           CURLOPT_HTTPGET => FALSE,
           CURLOPT_POST => TRUE,
           CURLOPT_POSTFIELDS => $body,
-          CURLOPT_URL => url($url, array('absolute' => TRUE)),
+          CURLOPT_URL => _url($url, array('absolute' => TRUE)),
           CURLOPT_NOBODY => FALSE,
           CURLOPT_HTTPHEADER => array(
             'Content-Type: ' . $mime_type,
@@ -111,7 +111,7 @@ abstract class RESTTestBase extends WebTestBase {
           CURLOPT_HTTPGET => FALSE,
           CURLOPT_CUSTOMREQUEST => 'PUT',
           CURLOPT_POSTFIELDS => $body,
-          CURLOPT_URL => url($url, array('absolute' => TRUE)),
+          CURLOPT_URL => _url($url, array('absolute' => TRUE)),
           CURLOPT_NOBODY => FALSE,
           CURLOPT_HTTPHEADER => array(
             'Content-Type: ' . $mime_type,
@@ -125,7 +125,7 @@ abstract class RESTTestBase extends WebTestBase {
           CURLOPT_HTTPGET => FALSE,
           CURLOPT_CUSTOMREQUEST => 'PATCH',
           CURLOPT_POSTFIELDS => $body,
-          CURLOPT_URL => url($url, array('absolute' => TRUE)),
+          CURLOPT_URL => _url($url, array('absolute' => TRUE)),
           CURLOPT_NOBODY => FALSE,
           CURLOPT_HTTPHEADER => array(
             'Content-Type: ' . $mime_type,
@@ -138,7 +138,7 @@ abstract class RESTTestBase extends WebTestBase {
         $curl_options = array(
           CURLOPT_HTTPGET => FALSE,
           CURLOPT_CUSTOMREQUEST => 'DELETE',
-          CURLOPT_URL => url($url, array('absolute' => TRUE)),
+          CURLOPT_URL => _url($url, array('absolute' => TRUE)),
           CURLOPT_NOBODY => FALSE,
           CURLOPT_HTTPHEADER => array('X-CSRF-Token: ' . $token),
         );
@@ -186,7 +186,7 @@ abstract class RESTTestBase extends WebTestBase {
     switch ($entity_type) {
       case 'entity_test':
         return array(
-          'name' => $this->randomName(),
+          'name' => $this->randomMachineName(),
           'user_id' => 1,
           'field_test_text' => array(0 => array(
             'value' => $this->randomString(),
@@ -198,10 +198,10 @@ abstract class RESTTestBase extends WebTestBase {
       case 'node_type':
         return array(
           'type' => 'article',
-          'name' => $this->randomName(),
+          'name' => $this->randomMachineName(),
         );
       case 'user':
-        return array('name' => $this->randomName());
+        return array('name' => $this->randomMachineName());
       default:
         return array();
     }
@@ -296,7 +296,7 @@ abstract class RESTTestBase extends WebTestBase {
    *
    * @param string $entity_type
    *   The entity type.
-   * @param type $operation
+   * @param string $operation
    *   The operation, one of 'view', 'create', 'update' or 'delete'.
    *
    * @return array

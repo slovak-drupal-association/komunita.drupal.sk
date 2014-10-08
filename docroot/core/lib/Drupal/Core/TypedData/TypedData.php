@@ -8,6 +8,7 @@
 namespace Drupal\Core\TypedData;
 
 use Drupal\Component\Plugin\PluginInspectionInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * The abstract base class for typed data.
@@ -18,6 +19,8 @@ use Drupal\Component\Plugin\PluginInspectionInterface;
  * @ingroup typed_data
  */
 abstract class TypedData implements TypedDataInterface, PluginInspectionInterface {
+
+  use StringTranslationTrait;
 
   /**
    * The data definition.
@@ -39,6 +42,13 @@ abstract class TypedData implements TypedDataInterface, PluginInspectionInterfac
    * @var \Drupal\Core\TypedData\TypedDataInterface
    */
   protected $parent;
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function createInstance($definition, $name = NULL, TypedDataInterface $parent = NULL) {
+    return new static($definition, $name, $parent);
+  }
 
   /**
    * Constructs a TypedData object given its definition and context.

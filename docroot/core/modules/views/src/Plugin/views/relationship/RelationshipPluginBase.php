@@ -7,6 +7,7 @@
 
 namespace Drupal\views\Plugin\views\relationship;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
 use Drupal\views\Plugin\views\HandlerBase;
@@ -19,7 +20,7 @@ use Drupal\views\Views;
  * Plugins for handling views relationships.
  *
  * Relationship handlers extend
- * \Drupal\views\Plugin\views\relationship\RelationshipHandlerBase. They must
+ * \Drupal\views\Plugin\views\relationship\RelationshipPluginBase. They must
  * be annotated with \Drupal\views\Annotation\ViewsRelationship annotation,
  * and they must be in namespace directory Plugin\views\relationship.
  *
@@ -104,7 +105,7 @@ abstract class RelationshipPluginBase extends HandlerBase {
   /**
    * {@inheritdoc}
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
     unset($form['admin_label']['#fieldset']);
@@ -112,8 +113,8 @@ abstract class RelationshipPluginBase extends HandlerBase {
 
     $form['required'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Require this relationship'),
-      '#description' => t('Enable to hide items that do not contain this relationship'),
+      '#title' => $this->t('Require this relationship'),
+      '#description' => $this->t('Enable to hide items that do not contain this relationship'),
       '#default_value' => !empty($this->options['required']),
     );
   }

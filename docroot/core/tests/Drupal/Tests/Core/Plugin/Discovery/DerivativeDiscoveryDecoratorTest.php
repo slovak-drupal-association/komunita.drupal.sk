@@ -13,6 +13,8 @@ use Drupal\Tests\UnitTestCase;
 
 /**
  * Unit tests for the derivative discovery decorator.
+ *
+ * @group Plugin
  */
 class DerivativeDiscoveryDecoratorTest extends UnitTestCase {
 
@@ -26,18 +28,7 @@ class DerivativeDiscoveryDecoratorTest extends UnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public static function getInfo() {
-    return array(
-      'name' => 'Derivative discovery decorator.',
-      'description' => 'Tests the derivative discovery decorator.',
-      'group' => 'Plugin',
-    );
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
+  protected function setUp() {
     $this->discoveryMain = $discovery_main = $this->getMock('Drupal\Component\Plugin\Discovery\DiscoveryInterface');
   }
 
@@ -98,11 +89,35 @@ class DerivativeDiscoveryDecoratorTest extends UnitTestCase {
   }
 
   /**
+   * Tests the getDerivativeFetcher method with a non-existent class.
+   *
+   * @see \Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator::getDeriver().\
+   *
+   * @expectedException \Drupal\Component\Plugin\Exception\InvalidDeriverException
+   * @expectedExceptionMessage Plugin (non_existent_discovery) deriver "\Drupal\system\Tests\Plugin\NonExistentDeriver" does not exist.
+   */
+  public function testNonExistentDerivativeFetcher() {
+    $definitions = array();
+    // Do this with a class that doesn't exist.
+    $definitions['non_existent_discovery'] = array(
+      'id' => 'non_existent_discovery',
+      'deriver' => '\Drupal\system\Tests\Plugin\NonExistentDeriver',
+    );
+    $this->discoveryMain->expects($this->any())
+      ->method('getDefinitions')
+      ->will($this->returnValue($definitions));
+
+    $discovery = new DerivativeDiscoveryDecorator($this->discoveryMain);
+    $discovery->getDefinitions();
+  }
+
+  /**
    * Tests the getDerivativeFetcher method with an invalid class.
    *
    * @see \Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator::getDeriver().\
    *
    * @expectedException \Drupal\Component\Plugin\Exception\InvalidDeriverException
+   * @expectedExceptionMessage Plugin (invalid_discovery) deriver "\Drupal\system\Tests\Plugin\DerivativeTest" must implement \Drupal\Component\Plugin\Derivative\DeriverInterface.
    */
   public function testInvalidDerivativeFetcher() {
     $definitions = array();

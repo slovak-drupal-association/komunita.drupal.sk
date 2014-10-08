@@ -7,11 +7,14 @@
 
 namespace Drupal\editor\Tests;
 
+use Drupal\Core\Cache\Cache;
 use Drupal\simpletest\KernelTestBase;
 use Drupal\filter\FilterBag;
 
 /**
- * Tests for the EditorFileReference filter.
+ * Tests Editor module's file reference filter.
+ *
+ * @group editor
  */
 class EditorFileReferenceFilterTest extends KernelTestBase {
 
@@ -26,17 +29,6 @@ class EditorFileReferenceFilterTest extends KernelTestBase {
    * @var \Drupal\filter\Plugin\FilterInterface[]
    */
   protected $filters;
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function getInfo() {
-    return array(
-      'name' => 'Editor File Reference filter',
-      'description' => "Tests Editor module's file reference filter.",
-      'group' => 'Text Editor',
-    );
-  }
 
   /**
    * {@inheritdoc}
@@ -62,17 +54,19 @@ class EditorFileReferenceFilterTest extends KernelTestBase {
       return $filter->process($input, 'und');
     };
 
-    file_put_contents('public://llama.jpg', $this->randomName());
+    file_put_contents('public://llama.jpg', $this->randomMachineName());
     $image = entity_create('file', array('uri' => 'public://llama.jpg'));
     $image->save();
     $id = $image->id();
     $uuid = $image->uuid();
+    $cache_tag = ['file:' . $id];
 
-    file_put_contents('public://alpaca.jpg', $this->randomName());
+    file_put_contents('public://alpaca.jpg', $this->randomMachineName());
     $image_2 = entity_create('file', array('uri' => 'public://alpaca.jpg'));
     $image_2->save();
     $id_2 = $image_2->id();
     $uuid_2 = $image_2->uuid();
+    $cache_tag_2 = ['file:' . $id_2];
 
     $this->pass('No data-editor-file-uuid attribute.');
     $input = '<img src="llama.jpg" />';
@@ -83,19 +77,19 @@ class EditorFileReferenceFilterTest extends KernelTestBase {
     $input = '<img src="llama.jpg" data-editor-file-uuid="' . $uuid . '" />';
     $output = $test($input);
     $this->assertIdentical($input, $output->getProcessedText());
-    $this->assertEqual(array('file' => array($id)), $output->getCacheTags());
+    $this->assertEqual($cache_tag, $output->getCacheTags());
 
     $this->pass('One data-editor-file-uuid attribute with odd capitalization.');
     $input = '<img src="llama.jpg" DATA-editor-file-UUID =   "' . $uuid . '" />';
     $output = $test($input);
     $this->assertIdentical($input, $output->getProcessedText());
-    $this->assertEqual(array('file' => array($id)), $output->getCacheTags());
+    $this->assertEqual($cache_tag, $output->getCacheTags());
 
     $this->pass('One data-editor-file-uuid attribute on a non-image tag.');
     $input = '<video src="llama.jpg" data-editor-file-uuid="' . $uuid . '" />';
     $output = $test($input);
     $this->assertIdentical($input, $output->getProcessedText());
-    $this->assertEqual(array('file' => array($id)), $output->getCacheTags());
+    $this->assertEqual($cache_tag, $output->getCacheTags());
 
     $this->pass('One data-editor-file-uuid attribute with an invalid value.');
     $input = '<img src="llama.jpg" data-editor-file-uuid="invalid-' . $uuid . '" />';
@@ -108,14 +102,14 @@ class EditorFileReferenceFilterTest extends KernelTestBase {
     $input .= '<img src="alpaca.jpg" data-editor-file-uuid="' . $uuid_2 . '" />';
     $output = $test($input);
     $this->assertIdentical($input, $output->getProcessedText());
-    $this->assertEqual(array('file' => array($id, $id_2)), $output->getCacheTags());
+    $this->assertEqual(Cache::mergeTags($cache_tag, $cache_tag_2), $output->getCacheTags());
 
     $this->pass('Two identical  data-editor-file-uuid attributes.');
     $input = '<img src="llama.jpg" data-editor-file-uuid="' . $uuid . '" />';
     $input .= '<img src="llama.jpg" data-editor-file-uuid="' . $uuid . '" />';
     $output = $test($input);
     $this->assertIdentical($input, $output->getProcessedText());
-    $this->assertEqual(array('file' => array($id)), $output->getCacheTags());
+    $this->assertEqual($cache_tag, $output->getCacheTags());
   }
 
 }

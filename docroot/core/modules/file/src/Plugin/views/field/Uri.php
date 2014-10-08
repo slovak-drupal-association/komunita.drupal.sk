@@ -7,6 +7,7 @@
 
 namespace Drupal\file\Plugin\views\field;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ResultRow;
 
 /**
@@ -22,10 +23,10 @@ class Uri extends File {
     return $options;
   }
 
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     $form['file_download_path'] = array(
-      '#title' => t('Display download path instead of file storage URI'),
-      '#description' => t('This will provide the full download URL rather than the internal filestream address.'),
+      '#title' => $this->t('Display download path instead of file storage URI'),
+      '#description' => $this->t('This will provide the full download URL rather than the internal filestream address.'),
       '#type' => 'checkbox',
       '#default_value' => !empty($this->options['file_download_path']),
     );

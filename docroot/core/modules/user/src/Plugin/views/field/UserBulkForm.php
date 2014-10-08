@@ -8,6 +8,7 @@
 namespace Drupal\user\Plugin\views\field;
 
 use Drupal\Core\Entity\EntityManagerInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\system\Plugin\views\field\BulkForm;
 use Drupal\user\UserInterface;
 
@@ -23,14 +24,14 @@ class UserBulkForm extends BulkForm {
    *
    * Provide a more useful title to improve the accessibility.
    */
-  public function viewsForm(&$form, &$form_state) {
+  public function viewsForm(&$form, FormStateInterface $form_state) {
     parent::viewsForm($form, $form_state);
 
     if (!empty($this->view->result)) {
       foreach ($this->view->result as $row_index => $result) {
         $account = $result->_entity;
         if ($account instanceof UserInterface) {
-          $form[$this->options['id']][$row_index]['#title'] = t('Update the user %name', array('%name' => $account->label()));
+          $form[$this->options['id']][$row_index]['#title'] = $this->t('Update the user %name', array('%name' => $account->label()));
         }
       }
     }
@@ -40,7 +41,7 @@ class UserBulkForm extends BulkForm {
    * {@inheritdoc}
    */
   protected function emptySelectedMessage() {
-    return t('No users selected.');
+    return $this->t('No users selected.');
   }
 
 }

@@ -7,6 +7,7 @@
 
 namespace Drupal\views_test_data\Plugin\views\style;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\style\StylePluginBase;
 
 /**
@@ -52,13 +53,13 @@ class StyleTest extends StylePluginBase {
   /**
    * Overrides Drupal\views\Plugin\views\style\StylePluginBase::buildOptionsForm().
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
     $form['test_option'] = array(
-      '#title' => t('Test option'),
+      '#title' => $this->t('Test option'),
       '#type' => 'textfield',
-      '#description' => t('This is a textfield for test_option.'),
+      '#description' => $this->t('This is a textfield for test_option.'),
       '#default_value' => $this->options['test_option'],
     );
   }

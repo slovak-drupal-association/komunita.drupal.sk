@@ -7,6 +7,7 @@
 
 namespace Drupal\views\Plugin\views\area;
 
+use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -32,7 +33,7 @@ class HTTPStatusCode extends AreaPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
     // Get all possible status codes defined by symfony.
@@ -47,11 +48,11 @@ class HTTPStatusCode extends AreaPluginBase {
 
     // Add the HTTP status code, so it's easier for people to find it.
     array_walk($options, function($title, $code) use(&$options) {
-      $options[$code] = t('@code (!title)', array('@code' => $code, '!title' => $title));
+      $options[$code] = $this->t('@code (!title)', array('@code' => $code, '!title' => $title));
     });
 
     $form['status_code'] = array(
-      '#title' => t('HTTP status code'),
+      '#title' => $this->t('HTTP status code'),
       '#type' => 'select',
       '#default_value' => $this->options['status_code'],
       '#options' => $options,

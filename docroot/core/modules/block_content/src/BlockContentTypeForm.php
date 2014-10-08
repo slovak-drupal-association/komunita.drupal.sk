@@ -9,6 +9,7 @@ namespace Drupal\block_content;
 
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Base form for category edit forms.
@@ -16,9 +17,9 @@ use Drupal\Core\Entity\EntityTypeInterface;
 class BlockContentTypeForm extends EntityForm {
 
   /**
-   * Overrides \Drupal\Core\Entity\EntityForm::form().
+   * {@inheritdoc}
    */
-  public function form(array $form, array &$form_state) {
+  public function form(array $form, FormStateInterface $form_state) {
     $form = parent::form($form, $form_state);
 
     $block_type = $this->entity;
@@ -55,7 +56,7 @@ class BlockContentTypeForm extends EntityForm {
       '#description' => t('Create a new revision by default for this block type.')
     );
 
-    if ($this->moduleHandler->moduleExists('content_translation')) {
+    if ($this->moduleHandler->moduleExists('language')) {
       $form['language'] = array(
         '#type' => 'details',
         '#title' => t('Language settings'),
@@ -85,23 +86,24 @@ class BlockContentTypeForm extends EntityForm {
   }
 
   /**
-   * Overrides \Drupal\Core\Entity\EntityForm::save().
+   * {@inheritdoc}
    */
-  public function save(array $form, array &$form_state) {
+  public function save(array $form, FormStateInterface $form_state) {
     $block_type = $this->entity;
     $status = $block_type->save();
 
-    $edit_link = \Drupal::linkGenerator()->generateFromUrl($this->t('Edit'), $this->entity->urlInfo());
+    $edit_link = $this->entity->link($this->t('Edit'));
+    $logger = $this->logger('block_content');
     if ($status == SAVED_UPDATED) {
       drupal_set_message(t('Custom block type %label has been updated.', array('%label' => $block_type->label())));
-      watchdog('block_content', 'Custom block type %label has been updated.', array('%label' => $block_type->label()), WATCHDOG_NOTICE, $edit_link);
+      $logger->notice('Custom block type %label has been updated.', array('%label' => $block_type->label(), 'link' => $edit_link));
     }
     else {
       drupal_set_message(t('Custom block type %label has been added.', array('%label' => $block_type->label())));
-      watchdog('block_content', 'Custom block type %label has been added.', array('%label' => $block_type->label()), WATCHDOG_NOTICE, $edit_link);
+      $logger->notice('Custom block type %label has been added.', array('%label' => $block_type->label(), 'link' => $edit_link));
     }
 
-    $form_state['redirect_route']['route_name'] = 'block_content.type_list';
+    $form_state->setRedirect('block_content.type_list');
   }
 
 }

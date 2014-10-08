@@ -8,18 +8,23 @@
 namespace Drupal\file\Tests;
 
 /**
- *  This will run tests against the file validation functions (file_validate_*).
+ * Tests the functions used to validate uploaded files.
+ *
+ * @group file
  */
 class ValidatorTest extends FileManagedUnitTestBase {
-  public static function getInfo() {
-    return array(
-      'name' => 'File validator tests',
-      'description' => 'Tests the functions used to validate uploaded files.',
-      'group' => 'File Managed API',
-    );
-  }
 
-  function setUp() {
+  /**
+   * @var \Drupal\file\Entity\File
+   */
+  protected $image;
+
+  /**
+   * @var \Drupal\file\Entity\File
+   */
+  protected $non_image;
+
+  protected function setUp() {
     parent::setUp();
 
     $this->image = entity_create('file');
@@ -135,12 +140,6 @@ class ValidatorTest extends FileManagedUnitTestBase {
    * Test file_validate_size().
    */
   function testFileValidateSize() {
-    // Run these tests as a regular user.
-    $user = entity_create('user', array('uid' => 2, 'name' => $this->randomName()));
-    $user->enforceIsNew();
-    $user->save();
-    \Drupal::currentUser()->setAccount($user);
-
     // Create a file with a size of 1000 bytes, and quotas of only 1 byte.
     $file = entity_create('file', array('filesize' => 1000));
     $errors = file_validate_size($file, 0, 0);

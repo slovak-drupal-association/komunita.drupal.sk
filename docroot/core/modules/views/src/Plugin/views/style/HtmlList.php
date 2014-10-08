@@ -7,6 +7,8 @@
 
 namespace Drupal\views\Plugin\views\style;
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Style plugin to render each item in an ordered or unordered list.
  *
@@ -52,24 +54,24 @@ class HtmlList extends StylePluginBase {
   /**
    * Render the given style.
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
     $form['type'] = array(
       '#type' => 'radios',
-      '#title' => t('List type'),
-      '#options' => array('ul' => t('Unordered list'), 'ol' => t('Ordered list')),
+      '#title' => $this->t('List type'),
+      '#options' => array('ul' => $this->t('Unordered list'), 'ol' => $this->t('Ordered list')),
       '#default_value' => $this->options['type'],
     );
     $form['wrapper_class'] = array(
-      '#title' => t('Wrapper class'),
-      '#description' => t('The class to provide on the wrapper, outside the list.'),
+      '#title' => $this->t('Wrapper class'),
+      '#description' => $this->t('The class to provide on the wrapper, outside the list.'),
       '#type' => 'textfield',
       '#size' => '30',
       '#default_value' => $this->options['wrapper_class'],
     );
     $form['class'] = array(
-      '#title' => t('List class'),
-      '#description' => t('The class to provide on the list element itself.'),
+      '#title' => $this->t('List class'),
+      '#description' => $this->t('The class to provide on the list element itself.'),
       '#type' => 'textfield',
       '#size' => '30',
       '#default_value' => $this->options['class'],

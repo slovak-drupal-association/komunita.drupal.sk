@@ -7,6 +7,7 @@
 
 namespace Drupal\views\Plugin\views\exposed_form;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Views;
 
 /**
@@ -30,22 +31,23 @@ class InputRequired extends ExposedFormPluginBase {
     return $options;
   }
 
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
     $form['text_input_required'] = array(
       '#type' => 'text_format',
-      '#title' => t('Text on demand'),
-      '#description' => t('Text to display instead of results until the user selects and applies an exposed filter.'),
+      '#title' => $this->t('Text on demand'),
+      '#description' => $this->t('Text to display instead of results until the user selects and applies an exposed filter.'),
       '#default_value' => $this->options['text_input_required'],
       '#format' => isset($this->options['text_input_required_format']) ? $this->options['text_input_required_format'] : filter_default_format(),
       '#editor' => FALSE,
     );
   }
 
-  public function submitOptionsForm(&$form, &$form_state) {
-    $form_state['values']['exposed_form_options']['text_input_required_format'] = $form_state['values']['exposed_form_options']['text_input_required']['format'];
-    $form_state['values']['exposed_form_options']['text_input_required'] = $form_state['values']['exposed_form_options']['text_input_required']['value'];
+  public function submitOptionsForm(&$form, FormStateInterface $form_state) {
+    $exposed_form_options = $form_state->getValue('exposed_form_options');
+    $form_state->setValue(array('exposed_form_options', 'text_input_required_format'), $exposed_form_options['text_input_required']['format']);
+    $form_state->setValue(array('exposed_form_options', 'text_input_required'), $exposed_form_options['text_input_required']['value']);
     parent::submitOptionsForm($form, $form_state);
   }
 

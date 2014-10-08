@@ -11,6 +11,8 @@ use Drupal\system\Tests\Entity\EntityWithUriCacheTagsTestBase;
 
 /**
  * Tests the User entity's cache tags.
+ *
+ * @group user
  */
 class UserCacheTagsTest extends EntityWithUriCacheTagsTestBase {
 
@@ -22,14 +24,7 @@ class UserCacheTagsTest extends EntityWithUriCacheTagsTestBase {
   /**
    * {@inheritdoc}
    */
-  public static function getInfo() {
-    return parent::generateStandardizedInfo('User', 'User');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Give anonymous users permission to view user profiles, so that we can

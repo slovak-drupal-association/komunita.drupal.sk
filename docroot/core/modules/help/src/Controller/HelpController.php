@@ -9,6 +9,7 @@ namespace Drupal\help\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Drupal\Component\Utility\String;
@@ -83,7 +84,7 @@ class HelpController extends ControllerBase {
     $output = '<div class="clearfix"><div class="help-items"><ul>';
     $i = 0;
     foreach ($modules as $module => $name) {
-      $output .= '<li>' . $this->l($name, 'help.page',  array('name' => $module)) . '</li>';
+      $output .= '<li>' . $this->l($name, new Url('help.page', array('name' => $module))) . '</li>';
       if (($i + 1) % $break == 0 && ($i + 1) != $count) {
         $output .= '</ul></div><div class="help-items' . ($i + 1 == $break * 3 ? ' help-items-last' : '') . '"><ul>';
       }
@@ -125,8 +126,7 @@ class HelpController extends ControllerBase {
       if (!empty($admin_tasks)) {
         $links = array();
         foreach ($admin_tasks as $task) {
-          $link = $task['localized_options'];
-          $link['href'] = $task['link_path'];
+          $link = $task['url']->toArray();
           $link['title'] = $task['title'];
           $links[] = $link;
         }

@@ -9,6 +9,7 @@ namespace Drupal\views\Plugin\views\filter;
 
 use Drupal\Component\Utility\String as UtilityString;
 use Drupal\Core\Database\Database;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Simple filter to handle greater than/less than filters
@@ -38,56 +39,56 @@ class Numeric extends FilterPluginBase {
   function operators() {
     $operators = array(
       '<' => array(
-        'title' => t('Is less than'),
+        'title' => $this->t('Is less than'),
         'method' => 'opSimple',
-        'short' => t('<'),
+        'short' => $this->t('<'),
         'values' => 1,
       ),
       '<=' => array(
-        'title' => t('Is less than or equal to'),
+        'title' => $this->t('Is less than or equal to'),
         'method' => 'opSimple',
-        'short' => t('<='),
+        'short' => $this->t('<='),
         'values' => 1,
       ),
       '=' => array(
-        'title' => t('Is equal to'),
+        'title' => $this->t('Is equal to'),
         'method' => 'opSimple',
-        'short' => t('='),
+        'short' => $this->t('='),
         'values' => 1,
       ),
       '!=' => array(
-        'title' => t('Is not equal to'),
+        'title' => $this->t('Is not equal to'),
         'method' => 'opSimple',
-        'short' => t('!='),
+        'short' => $this->t('!='),
         'values' => 1,
       ),
       '>=' => array(
-        'title' => t('Is greater than or equal to'),
+        'title' => $this->t('Is greater than or equal to'),
         'method' => 'opSimple',
-        'short' => t('>='),
+        'short' => $this->t('>='),
         'values' => 1,
       ),
       '>' => array(
-        'title' => t('Is greater than'),
+        'title' => $this->t('Is greater than'),
         'method' => 'opSimple',
-        'short' => t('>'),
+        'short' => $this->t('>'),
         'values' => 1,
       ),
       'between' => array(
-        'title' => t('Is between'),
+        'title' => $this->t('Is between'),
         'method' => 'opBetween',
-        'short' => t('between'),
+        'short' => $this->t('between'),
         'values' => 2,
       ),
       'not between' => array(
-        'title' => t('Is not between'),
+        'title' => $this->t('Is not between'),
         'method' => 'opBetween',
-        'short' => t('not between'),
+        'short' => $this->t('not between'),
         'values' => 2,
       ),
       'regular_expression' => array(
-        'title' => t('Regular expression'),
-        'short' => t('regex'),
+        'title' => $this->t('Regular expression'),
+        'short' => $this->t('regex'),
         'method' => 'op_regex',
         'values' => 1,
       ),
@@ -97,15 +98,15 @@ class Numeric extends FilterPluginBase {
     if (!empty($this->definition['allow empty'])) {
       $operators += array(
         'empty' => array(
-          'title' => t('Is empty (NULL)'),
+          'title' => $this->t('Is empty (NULL)'),
           'method' => 'opEmpty',
-          'short' => t('empty'),
+          'short' => $this->t('empty'),
           'values' => 0,
         ),
         'not empty' => array(
-          'title' => t('Is not empty (NOT NULL)'),
+          'title' => $this->t('Is not empty (NOT NULL)'),
           'method' => 'opEmpty',
-          'short' => t('not empty'),
+          'short' => $this->t('not empty'),
           'values' => 0,
         ),
       );
@@ -139,7 +140,7 @@ class Numeric extends FilterPluginBase {
   /**
    * Provide a simple textfield for equality
    */
-  protected function valueForm(&$form, &$form_state) {
+  protected function valueForm(&$form, FormStateInterface $form_state) {
     $form['value']['#tree'] = TRUE;
 
     // We have to make some choices when creating this as an exposed
@@ -151,7 +152,7 @@ class Numeric extends FilterPluginBase {
       $source = ':input[name="options[operator]"]';
     }
 
-    if (!empty($form_state['exposed'])) {
+    if ($exposed = $form_state->get('exposed')) {
       $identifier = $this->options['expose']['identifier'];
 
       if (empty($this->options['expose']['use_operator']) || empty($this->options['expose']['operator_id'])) {
@@ -163,10 +164,11 @@ class Numeric extends FilterPluginBase {
       }
     }
 
+    $user_input = $form_state->getUserInput();
     if ($which == 'all') {
       $form['value']['value'] = array(
         '#type' => 'textfield',
-        '#title' => empty($form_state['exposed']) ? t('Value') : '',
+        '#title' => !$exposed ? $this->t('Value') : '',
         '#size' => 30,
         '#default_value' => $this->value['value'],
       );
@@ -176,8 +178,9 @@ class Numeric extends FilterPluginBase {
           $source => array('value' => $operator),
         );
       }
-      if (!empty($form_state['exposed']) && !isset($form_state['input'][$identifier]['value'])) {
-        $form_state['input'][$identifier]['value'] = $this->value['value'];
+      if ($exposed && !isset($user_input[$identifier]['value'])) {
+        $user_input[$identifier]['value'] = $this->value['value'];
+        $form_state->setUserInput($user_input);
       }
     }
     elseif ($which == 'value') {
@@ -185,25 +188,26 @@ class Numeric extends FilterPluginBase {
       // the operator is locked.
       $form['value'] = array(
         '#type' => 'textfield',
-        '#title' => empty($form_state['exposed']) ? t('Value') : '',
+        '#title' => !$exposed ? $this->t('Value') : '',
         '#size' => 30,
         '#default_value' => $this->value['value'],
       );
-      if (!empty($form_state['exposed']) && !isset($form_state['input'][$identifier])) {
-        $form_state['input'][$identifier] = $this->value['value'];
+      if ($exposed && !isset($user_input[$identifier])) {
+        $user_input[$identifier] = $this->value['value'];
+        $form_state->setUserInput($user_input);
       }
     }
 
     if ($which == 'all' || $which == 'minmax') {
       $form['value']['min'] = array(
         '#type' => 'textfield',
-        '#title' => empty($form_state['exposed']) ? t('Min') : '',
+        '#title' => !$exposed ? $this->t('Min') : '',
         '#size' => 30,
         '#default_value' => $this->value['min'],
       );
       $form['value']['max'] = array(
         '#type' => 'textfield',
-        '#title' => empty($form_state['exposed']) ? t('And max') : t('And'),
+        '#title' => !$exposed ? $this->t('And max') : $this->t('And'),
         '#size' => 30,
         '#default_value' => $this->value['max'],
       );
@@ -218,11 +222,11 @@ class Numeric extends FilterPluginBase {
         $form['value']['min'] += $states;
         $form['value']['max'] += $states;
       }
-      if (!empty($form_state['exposed']) && !isset($form_state['input'][$identifier]['min'])) {
-        $form_state['input'][$identifier]['min'] = $this->value['min'];
+      if ($exposed && !isset($user_input[$identifier]['min'])) {
+        $user_input[$identifier]['min'] = $this->value['min'];
       }
-      if (!empty($form_state['exposed']) && !isset($form_state['input'][$identifier]['max'])) {
-        $form_state['input'][$identifier]['max'] = $this->value['max'];
+      if ($exposed && !isset($user_input[$identifier]['max'])) {
+        $user_input[$identifier]['max'] = $this->value['max'];
       }
 
       if (!isset($form['value'])) {
@@ -281,16 +285,16 @@ class Numeric extends FilterPluginBase {
 
   public function adminSummary() {
     if ($this->isAGroup()) {
-      return t('grouped');
+      return $this->t('grouped');
     }
     if (!empty($this->options['exposed'])) {
-      return t('exposed');
+      return $this->t('exposed');
     }
 
     $options = $this->operatorOptions('short');
     $output = UtilityString::checkPlain($options[$this->operator]);
     if (in_array($this->operator, $this->operatorValues(2))) {
-      $output .= ' ' . t('@min and @max', array('@min' => $this->value['min'], '@max' => $this->value['max']));
+      $output .= ' ' . $this->t('@min and @max', array('@min' => $this->value['min'], '@max' => $this->value['max']));
     }
     elseif (in_array($this->operator, $this->operatorValues(1))) {
       $output .= ' ' . UtilityString::checkPlain($this->value['value']);

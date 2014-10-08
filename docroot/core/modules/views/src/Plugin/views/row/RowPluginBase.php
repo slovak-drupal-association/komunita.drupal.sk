@@ -7,6 +7,7 @@
 
 namespace Drupal\views\Plugin\views\row;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\PluginBase;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Views;
@@ -26,7 +27,7 @@ use Drupal\views\Views;
  * more information.
  *
  * Row plugins extend \Drupal\views\Plugin\views\row\RowPluginBase. They must
- * be annotated with \Drupal\views\Plugin\Annotation\ViewsRow annotation, and
+ * be annotated with \Drupal\views\Annotation\ViewsRow annotation, and
  * they must be in namespace directory Plugin\views\row.
  *
  * @ingroup views_plugins
@@ -78,10 +79,10 @@ abstract class RowPluginBase extends PluginBase {
   /**
    * Provide a form for setting options.
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
     if (isset($this->base_table)) {
-      $executable = $form_state['view']->getExecutable();
+      $executable = $form_state->get('view')->getExecutable();
 
       // A whole bunch of code to figure out what relationships are valid for
       // this item.
@@ -101,7 +102,7 @@ abstract class RowPluginBase extends PluginBase {
       }
 
       if (!empty($relationship_options)) {
-        $relationship_options = array_merge(array('none' => t('Do not use a relationship')), $relationship_options);
+        $relationship_options = array_merge(array('none' => $this->t('Do not use a relationship')), $relationship_options);
         $rel = empty($this->options['relationship']) ? 'none' : $this->options['relationship'];
         if (empty($relationship_options[$rel])) {
           // Pick the first relationship.
@@ -110,7 +111,7 @@ abstract class RowPluginBase extends PluginBase {
 
         $form['relationship'] = array(
           '#type' => 'select',
-          '#title' => t('Relationship'),
+          '#title' => $this->t('Relationship'),
           '#options' => $relationship_options,
           '#default_value' => $rel,
         );
@@ -127,13 +128,13 @@ abstract class RowPluginBase extends PluginBase {
   /**
    * Validate the options form.
    */
-  public function validateOptionsForm(&$form, &$form_state) { }
+  public function validateOptionsForm(&$form, FormStateInterface $form_state) { }
 
   /**
    * Perform any necessary changes to the form values prior to storage.
    * There is no need for this function to actually store the data.
    */
-  public function submitOptionsForm(&$form, &$form_state) { }
+  public function submitOptionsForm(&$form, FormStateInterface $form_state) { }
 
   /**
    * {@inheritdoc}

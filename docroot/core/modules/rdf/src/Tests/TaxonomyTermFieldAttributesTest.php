@@ -12,6 +12,8 @@ use Drupal\taxonomy\Tests\TaxonomyTestBase;
 
 /**
  * Tests RDFa markup generation for taxonomy term fields.
+ *
+ * @group rdf
  */
 class TaxonomyTermFieldAttributesTest extends TaxonomyTestBase {
 
@@ -36,25 +38,15 @@ class TaxonomyTermFieldAttributesTest extends TaxonomyTestBase {
    */
   protected $vocabulary;
 
-  public static function getInfo() {
-    return array(
-      'name' => 'RDFa markup for taxonomy term fields',
-      'description' => 'Tests the RDFa markup of taxonomy term fields.',
-      'group' => 'RDF',
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $web_user = $this->drupalCreateUser(array('bypass node access', 'administer taxonomy'));
     $this->drupalLogin($web_user);
     $this->vocabulary = $this->createVocabulary();
 
-    // Setup a field and instance.
-    $this->fieldName = 'field_taxonomy_test';
-
     // Create the field.
+    $this->fieldName = 'field_taxonomy_test';
     $this->createTaxonomyTermReferenceField($this->fieldName, $this->vocabulary);
 
     // Set the RDF mapping for the new field.
@@ -86,8 +78,8 @@ class TaxonomyTermFieldAttributesTest extends TaxonomyTestBase {
     // Create a term in each vocabulary.
     $term1 = $this->createTerm($this->vocabulary);
     $term2 = $this->createTerm($this->vocabulary);
-    $taxonomy_term_1_uri = url('taxonomy/term/' . $term1->id(), array('absolute' => TRUE));
-    $taxonomy_term_2_uri = url('taxonomy/term/' . $term2->id(), array('absolute' => TRUE));
+    $taxonomy_term_1_uri = $term1->url('canonical', ['absolute' => TRUE]);
+    $taxonomy_term_2_uri = $term2->url('canonical', ['absolute' => TRUE]);
 
     // Create the node.
     $node = $this->drupalCreateNode(array('type' => 'article'));
@@ -103,11 +95,11 @@ class TaxonomyTermFieldAttributesTest extends TaxonomyTestBase {
     // Parse the teaser.
     $parser = new \EasyRdf_Parser_Rdfa();
     $graph = new \EasyRdf_Graph();
-    $base_uri = url('<front>', array('absolute' => TRUE));
+    $base_uri = \Drupal::url('<front>', [], ['absolute' => TRUE]);
     $parser->parse($graph, $html, 'rdfa', $base_uri);
 
     // Node relations to taxonomy terms.
-    $node_uri = url('node/' . $node->id(), array('absolute' => TRUE));
+    $node_uri = $node->url('canonical', ['absolute' => TRUE]);
     $expected_value = array(
       'type' => 'uri',
       'value' => $taxonomy_term_1_uri,
@@ -155,8 +147,8 @@ class TaxonomyTermFieldAttributesTest extends TaxonomyTestBase {
    * @todo Move this to TaxonomyTestBase, like the other field modules.
    */
   protected function createTaxonomyTermReferenceField($field_name, $vocabulary) {
-    entity_create('field_config', array(
-      'name' => $field_name,
+    entity_create('field_storage_config', array(
+      'field_name' => $field_name,
       'entity_type' => 'node',
       'type' => 'taxonomy_term_reference',
       'cardinality' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
@@ -169,7 +161,7 @@ class TaxonomyTermFieldAttributesTest extends TaxonomyTestBase {
         ),
       ),
     ))->save();
-    entity_create('field_instance_config', array(
+    entity_create('field_config', array(
       'field_name' => $field_name,
       'entity_type' => 'node',
       'bundle' => 'article',

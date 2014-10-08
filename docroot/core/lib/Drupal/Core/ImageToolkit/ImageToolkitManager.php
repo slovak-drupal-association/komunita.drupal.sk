@@ -13,7 +13,12 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Plugin\DefaultPluginManager;
 
 /**
- * Manages toolkit plugins.
+ * Manages image toolkit plugins.
+ *
+ * @see \Drupal\Core\ImageToolkit\Annotation\ImageToolkit
+ * @see \Drupal\Core\ImageToolkit\ImageToolkitInterface
+ * @see \Drupal\Core\ImageToolkit\ImageToolkitBase
+ * @see plugin_api
  */
 class ImageToolkitManager extends DefaultPluginManager {
 
@@ -32,13 +37,13 @@ class ImageToolkitManager extends DefaultPluginManager {
    *   keyed by the corresponding namespace to look for plugin implementations.
    * @param \Drupal\Core\Cache\CacheBackendInterface $cache_backend
    *   Cache backend instance to use.
-   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
-   *   The config factory.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   The module handler.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The config factory.
    */
-  public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ConfigFactoryInterface $config_factory, ModuleHandlerInterface $module_handler) {
-    parent::__construct('Plugin/ImageToolkit', $namespaces, $module_handler, 'Drupal\Core\ImageToolkit\Annotation\ImageToolkit');
+  public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler, ConfigFactoryInterface $config_factory) {
+    parent::__construct('Plugin/ImageToolkit', $namespaces, $module_handler, 'Drupal\Core\ImageToolkit\ImageToolkitInterface', 'Drupal\Core\ImageToolkit\Annotation\ImageToolkit');
 
     $this->setCacheBackend($cache_backend, 'image_toolkit_plugins');
     $this->configFactory = $config_factory;
@@ -97,4 +102,5 @@ class ImageToolkitManager extends DefaultPluginManager {
 
     return $output;
   }
+
 }

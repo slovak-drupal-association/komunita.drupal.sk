@@ -10,17 +10,11 @@ namespace Drupal\simpletest\Tests;
 use Drupal\simpletest\WebTestBase;
 
 /**
- * Test internal testing framework browser.
+ * Tests the internal browser of the testing framework.
+ *
+ * @group simpletest
  */
 class BrowserTest extends WebTestBase {
-  public static function getInfo() {
-    return array(
-      'name' => 'SimpleTest browser',
-      'description' => 'Test the internal browser of the testing framework.',
-      'group' => 'SimpleTest',
-    );
-  }
-
   /**
    * Test \Drupal\simpletest\WebTestBase::getAbsoluteUrl().
    */
@@ -28,7 +22,7 @@ class BrowserTest extends WebTestBase {
     $url = 'user/login';
 
     $this->drupalGet($url);
-    $absolute = url($url, array('absolute' => TRUE));
+    $absolute = \Drupal::url('user.login', array(), array('absolute' => TRUE));
     $this->assertEqual($absolute, $this->url, 'Passed and requested URL are equal.');
     $this->assertEqual($this->url, $this->getAbsoluteUrl($this->url), 'Requested and returned absolute URL are equal.');
 
@@ -37,8 +31,7 @@ class BrowserTest extends WebTestBase {
     $this->assertEqual($this->url, $this->getAbsoluteUrl($this->url), 'Requested and returned absolute URL are equal.');
 
     $this->clickLink('Create new account');
-    $url = 'user/register';
-    $absolute = url($url, array('absolute' => TRUE));
+    $absolute = \Drupal::url('user.register', array(), array('absolute' => TRUE));
     $this->assertEqual($absolute, $this->url, 'Passed and requested URL are equal.');
     $this->assertEqual($this->url, $this->getAbsoluteUrl($this->url), 'Requested and returned absolute URL are equal.');
   }

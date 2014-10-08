@@ -7,6 +7,7 @@
 
 namespace Drupal\history\Plugin\views\field;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ResultRow;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
@@ -54,12 +55,12 @@ class HistoryUserTimestamp extends Node {
     return $options;
   }
 
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
     if (\Drupal::moduleHandler()->moduleExists('comment')) {
       $form['comments'] = array(
         '#type' => 'checkbox',
-        '#title' => t('Check for new comments as well'),
+        '#title' => $this->t('Check for new comments as well'),
         '#default_value' => !empty($this->options['comments']),
       );
     }

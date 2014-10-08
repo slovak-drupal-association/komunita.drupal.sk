@@ -21,8 +21,8 @@ use Drupal\Core\Entity\EntityStorageInterface;
  * @ConfigEntityType(
  *   id = "block",
  *   label = @Translation("Block"),
- *   controllers = {
- *     "access" = "Drupal\block\BlockAccessController",
+ *   handlers = {
+ *     "access" = "Drupal\block\BlockAccessControlHandler",
  *     "view_builder" = "Drupal\block\BlockViewBuilder",
  *     "list_builder" = "Drupal\block\BlockListBuilder",
  *     "form" = {
@@ -31,13 +31,12 @@ use Drupal\Core\Entity\EntityStorageInterface;
  *     }
  *   },
  *   admin_permission = "administer blocks",
- *   fieldable = FALSE,
  *   entity_keys = {
  *     "id" = "id"
  *   },
  *   links = {
- *     "delete-form" = "block.admin_block_delete",
- *     "edit-form" = "block.admin_edit"
+ *     "delete-form" = "entity.block.delete_form",
+ *     "edit-form" = "entity.block.edit_form"
  *   }
  * )
  */
@@ -164,7 +163,7 @@ class Block extends ConfigEntityBase implements BlockInterface, EntityWithPlugin
    * this block is placed in instead.
    */
   public function getListCacheTags() {
-    return array('theme' => $this->theme);
+    return array('theme:' . $this->theme);
   }
 
   /**

@@ -10,7 +10,9 @@ namespace Drupal\views_ui\Tests;
 use Drupal\Component\Serialization\Json;
 
 /**
- * Tests the preview form in the UI.
+ * Tests the UI preview functionality.
+ *
+ * @group views_ui
  */
 class PreviewTest extends UITestBase {
 
@@ -20,14 +22,6 @@ class PreviewTest extends UITestBase {
    * @var array
    */
   public static $testViews = array('test_preview', 'test_pager_full', 'test_mini_pager');
-
-  public static function getInfo() {
-    return array(
-      'name' => 'Preview functionality',
-      'description' => 'Tests the UI preview functionality.',
-      'group' => 'Views UI',
-    );
-  }
 
   /**
    * Tests contextual links in the preview form.
@@ -84,13 +78,13 @@ class PreviewTest extends UITestBase {
 
     // Test feed preview.
     $view = array();
-    $view['label'] = $this->randomName(16);
-    $view['id'] = strtolower($this->randomName(16));
+    $view['label'] = $this->randomMachineName(16);
+    $view['id'] = strtolower($this->randomMachineName(16));
     $view['page[create]'] = 1;
-    $view['page[title]'] = $this->randomName(16);
-    $view['page[path]'] = $this->randomName(16);
+    $view['page[title]'] = $this->randomMachineName(16);
+    $view['page[path]'] = $this->randomMachineName(16);
     $view['page[feed]'] = 1;
-    $view['page[feed_properties][path]'] = $this->randomName(16);
+    $view['page[feed_properties][path]'] = $this->randomMachineName(16);
     $this->drupalPostForm('admin/structure/views/add', $view, t('Save and edit'));
     $this->clickLink(t('Feed'));
     $this->drupalPostForm(NULL, array(), t('Update preview'));
@@ -104,6 +98,7 @@ class PreviewTest extends UITestBase {
   public function testPreviewWithPagersUI() {
 
     // Create 11 nodes and make sure that everyone is returned.
+    $this->drupalCreateContentType(array('type' => 'page'));
     for ($i = 0; $i < 11; $i++) {
       $this->drupalCreateNode();
     }
@@ -112,59 +107,59 @@ class PreviewTest extends UITestBase {
     $this->getPreviewAJAX('test_pager_full', 'default', 5);
 
     // Test that the pager is present and rendered.
-    $elements = $this->xpath('//ul[@class = "pager"]/li');
+    $elements = $this->xpath('//ul[contains(@class, :class)]/li', array(':class' => 'pager__items'));
     $this->assertTrue(!empty($elements), 'Full pager found.');
 
     // Verify elements and links to pages.
     // We expect to find 5 elements: current page == 1, links to pages 2 and
     // and 3, links to 'next >' and 'last >>' pages.
-    $this->assertClass($elements[0], 'pager-current', 'Element for current page has .pager-current class.');
-    $this->assertFalse(isset($elements[0]->a), 'Element for current page has no link.');
+    $this->assertClass($elements[0], 'is-active', 'Element for current page has .is-active class.');
+    $this->assertTrue($elements[0]->a, 'Element for current page has link.');
 
-    $this->assertClass($elements[1], 'pager-item', "Element for page 2 has .pager-item class.");
-    $this->assertTrue($elements[1]->a, "Link to page 2 found.");
+    $this->assertClass($elements[1], 'pager__item', 'Element for page 2 has .pager__item class.');
+    $this->assertTrue($elements[1]->a, 'Link to page 2 found.');
 
-    $this->assertClass($elements[2], 'pager-item', "Element for page 3 has .pager-item class.");
-    $this->assertTrue($elements[2]->a, "Link to page 3 found.");
+    $this->assertClass($elements[2], 'pager__item', 'Element for page 3 has .pager__item class.');
+    $this->assertTrue($elements[2]->a, 'Link to page 3 found.');
 
-    $this->assertClass($elements[3], 'pager-next', "Element for next page has .pager-next class.");
-    $this->assertTrue($elements[3]->a, "Link to next page found.");
+    $this->assertClass($elements[3], 'pager__item--next', 'Element for next page has .pager__item--next class.');
+    $this->assertTrue($elements[3]->a, 'Link to next page found.');
 
-    $this->assertClass($elements[4], 'pager-last', "Element for last page has .pager-last class.");
-    $this->assertTrue($elements[4]->a, "Link to last page found.");
+    $this->assertClass($elements[4], 'pager__item--last', 'Element for last page has .pager__item--last class.');
+    $this->assertTrue($elements[4]->a, 'Link to last page found.');
 
     // Navigate to next page.
-    $elements = $this->xpath('//li[contains(@class, :class)]/a', array(':class' => 'pager-next'));
+    $elements = $this->xpath('//li[contains(@class, :class)]/a', array(':class' => 'pager__item--next'));
     $this->clickPreviewLinkAJAX($elements[0]['href'], 5);
 
     // Test that the pager is present and rendered.
-    $elements = $this->xpath('//ul[@class = "pager"]/li');
+    $elements = $this->xpath('//ul[contains(@class, :class)]/li', array(':class' => 'pager__items'));
     $this->assertTrue(!empty($elements), 'Full pager found.');
 
     // Verify elements and links to pages.
     // We expect to find 7 elements: links to '<< first' and '< previous'
     // pages, link to page 1, current page == 2, link to page 3 and links
     // to 'next >' and 'last >>' pages.
-    $this->assertClass($elements[0], 'pager-first', "Element for next page has .pager-first class.");
-    $this->assertTrue($elements[0]->a, "Link to first page found.");
+    $this->assertClass($elements[0], 'pager__item--first', 'Element for first page has .pager__item--first class.');
+    $this->assertTrue($elements[0]->a, 'Link to first page found.');
 
-    $this->assertClass($elements[1], 'pager-previous', "Element for previous page has .pager-previous class.");
-    $this->assertTrue($elements[1]->a, "Link to previous page found.");
+    $this->assertClass($elements[1], 'pager__item--previous', 'Element for previous page has .pager__item--previous class.');
+    $this->assertTrue($elements[1]->a, 'Link to previous page found.');
 
-    $this->assertClass($elements[2], 'pager-item', "Element for page 1 has .pager-item class.");
-    $this->assertTrue($elements[2]->a, "Link to page 1 found.");
+    $this->assertClass($elements[2], 'pager__item', 'Element for page 1 has .pager__item class.');
+    $this->assertTrue($elements[2]->a, 'Link to page 1 found.');
 
-    $this->assertClass($elements[3], 'pager-current', 'Element for current page has .pager-current class.');
-    $this->assertFalse(isset($elements[3]->a), 'Element for current page has no link.');
+    $this->assertClass($elements[3], 'is-active', 'Element for current page has .is-active class.');
+    $this->assertTrue($elements[3]->a, 'Element for current page has link.');
 
-    $this->assertClass($elements[4], 'pager-item', "Element for page 3 has .pager-item class.");
-    $this->assertTrue($elements[4]->a, "Link to page 3 found.");
+    $this->assertClass($elements[4], 'pager__item', 'Element for page 3 has .pager__item class.');
+    $this->assertTrue($elements[4]->a, 'Link to page 3 found.');
 
-    $this->assertClass($elements[5], 'pager-next', "Element for next page has .pager-next class.");
-    $this->assertTrue($elements[5]->a, "Link to next page found.");
+    $this->assertClass($elements[5], 'pager__item--next', 'Element for next page has .pager__item--next class.');
+    $this->assertTrue($elements[5]->a, 'Link to next page found.');
 
-    $this->assertClass($elements[6], 'pager-last', "Element for last page has .pager-last class.");
-    $this->assertTrue($elements[6]->a, "Link to last page found.");
+    $this->assertClass($elements[6], 'pager__item--last', 'Element for last page has .pager__item--last class.');
+    $this->assertTrue($elements[6]->a, 'Link to last page found.');
 
     // Test Mini Pager.
     $this->getPreviewAJAX('test_mini_pager', 'default', 3);

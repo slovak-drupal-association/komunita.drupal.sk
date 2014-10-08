@@ -13,6 +13,8 @@ use Drupal\simpletest\WebTestBase;
 
 /**
  * Tests administration of CKEditor.
+ *
+ * @group ckeditor
  */
 class CKEditorAdminTest extends WebTestBase {
 
@@ -23,15 +25,7 @@ class CKEditorAdminTest extends WebTestBase {
    */
   public static $modules = array('filter', 'editor', 'ckeditor');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'CKEditor administration',
-      'description' => 'Tests administration of CKEditor.',
-      'group' => 'CKEditor',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Create text format.

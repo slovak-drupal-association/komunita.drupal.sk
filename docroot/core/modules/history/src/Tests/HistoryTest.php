@@ -12,6 +12,8 @@ use Drupal\simpletest\WebTestBase;
 
 /**
  * Tests the History endpoints.
+ *
+ * @group history
  */
 class HistoryTest extends WebTestBase {
 
@@ -36,15 +38,7 @@ class HistoryTest extends WebTestBase {
    */
   protected $test_node;
 
-  public static function getInfo() {
-    return array(
-      'name' => 'History endpoints',
-      'description' => 'Tests the History endpoints',
-      'group' => 'History'
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->drupalCreateContentType(array('type' => 'page', 'name' => 'Basic page'));
@@ -81,7 +75,7 @@ class HistoryTest extends WebTestBase {
 
     // Perform HTTP request.
     return $this->curlExec(array(
-      CURLOPT_URL => url('history/get_node_read_timestamps', array('absolute' => TRUE)),
+      CURLOPT_URL => \Drupal::url('history.get_last_node_view', array(), array('absolute' => TRUE)),
       CURLOPT_POST => TRUE,
       CURLOPT_POSTFIELDS => $post,
       CURLOPT_HTTPHEADER => array(
@@ -102,7 +96,7 @@ class HistoryTest extends WebTestBase {
    */
   protected function markNodeAsRead($node_id) {
     return $this->curlExec(array(
-      CURLOPT_URL => url('history/' . $node_id . '/read', array('absolute' => TRUE)),
+      CURLOPT_URL => \Drupal::url('history.read_node', array('node' => $node_id), array('absolute' => TRUE)),
       CURLOPT_HTTPHEADER => array(
         'Accept: application/json',
       ),

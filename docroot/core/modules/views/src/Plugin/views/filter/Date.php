@@ -7,6 +7,8 @@
 
 namespace Drupal\views\Plugin\views\filter;
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Filter to handle dates stored as a timestamp.
  *
@@ -28,14 +30,14 @@ class Date extends Numeric {
   /**
    * Add a type selector to the value form
    */
-  protected function valueForm(&$form, &$form_state) {
-    if (empty($form_state['exposed'])) {
+  protected function valueForm(&$form, FormStateInterface $form_state) {
+    if (!$form_state->get('exposed')) {
       $form['value']['type'] = array(
         '#type' => 'radios',
-        '#title' => t('Value type'),
+        '#title' => $this->t('Value type'),
         '#options' => array(
-          'date' => t('A date in any machine readable format. CCYY-MM-DD HH:MM:SS is preferred.'),
-          'offset' => t('An offset from the current time such as "!example1" or "!example2"', array('!example1' => '+1 day', '!example2' => '-2 hours -30 minutes')),
+          'date' => $this->t('A date in any machine readable format. CCYY-MM-DD HH:MM:SS is preferred.'),
+          'offset' => $this->t('An offset from the current time such as "!example1" or "!example2"', array('!example1' => '+1 day', '!example2' => '-2 hours -30 minutes')),
         ),
         '#default_value' => !empty($this->value['type']) ? $this->value['type'] : 'date',
       );
@@ -43,18 +45,18 @@ class Date extends Numeric {
     parent::valueForm($form, $form_state);
   }
 
-  public function validateOptionsForm(&$form, &$form_state) {
+  public function validateOptionsForm(&$form, FormStateInterface $form_state) {
     parent::validateOptionsForm($form, $form_state);
 
-    if (!empty($this->options['exposed']) && empty($form_state['values']['options']['expose']['required'])) {
+    if (!empty($this->options['exposed']) && $form_state->isValueEmpty(array('options', 'expose', 'required'))) {
       // Who cares what the value is if it's exposed and non-required.
       return;
     }
 
-    $this->validateValidTime($form['value'], $form_state, $form_state['values']['options']['operator'], $form_state['values']['options']['value']);
+    $this->validateValidTime($form['value'], $form_state, $form_state->getValue(array('options', 'operator')), $form_state->getValue(array('options', 'value')));
   }
 
-  public function validateExposed(&$form, &$form_state) {
+  public function validateExposed(&$form, FormStateInterface $form_state) {
     if (empty($this->options['exposed'])) {
       return;
     }
@@ -64,9 +66,9 @@ class Date extends Numeric {
       return;
     }
 
-    $value = &$form_state['values'][$this->options['expose']['identifier']];
+    $value = &$form_state->getValue($this->options['expose']['identifier']);
     if (!empty($this->options['expose']['use_operator']) && !empty($this->options['expose']['operator_id'])) {
-      $operator = $form_state['values'][$this->options['expose']['operator_id']];
+      $operator = &$form_state->getValue($this->options['expose']['operator_id']);
     }
     else {
       $operator = $this->operator;
@@ -79,23 +81,23 @@ class Date extends Numeric {
   /**
    * Validate that the time values convert to something usable.
    */
-  public function validateValidTime(&$form, array &$form_state, $operator, $value) {
+  public function validateValidTime(&$form, FormStateInterface $form_state, $operator, $value) {
     $operators = $this->operators();
 
     if ($operators[$operator]['values'] == 1) {
       $convert = strtotime($value['value']);
       if (!empty($form['value']) && ($convert == -1 || $convert === FALSE)) {
-        form_error($form['value'], $form_state, t('Invalid date format.'));
+        $form_state->setError($form['value'], $this->t('Invalid date format.'));
       }
     }
     elseif ($operators[$operator]['values'] == 2) {
       $min = strtotime($value['min']);
       if ($min == -1 || $min === FALSE) {
-        form_error($form['min'], $form_state, t('Invalid date format.'));
+        $form_state->setError($form['min'], $this->t('Invalid date format.'));
       }
       $max = strtotime($value['max']);
       if ($max == -1 || $max === FALSE) {
-        form_error($form['max'], $form_state, t('Invalid date format.'));
+        $form_state->setError($form['max'], $this->t('Invalid date format.'));
       }
     }
   }
@@ -103,24 +105,24 @@ class Date extends Numeric {
   /**
    * Validate the build group options form.
    */
-  protected function buildGroupValidate($form, &$form_state) {
+  protected function buildGroupValidate($form, FormStateInterface $form_state) {
     // Special case to validate grouped date filters, this is because the
     // $group['value'] array contains the type of filter (date or offset)
     // and therefore the number of items the comparission has to be done
     // against 'one' instead of 'zero'.
-    foreach ($form_state['values']['options']['group_info']['group_items'] as $id => $group) {
+    foreach ($form_state->getValue(array('options', 'group_info', 'group_items')) as $id => $group) {
       if (empty($group['remove'])) {
         // Check if the title is defined but value wasn't defined.
         if (!empty($group['title'])) {
           if ((!is_array($group['value']) && empty($group['value'])) || (is_array($group['value']) && count(array_filter($group['value'])) == 1)) {
-            form_error($form['group_info']['group_items'][$id]['value'], $form_state, t('The value is required if title for this item is defined.'));
+            $form_state->setError($form['group_info']['group_items'][$id]['value'], $this->t('The value is required if title for this item is defined.'));
           }
         }
 
         // Check if the value is defined but title wasn't defined.
         if ((!is_array($group['value']) && !empty($group['value'])) || (is_array($group['value']) && count(array_filter($group['value'])) > 1)) {
           if (empty($group['title'])) {
-            form_error($form['group_info']['group_items'][$id]['title'], $form_state, t('The title is required if value for this item is defined.'));
+            $form_state->setError($form['group_info']['group_items'][$id]['title'], $this->t('The title is required if value for this item is defined.'));
           }
         }
       }

@@ -8,13 +8,13 @@
 namespace Drupal\Tests\Core;
 
 use Drupal\Tests\UnitTestCase;
+use Drupal\Core\Url;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Tests the Drupal class.
  *
- * @group Drupal
- *
- * @see \Drupal
+ * @group DrupalTest
  */
 class DrupalTest extends UnitTestCase {
 
@@ -25,15 +25,7 @@ class DrupalTest extends UnitTestCase {
    */
   protected $container;
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Drupal test',
-      'description' => 'Tests the Drupal class.',
-      'group' => 'System'
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     $this->container = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerBuilder')
       ->setMethods(array('get'))
       ->getMock();
@@ -53,14 +45,6 @@ class DrupalTest extends UnitTestCase {
   public function testService() {
     $this->setMockContainerService('test_service');
     $this->assertNotNull(\Drupal::service('test_service'));
-  }
-
-  /**
-   * Tests the service() method.
-   */
-  public function testRequest() {
-    $this->setMockContainerService('request');
-    $this->assertNotNull(\Drupal::request());
   }
 
   /**
@@ -147,6 +131,18 @@ class DrupalTest extends UnitTestCase {
     $this->setMockContainerService('queue', $queue);
 
     $this->assertNotNull(\Drupal::queue('test_queue', TRUE));
+  }
+
+  /**
+   * Tests the testRequestStack() method.
+   *
+   * @covers ::requestStack
+   */
+  public function testRequestStack() {
+    $request_stack = new RequestStack();
+    $this->setMockContainerService('request_stack', $request_stack);
+
+    $this->assertSame($request_stack, \Drupal::requestStack());
   }
 
   /**
@@ -254,7 +250,7 @@ class DrupalTest extends UnitTestCase {
   }
 
   /**
-   * Tests the url() method.
+   * Tests the _url() method.
    *
    * @see \Drupal\Core\Routing\UrlGeneratorInterface::generateFromRoute()
    */
@@ -280,7 +276,7 @@ class DrupalTest extends UnitTestCase {
   }
 
   /**
-   * Tests the l() method.
+   * Tests the _l() method.
    *
    * @see \Drupal\Core\Utility\LinkGeneratorInterface::generate()
    */
@@ -288,13 +284,14 @@ class DrupalTest extends UnitTestCase {
     $route_parameters = array('test_parameter' => 'test');
     $options = array('test_option' => 'test');
     $generator = $this->getMock('Drupal\Core\Utility\LinkGeneratorInterface');
+    $url = new Url('test_route', $route_parameters, $options);
     $generator->expects($this->once())
       ->method('generate')
-      ->with('Test title', 'test_route', $route_parameters, $options)
+      ->with('Test title', $url)
       ->will($this->returnValue('link_html_string'));
     $this->setMockContainerService('link_generator', $generator);
 
-    $this->assertInternalType('string', \Drupal::l('Test title', 'test_route', $route_parameters, $options));
+    $this->assertInternalType('string', \Drupal::l('Test title', $url));
   }
 
   /**
@@ -335,6 +332,30 @@ class DrupalTest extends UnitTestCase {
   public function testFormBuilder() {
     $this->setMockContainerService('form_builder');
     $this->assertNotNull(\Drupal::formBuilder());
+  }
+
+  /**
+   * Tests the menuTree() method.
+   */
+  public function testMenuTree() {
+    $this->setMockContainerService('menu.link_tree');
+    $this->assertNotNull(\Drupal::menuTree());
+  }
+
+  /**
+   * Tests the pathValidator() method.
+   */
+  public function testPathValidator() {
+    $this->setMockContainerService('path.validator');
+    $this->assertNotNull(\Drupal::pathValidator());
+  }
+
+  /**
+   * Tests the accessManager() method.
+   */
+  public function testAccessManager() {
+    $this->setMockContainerService('access_manager');
+    $this->assertNotNull(\Drupal::accessManager());
   }
 
   /**

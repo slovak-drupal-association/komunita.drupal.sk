@@ -8,6 +8,7 @@
 namespace Drupal\toolbar\Tests;
 
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\simpletest\WebTestBase;
 
 /**
@@ -24,6 +25,8 @@ use Drupal\simpletest\WebTestBase;
  *
  * Each hook invocation is simulated and then the previous hash of the admin
  * menu subtrees is compared to the new hash.
+ *
+ * @group toolbar
  */
 class ToolbarAdminMenuTest extends WebTestBase {
 
@@ -55,15 +58,7 @@ class ToolbarAdminMenuTest extends WebTestBase {
    */
   public static $modules = array('node', 'block', 'menu_ui', 'user', 'taxonomy', 'toolbar', 'language', 'test_page_test', 'locale');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Toolbar admin menu',
-      'description' => 'Tests the caching of secondary admin menu items.',
-      'group' => 'Toolbar',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $perms = array(
@@ -130,30 +125,16 @@ class ToolbarAdminMenuTest extends WebTestBase {
   }
 
   /**
-   * Tests toolbar_menu_link_update() hook implementation.
+   * Tests toolbar cache tags implementation.
    */
   function testMenuLinkUpdateSubtreesHashCacheClear() {
-    // Get subtree items for the admin menu.
-    $query = \Drupal::entityQuery('menu_link');
-    for ($i = 1; $i <= 3; $i++) {
-      $query->sort('p' . $i, 'ASC');
-    }
-    $query->condition('menu_name', 'admin');
-    $query->condition('depth', '2', '>=');
-
-    // Build an ordered array of links using the query result object.
-    $links = array();
-    if ($result = $query->execute()) {
-      $links = menu_link_load_multiple($result);
-    }
-    // Get the first link in the set.
-    $links = array_values($links);
-    $link = array_shift($links);
+    // The ID of a (any) admin menu link.
+    $admin_menu_link_id = 'system.admin_config_development';
 
     // Disable the link.
     $edit = array();
     $edit['enabled'] = FALSE;
-    $this->drupalPostForm("admin/structure/menu/item/" . $link['mlid'] . "/edit", $edit, t('Save'));
+    $this->drupalPostForm("admin/structure/menu/link/" . $admin_menu_link_id . "/edit", $edit, t('Save'));
     $this->assertResponse(200);
     $this->assertText('The menu link has been saved.');
 
@@ -241,7 +222,7 @@ class ToolbarAdminMenuTest extends WebTestBase {
     // Assert that a cache tag in the toolbar cache under the key "user" exists
     // for admin_user against the language "en".
     $cache = $toolbarCache->get('toolbar_' . $admin_user_id . ':' . 'en');
-    $this->assertEqual($cache->tags[0], 'user:' . $admin_user_id, 'A cache tag in the toolbar cache under the key "user" exists for admin_user against the language "en".');
+    $this->assertEqual($cache->tags[2], 'user:' . $admin_user_id, 'A cache tag in the toolbar cache under the key "user" exists for admin_user against the language "en".');
 
     // Assert that no toolbar cache exists for admin_user against the
     // language "fr".
@@ -261,7 +242,7 @@ class ToolbarAdminMenuTest extends WebTestBase {
     // Assert that a cache tag in the toolbar cache under the key "user" exists
     // for admin_user against the language "fr".
     $cache = $toolbarCache->get('toolbar_' . $admin_user_id . ':' . 'fr');
-    $this->assertEqual($cache->tags[0], 'user:' . $admin_user_id, 'A cache tag in the toolbar cache under the key "user" exists for admin_user against the language "fr".');
+    $this->assertEqual($cache->tags[2], 'user:' . $admin_user_id, 'A cache tag in the toolbar cache under the key "user" exists for admin_user against the language "fr".');
 
     // Log in the admin_user_2 user. We will use this user as a control to
     // verify that clearing a cache tag for admin_user does not clear the cache
@@ -274,7 +255,7 @@ class ToolbarAdminMenuTest extends WebTestBase {
     // Assert that a cache tag in the toolbar cache under the key "user" exists
     // for admin_user_2 against the language "en".
     $cache = $toolbarCache->get('toolbar_' . $admin_user_2_id . ':' . 'en');
-    $this->assertEqual($cache->tags[0], 'user:' . $admin_user_2_id, 'A cache tag in the toolbar cache under the key "user" exists for admin_user_2 against the language "en".');
+    $this->assertEqual($cache->tags[2], 'user:' . $admin_user_2_id, 'A cache tag in the toolbar cache under the key "user" exists for admin_user_2 against the language "en".');
 
     // Request a page in 'fr' to create the cache.
     $this->drupalGet('fr/test-page');
@@ -282,11 +263,11 @@ class ToolbarAdminMenuTest extends WebTestBase {
     // Assert that a cache tag in the toolbar cache under the key "user" exists
     // for admin_user against the language "fr".
     $cache = $toolbarCache->get('toolbar_' . $admin_user_2_id . ':' . 'fr');
-    $this->assertEqual($cache->tags[0], 'user:' . $admin_user_2_id, 'A cache tag in the toolbar cache under the key "user" exists for admin_user_2 against the language "fr".');
+    $this->assertEqual($cache->tags[2], 'user:' . $admin_user_2_id, 'A cache tag in the toolbar cache under the key "user" exists for admin_user_2 against the language "fr".');
 
     // Log in admin_user and clear the caches for this user using a tag.
     $this->drupalLogin($this->admin_user);
-    Cache::deleteTags(array('user' => array($admin_user_id)));
+    Cache::deleteTags(array('user:' . $admin_user_id));
 
     // Assert that no toolbar cache exists for admin_user against the
     // language "en".
@@ -304,12 +285,12 @@ class ToolbarAdminMenuTest extends WebTestBase {
     // Assert that a cache tag in the toolbar cache under the key "user" exists
     // for admin_user_2 against the language "en".
     $cache = $toolbarCache->get('toolbar_' . $admin_user_2_id . ':' . 'en');
-    $this->assertEqual($cache->tags[0], 'user:' . $admin_user_2_id, 'A cache tag in the toolbar cache under the key "user" exists for admin_user_2 against the language "en".');
+    $this->assertEqual($cache->tags[2], 'user:' . $admin_user_2_id, 'A cache tag in the toolbar cache under the key "user" exists for admin_user_2 against the language "en".');
 
     // Assert that a cache tag in the toolbar cache under the key "user" exists
     // for admin_user_2 against the language "fr".
     $cache = $toolbarCache->get('toolbar_' . $admin_user_2_id . ':' . 'fr');
-    $this->assertEqual($cache->tags[0], 'user:' . $admin_user_2_id, 'A cache tag in the toolbar cache under the key "user" exists for admin_user_2 against the language "fr".');
+    $this->assertEqual($cache->tags[2], 'user:' . $admin_user_2_id, 'A cache tag in the toolbar cache under the key "user" exists for admin_user_2 against the language "fr".');
   }
 
   /**
@@ -363,21 +344,21 @@ class ToolbarAdminMenuTest extends WebTestBase {
     // Create a new language with the langcode 'xx'.
     $langcode = 'xx';
     // The English name for the language. This will be translated.
-    $name = $this->randomName(16);
+    $name = $this->randomMachineName(16);
     // This is the language indicator on the translation search screen for
     // untranslated strings.
     $language_indicator = "<em class=\"locale-untranslated\">$langcode</em> ";
     // This will be the translation of $name.
-    $translation = $this->randomName(16);
-    $translation_to_en = $this->randomName(16);
+    $translation = $this->randomMachineName(16);
+    $translation_to_en = $this->randomMachineName(16);
 
     // Add custom language.
     $this->drupalLogin($admin_user);
     $edit = array(
       'predefined_langcode' => 'custom',
       'langcode' => $langcode,
-      'name' => $name,
-      'direction' => '0',
+      'label' => $name,
+      'direction' => LanguageInterface::DIRECTION_LTR,
     );
     $this->drupalPostForm('admin/config/regional/language/add', $edit, t('Add custom language'));
     t($name, array(), array('langcode' => $langcode));
@@ -393,7 +374,7 @@ class ToolbarAdminMenuTest extends WebTestBase {
     // Assert that a cache tag in the toolbar cache under the key "user" exists
     // for admin_user against the language "xx".
     $cache = $toolbarCache->get('toolbar_' . $admin_user_id . ':' . $langcode);
-    $this->assertEqual($cache->tags[0], 'user:' . $admin_user_id, 'A cache tag in the toolbar cache under the key "user" exists for admin_user against the language "xx".');
+    $this->assertEqual($cache->tags[2], 'user:' . $admin_user_id, 'A cache tag in the toolbar cache under the key "user" exists for admin_user against the language "xx".');
 
     // Get a baseline hash for the admin menu subtrees before translating one
     // of the menu link items.
@@ -423,7 +404,7 @@ class ToolbarAdminMenuTest extends WebTestBase {
     );
     $this->drupalPostForm('admin/config/regional/translate', $edit, t('Save translations'));
     $this->assertText(t('The strings have been saved.'), 'The strings have been saved.');
-    $this->assertEqual($this->getUrl(), url('admin/config/regional/translate', array('absolute' => TRUE)), 'Correct page redirection.');
+    $this->assertUrl(\Drupal::url('locale.translate_page', [], ['absolute' => TRUE]), [], 'Correct page redirection.');
     $this->drupalLogout();
 
     // Log in the admin_user. Check the admin menu subtrees hash now that one
@@ -458,12 +439,12 @@ class ToolbarAdminMenuTest extends WebTestBase {
     // Create a new language with the langcode 'xx'.
     $langcode = 'xx';
     // The English name for the language. This will be translated.
-    $name = $this->randomName(16);
+    $name = $this->randomMachineName(16);
     $edit = array(
       'predefined_langcode' => 'custom',
       'langcode' => $langcode,
-      'name' => $name,
-      'direction' => '0',
+      'label' => $name,
+      'direction' => LanguageInterface::DIRECTION_LTR,
     );
     $this->drupalPostForm('admin/config/regional/language/add', $edit, t('Add custom language'));
 
@@ -483,12 +464,12 @@ class ToolbarAdminMenuTest extends WebTestBase {
     // Create a new language with the langcode 'xx'.
     $langcode = 'xx';
     // The English name for the language. This will be translated.
-    $name = $this->randomName(16);
+    $name = $this->randomMachineName(16);
     $edit = array(
       'predefined_langcode' => 'custom',
       'langcode' => $langcode,
-      'name' => $name,
-      'direction' => '0',
+      'label' => $name,
+      'direction' => LanguageInterface::DIRECTION_LTR,
     );
     $this->drupalPostForm('admin/config/regional/language/add', $edit, t('Add custom language'));
 

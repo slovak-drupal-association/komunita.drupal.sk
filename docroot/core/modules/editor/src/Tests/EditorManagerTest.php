@@ -11,7 +11,9 @@ use Drupal\simpletest\DrupalUnitTestBase;
 use Drupal\editor\Plugin\EditorManager;
 
 /**
- * Unit tests for the configurable text editor manager.
+ * Tests detection of text editors and correct generation of attachments.
+ *
+ * @group editor
  */
 class EditorManagerTest extends DrupalUnitTestBase {
 
@@ -20,7 +22,7 @@ class EditorManagerTest extends DrupalUnitTestBase {
    *
    * @var array
    */
-  public static $modules = array('system', 'editor');
+  public static $modules = array('system', 'user', 'filter', 'editor');
 
   /**
    * The manager for text editor plugins.
@@ -29,20 +31,11 @@ class EditorManagerTest extends DrupalUnitTestBase {
    */
   protected $editorManager;
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Text editor manager',
-      'description' => 'Tests detection of text editors and correct generation of attachments.',
-      'group' => 'Text Editor',
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Install the Filter module.
     $this->installSchema('system', 'url_alias');
-    $this->enableModules(array('user', 'filter'));
 
     // Add text formats.
     $filtered_html_format = entity_create('filter_format', array(

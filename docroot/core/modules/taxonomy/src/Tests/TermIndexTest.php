@@ -12,18 +12,19 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
 
 /**
  * Tests the hook implementations that maintain the taxonomy index.
+ *
+ * @group taxonomy
  */
 class TermIndexTest extends TaxonomyTestBase {
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Taxonomy term index',
-      'description' => 'Tests the hook implementations that maintain the taxonomy index.',
-      'group' => 'Taxonomy',
-    );
-  }
+  /**
+   * Modules to enable.
+   *
+   * @var array
+   */
+  public static $modules = array('views');
 
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Create an administrative user.
@@ -33,9 +34,9 @@ class TermIndexTest extends TaxonomyTestBase {
     // Create a vocabulary and add two term reference fields to article nodes.
     $this->vocabulary = $this->createVocabulary();
 
-    $this->field_name_1 = drupal_strtolower($this->randomName());
-    entity_create('field_config', array(
-      'name' => $this->field_name_1,
+    $this->field_name_1 = drupal_strtolower($this->randomMachineName());
+    entity_create('field_storage_config', array(
+      'field_name' => $this->field_name_1,
       'entity_type' => 'node',
       'type' => 'taxonomy_term_reference',
       'cardinality' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
@@ -48,7 +49,7 @@ class TermIndexTest extends TaxonomyTestBase {
         ),
       ),
     ))->save();
-    entity_create('field_instance_config', array(
+    entity_create('field_config', array(
       'field_name' => $this->field_name_1,
       'bundle' => 'article',
       'entity_type' => 'node',
@@ -64,9 +65,9 @@ class TermIndexTest extends TaxonomyTestBase {
       ))
       ->save();
 
-    $this->field_name_2 = drupal_strtolower($this->randomName());
-    entity_create('field_config', array(
-      'name' => $this->field_name_2,
+    $this->field_name_2 = drupal_strtolower($this->randomMachineName());
+    entity_create('field_storage_config', array(
+      'field_name' => $this->field_name_2,
       'entity_type' => 'node',
       'type' => 'taxonomy_term_reference',
       'cardinality' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
@@ -79,7 +80,7 @@ class TermIndexTest extends TaxonomyTestBase {
         ),
       ),
     ))->save();
-    entity_create('field_instance_config', array(
+    entity_create('field_config', array(
       'field_name' => $this->field_name_2,
       'bundle' => 'article',
       'entity_type' => 'node',
@@ -106,8 +107,8 @@ class TermIndexTest extends TaxonomyTestBase {
 
     // Post an article.
     $edit = array();
-    $edit['title[0][value]'] = $this->randomName();
-    $edit['body[0][value]'] = $this->randomName();
+    $edit['title[0][value]'] = $this->randomMachineName();
+    $edit['body[0][value]'] = $this->randomMachineName();
     $edit["{$this->field_name_1}[]"] = $term_1->id();
     $edit["{$this->field_name_2}[]"] = $term_1->id();
     $this->drupalPostForm('node/add/article', $edit, t('Save'));
@@ -154,7 +155,7 @@ class TermIndexTest extends TaxonomyTestBase {
 
     // Redo the above tests without interface.
     $node = node_load($node->id(), TRUE);
-    $node->title = $this->randomName();
+    $node->title = $this->randomMachineName();
 
     // Update the article with no term changed.
     $node->save();
@@ -216,6 +217,6 @@ class TermIndexTest extends TaxonomyTestBase {
 
     // Verify that the page breadcrumbs include a link to the parent term.
     $this->drupalGet('taxonomy/term/' . $term1->id());
-    $this->assertRaw(l($term2->getName(), 'taxonomy/term/' . $term2->id()), 'Parent term link is displayed when viewing the node.');
+    $this->assertRaw(\Drupal::l($term2->getName(), $term2->urlInfo()), 'Parent term link is displayed when viewing the node.');
   }
 }

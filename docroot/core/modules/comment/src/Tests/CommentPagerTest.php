@@ -7,18 +7,15 @@
 
 namespace Drupal\comment\Tests;
 
+use Drupal\comment\CommentManagerInterface;
+use Drupal\Component\Utility\String;
+
 /**
- * Verifies pagination of comments.
+ * Tests paging of comments and their settings.
+ *
+ * @group comment
  */
 class CommentPagerTest extends CommentTestBase {
-  public static function getInfo() {
-    return array(
-      'name' => 'Comment paging settings',
-      'description' => 'Test paging of comments and their settings.',
-      'group' => 'Comment',
-    );
-  }
-
   /**
    * Confirms comment paging works correctly with flat and threaded comments.
    */
@@ -33,11 +30,11 @@ class CommentPagerTest extends CommentTestBase {
     // Create a node and three comments.
     $node = $this->drupalCreateNode(array('type' => 'article', 'promote' => 1));
     $comments = array();
-    $comments[] = $this->postComment($node, $this->randomName(), $this->randomName(), TRUE);
-    $comments[] = $this->postComment($node, $this->randomName(), $this->randomName(), TRUE);
-    $comments[] = $this->postComment($node, $this->randomName(), $this->randomName(), TRUE);
+    $comments[] = $this->postComment($node, $this->randomMachineName(), $this->randomMachineName(), TRUE);
+    $comments[] = $this->postComment($node, $this->randomMachineName(), $this->randomMachineName(), TRUE);
+    $comments[] = $this->postComment($node, $this->randomMachineName(), $this->randomMachineName(), TRUE);
 
-    $this->setCommentSettings('default_mode', COMMENT_MODE_FLAT, 'Comment paging changed.');
+    $this->setCommentSettings('default_mode', CommentManagerInterface::COMMENT_MODE_FLAT, 'Comment paging changed.');
 
     // Set comments to one per page so that we are able to test paging without
     // needing to insert large numbers of comments.
@@ -66,7 +63,7 @@ class CommentPagerTest extends CommentTestBase {
     // Post a reply to the oldest comment and test again.
     $oldest_comment = reset($comments);
     $this->drupalGet('comment/reply/node/' . $node->id() . '/comment/' . $oldest_comment->id());
-    $reply = $this->postComment(NULL, $this->randomName(), $this->randomName(), TRUE);
+    $reply = $this->postComment(NULL, $this->randomMachineName(), $this->randomMachineName(), TRUE);
 
     $this->setCommentsPerPage(2);
     // We are still in flat view - the replies should not be on the first page,
@@ -77,14 +74,14 @@ class CommentPagerTest extends CommentTestBase {
     // If we switch to threaded mode, the replies on the oldest comment
     // should be bumped to the first page and comment 6 should be bumped
     // to the second page.
-    $this->setCommentSettings('default_mode', COMMENT_MODE_THREADED, 'Switched to threaded mode.');
+    $this->setCommentSettings('default_mode', CommentManagerInterface::COMMENT_MODE_THREADED, 'Switched to threaded mode.');
     $this->drupalGet('node/' . $node->id(), array('query' => array('page' => 0)));
     $this->assertTrue($this->commentExists($reply, TRUE), 'In threaded mode, reply appears on page 1.');
     $this->assertFalse($this->commentExists($comments[1]), 'In threaded mode, comment 2 has been bumped off of page 1.');
 
     // If (# replies > # comments per page) in threaded expanded view,
     // the overage should be bumped.
-    $reply2 = $this->postComment(NULL, $this->randomName(), $this->randomName(), TRUE);
+    $reply2 = $this->postComment(NULL, $this->randomMachineName(), $this->randomMachineName(), TRUE);
     $this->drupalGet('node/' . $node->id(), array('query' => array('page' => 0)));
     $this->assertFalse($this->commentExists($reply2, TRUE), 'In threaded mode where # replies > # comments per page, the newest reply does not appear on page 1.');
 
@@ -108,25 +105,25 @@ class CommentPagerTest extends CommentTestBase {
     // Create a node and three comments.
     $node = $this->drupalCreateNode(array('type' => 'article', 'promote' => 1));
     $comments = array();
-    $comments[] = $this->postComment($node, $this->randomName(), $this->randomName(), TRUE);
-    $comments[] = $this->postComment($node, $this->randomName(), $this->randomName(), TRUE);
-    $comments[] = $this->postComment($node, $this->randomName(), $this->randomName(), TRUE);
+    $comments[] = $this->postComment($node, $this->randomMachineName(), $this->randomMachineName(), TRUE);
+    $comments[] = $this->postComment($node, $this->randomMachineName(), $this->randomMachineName(), TRUE);
+    $comments[] = $this->postComment($node, $this->randomMachineName(), $this->randomMachineName(), TRUE);
 
     // Post a reply to the second comment.
     $this->drupalGet('comment/reply/node/' . $node->id() . '/comment/' . $comments[1]->id());
-    $comments[] = $this->postComment(NULL, $this->randomName(), $this->randomName(), TRUE);
+    $comments[] = $this->postComment(NULL, $this->randomMachineName(), $this->randomMachineName(), TRUE);
 
     // Post a reply to the first comment.
     $this->drupalGet('comment/reply/node/' . $node->id() . '/comment/' . $comments[0]->id());
-    $comments[] = $this->postComment(NULL, $this->randomName(), $this->randomName(), TRUE);
+    $comments[] = $this->postComment(NULL, $this->randomMachineName(), $this->randomMachineName(), TRUE);
 
     // Post a reply to the last comment.
     $this->drupalGet('comment/reply/node/' . $node->id() . '/comment/' . $comments[2]->id());
-    $comments[] = $this->postComment(NULL, $this->randomName(), $this->randomName(), TRUE);
+    $comments[] = $this->postComment(NULL, $this->randomMachineName(), $this->randomMachineName(), TRUE);
 
     // Post a reply to the second comment.
     $this->drupalGet('comment/reply/node/' . $node->id() . '/comment/' . $comments[3]->id());
-    $comments[] = $this->postComment(NULL, $this->randomName(), $this->randomName(), TRUE);
+    $comments[] = $this->postComment(NULL, $this->randomMachineName(), $this->randomMachineName(), TRUE);
 
     // At this point, the comment tree is:
     // - 0
@@ -137,7 +134,7 @@ class CommentPagerTest extends CommentTestBase {
     // - 2
     //   - 5
 
-    $this->setCommentSettings('default_mode', COMMENT_MODE_FLAT, 'Comment paging changed.');
+    $this->setCommentSettings('default_mode', CommentManagerInterface::COMMENT_MODE_FLAT, 'Comment paging changed.');
 
     $expected_order = array(
       0,
@@ -151,7 +148,7 @@ class CommentPagerTest extends CommentTestBase {
     $this->drupalGet('node/' . $node->id());
     $this->assertCommentOrder($comments, $expected_order);
 
-    $this->setCommentSettings('default_mode', COMMENT_MODE_THREADED, 'Switched to threaded mode.');
+    $this->setCommentSettings('default_mode', CommentManagerInterface::COMMENT_MODE_THREADED, 'Switched to threaded mode.');
 
     $expected_order = array(
       0,
@@ -191,7 +188,7 @@ class CommentPagerTest extends CommentTestBase {
   }
 
   /**
-   * Tests comment_new_page_count().
+   * Tests calculation of first page with new comment.
    */
   function testCommentNewPageIndicator() {
     $this->drupalLogin($this->admin_user);
@@ -208,21 +205,21 @@ class CommentPagerTest extends CommentTestBase {
     // Create a node and three comments.
     $node = $this->drupalCreateNode(array('type' => 'article', 'promote' => 1));
     $comments = array();
-    $comments[] = $this->postComment($node, $this->randomName(), $this->randomName(), TRUE);
-    $comments[] = $this->postComment($node, $this->randomName(), $this->randomName(), TRUE);
-    $comments[] = $this->postComment($node, $this->randomName(), $this->randomName(), TRUE);
+    $comments[] = $this->postComment($node, $this->randomMachineName(), $this->randomMachineName(), TRUE);
+    $comments[] = $this->postComment($node, $this->randomMachineName(), $this->randomMachineName(), TRUE);
+    $comments[] = $this->postComment($node, $this->randomMachineName(), $this->randomMachineName(), TRUE);
 
     // Post a reply to the second comment.
     $this->drupalGet('comment/reply/node/' . $node->id() . '/comment/' . $comments[1]->id());
-    $comments[] = $this->postComment(NULL, $this->randomName(), $this->randomName(), TRUE);
+    $comments[] = $this->postComment(NULL, $this->randomMachineName(), $this->randomMachineName(), TRUE);
 
     // Post a reply to the first comment.
     $this->drupalGet('comment/reply/node/' . $node->id() . '/comment/' . $comments[0]->id());
-    $comments[] = $this->postComment(NULL, $this->randomName(), $this->randomName(), TRUE);
+    $comments[] = $this->postComment(NULL, $this->randomMachineName(), $this->randomMachineName(), TRUE);
 
     // Post a reply to the last comment.
     $this->drupalGet('comment/reply/node/' . $node->id() . '/comment/' . $comments[2]->id());
-    $comments[] = $this->postComment(NULL, $this->randomName(), $this->randomName(), TRUE);
+    $comments[] = $this->postComment(NULL, $this->randomMachineName(), $this->randomMachineName(), TRUE);
 
     // At this point, the comment tree is:
     // - 0
@@ -232,7 +229,7 @@ class CommentPagerTest extends CommentTestBase {
     // - 2
     //   - 5
 
-    $this->setCommentSettings('default_mode', COMMENT_MODE_FLAT, 'Comment paging changed.');
+    $this->setCommentSettings('default_mode', CommentManagerInterface::COMMENT_MODE_FLAT, 'Comment paging changed.');
 
     $expected_pages = array(
       1 => 5, // Page of comment 5
@@ -245,12 +242,12 @@ class CommentPagerTest extends CommentTestBase {
 
     $node = node_load($node->id());
     foreach ($expected_pages as $new_replies => $expected_page) {
-      $returned = comment_new_page_count($node->get('comment')->comment_count, $new_replies, $node);
-      $returned_page = is_array($returned) ? $returned['page'] : 0;
+      $returned_page = \Drupal::entityManager()->getStorage('comment')
+        ->getNewCommentPageNumber($node->get('comment')->comment_count, $new_replies, $node);
       $this->assertIdentical($expected_page, $returned_page, format_string('Flat mode, @new replies: expected page @expected, returned page @returned.', array('@new' => $new_replies, '@expected' => $expected_page, '@returned' => $returned_page)));
     }
 
-    $this->setCommentSettings('default_mode', COMMENT_MODE_THREADED, 'Switched to threaded mode.');
+    $this->setCommentSettings('default_mode', CommentManagerInterface::COMMENT_MODE_THREADED, 'Switched to threaded mode.');
 
     $expected_pages = array(
       1 => 5, // Page of comment 5
@@ -264,8 +261,8 @@ class CommentPagerTest extends CommentTestBase {
     \Drupal::entityManager()->getStorage('node')->resetCache(array($node->id()));
     $node = node_load($node->id());
     foreach ($expected_pages as $new_replies => $expected_page) {
-      $returned = comment_new_page_count($node->get('comment')->comment_count, $new_replies, $node);
-      $returned_page = is_array($returned) ? $returned['page'] : 0;
+      $returned_page = \Drupal::entityManager()->getStorage('comment')
+        ->getNewCommentPageNumber($node->get('comment')->comment_count, $new_replies, $node);
       $this->assertEqual($expected_page, $returned_page, format_string('Threaded mode, @new replies: expected page @expected, returned page @returned.', array('@new' => $new_replies, '@expected' => $expected_page, '@returned' => $returned_page)));
     }
   }
@@ -311,9 +308,8 @@ class CommentPagerTest extends CommentTestBase {
     $comments = array();
     foreach (array('comment', 'comment_2') as $field_name) {
       $this->setCommentForm(TRUE, $field_name);
-      $this->setCommentSubject(TRUE, $field_name);
       $this->setCommentPreview(DRUPAL_OPTIONAL, $field_name);
-      $this->setCommentSettings('default_mode', COMMENT_MODE_FLAT, 'Comment paging changed.', $field_name);
+      $this->setCommentSettings('default_mode', CommentManagerInterface::COMMENT_MODE_FLAT, 'Comment paging changed.', $field_name);
 
       // Set comments to one per page so that we are able to test paging without
       // needing to insert large numbers of comments.
@@ -334,22 +330,52 @@ class CommentPagerTest extends CommentTestBase {
     $this->assertRaw('Comment 1 on field comment');
     $this->assertRaw('Comment 1 on field comment_2');
     // Navigate to next page of field 1.
-    $this->clickLink('next ›');
+    $this->clickLinkWithXPath('//a[@rel="next"]');
     // Check only one pager updated.
     $this->assertRaw('Comment 2 on field comment');
     $this->assertRaw('Comment 1 on field comment_2');
     // Return to page 1.
     $this->drupalGet('node/' . $node->id());
     // Navigate to next page of field 2.
-    $this->clickLink('next ›', 1);
+    $this->clickLinkWithXPath('//a[@rel="next"]', 1);
     // Check only one pager updated.
     $this->assertRaw('Comment 1 on field comment');
     $this->assertRaw('Comment 2 on field comment_2');
     // Navigate to next page of field 1.
-    $this->clickLink('next ›');
+    $this->clickLinkWithXPath('//a[@rel="next"]');
     // Check only one pager updated.
     $this->assertRaw('Comment 2 on field comment');
     $this->assertRaw('Comment 2 on field comment_2');
+  }
+
+  /**
+   * Follows a link found at a give xpath query.
+   *
+   * Will click the first link found with the given xpath query by default,
+   * or a later one if an index is given.
+   *
+   * If the link is discovered and clicked, the test passes. Fail otherwise.
+   *
+   * @param string $xpath
+   *   Xpath query that targets an anchor tag, or set of anchor tags.
+   * @param int $index
+   *   Link position counting from zero.
+   *
+   * @return string|false
+   *   Page contents on success, or FALSE on failure.
+   *
+   * @see WebTestBase::clickLink()
+   */
+  protected function clickLinkWithXPath($xpath, $index = 0) {
+    $url_before = $this->getUrl();
+    $urls = $this->xpath($xpath);
+    if (isset($urls[$index])) {
+      $url_target = $this->getAbsoluteUrl($urls[$index]['href']);
+      $this->pass(String::format('Clicked link %label (@url_target) from @url_before', array('%label' => $xpath, '@url_target' => $url_target, '@url_before' => $url_before)), 'Browser');
+      return $this->drupalGet($url_target);
+    }
+    $this->fail(String::format('Link %label does not exist on @url_before', array('%label' => $xpath, '@url_before' => $url_before)), 'Browser');
+    return FALSE;
   }
 
 }

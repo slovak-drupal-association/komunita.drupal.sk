@@ -14,6 +14,8 @@ use Symfony\Component\DependencyInjection\Reference;
 
 /**
  * Tests DatabaseBackend cache tag implementation.
+ *
+ * @group Cache
  */
 class DatabaseBackendTagTest extends DrupalUnitTestBase {
 
@@ -23,14 +25,6 @@ class DatabaseBackendTagTest extends DrupalUnitTestBase {
    * @var array
    */
   public static $modules = array('system');
-
-  public static function getInfo() {
-    return array(
-      'name' => 'Database backend tag test',
-      'description' => 'Tests database backend cache tag implementation.',
-      'group' => 'Cache',
-    );
-  }
 
   /**
    * {@inheritdoc}
@@ -46,7 +40,7 @@ class DatabaseBackendTagTest extends DrupalUnitTestBase {
 
   public function testTagInvalidations() {
     // Create cache entry in multiple bins.
-    $tags = array('test_tag' => array(1, 2, 3));
+    $tags = array('test_tag:1', 'test_tag:2', 'test_tag:3');
     $bins = array('data', 'bootstrap', 'render');
     foreach ($bins as $bin) {
       $bin = \Drupal::cache($bin);
@@ -54,8 +48,8 @@ class DatabaseBackendTagTest extends DrupalUnitTestBase {
       $this->assertTrue($bin->get('test'), 'Cache item was set in bin.');
     }
 
-    $invalidations_before = intval(db_select('cache_tags')->fields('cache_tags', array('invalidations'))->condition('tag', 'test_tag:2')->execute()->fetchField());
-    Cache::invalidateTags(array('test_tag' => array(2)));
+    $invalidations_before = intval(db_select('cachetags')->fields('cachetags', array('invalidations'))->condition('tag', 'test_tag:2')->execute()->fetchField());
+    Cache::invalidateTags(array('test_tag:2'));
 
     // Test that cache entry has been invalidated in multiple bins.
     foreach ($bins as $bin) {
@@ -64,13 +58,13 @@ class DatabaseBackendTagTest extends DrupalUnitTestBase {
     }
 
     // Test that only one tag invalidation has occurred.
-    $invalidations_after = intval(db_select('cache_tags')->fields('cache_tags', array('invalidations'))->condition('tag', 'test_tag:2')->execute()->fetchField());
+    $invalidations_after = intval(db_select('cachetags')->fields('cachetags', array('invalidations'))->condition('tag', 'test_tag:2')->execute()->fetchField());
     $this->assertEqual($invalidations_after, $invalidations_before + 1, 'Only one addition cache tag invalidation has occurred after invalidating a tag used in multiple bins.');
   }
 
-  public function testTagDeletetions() {
+  public function testTagDeletions() {
     // Create cache entry in multiple bins.
-    $tags = array('test_tag' => array(1, 2, 3));
+    $tags = array('test_tag:1', 'test_tag:2', 'test_tag:3');
     $bins = array('data', 'bootstrap', 'render');
     foreach ($bins as $bin) {
       $bin = \Drupal::cache($bin);
@@ -78,8 +72,8 @@ class DatabaseBackendTagTest extends DrupalUnitTestBase {
       $this->assertTrue($bin->get('test'), 'Cache item was set in bin.');
     }
 
-    $deletions_before = intval(db_select('cache_tags')->fields('cache_tags', array('deletions'))->condition('tag', 'test_tag:2')->execute()->fetchField());
-    Cache::deleteTags(array('test_tag' => array(2)));
+    $deletions_before = intval(db_select('cachetags')->fields('cachetags', array('deletions'))->condition('tag', 'test_tag:2')->execute()->fetchField());
+    Cache::deleteTags(array('test_tag:2'));
 
     // Test that cache entry has been deleted in multiple bins.
     foreach ($bins as $bin) {
@@ -88,7 +82,7 @@ class DatabaseBackendTagTest extends DrupalUnitTestBase {
     }
 
     // Test that only one tag deletion has occurred.
-    $deletions_after = intval(db_select('cache_tags')->fields('cache_tags', array('deletions'))->condition('tag', 'test_tag:2')->execute()->fetchField());
+    $deletions_after = intval(db_select('cachetags')->fields('cachetags', array('deletions'))->condition('tag', 'test_tag:2')->execute()->fetchField());
     $this->assertEqual($deletions_after, $deletions_before + 1, 'Only one addition cache tag deletion has occurred after deleting a tag used in multiple bins.');
   }
 

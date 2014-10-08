@@ -10,8 +10,9 @@ namespace Drupal\image\Tests;
 use Drupal\system\Tests\Image\ToolkitTestBase;
 
 /**
- * Use the image_test.module's mock toolkit to ensure that the effects are
- * properly passing parameters to the image toolkit.
+ * Tests that the image effects pass parameters to the toolkit correctly.
+ *
+ * @group image
  */
 class ImageEffectsTest extends ToolkitTestBase {
 
@@ -29,15 +30,7 @@ class ImageEffectsTest extends ToolkitTestBase {
    */
   protected $manager;
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Image effects',
-      'description' => 'Test that the image effects pass parameters to the toolkit correctly.',
-      'group' => 'Image',
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
     $this->manager = $this->container->get('plugin.manager.image.effect');
   }
@@ -103,12 +96,12 @@ class ImageEffectsTest extends ToolkitTestBase {
       'width' => 5,
       'height' => 10,
     ));
-    $this->assertToolkitOperationsCalled(array('scaleAndCrop'));
+    $this->assertToolkitOperationsCalled(array('scale_and_crop'));
 
     // Check the parameters.
     $calls = $this->imageTestGetAllCalls();
-    $this->assertEqual($calls['scaleAndCrop'][0][0], 5, 'Width was computed and passed correctly');
-    $this->assertEqual($calls['scaleAndCrop'][0][1], 10, 'Height was computed and passed correctly');
+    $this->assertEqual($calls['scale_and_crop'][0][0], 5, 'Width was computed and passed correctly');
+    $this->assertEqual($calls['scale_and_crop'][0][1], 10, 'Height was computed and passed correctly');
   }
 
   /**
@@ -137,7 +130,7 @@ class ImageEffectsTest extends ToolkitTestBase {
     // Check the parameters.
     $calls = $this->imageTestGetAllCalls();
     $this->assertEqual($calls['rotate'][0][0], 90, 'Degrees were passed correctly');
-    $this->assertEqual($calls['rotate'][0][1], 0xffffff, 'Background color was passed correctly');
+    $this->assertEqual($calls['rotate'][0][1], '#fff', 'Background color was passed correctly');
   }
 
   /**

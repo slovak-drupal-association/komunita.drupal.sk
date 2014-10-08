@@ -7,20 +7,21 @@
 
 namespace Drupal\options\Plugin\Field\FieldWidget;
 
+use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
-use Drupal\Core\Field\FieldItemInterface;
 use Drupal\Core\Field\WidgetBase;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Base class for the 'options_*' widgets.
  *
  * Field types willing to enable one or several of the widgets defined in
  * options.module (select, radios/checkboxes, on/off checkbox) need to
- * implement the AllowedValuesInterface to specify the list of options to
+ * implement the OptionsProviderInterface to specify the list of options to
  * display in the widgets.
  *
- * @see \Drupal\Core\TypedData\AllowedValuesInterface
+ * @see \Drupal\Core\TypedData\OptionsProviderInterface
  */
 abstract class OptionsWidgetBase extends WidgetBase {
 
@@ -54,7 +55,7 @@ abstract class OptionsWidgetBase extends WidgetBase {
   /**
    * {@inheritdoc}
    */
-  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, array &$form_state) {
+  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     // Prepare some properties for the child methods to build the actual form
     // element.
     $this->required = $element['#required'];
@@ -75,12 +76,12 @@ abstract class OptionsWidgetBase extends WidgetBase {
    *
    * @param array $element
    *   The form element.
-   * @param array $form_state
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The form state.
    */
-  public static function validateElement(array $element, array &$form_state) {
+  public static function validateElement(array $element, FormStateInterface $form_state) {
     if ($element['#required'] && $element['#value'] == '_none') {
-      \Drupal::formBuilder()->setError($element, $form_state, t('!name field is required.', array('!name' => $element['#title'])));
+      $form_state->setError($element, t('!name field is required.', array('!name' => $element['#title'])));
     }
 
     // Massage submitted form values.
@@ -113,16 +114,19 @@ abstract class OptionsWidgetBase extends WidgetBase {
   /**
    * Returns the array of options for the widget.
    *
-   * @param \Drupal\Core\Field\FieldItemInterface $item
-   *   The field item.
+   * @param \Drupal\Core\Entity\ContentEntityInterface $entity
+   *   The entity for which to return options.
    *
    * @return array
    *   The array of options for the widget.
    */
-  protected function getOptions(FieldItemInterface $item) {
+  protected function getOptions(ContentEntityInterface $entity) {
     if (!isset($this->options)) {
       // Limit the settable options for the current user account.
-      $options = $item->getSettableOptions(\Drupal::currentUser());
+      $options = $this->fieldDefinition
+        ->getFieldStorageDefinition()
+        ->getOptionsProvider($this->column, $entity)
+        ->getSettableOptions(\Drupal::currentUser());
 
       // Add an empty option if the widget needs one.
       if ($empty_option = $this->getEmptyOption()) {
@@ -142,7 +146,7 @@ abstract class OptionsWidgetBase extends WidgetBase {
       $module_handler = \Drupal::moduleHandler();
       $context = array(
         'fieldDefinition' => $this->fieldDefinition,
-        'entity' => $item->getEntity(),
+        'entity' => $entity,
       );
       $module_handler->alter('options_list', $options, $context);
 
@@ -172,7 +176,7 @@ abstract class OptionsWidgetBase extends WidgetBase {
    */
   protected function getSelectedOptions(FieldItemListInterface $items, $delta = 0) {
     // We need to check against a flat list of options.
-    $flat_options = $this->flattenOptions($this->getOptions($items[$delta]));
+    $flat_options = $this->flattenOptions($this->getOptions($items->getEntity()));
 
     $selected_options = array();
     foreach ($items as $item) {
@@ -218,9 +222,9 @@ abstract class OptionsWidgetBase extends WidgetBase {
    * @param string $label
    *   The label to sanitize.
    */
-  static protected function sanitizeLabel(&$label) {
+  protected function sanitizeLabel(&$label) {
     // Allow a limited set of HTML tags.
-    $label = field_filter_xss($label);
+    $label = $this->fieldFilterXss($label);
   }
 
   /**

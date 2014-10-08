@@ -8,11 +8,14 @@
 namespace Drupal\user\Tests;
 
 use Drupal\Component\Utility\String;
+use Drupal\language\Entity\ConfigurableLanguage;
 use Drupal\simpletest\WebTestBase;
-use Drupal\Core\Language\Language;
 
 /**
- * Test user token replacement in strings.
+ * Generates text using placeholders for dummy content to check user token
+ * replacement.
+ *
+ * @group user
  */
 class UserTokenReplaceTest extends WebTestBase {
 
@@ -23,20 +26,9 @@ class UserTokenReplaceTest extends WebTestBase {
    */
   public static $modules = array('language');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'User token replacement',
-      'description' => 'Generates text using placeholders for dummy content to check user token replacement.',
-      'group' => 'User',
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
-    $language = new Language(array(
-      'id' => 'de',
-    ));
-    language_save($language);
+    ConfigurableLanguage::createFromLangcode('de')->save();
   }
 
   /**
@@ -65,8 +57,8 @@ class UserTokenReplaceTest extends WebTestBase {
     $tests['[user:uid]'] = $account->id();
     $tests['[user:name]'] = String::checkPlain(user_format_name($account));
     $tests['[user:mail]'] = String::checkPlain($account->getEmail());
-    $tests['[user:url]'] = url("user/" . $account->id(), $url_options);
-    $tests['[user:edit-url]'] = url("user/" . $account->id() . "/edit", $url_options);
+    $tests['[user:url]'] = $account->url('canonical', $url_options);
+    $tests['[user:edit-url]'] = $account->url('edit-form', $url_options);
     $tests['[user:last-login]'] = format_date($account->getLastLoginTime(), 'medium', '', NULL, $language_interface->id);
     $tests['[user:last-login:short]'] = format_date($account->getLastLoginTime(), 'short', '', NULL, $language_interface->id);
     $tests['[user:created]'] = format_date($account->getCreatedTime(), 'medium', '', NULL, $language_interface->id);
@@ -97,7 +89,7 @@ class UserTokenReplaceTest extends WebTestBase {
     $tests['[user:cancel-url]'] = user_cancel_url($account);
 
     // Generate tokens with interface language.
-    $link = url('user', array('absolute' => TRUE));
+    $link = \Drupal::url('user.page', [], array('absolute' => TRUE));
     foreach ($tests as $input => $expected) {
       $output = $token_service->replace($input, array('user' => $account), array('langcode' => $language_interface->id, 'callback' => 'user_mail_tokens', 'sanitize' => FALSE, 'clear' => TRUE));
       $this->assertTrue(strpos($output, $link) === 0, 'Generated URL is in interface language.');
@@ -106,14 +98,14 @@ class UserTokenReplaceTest extends WebTestBase {
     // Generate tokens with the user's preferred language.
     $account->preferred_langcode = 'de';
     $account->save();
-    $link = url('user', array('language' => \Drupal::languageManager()->getLanguage($account->getPreferredLangcode()), 'absolute' => TRUE));
+    $link = \Drupal::url('user.page', [], array('language' => \Drupal::languageManager()->getLanguage($account->getPreferredLangcode()), 'absolute' => TRUE));
     foreach ($tests as $input => $expected) {
       $output = $token_service->replace($input, array('user' => $account), array('callback' => 'user_mail_tokens', 'sanitize' => FALSE, 'clear' => TRUE));
       $this->assertTrue(strpos($output, $link) === 0, "Generated URL is in the user's preferred language.");
     }
 
     // Generate tokens with one specific language.
-    $link = url('user', array('language' => \Drupal::languageManager()->getLanguage('de'), 'absolute' => TRUE));
+    $link = \Drupal::url('user.page', [], array('language' => \Drupal::languageManager()->getLanguage('de'), 'absolute' => TRUE));
     foreach ($tests as $input => $expected) {
       foreach (array($user1, $user2) as $account) {
         $output = $token_service->replace($input, array('user' => $account), array('langcode' => 'de', 'callback' => 'user_mail_tokens', 'sanitize' => FALSE, 'clear' => TRUE));

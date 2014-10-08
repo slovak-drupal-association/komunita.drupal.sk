@@ -11,6 +11,8 @@ use Drupal\Core\Ajax\CommandInterface;
 
 /**
  * Defines an AJAX command to set the window.location, loading that URL.
+ *
+ * @ingroup ajax
  */
 class RedirectCommand implements CommandInterface {
 
@@ -26,7 +28,7 @@ class RedirectCommand implements CommandInterface {
    *
    * @param string $url
    *   The URL that will be loaded into window.location. This should be a full
-   *   URL, one that has already been run through the url() function.
+   *   URL, one that has already been run through the _url() function.
    */
   public function __construct($url) {
     $this->url = $url;

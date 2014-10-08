@@ -8,17 +8,11 @@
 namespace Drupal\aggregator\Tests;
 
 /**
- * Tests functionality of removing a feed item in the Aggregator module.
+ * Delete feed items from a feed.
+ *
+ * @group aggregator
  */
 class DeleteFeedItemTest extends AggregatorTestBase {
-  public static function getInfo() {
-    return array(
-      'name' => 'Delete feed item functionality',
-      'description' => 'Delete feed items from a feed.',
-      'group' => 'Aggregator'
-    );
-  }
-
   /**
    * Tests running "delete items" from 'admin/config/services/aggregator' page.
    */
@@ -26,13 +20,13 @@ class DeleteFeedItemTest extends AggregatorTestBase {
     // Create a bunch of test feeds.
     $feed_urls = array();
     // No last-modified, no etag.
-    $feed_urls[] = url('aggregator/test-feed', array('absolute' => TRUE));
+    $feed_urls[] = \Drupal::url('aggregator_test.feed', array(), array('absolute' => TRUE));
     // Last-modified, but no etag.
-    $feed_urls[] = url('aggregator/test-feed/1', array('absolute' => TRUE));
+    $feed_urls[] = \Drupal::url('aggregator_test.feed', array('use_last_modified' => 1), array('absolute' => TRUE));
     // No Last-modified, but etag.
-    $feed_urls[] = url('aggregator/test-feed/0/1', array('absolute' => TRUE));
+    $feed_urls[] = \Drupal::url('aggregator_test.feed', array('use_last_modified' => 0, 'use_etag' => 1), array('absolute' => TRUE));
     // Last-modified and etag.
-    $feed_urls[] = url('aggregator/test-feed/1/1', array('absolute' => TRUE));
+    $feed_urls[] = \Drupal::url('aggregator_test.feed', array('use_last_modified' => 1, 'use_etag' => 1), array('absolute' => TRUE));
 
     foreach ($feed_urls as $feed_url) {
       $feed = $this->createFeed($feed_url);

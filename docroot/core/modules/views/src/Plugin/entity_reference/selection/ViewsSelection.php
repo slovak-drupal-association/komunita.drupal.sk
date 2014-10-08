@@ -10,6 +10,7 @@ namespace Drupal\views\Plugin\entity_reference\selection;
 use Drupal\Core\Database\Query\SelectInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\entity_reference\Plugin\Type\Selection\SelectionInterface;
 use Drupal\views\Views;
 
@@ -104,8 +105,8 @@ class ViewsSelection implements SelectionInterface {
     else {
       $form['view']['no_view_help'] = array(
         '#markup' => '<p>' . t('No eligible views were found. <a href="@create">Create a view</a> with an <em>Entity Reference</em> display, or add such a display to an <a href="@existing">existing view</a>.', array(
-          '@create' => url('admin/structure/views/add'),
-          '@existing' => url('admin/structure/views'),
+          '@create' => \Drupal::url('views_ui.add'),
+          '@existing' => \Drupal::url('views_ui.list'),
         )) . '</p>',
       );
     }
@@ -203,7 +204,7 @@ class ViewsSelection implements SelectionInterface {
   /**
    * {@inheritdoc}
    */
-  public function validateAutocompleteInput($input, &$element, &$form_state, $form, $strict = TRUE) {
+  public function validateAutocompleteInput($input, &$element, FormStateInterface $form_state, $form, $strict = TRUE) {
     return NULL;
   }
 
@@ -215,13 +216,13 @@ class ViewsSelection implements SelectionInterface {
   /**
    * Element validate; Check View is valid.
    */
-  public function settingsFormValidate($element, &$form_state, $form) {
+  public function settingsFormValidate($element, FormStateInterface $form_state, $form) {
     // Split view name and display name from the 'view_and_display' value.
     if (!empty($element['view_and_display']['#value'])) {
       list($view, $display) = explode(':', $element['view_and_display']['#value']);
     }
     else {
-      form_error($element, $form_state, t('The views entity selection mode requires a view.'));
+      $form_state->setError($element, t('The views entity selection mode requires a view.'));
       return;
     }
 

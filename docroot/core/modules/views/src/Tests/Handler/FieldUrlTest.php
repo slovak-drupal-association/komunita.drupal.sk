@@ -12,6 +12,8 @@ use Drupal\views\Views;
 
 /**
  * Tests the core Drupal\views\Plugin\views\field\Url handler.
+ *
+ * @group views
  */
 class FieldUrlTest extends ViewUnitTestBase {
 
@@ -24,15 +26,7 @@ class FieldUrlTest extends ViewUnitTestBase {
    */
   public static $testViews = array('test_view');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Field: URL',
-      'description' => 'Test the core Drupal\views\Plugin\views\field\Url handler.',
-      'group' => 'Views Handlers',
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
     $this->installSchema('system', 'url_alias');
   }
@@ -76,7 +70,7 @@ class FieldUrlTest extends ViewUnitTestBase {
 
     $this->executeView($view);
 
-    $this->assertEqual(l('John', 'John'), $view->field['name']->advancedRender($view->result[0]));
+    $this->assertEqual(_l('John', 'John'), $view->field['name']->advancedRender($view->result[0]));
   }
 
 }

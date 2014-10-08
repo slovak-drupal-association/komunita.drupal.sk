@@ -8,6 +8,7 @@
 namespace Drupal\content_translation\Routing;
 
 use Drupal\content_translation\ContentTranslationManagerInterface;
+use Drupal\Core\Access\AccessManagerInterface;
 use Drupal\Core\Routing\RouteSubscriberBase;
 use Drupal\Core\Routing\RoutingEvents;
 use Symfony\Component\Routing\Route;
@@ -56,18 +57,13 @@ class ContentTranslationRouteSubscriber extends RouteSubscriberBase {
         $path,
         array(
           '_content' => '\Drupal\content_translation\Controller\ContentTranslationController::overview',
-          '_entity_type_id' => $entity_type_id,
+          'entity_type_id' => $entity_type_id,
         ),
         array(
           '_access_content_translation_overview' => $entity_type_id,
-          '_permission' => 'translate any entity',
         ),
         array(
-          '_access_mode' => 'ANY',
           'parameters' => array(
-            'entity' => array(
-              'type' => 'entity:' . $entity_type_id,
-            ),
             $entity_type_id => array(
               'type' => 'entity:' . $entity_type_id,
             ),
@@ -84,7 +80,7 @@ class ContentTranslationRouteSubscriber extends RouteSubscriberBase {
           'source' => NULL,
           'target' => NULL,
           '_title' => 'Add',
-          '_entity_type_id' => $entity_type_id,
+          'entity_type_id' => $entity_type_id,
 
         ),
         array(
@@ -92,10 +88,13 @@ class ContentTranslationRouteSubscriber extends RouteSubscriberBase {
           '_access_content_translation_manage' => 'create',
         ),
         array(
-          '_access_mode' => 'ANY',
+          '_access_mode' => AccessManagerInterface::ACCESS_MODE_ANY,
           'parameters' => array(
-            'entity' => array(
-              'type' => 'entity:' . $entity_type_id,
+            'source' => array(
+              'type' => 'language',
+            ),
+            'target' => array(
+              'type' => 'language',
             ),
             $entity_type_id => array(
               'type' => 'entity:' . $entity_type_id,
@@ -112,17 +111,17 @@ class ContentTranslationRouteSubscriber extends RouteSubscriberBase {
           '_content' => '\Drupal\content_translation\Controller\ContentTranslationController::edit',
           'language' => NULL,
           '_title' => 'Edit',
-          '_entity_type_id' => $entity_type_id,
+          'entity_type_id' => $entity_type_id,
         ),
         array(
           '_permission' => 'translate any entity',
           '_access_content_translation_manage' => 'update',
         ),
         array(
-          '_access_mode' => 'ANY',
+          '_access_mode' => AccessManagerInterface::ACCESS_MODE_ANY,
           'parameters' => array(
-            'entity' => array(
-              'type' => 'entity:' . $entity_type_id,
+            'language' => array(
+              'type' => 'language',
             ),
             $entity_type_id => array(
               'type' => 'entity:' . $entity_type_id,
@@ -139,7 +138,7 @@ class ContentTranslationRouteSubscriber extends RouteSubscriberBase {
           '_form' => '\Drupal\content_translation\Form\ContentTranslationDeleteForm',
           'language' => NULL,
           '_title' => 'Delete',
-          '_entity_type_id' => $entity_type_id,
+          'entity_type_id' => $entity_type_id,
         ),
         array(
           '_permission' => 'translate any entity',
@@ -147,18 +146,18 @@ class ContentTranslationRouteSubscriber extends RouteSubscriberBase {
         ),
         array(
           'parameters' => array(
-            'entity' => array(
-              'type' => 'entity:' . $entity_type_id,
+            'language' => array(
+              'type' => 'language',
             ),
             $entity_type_id => array(
               'type' => 'entity:' . $entity_type_id,
             ),
           ),
-          '_access_mode' => 'ANY',
+          '_access_mode' => AccessManagerInterface::ACCESS_MODE_ANY,
           '_admin_route' => $is_admin,
         )
       );
-      $collection->add("content_translation.delete_$entity_type_id", $route);
+      $collection->add("content_translation.translation_delete_$entity_type_id", $route);
     }
   }
 
@@ -167,7 +166,9 @@ class ContentTranslationRouteSubscriber extends RouteSubscriberBase {
    */
   public static function getSubscribedEvents() {
     $events = parent::getSubscribedEvents();
-    $events[RoutingEvents::ALTER] = array('onAlterRoutes', -100);
+    // Should run after AdminRouteSubscriber so the routes can inherit admin
+    // status of the edit routes on entities. Therefore priority -210.
+    $events[RoutingEvents::ALTER] = array('onAlterRoutes', -210);
     return $events;
   }
 

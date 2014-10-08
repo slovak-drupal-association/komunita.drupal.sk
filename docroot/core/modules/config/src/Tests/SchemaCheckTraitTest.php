@@ -12,7 +12,9 @@ use Drupal\simpletest\KernelTestBase;
 
 
 /**
- * Tests \Drupal\Core\Config\Schema\SchemaCheckTrait.
+ * Tests the functionality of SchemaCheckTrait.
+ *
+ * @group config
  */
 class SchemaCheckTraitTest extends KernelTestBase {
   use SchemaCheckTrait;
@@ -34,18 +36,7 @@ class SchemaCheckTraitTest extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  public static function getInfo() {
-    return array(
-      'name' => 'SchemaCheckTrait test',
-      'description' => 'Tests the functionality of SchemaCheckTrait.',
-      'group' => 'Configuration',
-    );
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
     $this->installConfig(array('config_test', 'config_schema_test'));
     $this->typedConfig = \Drupal::service('config.typed');

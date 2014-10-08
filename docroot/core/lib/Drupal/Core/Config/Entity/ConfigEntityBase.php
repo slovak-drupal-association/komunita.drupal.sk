@@ -163,7 +163,7 @@ abstract class ConfigEntityBase extends Entity implements ConfigEntityInterface 
    */
   public function disable() {
     // An entity was disabled, invalidate its own cache tag.
-    Cache::invalidateTags(array($this->entityTypeId => array($this->id())));
+    Cache::invalidateTags($this->getCacheTag());
     return $this->setStatus(FALSE);
   }
 
@@ -250,7 +250,7 @@ abstract class ConfigEntityBase extends Entity implements ConfigEntityInterface 
     $id_key = $this->getEntityType()->getKey('id');
     foreach (array_keys($definition['mapping']) as $name) {
       // Special handling for IDs so that computed compound IDs work.
-      // @see \Drupal\entity\EntityDisplayBase::id()
+      // @see \Drupal\Core\Entity\EntityDisplayBase::id()
       if ($name == $id_key) {
         $properties[$name] = $this->id();
       }
@@ -326,14 +326,21 @@ abstract class ConfigEntityBase extends Entity implements ConfigEntityInterface 
         }
       }
     }
+    if ($this instanceof ThirdPartySettingsInterface) {
+      // Configuration entities need to depend on the providers of any third
+      // parties that they store the configuration for.
+      foreach ($this->getThirdPartyProviders() as $provider) {
+        $this->addDependency('module', $provider);
+      }
+    }
     return $this->dependencies;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function urlInfo($rel = 'edit-form') {
-    return parent::urlInfo($rel);
+  public function urlInfo($rel = 'edit-form', array $options = []) {
+    return parent::urlInfo($rel, $options);
   }
 
   /**
@@ -353,12 +360,19 @@ abstract class ConfigEntityBase extends Entity implements ConfigEntityInterface 
   /**
    * {@inheritdoc}
    */
+  public function link($text = NULL, $rel = 'edit-form', array $options = []) {
+    return parent::link($text, $rel, $options);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   protected function addDependency($type, $name) {
     // A config entity is always dependent on its provider. There is no need to
     // explicitly declare the dependency. An explicit dependency on Core, which
     // provides some plugins, is also not needed.
     // @see \Drupal\Core\Config\Entity\ConfigEntityDependency::hasDependency()
-    if ($type == 'module' && ($name == $this->getEntityType()->getProvider() || $name == 'Core')) {
+    if ($type == 'module' && ($name == $this->getEntityType()->getProvider() || $name == 'core')) {
       return $this;
     }
 
@@ -368,8 +382,21 @@ abstract class ConfigEntityBase extends Entity implements ConfigEntityInterface 
   /**
    * {@inheritdoc}
    */
+  public function getDependencies() {
+    return $this->dependencies;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getConfigDependencyName() {
     return $this->getEntityType()->getConfigPrefix() . '.' . $this->id();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function onDependencyRemoval(array $dependencies) {
   }
 
 }

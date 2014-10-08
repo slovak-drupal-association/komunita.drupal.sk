@@ -10,14 +10,12 @@ namespace Drupal\Tests\Core\ParamConverter;
 use Drupal\Core\ParamConverter\ParamConverterManager;
 use Drupal\Tests\UnitTestCase;
 use Symfony\Cmf\Component\Routing\RouteObjectInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 
 /**
- * Tests the typed data resolver manager.
- *
  * @coversDefaultClass \Drupal\Core\ParamConverter\ParamConverterManager
+ * @group ParamConverter
  */
 class ParamConverterManagerTest extends UnitTestCase {
 
@@ -29,18 +27,7 @@ class ParamConverterManagerTest extends UnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public static function getInfo() {
-    return array(
-      'name' => 'Parameter converter manager',
-      'description' => 'Tests the parameter converter manager.',
-      'group' => 'Routing',
-    );
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->manager = new ParamConverterManager();
@@ -211,11 +198,11 @@ class ParamConverterManagerTest extends UnitTestCase {
     $converter = $this->getMock('Drupal\Core\ParamConverter\ParamConverterInterface');
     $converter->expects($this->any())
       ->method('convert')
-      ->with(1, $this->isType('array'), 'id', $this->isType('array'), $this->isInstanceOf('Symfony\Component\HttpFoundation\Request'))
+      ->with(1, $this->isType('array'), 'id', $this->isType('array'))
       ->will($this->returnValue('something_better!'));
     $this->manager->addConverter($converter, 'test_convert');
 
-    $result = $this->manager->convert($defaults, new Request());
+    $result = $this->manager->convert($defaults);
 
     $this->assertEquals($expected, $result);
   }
@@ -232,7 +219,7 @@ class ParamConverterManagerTest extends UnitTestCase {
 
     $expected = $defaults;
 
-    $result = $this->manager->convert($defaults, new Request());
+    $result = $this->manager->convert($defaults);
     $this->assertEquals($expected, $result);
   }
 
@@ -260,11 +247,11 @@ class ParamConverterManagerTest extends UnitTestCase {
     $converter = $this->getMock('Drupal\Core\ParamConverter\ParamConverterInterface');
     $converter->expects($this->any())
       ->method('convert')
-      ->with(1, $this->isType('array'), 'id', $this->isType('array'), $this->isInstanceOf('Symfony\Component\HttpFoundation\Request'))
+      ->with(1, $this->isType('array'), 'id', $this->isType('array'))
       ->will($this->returnValue(NULL));
     $this->manager->addConverter($converter, 'test_convert');
 
-    $this->manager->convert($defaults, new Request());
+    $this->manager->convert($defaults);
   }
 
 }

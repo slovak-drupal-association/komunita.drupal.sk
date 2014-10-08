@@ -11,7 +11,9 @@ use Drupal\config\Tests\SchemaCheckTestTrait;
 use Drupal\simpletest\WebTestBase;
 
 /**
- * Tests the Color config schema.
+ * Ensures the color config schema is correct.
+ *
+ * @group color
  */
 class ColorConfigSchemaTest extends WebTestBase {
 
@@ -31,20 +33,12 @@ class ColorConfigSchemaTest extends WebTestBase {
    */
   protected $adminUser;
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Color config schema',
-      'description' => 'Ensures the color config schema is correct.',
-      'group' => 'Color',
-    );
-  }
-
   /**
    * {@inheritdoc}
    */
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
-    \Drupal::service('theme_handler')->enable(array('bartik'));
+    \Drupal::service('theme_handler')->install(array('bartik'));
 
     // Create user.
     $this->adminUser = $this->drupalCreateUser(array('administer themes'));

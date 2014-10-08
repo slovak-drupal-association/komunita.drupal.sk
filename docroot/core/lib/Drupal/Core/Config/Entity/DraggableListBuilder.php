@@ -11,6 +11,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Form\FormInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Defines a class to build a draggable listing of configuration entities.
@@ -102,7 +103,7 @@ abstract class DraggableListBuilder extends ConfigEntityListBuilder implements F
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, array &$form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state) {
     $form[$this->entitiesKey] = array(
       '#type' => 'table',
       '#header' => $this->buildHeader(),
@@ -117,10 +118,21 @@ abstract class DraggableListBuilder extends ConfigEntityListBuilder implements F
     );
 
     $this->entities = $this->load();
+    $delta = 10;
+    // Change the delta of the weight field if have more than 20 entities.
+    if (!empty($this->weightKey)) {
+      $count = count($this->entities);
+      if ($count > 20) {
+        $delta = ceil($count / 2);
+      }
+    }
     foreach ($this->entities as $entity) {
       $row = $this->buildRow($entity);
       if (isset($row['label'])) {
         $row['label'] = array('#markup' => $row['label']);
+      }
+      if (isset($row['weight'])) {
+        $row['weight']['#delta'] = $delta;
       }
       $form[$this->entitiesKey][$entity->id()] = $row;
     }
@@ -138,15 +150,15 @@ abstract class DraggableListBuilder extends ConfigEntityListBuilder implements F
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, array &$form_state) {
+  public function validateForm(array &$form, FormStateInterface $form_state) {
     // No validation.
   }
 
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, array &$form_state) {
-    foreach ($form_state['values'][$this->entitiesKey] as $id => $value) {
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    foreach ($form_state->getValue($this->entitiesKey) as $id => $value) {
       if (isset($this->entities[$id]) && $this->entities[$id]->get($this->weightKey) != $value['weight']) {
         // Save entity only when its weight was changed.
         $this->entities[$id]->set($this->weightKey, $value['weight']);

@@ -7,10 +7,12 @@
 
 namespace Drupal\field\Tests;
 
-use Drupal\Core\Language\Language;
+use Drupal\language\Entity\ConfigurableLanguage;
 
 /**
- * Web test class for the multilanguage fields logic.
+ * Tests multilanguage fields logic that require a full environment.
+ *
+ * @group field
  */
 class TranslationWebTest extends FieldTestBase {
 
@@ -36,59 +38,50 @@ class TranslationWebTest extends FieldTestBase {
   protected $entity_type = 'entity_test_mulrev';
 
   /**
+   * The field storage to use in this test.
+   *
+   * @var \Drupal\field\Entity\FieldStorageConfig
+   */
+  protected $fieldStorage;
+
+  /**
    * The field to use in this test.
    *
    * @var \Drupal\field\Entity\FieldConfig
    */
   protected $field;
 
-  /**
-   * The field instance to use in this test.
-   *
-   * @var \Drupal\field\Entity\FieldInstanceConfig
-   */
-  protected $instance;
-
-  public static function getInfo() {
-    return array(
-      'name' => 'Field translations web tests',
-      'description' => 'Test multilanguage fields logic that require a full environment.',
-      'group' => 'Field API',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
-    $this->field_name = drupal_strtolower($this->randomName() . '_field_name');
+    $this->field_name = drupal_strtolower($this->randomMachineName() . '_field_name');
 
-    $field = array(
-      'name' => $this->field_name,
+    $field_storage = array(
+      'field_name' => $this->field_name,
       'entity_type' => $this->entity_type,
       'type' => 'test_field',
       'cardinality' => 4,
       'translatable' => TRUE,
     );
-    entity_create('field_config', $field)->save();
-    $this->field = entity_load('field_config', $this->entity_type . '.' . $this->field_name);
+    entity_create('field_storage_config', $field_storage)->save();
+    $this->fieldStorage = entity_load('field_storage_config', $this->entity_type . '.' . $this->field_name);
 
-    $instance = array(
-      'field' => $this->field,
+    $field = array(
+      'field_storage' => $this->fieldStorage,
       'bundle' => $this->entity_type,
     );
-    entity_create('field_instance_config', $instance)->save();
-    $this->instance = entity_load('field_instance_config', $this->entity_type . '.' . $instance['bundle'] . '.' . $this->field_name);
+    entity_create('field_config', $field)->save();
+    $this->field = entity_load('field_config', $this->entity_type . '.' . $field['bundle'] . '.' . $this->field_name);
 
     entity_get_form_display($this->entity_type, $this->entity_type, 'default')
       ->setComponent($this->field_name)
       ->save();
 
     for ($i = 0; $i < 3; ++$i) {
-      $language = new Language(array(
+      ConfigurableLanguage::create(array(
         'id' => 'l' . $i,
-        'name' => $this->randomString(),
-      ));
-      language_save($language);
+        'label' => $this->randomString(),
+      ))->save();
     }
   }
 
@@ -103,7 +96,7 @@ class TranslationWebTest extends FieldTestBase {
     field_test_entity_info_translatable($this->entity_type, TRUE);
     $entity = entity_create($this->entity_type);
     $available_langcodes = array_flip(array_keys($this->container->get('language_manager')->getLanguages()));
-    $field_name = $this->field->getName();
+    $field_name = $this->fieldStorage->getName();
 
     // Store the field translations.
     ksort($available_langcodes);
@@ -115,8 +108,6 @@ class TranslationWebTest extends FieldTestBase {
 
     // Create a new revision.
     $edit = array(
-      'user_id' => 1,
-      'name' => $this->randomName(),
       "{$field_name}[0][value]" => $entity->{$field_name}->value,
       'revision' => TRUE,
     );
@@ -132,7 +123,7 @@ class TranslationWebTest extends FieldTestBase {
    * by the passed arguments were correctly stored.
    */
   private function checkTranslationRevisions($id, $revision_id, $available_langcodes) {
-    $field_name = $this->field->getName();
+    $field_name = $this->fieldStorage->getName();
     $entity = entity_revision_load($this->entity_type, $revision_id);
     foreach ($available_langcodes as $langcode => $value) {
       $passed = $entity->getTranslation($langcode)->{$field_name}->value == $value + 1;

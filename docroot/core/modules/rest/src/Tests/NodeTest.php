@@ -10,7 +10,9 @@ namespace Drupal\rest\Tests;
 use Drupal\rest\Tests\RESTTestBase;
 
 /**
- * Tests resource read operations on test entities, nodes and users.
+ * Tests special cases for node entities.
+ *
+ * @group rest
  */
 class NodeTest extends RESTTestBase {
 
@@ -22,14 +24,6 @@ class NodeTest extends RESTTestBase {
    * @var array
    */
   public static $modules = array('hal', 'rest', 'comment');
-
-  public static function getInfo() {
-    return array(
-      'name' => 'Node resource',
-      'description' => 'Test special cases for node entities.',
-      'group' => 'REST',
-    );
-  }
 
   /**
    * Enables node specific REST API configuration and authentication.
@@ -74,7 +68,7 @@ class NodeTest extends RESTTestBase {
     $data = array(
       '_links' => array(
         'type' => array(
-          'href' => url('rest/type/node/resttest', array('absolute' => TRUE)),
+          'href' => _url('rest/type/node/resttest', array('absolute' => TRUE)),
         ),
       ),
       'title' => array(

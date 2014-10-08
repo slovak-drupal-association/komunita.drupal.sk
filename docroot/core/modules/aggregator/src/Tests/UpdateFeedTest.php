@@ -8,17 +8,11 @@
 namespace Drupal\aggregator\Tests;
 
 /**
- * Tests functionality of updating the feed in the Aggregator module.
+ * Update feed test.
+ *
+ * @group aggregator
  */
 class UpdateFeedTest extends AggregatorTestBase {
-  public static function getInfo() {
-    return array(
-      'name' => 'Update feed functionality',
-      'description' => 'Update feed test.',
-      'group' => 'Aggregator'
-    );
-  }
-
   /**
    * Creates a feed and attempts to update it.
    */
@@ -37,7 +31,7 @@ class UpdateFeedTest extends AggregatorTestBase {
       $this->assertRaw(t('The feed %name has been updated.', array('%name' => $edit['title[0][value]'])), format_string('The feed %name has been updated.', array('%name' => $edit['title[0][value]'])));
 
       // Check feed data.
-      $this->assertEqual($this->getUrl(), url('aggregator/sources/' . $feed->id(), array('absolute' => TRUE)));
+      $this->assertUrl($feed->url('canonical', ['absolute' => TRUE]));
       $this->assertTrue($this->uniqueFeed($edit['title[0][value]'], $edit['url[0][value]']), 'The feed is unique.');
 
       // Check feed source.

@@ -12,7 +12,10 @@ use Drupal\simpletest\DrupalUnitTestBase;
 use Drupal\Component\Utility\String;
 
 /**
- * Test the core GD image manipulation functions.
+ * Tests that core image manipulations work properly: scale, resize, rotate,
+ * crop, scale and crop, and desaturate.
+ *
+ * @group Image
  */
 class ToolkitGdTest extends DrupalUnitTestBase {
 
@@ -29,9 +32,11 @@ class ToolkitGdTest extends DrupalUnitTestBase {
   protected $green       = array(0, 255, 0, 0);
   protected $blue        = array(0, 0, 255, 0);
   protected $yellow      = array(255, 255, 0, 0);
-  protected $fuchsia     = array(255, 0, 255, 0); // Used as background colors.
-  protected $transparent = array(0, 0, 0, 127);
   protected $white       = array(255, 255, 255, 0);
+  protected $transparent = array(0, 0, 0, 127);
+  // Used as rotate background colors.
+  protected $fuchsia            = array(255, 0, 255, 0);
+  protected $rotate_transparent = array(255, 255, 255, 127);
 
   protected $width = 40;
   protected $height = 20;
@@ -43,18 +48,10 @@ class ToolkitGdTest extends DrupalUnitTestBase {
    */
   public static $modules = array('system', 'simpletest');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Image GD manipulation tests',
-      'description' => 'Check that core image manipulations work properly: scale, resize, rotate, crop, scale and crop, and desaturate.',
-      'group' => 'Image',
-    );
-  }
-
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Set the image factory service.
@@ -122,6 +119,7 @@ class ToolkitGdTest extends DrupalUnitTestBase {
     $files = array(
       'image-test.png',
       'image-test.gif',
+      'image-test-no-transparency.gif',
       'image-test.jpg',
     );
 
@@ -129,49 +127,49 @@ class ToolkitGdTest extends DrupalUnitTestBase {
     $operations = array(
       'resize' => array(
         'function' => 'resize',
-        'arguments' => array(20, 10),
+        'arguments' => array('width' => 20, 'height' => 10),
         'width' => 20,
         'height' => 10,
         'corners' => $default_corners,
       ),
       'scale_x' => array(
         'function' => 'scale',
-        'arguments' => array(20, NULL),
+        'arguments' => array('width' => 20),
         'width' => 20,
         'height' => 10,
         'corners' => $default_corners,
       ),
       'scale_y' => array(
         'function' => 'scale',
-        'arguments' => array(NULL, 10),
+        'arguments' => array('height' => 10),
         'width' => 20,
         'height' => 10,
         'corners' => $default_corners,
       ),
       'upscale_x' => array(
         'function' => 'scale',
-        'arguments' => array(80, NULL, TRUE),
+        'arguments' => array('width' => 80, 'upscale' => TRUE),
         'width' => 80,
         'height' => 40,
         'corners' => $default_corners,
       ),
       'upscale_y' => array(
         'function' => 'scale',
-        'arguments' => array(NULL, 40, TRUE),
+        'arguments' => array('height' => 40, 'upscale' => TRUE),
         'width' => 80,
         'height' => 40,
         'corners' => $default_corners,
       ),
       'crop' => array(
         'function' => 'crop',
-        'arguments' => array(12, 4, 16, 12),
+        'arguments' => array('x' => 12, 'y' => 4, 'width' => 16, 'height' => 12),
         'width' => 16,
         'height' => 12,
         'corners' => array_fill(0, 4, $this->white),
       ),
       'scale_and_crop' => array(
-        'function' => 'scaleAndCrop',
-        'arguments' => array(10, 8),
+        'function' => 'scale_and_crop',
+        'arguments' => array('width' => 10, 'height' => 8),
         'width' => 10,
         'height' => 8,
         'corners' => array_fill(0, 4, $this->black),
@@ -183,28 +181,28 @@ class ToolkitGdTest extends DrupalUnitTestBase {
       $operations += array(
         'rotate_5' => array(
           'function' => 'rotate',
-          'arguments' => array(5, 0xFF00FF), // Fuchsia background.
+          'arguments' => array('degrees' => 5, 'background' => '#FF00FF'), // Fuchsia background.
           'width' => 42,
           'height' => 24,
           'corners' => array_fill(0, 4, $this->fuchsia),
         ),
         'rotate_90' => array(
           'function' => 'rotate',
-          'arguments' => array(90, 0xFF00FF), // Fuchsia background.
+          'arguments' => array('degrees' => 90, 'background' => '#FF00FF'), // Fuchsia background.
           'width' => 20,
           'height' => 40,
           'corners' => array($this->transparent, $this->red, $this->green, $this->blue),
         ),
         'rotate_transparent_5' => array(
           'function' => 'rotate',
-          'arguments' => array(5),
+          'arguments' => array('degrees' => 5),
           'width' => 42,
           'height' => 24,
-          'corners' => array_fill(0, 4, $this->transparent),
+          'corners' => array_fill(0, 4, $this->rotate_transparent),
         ),
         'rotate_transparent_90' => array(
           'function' => 'rotate',
-          'arguments' => array(90),
+          'arguments' => array('degrees' => 90),
           'width' => 20,
           'height' => 40,
           'corners' => array($this->transparent, $this->red, $this->green, $this->blue),
@@ -238,7 +236,7 @@ class ToolkitGdTest extends DrupalUnitTestBase {
         // Load up a fresh image.
         $image = $this->imageFactory->get(drupal_get_path('module', 'simpletest') . '/files/' . $file);
         $toolkit = $image->getToolkit();
-        if (!$image) {
+        if (!$image->isValid()) {
           $this->fail(String::format('Could not load image %file.', array('%file' => $file)));
           continue 2;
         }
@@ -255,14 +253,27 @@ class ToolkitGdTest extends DrupalUnitTestBase {
         }
 
         // Perform our operation.
-        call_user_func_array(array($image, $values['function']), $values['arguments']);
+        $image->apply($values['function'], $values['arguments']);
 
         // To keep from flooding the test with assert values, make a general
         // value for whether each group of values fail.
         $correct_dimensions_real = TRUE;
         $correct_dimensions_object = TRUE;
 
-        // Check the real dimensions of the image first.
+        // PHP 5.5 GD bug: https://bugs.php.net/bug.php?id=65148. PHP 5.5 GD
+        // rotates differently then it did in PHP 5.4 resulting in different
+        // dimensions then what math teaches us. For the test images, the
+        // dimensions will be 1 pixel smaller in both dimensions (though other
+        // tests have shown a difference of 0 to 3 pixels in both dimensions.
+        // @todo: if and when the PHP bug gets solved, add an upper limit
+        //   version check.
+        // @todo: in [#1551686] the dimension calculations for rotation are
+        //   reworked. That issue should also check if these tests can be made
+        //   more robust.
+        if (version_compare(PHP_VERSION, '5.5', '>=') && $values['function'] === 'rotate' && $values['arguments']['degrees'] % 90 != 0) {
+          $values['height']--;
+          $values['width']--;
+        }
         if (imagesy($toolkit->getResource()) != $values['height'] || imagesx($toolkit->getResource()) != $values['width']) {
           $correct_dimensions_real = FALSE;
         }
@@ -284,6 +295,11 @@ class ToolkitGdTest extends DrupalUnitTestBase {
         if ($image->getToolkit()->getType() != IMAGETYPE_JPEG) {
           // Now check each of the corners to ensure color correctness.
           foreach ($values['corners'] as $key => $corner) {
+            // The test gif that does not have transparency has yellow where the
+            // others have transparent.
+            if ($file === 'image-test-no-transparency.gif' && $corner === $this->transparent) {
+              $corner = $this->yellow;
+            }
             // Get the location of the corner.
             switch ($key) {
               case 0:
@@ -291,16 +307,16 @@ class ToolkitGdTest extends DrupalUnitTestBase {
                 $y = 0;
                 break;
               case 1:
-                $x = $values['width'] - 1;
+                $x = $image->getWidth() - 1;
                 $y = 0;
                 break;
               case 2:
-                $x = $values['width'] - 1;
-                $y = $values['height'] - 1;
+                $x = $image->getWidth() - 1;
+                $y = $image->getHeight() - 1;
                 break;
               case 3:
                 $x = 0;
-                $y = $values['height'] - 1;
+                $y = $image->getHeight() - 1;
                 break;
             }
             $color = $this->getPixelColor($image, $x, $y);
@@ -311,8 +327,58 @@ class ToolkitGdTest extends DrupalUnitTestBase {
 
         // Check that saved image reloads without raising PHP errors.
         $image_reloaded = $this->imageFactory->get($file_path);
+        $resource = $image_reloaded->getToolkit()->getResource();
       }
     }
+  }
+
+  /**
+   * Tests loading an image whose transparent color index is out of range.
+   */
+  function testTransparentColorOutOfRange() {
+    // This image was generated by taking an initial image with a palette size
+    // of 6 colors, and setting the transparent color index to 6 (one higher
+    // than the largest allowed index), as follows:
+    // @code
+    // $image = imagecreatefromgif('core/modules/simpletest/files/image-test.gif');
+    // imagecolortransparent($image, 6);
+    // imagegif($image, 'core/modules/simpletest/files/image-test-transparent-out-of-range.gif');
+    // @endcode
+    // This allows us to test that an image with an out-of-range color index
+    // can be loaded correctly.
+    $file = 'image-test-transparent-out-of-range.gif';
+    $image = $this->imageFactory->get(drupal_get_path('module', 'simpletest') . '/files/' . $file);
+    $toolkit = $image->getToolkit();
+
+    if (!$image->isValid()) {
+      $this->fail(String::format('Could not load image %file.', array('%file' => $file)));
+    }
+    else {
+      // All images should be converted to truecolor when loaded.
+      $image_truecolor = imageistruecolor($toolkit->getResource());
+      $this->assertTrue($image_truecolor, String::format('Image %file after load is a truecolor image.', array('%file' => $file)));
+    }
+  }
+
+  /**
+   * Tests calling a missing image operation plugin.
+   */
+  function testMissingOperation() {
+
+    // Test that the image factory is set to use the GD toolkit.
+    $this->assertEqual($this->imageFactory->getToolkitId(), 'gd', 'The image factory is set to use the \'gd\' image toolkit.');
+
+    // An image file that will be tested.
+    $file = 'image-test.png';
+
+    // Load up a fresh image.
+    $image = $this->imageFactory->get(drupal_get_path('module', 'simpletest') . '/files/' . $file);
+    if (!$image->isValid()) {
+      $this->fail(String::format('Could not load image %file.', array('%file' => $file)));
+    }
+
+    // Try perform a missing toolkit operation.
+    $this->assertFalse($image->apply('missing_op', array()), 'Calling a missing image toolkit operation plugin fails.');
   }
 
 }

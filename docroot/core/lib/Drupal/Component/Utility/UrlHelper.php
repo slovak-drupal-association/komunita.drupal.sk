@@ -133,8 +133,8 @@ class UrlHelper {
    *   - query: An array of query parameters from $url, if they exist.
    *   - fragment: The fragment component from $url, if it exists.
    *
-   * @see l()
-   * @see url()
+   * @see \Drupal\Core\Utility\LinkGenerator
+   * @see _url()
    * @see http://tools.ietf.org/html/rfc3986
    *
    * @ingroup php_wrappers
@@ -151,7 +151,12 @@ class UrlHelper {
     if (strpos($url, '://') !== FALSE) {
       // Split off everything before the query string into 'path'.
       $parts = explode('?', $url);
-      $options['path'] = $parts[0];
+
+      // Don't support URLs without a path, like 'http://'.
+      list(, $path) = explode('://', $parts[0], 2);
+      if ($path != '') {
+        $options['path'] = $parts[0];
+      }
       // If there is a query string, transform it into keyed query parameters.
       if (isset($parts[1])) {
         $query_parts = explode('#', $parts[1]);
@@ -224,21 +229,29 @@ class UrlHelper {
    * @param string $base_url
    *   The base URL string to check against, such as "http://example.com/"
    *
-   * @return
+   * @return bool
    *   TRUE if the URL has the same domain and base path.
+   *
+   * @throws \InvalidArgumentException
+   *   Exception thrown when a either $url or $bath_url are not fully qualified.
    */
   public static function externalIsLocal($url, $base_url) {
     $url_parts = parse_url($url);
-    $base_host = parse_url($base_url, PHP_URL_HOST);
+    $base_parts = parse_url($base_url);
 
-    if (!isset($url_parts['path'])) {
-      return ($url_parts['host'] == $base_host);
+    if (empty($base_parts['host']) || empty($url_parts['host'])) {
+      throw new \InvalidArgumentException(String::format('A path was passed when a fully qualified domain was expected.'));
+    }
+
+    if (!isset($url_parts['path']) || !isset($base_parts['path'])) {
+      return (!isset($base_parts['path']) || $base_parts['path'] == '/')
+        && ($url_parts['host'] == $base_parts['host']);
     }
     else {
       // When comparing base paths, we need a trailing slash to make sure a
       // partial URL match isn't occurring. Since base_path() always returns
       // with a trailing slash, we don't need to add the trailing slash here.
-      return ($url_parts['host'] == $base_host && stripos($url_parts['path'], $base_url) === 0);
+      return ($url_parts['host'] == $base_parts['host'] && stripos($url_parts['path'], $base_parts['path']) === 0);
     }
   }
 
@@ -275,7 +288,7 @@ class UrlHelper {
    * to being output to an HTML attribute value. It is often called as part of
    * check_url() or Drupal\Component\Utility\Xss::filter(), but those functions
    * return an HTML-encoded string, so this function can be called independently
-   * when the output needs to be a plain-text string for passing to t(), l(),
+   * when the output needs to be a plain-text string for passing to t(), _l(),
    * Drupal\Core\Template\Attribute, or another function that will call
    * \Drupal\Component\Utility\String::checkPlain() separately.
    *

@@ -11,7 +11,9 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\simpletest\WebTestBase;
 
 /**
- * Tests the functionality of the Book module.
+ * Create a book, add pages, and test book interface.
+ *
+ * @group book
  */
 class BookTest extends WebTestBase {
 
@@ -50,15 +52,7 @@ class BookTest extends WebTestBase {
    */
   protected $admin_user;
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Book functionality',
-      'description' => 'Create a book, add pages, and test book interface.',
-      'group' => 'Book',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // node_access_test requires a node_access_rebuild().
@@ -193,22 +187,31 @@ class BookTest extends WebTestBase {
 
     // Check previous, up, and next links.
     if ($previous) {
-      $this->assertRaw(l('<b>‹</b> ' . $previous->label(), 'node/' . $previous->id(), array('html' => TRUE, 'attributes' => array('rel' => array('prev'), 'title' => t('Go to previous page')))), 'Previous page link found.');
+      /** @var \Drupal\Core\Url $url */
+      $url = $previous->urlInfo();
+      $url->setOptions(array('html' => TRUE, 'attributes' => array('rel' => array('prev'), 'title' => t('Go to previous page'))));
+      $this->assertRaw(\Drupal::l('<b>‹</b> ' . $previous->label(), $url), 'Previous page link found.');
     }
 
     if ($up) {
-      $this->assertRaw(l('Up', 'node/' . $up->id(), array('html'=> TRUE, 'attributes' => array('title' => t('Go to parent page')))), 'Up page link found.');
+      /** @var \Drupal\Core\Url $url */
+      $url = $up->urlInfo();
+      $url->setOptions(array('html'=> TRUE, 'attributes' => array('title' => t('Go to parent page'))));
+      $this->assertRaw(\Drupal::l('Up', $url), 'Up page link found.');
     }
 
     if ($next) {
-      $this->assertRaw(l($next->label() . ' <b>›</b>', 'node/' . $next->id(), array('html'=> TRUE, 'attributes' => array('rel' => array('next'), 'title' => t('Go to next page')))), 'Next page link found.');
+      /** @var \Drupal\Core\Url $url */
+      $url = $next->urlInfo();
+      $url->setOptions(array('html'=> TRUE, 'attributes' => array('rel' => array('next'), 'title' => t('Go to next page'))));
+      $this->assertRaw(\Drupal::l($next->label() . ' <b>›</b>', $url), 'Next page link found.');
     }
 
     // Compute the expected breadcrumb.
     $expected_breadcrumb = array();
-    $expected_breadcrumb[] = url('');
+    $expected_breadcrumb[] = \Drupal::url('<front>');
     foreach ($breadcrumb as $a_node) {
-      $expected_breadcrumb[] = url('node/' . $a_node->id());
+      $expected_breadcrumb[] = $a_node->url();
     }
 
     // Fetch links in the current breadcrumb.
@@ -261,8 +264,8 @@ class BookTest extends WebTestBase {
     static $number = 0; // Used to ensure that when sorted nodes stay in same order.
 
     $edit = array();
-    $edit['title[0][value]'] = $number . ' - SimpleTest test node ' . $this->randomName(10);
-    $edit['body[0][value]'] = 'SimpleTest test body ' . $this->randomName(32) . ' ' . $this->randomName(32);
+    $edit['title[0][value]'] = $number . ' - SimpleTest test node ' . $this->randomMachineName(10);
+    $edit['body[0][value]'] = 'SimpleTest test body ' . $this->randomMachineName(32) . ' ' . $this->randomMachineName(32);
     $edit['book[bid]'] = $book_nid;
 
     if ($parent !== NULL) {

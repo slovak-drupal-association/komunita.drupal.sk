@@ -12,6 +12,8 @@ use Drupal\simpletest\WebTestBase;
 
 /**
  * Functional tests for the language switching feature.
+ *
+ * @group language
  */
 class LanguageSwitchingTest extends WebTestBase {
 
@@ -20,17 +22,9 @@ class LanguageSwitchingTest extends WebTestBase {
    *
    * @var array
    */
-  public static $modules = array('language', 'block', 'language_test');
+  public static $modules = array('locale', 'language', 'block', 'language_test');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Language switching',
-      'description' => 'Tests for the language switching feature.',
-      'group' => 'Language',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Create and login user.
@@ -42,22 +36,25 @@ class LanguageSwitchingTest extends WebTestBase {
    * Functional tests for the language switcher block.
    */
   function testLanguageBlock() {
-    // Enable the language switching block..
-    $block = $this->drupalPlaceBlock('language_block:' . LanguageInterface::TYPE_INTERFACE, array(
-      'id' => 'test_language_block',
-      // Ensure a 2-byte UTF-8 sequence is in the tested output.
-      'label' => $this->randomName(8) . '×',
-    ));
-
     // Add language.
     $edit = array(
       'predefined_langcode' => 'fr',
     );
     $this->drupalPostForm('admin/config/regional/language/add', $edit, t('Add language'));
 
+    // Set the native language name.
+    $this->saveNativeLanguageName('fr', 'français');
+
     // Enable URL language detection and selection.
     $edit = array('language_interface[enabled][language-url]' => '1');
     $this->drupalPostForm('admin/config/regional/language/detection', $edit, t('Save settings'));
+
+    // Enable the language switching block.
+    $block = $this->drupalPlaceBlock('language_block:' . LanguageInterface::TYPE_INTERFACE, array(
+      'id' => 'test_language_block',
+      // Ensure a 2-byte UTF-8 sequence is in the tested output.
+      'label' => $this->randomMachineName(8) . '×',
+    ));
 
     $this->doTestLanguageBlockAuthenticated($block->label());
     $this->doTestLanguageBlockAnonymous($block->label());
@@ -78,9 +75,10 @@ class LanguageSwitchingTest extends WebTestBase {
 
     // Assert that each list item and anchor element has the appropriate data-
     // attributes.
-    list($language_switcher) = $this->xpath('//div[@id=:id]/div[contains(@class, "content")]', array(':id' => 'block-test-language-block'));
+    list($language_switcher) = $this->xpath('//div[@id=:id]', array(':id' => 'block-test-language-block'));
     $list_items = array();
     $anchors = array();
+    $labels = array();
     foreach ($language_switcher->ul->li as $list_item) {
       $classes = explode(" ", (string) $list_item['class']);
       list($langcode) = array_intersect($classes, array('en', 'fr'));
@@ -92,6 +90,7 @@ class LanguageSwitchingTest extends WebTestBase {
         'hreflang' => (string) $list_item->a['hreflang'],
         'data-drupal-link-system-path' => (string) $list_item->a['data-drupal-link-system-path'],
       );
+      $labels[] = (string) $list_item->a;
     }
     $expected_list_items = array(
       0 => array('langcode_class' => 'en', 'data-drupal-link-system-path' => 'user/2'),
@@ -107,6 +106,7 @@ class LanguageSwitchingTest extends WebTestBase {
     $this->assertIdentical($settings['path']['currentPath'], 'user/2', 'drupalSettings.path.currentPath is set correctly to allow drupal.active-link to mark the correct links as active.');
     $this->assertIdentical($settings['path']['isFront'], FALSE, 'drupalSettings.path.isFront is set correctly to allow drupal.active-link to mark the correct links as active.');
     $this->assertIdentical($settings['path']['currentLanguage'], 'en', 'drupalSettings.path.currentLanguage is set correctly to allow drupal.active-link to mark the correct links as active.');
+    $this->assertIdentical($labels, array('English', 'français'), 'The language links labels are in their own language on the language switcher block.');
   }
 
   /**
@@ -125,7 +125,7 @@ class LanguageSwitchingTest extends WebTestBase {
     $this->assertText($block_label, 'Language switcher block found.');
 
     // Assert that only the current language is marked as active.
-    list($language_switcher) = $this->xpath('//div[@id=:id]/div[contains(@class, "content")]', array(':id' => 'block-test-language-block'));
+    list($language_switcher) = $this->xpath('//div[@id=:id]', array(':id' => 'block-test-language-block'));
     $links = array(
       'active' => array(),
       'inactive' => array(),
@@ -134,6 +134,7 @@ class LanguageSwitchingTest extends WebTestBase {
       'active' => array(),
       'inactive' => array(),
     );
+    $labels = array();
     foreach ($language_switcher->ul->li as $link) {
       $classes = explode(" ", (string) $link['class']);
       list($langcode) = array_intersect($classes, array('en', 'fr'));
@@ -150,9 +151,11 @@ class LanguageSwitchingTest extends WebTestBase {
       else {
         $anchors['inactive'][] = $langcode;
       }
+      $labels[] = (string) $link->a;
     }
     $this->assertIdentical($links, array('active' => array('en'), 'inactive' => array('fr')), 'Only the current language list item is marked as active on the language switcher block.');
     $this->assertIdentical($anchors, array('active' => array('en'), 'inactive' => array('fr')), 'Only the current language anchor is marked as active on the language switcher block.');
+    $this->assertIdentical($labels, array('English', 'français'), 'The language links labels are in their own language on the language switcher block.');
   }
 
   /**
@@ -182,7 +185,7 @@ class LanguageSwitchingTest extends WebTestBase {
     $function_name = '#type link';
     $path = 'language_test/type-link-active-class';
 
-    // Test links generated by l() on an English page.
+    // Test links generated by _l() on an English page.
     $current_language = 'English';
     $this->drupalGet($path);
 
@@ -207,7 +210,7 @@ class LanguageSwitchingTest extends WebTestBase {
     $this->assertIdentical($settings['path']['isFront'], FALSE, 'drupalSettings.path.isFront is set correctly to allow drupal.active-link to mark the correct links as active.');
     $this->assertIdentical($settings['path']['currentLanguage'], 'en', 'drupalSettings.path.currentLanguage is set correctly to allow drupal.active-link to mark the correct links as active.');
 
-    // Test links generated by l() on a French page.
+    // Test links generated by _l() on a French page.
     $current_language = 'French';
     $this->drupalGet('fr/language_test/type-link-active-class');
 
@@ -243,7 +246,7 @@ class LanguageSwitchingTest extends WebTestBase {
 
     $this->drupalLogout();
 
-    // Test links generated by l() on an English page.
+    // Test links generated by _l() on an English page.
     $current_language = 'English';
     $this->drupalGet('language_test/type-link-active-class');
 
@@ -262,7 +265,7 @@ class LanguageSwitchingTest extends WebTestBase {
     $links = $this->xpath('//a[@id = :id and not(contains(@class, :class))]', array(':id' => 'fr_link', ':class' => 'active'));
     $this->assertTrue(isset($links[0]), t('A link generated by :function to the current :language page with langcode :langcode is NOT marked active.', array(':function' => $function_name, ':language' => $current_language, ':langcode' => $langcode)));
 
-    // Test links generated by l() on a French page.
+    // Test links generated by _l() on a French page.
     $current_language = 'French';
     $this->drupalGet('fr/language_test/type-link-active-class');
 
@@ -280,6 +283,19 @@ class LanguageSwitchingTest extends WebTestBase {
     $langcode = 'fr';
     $links = $this->xpath('//a[@id = :id and contains(@class, :class)]', array(':id' => 'fr_link', ':class' => 'active'));
     $this->assertTrue(isset($links[0]), t('A link generated by :function to the current :language page with langcode :langcode is marked active.', array(':function' => $function_name, ':language' => $current_language, ':langcode' => $langcode)));
+  }
+
+  /**
+   * Saves the native name of a language entity in configuration as a label.
+   *
+   * @param string $langcode
+   *   The language code of the language.
+   * @param string $label
+   *   The native name of the language.
+   */
+  protected function saveNativeLanguageName($langcode, $label) {
+    \Drupal::service('language.config_factory_override')
+      ->getOverride($langcode, 'language.entity.' . $langcode)->set('label', $label)->save();
   }
 
 }

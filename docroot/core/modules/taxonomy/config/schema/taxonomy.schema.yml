@@ -33,9 +33,14 @@ taxonomy.vocabulary.*:
     weight:
       type: integer
       label: 'Weight'
+    third_party_settings:
+      type: sequence
+      label: 'Third party settings'
+      sequence:
+        - type: taxonomy.vocabulary.third_party.[%key]
 
-field.taxonomy_term_reference.settings:
-  type: mapping
+field.taxonomy_term_reference.storage_settings:
+  type: base_entity_reference_field_settings
   label: 'Taxonomy term reference settings'
   mapping:
     options_list_callback:
@@ -55,12 +60,13 @@ field.taxonomy_term_reference.settings:
               type: integer
               value: 'Parent'
 
-field.taxonomy_term_reference.instance_settings:
-  type: sequence
+field.taxonomy_term_reference.field_settings:
+  type: mapping
   label: 'Taxonomy term reference settings'
-  sequence:
-    - type: string
-      label: 'Setting'
+  mapping:
+    handler:
+      type: string
+      label: 'Reference method'
 
 field.taxonomy_term_reference.value:
   type: sequence

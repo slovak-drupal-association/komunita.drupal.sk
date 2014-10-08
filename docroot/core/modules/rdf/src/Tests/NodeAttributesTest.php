@@ -11,6 +11,8 @@ use Drupal\node\Tests\NodeTestBase;
 
 /**
  * Tests the RDFa markup of Nodes.
+ *
+ * @group rdf
  */
 class NodeAttributesTest extends NodeTestBase {
 
@@ -21,15 +23,7 @@ class NodeAttributesTest extends NodeTestBase {
    */
   public static $modules = array('rdf');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'RDFa markup for nodes',
-      'description' => 'Tests the RDFa markup of nodes.',
-      'group' => 'RDF',
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     rdf_get_mapping('node', 'article')
@@ -42,7 +36,7 @@ class NodeAttributesTest extends NodeTestBase {
       ->setFieldMapping('created', array(
         'properties' => array('dc:date', 'dc:created'),
         'datatype' => 'xsd:dateTime',
-        'datatype_callback' => array('callable' => 'date_iso8601'),
+        'datatype_callback' => array('callable' => 'Drupal\rdf\CommonDataConverter::dateIso8601Value'),
       ))
       ->save();
   }
@@ -55,11 +49,11 @@ class NodeAttributesTest extends NodeTestBase {
     // escaped more than once.
     $node = $this->drupalCreateNode(array(
       'type' => 'article',
-      'title' => $this->randomName(8) . "'",
+      'title' => $this->randomMachineName(8) . "'",
     ));
 
-    $node_uri = url('node/' . $node->id(), array('absolute' => TRUE));
-    $base_uri = url('<front>', array('absolute' => TRUE));
+    $node_uri = $node->url('canonical', ['absolute' => TRUE]);
+    $base_uri = \Drupal::url('<front>', [], ['absolute' => TRUE]);
 
     // Parses front page where the node is displayed in its teaser form.
     $parser = new \EasyRdf_Parser_Rdfa();

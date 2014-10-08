@@ -20,14 +20,14 @@ use Drupal\filter\Plugin\FilterInterface;
  * @ConfigEntityType(
  *   id = "filter_format",
  *   label = @Translation("Text format"),
- *   controllers = {
+ *   handlers = {
  *     "form" = {
  *       "add" = "Drupal\filter\FilterFormatAddForm",
  *       "edit" = "Drupal\filter\FilterFormatEditForm",
  *       "disable" = "Drupal\filter\Form\FilterDisableForm"
  *     },
  *     "list_builder" = "Drupal\filter\FilterFormatListBuilder",
- *     "access" = "Drupal\filter\FilterFormatAccess",
+ *     "access" = "Drupal\filter\FilterFormatAccessControlHandler",
  *   },
  *   config_prefix = "format",
  *   admin_permission = "administer filters",
@@ -38,8 +38,8 @@ use Drupal\filter\Plugin\FilterInterface;
  *     "status" = "status"
  *   },
  *   links = {
- *     "edit-form" = "filter.format_edit",
- *     "disable" = "filter.admin_disable"
+ *     "edit-form" = "entity.filter_format.edit_form",
+ *     "disable" = "entity.filter_format.disable"
  *   }
  * )
  */
@@ -97,7 +97,7 @@ class FilterFormat extends ConfigEntityBase implements FilterFormatInterface, En
    *
    * An associative array of filters assigned to the text format, keyed by the
    * instance ID of each filter and using the properties:
-   * - plugin_id: The plugin ID of the filter plugin instance.
+   * - id: The plugin ID of the filter plugin instance.
    * - module: The name of the module providing the filter.
    * - status: (optional) A Boolean indicating whether the filter is
    *   enabled in the text format. Defaults to FALSE.
@@ -193,9 +193,6 @@ class FilterFormat extends ConfigEntityBase implements FilterFormatInterface, En
     parent::preSave($storage);
 
     $this->name = trim($this->label());
-
-    // @todo Do not save disabled filters whose properties are identical to
-    //   all default properties.
   }
 
   /**
@@ -213,8 +210,8 @@ class FilterFormat extends ConfigEntityBase implements FilterFormatInterface, En
       // apply the defined user role permissions when a new format is inserted
       // and has a non-empty $roles property.
       // Note: user_role_change_permissions() triggers a call chain back into
-      // filter_permission() and lastly filter_formats(), so its cache must be
-      // reset upfront.
+      // \Drupal\filter\FilterPermissions::permissions() and lastly
+      // filter_formats(), so its cache must be reset upfront.
       if (($roles = $this->get('roles')) && $permission = $this->getPermissionName()) {
         foreach (user_roles() as $rid => $name) {
           $enabled = in_array($rid, $roles, TRUE);

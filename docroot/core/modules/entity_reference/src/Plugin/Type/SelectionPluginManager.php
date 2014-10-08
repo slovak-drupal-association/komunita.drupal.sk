@@ -18,7 +18,13 @@ use Drupal\Core\Plugin\Discovery\AnnotatedClassDiscovery;
 use Drupal\entity_reference\Plugin\Type\Selection\SelectionBroken;
 
 /**
- * Plugin type manager for the Entity Reference Selection plugin.
+ * Plugin type manager for Entity Reference Selection plugins.
+ *
+ * @see \Drupal\entity_reference\Annotation\EntityReferenceSelection
+ * @see \Drupal\entity_reference\Plugin\Type\Selection\SelectionInterface
+ * @see \Drupal\entity_reference\Plugin\entity_reference\selection\SelectionBase
+ * @see \Drupal\entity_reference\Plugin\Derivative\SelectionBase
+ * @see plugin_api
  */
 class SelectionPluginManager extends DefaultPluginManager {
 
@@ -30,7 +36,7 @@ class SelectionPluginManager extends DefaultPluginManager {
 
     // We're not using the parent constructor because we use a different factory
     // method and don't need the derivative discovery decorator.
-    $this->factory = new ReflectionFactory($this);
+    $this->factory = new ReflectionFactory($this, '\Drupal\entity_reference\Plugin\Type\Selection\SelectionInterface');
 
     $this->moduleHandler = $module_handler;
     $this->alterInfo('entity_reference_selection');

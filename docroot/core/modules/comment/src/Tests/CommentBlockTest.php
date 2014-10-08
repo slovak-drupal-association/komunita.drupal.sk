@@ -9,7 +9,9 @@ namespace Drupal\comment\Tests;
 use Drupal\Component\Utility\String;
 
 /**
- * Tests the Comment module blocks.
+ * Tests comment block functionality.
+ *
+ * @group comment
  */
 class CommentBlockTest extends CommentTestBase {
 
@@ -20,7 +22,7 @@ class CommentBlockTest extends CommentTestBase {
    */
   public static $modules = array('block', 'views');
 
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
     // Update admin user to have the 'administer blocks' permission.
     $this->admin_user = $this->drupalCreateUser(array(
@@ -32,14 +34,6 @@ class CommentBlockTest extends CommentTestBase {
       'access content',
       'administer blocks',
      ));
-  }
-
-  public static function getInfo() {
-    return array(
-      'name' => 'Comment blocks',
-      'description' => 'Test comment block functionality.',
-      'group' => 'Comment',
-    );
   }
 
   /**
@@ -54,8 +48,8 @@ class CommentBlockTest extends CommentTestBase {
     // below.
     $timestamp = REQUEST_TIME;
     for ($i = 0; $i < 11; ++$i) {
-      $subject = ($i % 2) ? $this->randomName() : '';
-      $comments[$i] = $this->postComment($this->node, $this->randomName(), $subject);
+      $subject = ($i % 2) ? $this->randomMachineName() : '';
+      $comments[$i] = $this->postComment($this->node, $this->randomMachineName(), $subject);
       $comments[$i]->created->value = $timestamp--;
       $comments[$i]->save();
     }

@@ -11,23 +11,18 @@ use Drupal\simpletest\DrupalUnitTestBase;
 
 /**
  * Tests text format default configuration.
+ *
+ * @group filter
  */
 class FilterDefaultConfigTest extends DrupalUnitTestBase {
 
   public static $modules = array('system', 'user', 'filter', 'filter_test', 'entity');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Default configuration',
-      'description' => 'Tests text format default configuration.',
-      'group' => 'Filter',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
-    // filter_permission() calls into url() to output a link in the description.
+    // Drupal\filter\FilterPermissions::permissions() calls into _url() to output
+    // a link in the description.
     $this->installSchema('system', 'url_alias');
 
     $this->installEntitySchema('user');

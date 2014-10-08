@@ -21,6 +21,7 @@
  */
 
 use Drupal\Core\DrupalKernel;
+use Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\Request;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\Page\DefaultHtmlPageRenderer;
@@ -49,8 +50,8 @@ const MAINTENANCE_MODE = 'update';
  *   TRUE if the current user can run authorize.php, and FALSE if not.
  */
 function authorize_access_allowed() {
-  \Drupal::service('session_manager')->initialize();
-  return Settings::get('allow_authorize_operations', TRUE) && user_access('administer software updates');
+  \Drupal::service('session_manager')->start();
+  return Settings::get('allow_authorize_operations', TRUE) && \Drupal::currentUser()->hasPermission('administer software updates');
 }
 
 $request = Request::createFromGlobals();
@@ -109,8 +110,8 @@ if (authorize_access_allowed()) {
     }
     else {
       $links = array_merge($links, array(
-        l(t('Administration pages'), 'admin'),
-        l(t('Front page'), '<front>'),
+        \Drupal::l(t('Administration pages'), new Url('system.admin')),
+        \Drupal::l(t('Front page'), new Url('<front>')),
       ));
     }
 

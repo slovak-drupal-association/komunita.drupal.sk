@@ -9,6 +9,7 @@ namespace Drupal\Core\Asset;
 
 use Drupal\Core\Asset\Exception\IncompleteLibraryDefinitionException;
 use Drupal\Core\Asset\Exception\InvalidLibraryFileException;
+use Drupal\Core\Asset\Exception\LibraryDefinitionMissingLicenseException;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Component\Serialization\Exception\InvalidDataTypeException;
 use Drupal\Component\Serialization\Yaml;
@@ -87,6 +88,20 @@ class LibraryDiscoveryParser {
         }
       }
 
+      // If this is a 3rd party library, the license info is required.
+      if (isset($library['remote']) && !isset($library['license'])) {
+        throw new LibraryDefinitionMissingLicenseException(sprintf("Missing license information in library definition for '%s' in %s: it has a remote, but no license.", $id, $library_file));
+      }
+
+      // Assign Drupal's license to libraries that don't have license info.
+      if (!isset($library['license'])) {
+        $library['license'] = array(
+          'name' => 'GNU-GPL-2.0-or-later',
+          'url' => 'https://drupal.org/licensing/faq',
+          'gpl-compatible' => TRUE,
+        );
+      }
+
       foreach (array('js', 'css') as $type) {
         // Prepare (flatten) the SMACSS-categorized definitions.
         // @todo After Asset(ic) changes, retain the definitions as-is and
@@ -160,6 +175,11 @@ class LibraryDiscoveryParser {
           }
           else {
             $options['version'] = $library['version'];
+          }
+
+          // Set the 'minified' flag on JS file assets, default to FALSE.
+          if ($type == 'js' && $options['type'] == 'file') {
+            $options['minified'] = isset($options['minified']) ? $options['minified'] : FALSE;
           }
 
           $library[$type][] = $options;

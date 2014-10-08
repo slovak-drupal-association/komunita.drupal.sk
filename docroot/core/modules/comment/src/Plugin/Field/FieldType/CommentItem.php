@@ -7,8 +7,10 @@
 
 namespace Drupal\comment\Plugin\Field\FieldType;
 
+use Drupal\comment\CommentManagerInterface;
 use Drupal\comment\Entity\CommentType;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\TypedData\DataDefinition;
 use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Session\AnonymousUserSession;
@@ -29,24 +31,23 @@ class CommentItem extends FieldItemBase implements CommentItemInterface {
   /**
    * {@inheritdoc}
    */
-  public static function defaultSettings() {
+  public static function defaultStorageSettings() {
     return array(
       'comment_type' => '',
-    ) + parent::defaultSettings();
+    ) + parent::defaultStorageSettings();
   }
 
   /**
    * {@inheritdoc}
    */
-  public static function defaultInstanceSettings() {
+  public static function defaultFieldSettings() {
     return array(
-      'default_mode' => COMMENT_MODE_THREADED,
+      'default_mode' => CommentManagerInterface::COMMENT_MODE_THREADED,
       'per_page' => 50,
-      'form_location' => COMMENT_FORM_BELOW,
+      'form_location' => CommentItemInterface::FORM_BELOW,
       'anonymous' => COMMENT_ANONYMOUS_MAYNOT_CONTACT,
-      'subject' => 1,
       'preview' => DRUPAL_OPTIONAL,
-    ) + parent::defaultInstanceSettings();
+    ) + parent::defaultFieldSettings();
   }
 
   /**
@@ -98,7 +99,7 @@ class CommentItem extends FieldItemBase implements CommentItemInterface {
   /**
    * {@inheritdoc}
    */
-  public function instanceSettingsForm(array $form, array &$form_state) {
+  public function fieldSettingsForm(array $form, FormStateInterface $form_state) {
     $element = array();
 
     $settings = $this->getSettings();
@@ -109,9 +110,6 @@ class CommentItem extends FieldItemBase implements CommentItemInterface {
       '#type' => 'details',
       '#title' => t('Comment form settings'),
       '#open' => TRUE,
-      '#attributes' => array(
-        'class' => array('comment-instance-settings-form'),
-      ),
       '#attached' => array(
         'library' => array('comment/drupal.comment'),
       ),
@@ -142,11 +140,6 @@ class CommentItem extends FieldItemBase implements CommentItemInterface {
       ),
       '#access' => $anonymous_user->hasPermission('post comments'),
     );
-    $element['comment']['subject'] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Allow comment title'),
-      '#default_value' => $settings['subject'],
-    );
     $element['comment']['form_location'] = array(
       '#type' => 'checkbox',
       '#title' => t('Show reply form on the same page as comments'),
@@ -171,7 +164,7 @@ class CommentItem extends FieldItemBase implements CommentItemInterface {
    */
   public function __get($name) {
     if ($name == 'status' && !isset($this->values[$name])) {
-      // Get default value from field instance when no data saved in entity.
+      // Get default value from the field when no data saved in entity.
       $field_default_values = $this->getFieldDefinition()->getDefaultValue($this->getEntity());
       return $field_default_values[0]['status'];
     }
@@ -193,7 +186,7 @@ class CommentItem extends FieldItemBase implements CommentItemInterface {
   /**
    * {@inheritdoc}
    */
-  public function settingsForm(array &$form, array &$form_state, $has_data) {
+  public function storageSettingsForm(array &$form, FormStateInterface $form_state, $has_data) {
     $element = array();
 
     // @todo Inject entity storage once typed-data supports container injection.

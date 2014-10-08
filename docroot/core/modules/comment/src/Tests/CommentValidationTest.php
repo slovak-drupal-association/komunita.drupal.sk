@@ -12,6 +12,8 @@ use Drupal\system\Tests\Entity\EntityUnitTestBase;
 
 /**
  * Tests comment validation constraints.
+ *
+ * @group comment
  */
 class CommentValidationTest extends EntityUnitTestBase {
 
@@ -25,18 +27,7 @@ class CommentValidationTest extends EntityUnitTestBase {
   /**
    * {@inheritdoc}
    */
-  public static function getInfo() {
-    return array(
-      'name' => 'Comment Validation',
-      'description' => 'Tests the comment validation constraints.',
-      'group' => 'Comment',
-    );
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
     $this->installEntitySchema('node');
     $this->installEntitySchema('comment');
@@ -55,9 +46,9 @@ class CommentValidationTest extends EntityUnitTestBase {
     ))->save();
 
     // Add comment field to content.
-    $this->entityManager->getStorage('field_config')->create(array(
+    $this->entityManager->getStorage('field_storage_config')->create(array(
       'entity_type' => 'node',
-      'name' => 'comment',
+      'field_name' => 'comment',
       'type' => 'comment',
       'settings' => array(
         'comment_type' => 'comment',
@@ -70,8 +61,8 @@ class CommentValidationTest extends EntityUnitTestBase {
       'name' => 'page',
     ))->save();
 
-    // Add comment field instance to page content.
-    $this->entityManager->getStorage('field_instance_config')->create(array(
+    // Add comment field to page content.
+    $this->entityManager->getStorage('field_config')->create(array(
       'field_name' => 'comment',
       'entity_type' => 'node',
       'bundle' => 'page',
@@ -88,7 +79,7 @@ class CommentValidationTest extends EntityUnitTestBase {
       'entity_id' => $node->id(),
       'entity_type' => 'node',
       'field_name' => 'comment',
-      'comment_body' => $this->randomName(),
+      'comment_body' => $this->randomMachineName(),
     ));
 
     $violations = $comment->validate();
@@ -121,7 +112,7 @@ class CommentValidationTest extends EntityUnitTestBase {
     $this->assertEqual($violations[0]->getMessage(), t('This value is not a valid email address.'));
 
     $comment->set('mail', NULL);
-    $comment->set('homepage', 'http://example.com/' . $this->randomName(237));
+    $comment->set('homepage', 'http://example.com/' . $this->randomMachineName(237));
     $this->assertLengthViolation($comment, 'homepage', 255);
 
     $comment->set('homepage', 'invalid');

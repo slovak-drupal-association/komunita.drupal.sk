@@ -10,18 +10,12 @@ namespace Drupal\aggregator\Tests;
 use Zend\Feed\Reader\Reader;
 
 /**
- * Tests feed parsing in the Aggregator module.
+ * Tests the built-in feed parser with valid feed samples.
+ *
+ * @group aggregator
  */
 class FeedParserTest extends AggregatorTestBase {
-  public static function getInfo() {
-    return array(
-      'name' => 'Feed parser functionality',
-      'description' => 'Test the built-in feed parser with valid feed samples.',
-      'group' => 'Aggregator',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
     // Do not delete old aggregator items during these tests, since our sample
     // feeds have hardcoded dates in them (which may be expired when this test
@@ -86,13 +80,13 @@ class FeedParserTest extends AggregatorTestBase {
    */
   function testRedirectFeed() {
     // Simulate a typo in the URL to force a curl exception.
-    $invalid_url = url('aggregator/redirect', array('absolute' => TRUE));
-    $feed = entity_create('aggregator_feed', array('url' => $invalid_url, 'title' => $this->randomName()));
+    $invalid_url = _url('aggregator/redirect', array('absolute' => TRUE));
+    $feed = entity_create('aggregator_feed', array('url' => $invalid_url, 'title' => $this->randomMachineName()));
     $feed->save();
     $feed->refreshItems();
 
     // Make sure that the feed URL was updated correctly.
-    $this->assertEqual($feed->getUrl(), url('aggregator/test-feed', array('absolute' => TRUE)));
+    $this->assertEqual($feed->getUrl(), \Drupal::url('aggregator_test.feed', array(), array('absolute' => TRUE)));
   }
 
   /**
@@ -101,7 +95,7 @@ class FeedParserTest extends AggregatorTestBase {
   function testInvalidFeed() {
     // Simulate a typo in the URL to force a curl exception.
     $invalid_url = 'http:/www.drupal.org';
-    $feed = entity_create('aggregator_feed', array('url' => $invalid_url, 'title' => $this->randomName()));
+    $feed = entity_create('aggregator_feed', array('url' => $invalid_url, 'title' => $this->randomMachineName()));
     $feed->save();
 
     // Update the feed. Use the UI to be able to check the message easily.

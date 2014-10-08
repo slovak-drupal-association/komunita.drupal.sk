@@ -8,7 +8,7 @@
 namespace Drupal\filter\Tests;
 
 use Drupal\Core\Session\AnonymousUserSession;
-use Drupal\Core\TypedData\AllowedValuesInterface;
+use Drupal\Core\TypedData\OptionsProviderInterface;
 use Drupal\Core\TypedData\DataDefinition;
 use Drupal\filter\Plugin\DataType\FilterFormat;
 use Drupal\filter\Plugin\FilterInterface;
@@ -16,21 +16,15 @@ use Drupal\system\Tests\Entity\EntityUnitTestBase;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 /**
- * Tests the behavior of Filter's API.
+ * Tests the behavior of the API of the Filter module.
+ *
+ * @group filter
  */
 class FilterAPITest extends EntityUnitTestBase {
 
   public static $modules = array('system', 'filter', 'filter_test', 'user');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Filter API',
-      'description' => 'Test the behavior of the API of the Filter module.',
-      'group' => 'Filter',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->installConfig(array('system', 'filter'));
@@ -252,14 +246,10 @@ class FilterAPITest extends EntityUnitTestBase {
     $this->assertEqual($expected_assets, $build['#attached'], 'Expected assets present');
     $expected_cache_tags = array(
       // The cache tag set by the processed_text element itself.
-      'filter_format' => array(
-        'element_test' => 'element_test',
-      ),
+      'filter_format:element_test',
       // The cache tags set by the filter_test_cache_tags filter.
-      'foo' => array(
-        'bar' => 'bar',
-        'baz' => 'baz',
-      ),
+      'foo:bar',
+      'foo:baz',
     );
     $this->assertEqual($expected_cache_tags, $build['#cache']['tags'], 'Expected cache tags present.');
     $expected_markup = '<p>Hello, world!</p><p>This is a dynamic llama.</p>';
@@ -273,7 +263,7 @@ class FilterAPITest extends EntityUnitTestBase {
     $definition = DataDefinition::create('filter_format');
     $data = \Drupal::typedDataManager()->create($definition);
 
-    $this->assertTrue($data instanceof AllowedValuesInterface, 'Typed data object implements \Drupal\Core\TypedData\AllowedValuesInterface');
+    $this->assertTrue($data instanceof OptionsProviderInterface, 'Typed data object implements \Drupal\Core\TypedData\OptionsProviderInterface');
 
     $filtered_html_user = $this->createUser(array('uid' => 2), array(
       entity_load('filter_format', 'filtered_html')->getPermissionName(),
@@ -332,6 +322,50 @@ class FilterAPITest extends EntityUnitTestBase {
       'plain_text' => 'Plain text',
     );
     $this->assertEqual($allowed_options, $expected_allowed_options);
+  }
+
+  /**
+   * Tests that FilterFormat::preSave() only saves customized plugins.
+   */
+  public function testFilterFormatPreSave() {
+    /** @var \Drupal\filter\FilterFormatInterface $crazy_format */
+    $crazy_format = entity_create('filter_format', array(
+      'format' => 'crazy',
+      'name' => 'Crazy',
+      'weight' => 1,
+      'filters' => array(
+        'filter_html_escape' => array(
+          'weight' => 10,
+          'status' => 1,
+        ),
+        'filter_html' => array(
+          'weight' => -10,
+          'status' => 1,
+          'settings' => array(
+            'allowed_html' => '<p>',
+          ),
+        ),
+      )
+    ));
+    $crazy_format->save();
+    // Use config to directly load the configuration and check that only enabled
+    // or customized plugins are saved to configuration.
+    $filters = \Drupal::config('filter.format.crazy')->get('filters');
+    $this->assertEqual(array('filter_html_escape', 'filter_html'), array_keys($filters));
+
+    // Disable a plugin to ensure that disabled plugins with custom settings are
+    // stored in configuration.
+    $crazy_format->setFilterConfig('filter_html_escape', array('status' => FALSE));
+    $crazy_format->save();
+    $filters = \Drupal::config('filter.format.crazy')->get('filters');
+    $this->assertEqual(array('filter_html_escape', 'filter_html'), array_keys($filters));
+
+    // Set the settings as per default to ensure that disable plugins in this
+    // state are not stored in configuration.
+    $crazy_format->setFilterConfig('filter_html_escape', array('weight' => -10));
+    $crazy_format->save();
+    $filters = \Drupal::config('filter.format.crazy')->get('filters');
+    $this->assertEqual(array('filter_html'), array_keys($filters));
   }
 
   /**

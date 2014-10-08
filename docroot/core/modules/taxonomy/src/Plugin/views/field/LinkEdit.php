@@ -7,6 +7,8 @@
 
 namespace Drupal\taxonomy\Plugin\views\field;
 
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
 use Drupal\views\ResultRow;
@@ -39,10 +41,10 @@ class LinkEdit extends FieldPluginBase {
     return $options;
   }
 
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     $form['text'] = array(
       '#type' => 'textfield',
-      '#title' => t('Text to display'),
+      '#title' => $this->t('Text to display'),
       '#default_value' => $this->options['text'],
     );
     parent::buildOptionsForm($form, $form_state);
@@ -66,8 +68,8 @@ class LinkEdit extends FieldPluginBase {
         'vid' => $values->{$this->aliases['vid']},
       ));
       if ($term->access('update')) {
-        $text = !empty($this->options['text']) ? $this->options['text'] : t('Edit');
-        return l($text, 'taxonomy/term/'. $tid . '/edit', array('query' => drupal_get_destination()));
+        $text = !empty($this->options['text']) ? $this->options['text'] : $this->t('Edit');
+        return \Drupal::l($text, new Url('entity.taxonomy.edit_form', ['taxonomy_term' => $tid], array('query' => drupal_get_destination())));
       }
     }
   }

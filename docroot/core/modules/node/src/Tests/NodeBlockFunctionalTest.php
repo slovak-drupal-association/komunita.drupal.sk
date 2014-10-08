@@ -8,7 +8,9 @@
 namespace Drupal\node\Tests;
 
 /**
- * Functional tests for the node module blocks.
+ * Tests node block functionality.
+ *
+ * @group node
  */
 class NodeBlockFunctionalTest extends NodeTestBase {
 
@@ -33,15 +35,7 @@ class NodeBlockFunctionalTest extends NodeTestBase {
    */
   public static $modules = array('block', 'views');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Node blocks',
-      'description' => 'Test node block functionality.',
-      'group' => 'Node',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Create users and test node.
@@ -152,7 +146,7 @@ class NodeBlockFunctionalTest extends NodeTestBase {
     $this->drupalLogin($this->adminUser);
     $this->drupalGet('admin/structure/block');
     $this->assertText($label, 'Block was displayed on the admin/structure/block page.');
-    $this->assertLinkByHref(url('admin/structure/block/manage/' . $block->id()));
+    $this->assertLinkByHref($block->url());
   }
 
 }

@@ -10,19 +10,13 @@ namespace Drupal\system\Tests\Plugin\Discovery;
 use Drupal\Core\Plugin\Discovery\AnnotatedClassDiscovery;
 
 /**
- * Tests that plugins with annotated classes are correctly discovered.
+ * Tests that plugins are correctly discovered using annotated classes.
+ *
+ * @group Plugin
  */
 class AnnotatedClassDiscoveryTest extends DiscoveryTestBase {
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Annotated class discovery',
-      'description' => 'Tests that plugins are correctly discovered using annotated classes.',
-      'group' => 'Plugin API',
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
     $this->expectedDefinitions = array(
       'apple' => array(
@@ -47,6 +41,13 @@ class AnnotatedClassDiscoveryTest extends DiscoveryTestBase {
         'label' => 'Cherry',
         'color' => 'red',
         'class' => 'Drupal\plugin_test\Plugin\plugin_test\fruit\Cherry',
+        'provider' => 'plugin_test',
+      ),
+      'kale' => array(
+        'id' => 'kale',
+        'label' => 'Kale',
+        'color' => 'green',
+        'class' => 'Drupal\plugin_test\Plugin\plugin_test\fruit\Kale',
         'provider' => 'plugin_test',
       ),
       'orange' => array(

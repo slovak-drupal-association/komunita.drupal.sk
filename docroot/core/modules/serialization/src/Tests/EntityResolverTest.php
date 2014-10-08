@@ -7,7 +7,9 @@
 namespace Drupal\serialization\Tests;
 
 /**
- * Tests the entity reference resolver.
+ * Tests that entities references can be resolved.
+ *
+ * @group serialization
  */
 class EntityResolverTest extends NormalizerTestBase {
 
@@ -25,29 +27,21 @@ class EntityResolverTest extends NormalizerTestBase {
    */
   protected $format = 'hal_json';
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Entity resolver tests',
-      'description' => 'Tests that entities references can be resolved.',
-      'group' => 'Serialization',
-    );
-  }
-
   protected function setUp() {
     parent::setUp();
 
-    // Create the test field.
-    entity_create('field_config', array(
+    // Create the test field storage.
+    entity_create('field_storage_config', array(
+      'entity_type' => 'entity_test_mulrev',
+      'field_name' => 'field_test_entity_reference',
+      'type' => 'entity_reference',
       'settings' => array(
         'target_type' => 'entity_test_mulrev',
       ),
-      'name' => 'field_test_entity_reference',
-      'entity_type' => 'entity_test_mulrev',
-      'type' => 'entity_reference',
     ))->save();
 
-    // Create the test field instance.
-    entity_create('field_instance_config', array(
+    // Create the test field.
+    entity_create('field_config', array(
       'entity_type' => 'entity_test_mulrev',
       'field_name' => 'field_test_entity_reference',
       'bundle' => 'entity_test_mulrev',
@@ -64,16 +58,16 @@ class EntityResolverTest extends NormalizerTestBase {
     $entity->set('field_test_entity_reference', array(array('target_id' => 1)));
     $entity->save();
 
-    $field_uri = url('rest/relation/entity_test_mulrev/entity_test_mulrev/field_test_entity_reference', array('absolute' => TRUE));
+    $field_uri = _url('rest/relation/entity_test_mulrev/entity_test_mulrev/field_test_entity_reference', array('absolute' => TRUE));
 
     $data = array(
       '_links' => array(
         'type' => array(
-          'href' => url('rest/type/entity_test_mulrev/entity_test_mulrev', array('absolute' => TRUE)),
+          'href' => _url('rest/type/entity_test_mulrev/entity_test_mulrev', array('absolute' => TRUE)),
         ),
         $field_uri => array(
           array(
-            'href' => url('entity/entity_test_mulrev/' . $entity->id()),
+            'href' => _url('entity/entity_test_mulrev/' . $entity->id()),
           ),
         ),
       ),
@@ -81,7 +75,7 @@ class EntityResolverTest extends NormalizerTestBase {
         $field_uri => array(
           array(
             '_links' => array(
-              'self' => url('entity/entity_test_mulrev/' . $entity->id()),
+              'self' => _url('entity/entity_test_mulrev/' . $entity->id()),
             ),
             'uuid' => array(
               array(

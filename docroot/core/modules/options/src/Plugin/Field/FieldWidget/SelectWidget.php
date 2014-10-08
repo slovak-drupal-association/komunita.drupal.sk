@@ -8,6 +8,7 @@
 namespace Drupal\options\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\options\Plugin\Field\FieldWidget\OptionsWidgetBase;
 
 /**
@@ -19,7 +20,7 @@ use Drupal\options\Plugin\Field\FieldWidget\OptionsWidgetBase;
  *   field_types = {
  *     "list_integer",
  *     "list_float",
- *     "list_text"
+ *     "list_string"
  *   },
  *   multiple_values = TRUE
  * )
@@ -29,12 +30,12 @@ class SelectWidget extends OptionsWidgetBase {
   /**
    * {@inheritdoc}
    */
-  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, array &$form_state) {
+  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $element = parent::formElement($items, $delta, $element, $form, $form_state);
 
     $element += array(
       '#type' => 'select',
-      '#options' => $this->getOptions($items[$delta]),
+      '#options' => $this->getOptions($items->getEntity()),
       '#default_value' => $this->getSelectedOptions($items, $delta),
       // Do not display a 'multiple' select box if there is only one option.
       '#multiple' => $this->multiple && count($this->options) > 1,
@@ -46,7 +47,7 @@ class SelectWidget extends OptionsWidgetBase {
   /**
    * {@inheritdoc}
    */
-  static protected function sanitizeLabel(&$label) {
+  protected function sanitizeLabel(&$label) {
     // Select form inputs allow unencoded HTML entities, but no HTML tags.
     $label = decode_entities(strip_tags($label));
   }

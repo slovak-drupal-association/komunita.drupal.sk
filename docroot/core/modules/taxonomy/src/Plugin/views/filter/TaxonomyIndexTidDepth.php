@@ -7,6 +7,8 @@
 
 namespace Drupal\taxonomy\Plugin\views\filter;
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Filter handler for taxonomy terms with depth.
  *
@@ -21,7 +23,7 @@ class TaxonomyIndexTidDepth extends TaxonomyIndexTid {
 
   public function operatorOptions($which = 'title') {
     return array(
-      'or' => t('Is one of'),
+      'or' => $this->t('Is one of'),
     );
   }
 
@@ -33,14 +35,14 @@ class TaxonomyIndexTidDepth extends TaxonomyIndexTid {
     return $options;
   }
 
-  public function buildExtraOptionsForm(&$form, &$form_state) {
+  public function buildExtraOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildExtraOptionsForm($form, $form_state);
 
     $form['depth'] = array(
       '#type' => 'weight',
-      '#title' => t('Depth'),
+      '#title' => $this->t('Depth'),
       '#default_value' => $this->options['depth'],
-      '#description' => t('The depth will match nodes tagged with terms in the hierarchy. For example, if you have the term "fruit" and a child term "apple", with a depth of 1 (or higher) then filtering for the term "fruit" will get nodes that are tagged with "apple" as well as "fruit". If negative, the reverse is true; searching for "apple" will also pick up nodes tagged with "fruit" if depth is -1 (or lower).'),
+      '#description' => $this->t('The depth will match nodes tagged with terms in the hierarchy. For example, if you have the term "fruit" and a child term "apple", with a depth of 1 (or higher) then filtering for the term "fruit" will get nodes that are tagged with "apple" as well as "fruit". If negative, the reverse is true; searching for "apple" will also pick up nodes tagged with "fruit" if depth is -1 (or lower).'),
     );
   }
 
@@ -50,7 +52,7 @@ class TaxonomyIndexTidDepth extends TaxonomyIndexTid {
       return;
     }
     elseif (count($this->value) == 1) {
-      // Somethis $this->value is an array with a single element so convert it.
+      // Sometimes $this->value is an array with a single element so convert it.
       if (is_array($this->value)) {
         $this->value = current($this->value);
       }

@@ -8,6 +8,7 @@
 namespace Drupal\views\Plugin\views\field;
 
 use Drupal\Component\Utility\Xss as UtilityXss;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ResultRow;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
@@ -49,10 +50,10 @@ class Boolean extends FieldPluginBase {
     parent::init($view, $display, $options);
 
     $default_formats = array(
-      'yes-no' => array(t('Yes'), t('No')),
-      'true-false' => array(t('True'), t('False')),
-      'on-off' => array(t('On'), t('Off')),
-      'enabled-disabled' => array(t('Enabled'), t('Disabled')),
+      'yes-no' => array(t('Yes'), $this->t('No')),
+      'true-false' => array(t('True'), $this->t('False')),
+      'on-off' => array(t('On'), $this->t('Off')),
+      'enabled-disabled' => array(t('Enabled'), $this->t('Disabled')),
       'boolean' => array(1, 0),
       'unicode-yes-no' => array('✔', '✖'),
     );
@@ -61,20 +62,20 @@ class Boolean extends FieldPluginBase {
     $this->formats = array_merge($default_formats, $output_formats, $custom_format);
   }
 
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     foreach ($this->formats as $key => $item) {
       $options[$key] = implode('/', $item);
     }
 
     $form['type'] = array(
       '#type' => 'select',
-      '#title' => t('Output format'),
+      '#title' => $this->t('Output format'),
       '#options' => $options,
       '#default_value' => $this->options['type'],
     );
     $form['type_custom_true'] = array(
       '#type' => 'textfield',
-      '#title' => t('Custom output for TRUE'),
+      '#title' => $this->t('Custom output for TRUE'),
       '#default_value' => $this->options['type_custom_true'],
       '#states' => array(
         'visible' => array(
@@ -84,7 +85,7 @@ class Boolean extends FieldPluginBase {
     );
     $form['type_custom_false'] = array(
       '#type' => 'textfield',
-      '#title' => t('Custom output for FALSE'),
+      '#title' => $this->t('Custom output for FALSE'),
       '#default_value' => $this->options['type_custom_false'],
       '#states' => array(
         'visible' => array(
@@ -94,8 +95,8 @@ class Boolean extends FieldPluginBase {
     );
     $form['not'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Reverse'),
-      '#description' => t('If checked, true will be displayed as false.'),
+      '#title' => $this->t('Reverse'),
+      '#description' => $this->t('If checked, true will be displayed as false.'),
       '#default_value' => $this->options['not'],
     );
     parent::buildOptionsForm($form, $form_state);

@@ -7,7 +7,9 @@
 
 namespace Drupal\node\Plugin\views\row;
 
+use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Component\Utility\String;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\row\RowPluginBase;
 
 /**
@@ -37,25 +39,19 @@ class Rss extends RowPluginBase {
   protected function defineOptions() {
     $options = parent::defineOptions();
 
-    $options['item_length'] = array('default' => 'default');
-    $options['links'] = array('default' => FALSE, 'bool' => TRUE);
+    $options['view_mode'] = array('default' => 'default');
 
     return $options;
   }
 
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
-    $form['item_length'] = array(
+    $form['view_mode'] = array(
       '#type' => 'select',
-      '#title' => t('Display type'),
+      '#title' => $this->t('Display type'),
       '#options' => $this->buildOptionsForm_summary_options(),
-      '#default_value' => $this->options['item_length'],
-    );
-    $form['links'] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Display links'),
-      '#default_value' => $this->options['links'],
+      '#default_value' => $this->options['view_mode'],
     );
   }
 
@@ -68,14 +64,14 @@ class Rss extends RowPluginBase {
     foreach ($view_modes as $mode => $settings) {
       $options[$mode] = $settings['label'];
     }
-    $options['title'] = t('Title only');
-    $options['default'] = t('Use site default RSS settings');
+    $options['title'] = $this->t('Title only');
+    $options['default'] = $this->t('Use site default RSS settings');
     return $options;
   }
 
   public function summaryTitle() {
     $options = $this->buildOptionsForm_summary_options();
-    return String::checkPlain($options[$this->options['item_length']]);
+    return String::checkPlain($options[$this->options['view_mode']]);
   }
 
   public function preRender($values) {
@@ -89,7 +85,6 @@ class Rss extends RowPluginBase {
   }
 
   public function render($row) {
-    // For the most part, this code is taken from node_feed() in node.module
     global $base_url;
 
     $nid = $row->{$this->field_alias};
@@ -97,7 +92,7 @@ class Rss extends RowPluginBase {
       return;
     }
 
-    $display_mode = $this->options['item_length'];
+    $display_mode = $this->options['view_mode'];
     if ($display_mode == 'default') {
       $display_mode = \Drupal::config('system.rss')->get('items.view_mode');
     }
@@ -150,19 +145,13 @@ class Rss extends RowPluginBase {
       $this->view->style_plugin->namespaces += $xml_rdf_namespaces;
     }
 
-    // Hide the links if desired.
-    if (!$this->options['links']) {
-      hide($build['links']);
-    }
-
     if ($display_mode != 'title') {
-      // We render node contents and force links to be last.
-      $build['links']['#weight'] = 1000;
+      // We render node contents.
       $item_text .= drupal_render($build);
     }
 
     $item = new \stdClass();
-    $item->description = $item_text;
+    $item->description = SafeMarkup::set($item_text);
     $item->title = $node->label();
     $item->link = $node->link;
     $item->elements = $node->rss_elements;

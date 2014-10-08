@@ -7,12 +7,15 @@
 
 namespace Drupal\system\Tests\Bootstrap;
 
-use Symfony\Component\Routing\RequestContext;
+use Drupal\Component\Datetime\DateTimePlus;
+use Drupal\Core\Routing\RequestContext;
 use Drupal\simpletest\WebTestBase;
 use Drupal\Core\Cache\Cache;
 
 /**
  * Enables the page cache and tests it with various HTTP requests.
+ *
+ * @group Bootstrap
  */
 class PageCacheTest extends WebTestBase {
 
@@ -25,15 +28,7 @@ class PageCacheTest extends WebTestBase {
    */
   public static $modules = array('test_page_test', 'system_test');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Page cache test',
-      'description' => 'Enable the page cache and test it with various HTTP requests.',
-      'group' => 'Bootstrap'
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     \Drupal::config('system.site')
@@ -55,23 +50,23 @@ class PageCacheTest extends WebTestBase {
     $config->save();
 
     $path = 'system-test/cache_tags_page';
-    $tags = array('system_test_cache_tags_page' => TRUE);
+    $tags = array('system_test_cache_tags_page');
     $this->drupalGet($path);
     $this->assertEqual($this->drupalGetHeader('X-Drupal-Cache'), 'MISS');
 
     // Verify a cache hit, but also the presence of the correct cache tags.
     $this->drupalGet($path);
     $this->assertEqual($this->drupalGetHeader('X-Drupal-Cache'), 'HIT');
-    $cid_parts = array(url($path, array('absolute' => TRUE)), 'html');
+    $cid_parts = array(\Drupal::url('system_test.cache_tags_page', array(), array('absolute' => TRUE)), 'html');
     $cid = sha1(implode(':', $cid_parts));
     $cache_entry = \Drupal::cache('render')->get($cid);
     sort($cache_entry->tags);
     $expected_tags = array(
-      'pre_render:1',
-      'rendered:1',
-      'system_test_cache_tags_page:1',
+      'pre_render',
+      'rendered',
+      'system_test_cache_tags_page',
       'theme:stark',
-      'theme_global_settings:1',
+      'theme_global_settings',
     );
     $this->assertIdentical($cache_entry->tags, $expected_tags);
 
@@ -141,7 +136,7 @@ class PageCacheTest extends WebTestBase {
     $this->assertResponse(200, 'Conditional request without If-None-Match returned 200 OK.');
     $this->assertEqual($this->drupalGetHeader('X-Drupal-Cache'), 'HIT', 'Page was cached.');
 
-    $this->drupalGet('', array(), array('If-Modified-Since: ' . gmdate(DATE_RFC1123, strtotime($last_modified) + 1), 'If-None-Match: ' . $etag));
+    $this->drupalGet('', array(), array('If-Modified-Since: ' . gmdate(DateTimePlus::RFC7231, strtotime($last_modified) + 1), 'If-None-Match: ' . $etag));
     $this->assertResponse(200, 'Conditional request with new a If-Modified-Since date newer than Last-Modified returned 200 OK.');
     $this->assertEqual($this->drupalGetHeader('X-Drupal-Cache'), 'HIT', 'Page was cached.');
 

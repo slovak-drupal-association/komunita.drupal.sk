@@ -54,7 +54,7 @@ class LinkSeparateFormatter extends LinkFormatter {
       // If the link text field value is available, use it for the text.
       if (empty($settings['url_only']) && !empty($item->title)) {
         // Unsanitized token replacement here because $options['html'] is FALSE
-        // by default in l().
+        // by default in _l().
         $link_title = \Drupal::token()->replace($item->title, array($entity->getEntityTypeId() => $entity), array('sanitize' => FALSE, 'clear' => TRUE));
       }
 
@@ -77,6 +77,15 @@ class LinkSeparateFormatter extends LinkFormatter {
         '#url_title' => $url_title,
         '#url' => $url,
       );
+
+      if (!empty($item->_attributes)) {
+        // Set our RDFa attributes on the <a> element that is being built.
+        $url->setOption('attributes', $item->_attributes);
+
+        // Unset field item attributes since they have been included in the
+        // formatter output and should not be rendered in the field template.
+        unset($item->_attributes);
+      }
     }
     return $element;
   }

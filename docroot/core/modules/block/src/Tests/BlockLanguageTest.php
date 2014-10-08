@@ -8,9 +8,13 @@
 namespace Drupal\block\Tests;
 
 use Drupal\simpletest\WebTestBase;
+use Drupal\block\Entity\Block;
 
 /**
- * Functional tests for the language list configuration forms.
+ * Tests if a block can be configure to be only visibile on a particular
+ * language.
+ *
+ * @group block
  */
 class BlockLanguageTest extends WebTestBase {
 
@@ -26,15 +30,7 @@ class BlockLanguageTest extends WebTestBase {
    */
   public static $modules = array('language', 'block');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Language block visibility',
-      'description' => 'Tests if a block can be configure to be only visibile on a particular language.',
-      'group' => 'Block',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Create a new user, allow him to manage the blocks and the languages.
@@ -62,7 +58,7 @@ class BlockLanguageTest extends WebTestBase {
     // Enable a standard block and set the visibility setting for one language.
     $edit = array(
       'settings[visibility][language][langcodes][en]' => TRUE,
-      'id' => strtolower($this->randomName(8)),
+      'id' => strtolower($this->randomMachineName(8)),
       'region' => 'sidebar_first',
     );
     $this->drupalPostForm('admin/structure/block/add/system_powered_by_block' . '/' . $default_theme, $edit, t('Save block'));
@@ -109,7 +105,7 @@ class BlockLanguageTest extends WebTestBase {
 
     // Check that the language is no longer stored in the configuration after
     // it is deleted.
-    $block = entity_load('block', $block->id());
+    $block = Block::load($block->id());
     $visibility = $block->getVisibility();
     $this->assertTrue(empty($visibility['language']['langcodes']['fr']), 'Language is no longer not set in the block configuration after deleting the block.');
   }

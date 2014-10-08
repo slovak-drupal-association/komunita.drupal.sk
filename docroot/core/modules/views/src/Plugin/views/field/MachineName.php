@@ -8,6 +8,7 @@
 namespace Drupal\views\Plugin\views\field;
 
 use Drupal\Component\Utility\String;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ResultRow;
 
 /**
@@ -52,12 +53,12 @@ class MachineName extends FieldPluginBase {
     return $options;
   }
 
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
     $form['machine_name'] = array(
-      '#title' => t('Output machine name'),
-      '#description' => t('Display field as machine name.'),
+      '#title' => $this->t('Output machine name'),
+      '#description' => $this->t('Display field as machine name.'),
       '#type' => 'checkbox',
       '#default_value' => !empty($this->options['machine_name']),
     );

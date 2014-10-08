@@ -19,8 +19,10 @@
  * @see \Drupal\node\Tests\NodeAccessBaseTableTest
  */
 
-use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\Core\Field\FieldDefinition;
+use Drupal\Core\Access\AccessResult;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\node\NodeTypeInterface;
 use Drupal\node\NodeInterface;
 
 /**
@@ -43,13 +45,13 @@ use Drupal\node\NodeInterface;
  *
  * @see \Drupal\node\Tests\NodeQueryAlterTest::testNodeQueryAlterOverride()
  * @see \Drupal\node\Tests\NodeAccessPagerTest
- * @see node_access_test_permission()
+ * @see node_access_test.permissions.yml
  * @see node_access_test_node_access_records()
  */
 function node_access_test_node_grants($account, $op) {
   $grants = array();
   $grants['node_access_test_author'] = array($account->id());
-  if ($op == 'view' && user_access('node test view', $account)) {
+  if ($op == 'view' && $account->hasPermission('node test view', $account)) {
     $grants['node_access_test'] = array(8888, 8889);
   }
 
@@ -71,7 +73,7 @@ function node_access_test_node_grants($account, $op) {
  *
  * @see \Drupal\node\Tests\NodeAccessBaseTableTest::setUp()
  * @see node_access_test_node_grants()
- * @see node_access_test_permission()
+ * @see node_access_test.permissions.yml
  */
 function node_access_test_node_access_records(NodeInterface $node) {
   $grants = array();
@@ -111,100 +113,43 @@ function node_access_test_node_access_records(NodeInterface $node) {
 }
 
 /**
- * Implements hook_permission().
+ * Adds the private field to a node type.
  *
- * Provides a 'node test view' permission. By default, all content is
- * restricted, and users without this permission can only view content they
- * have authored. When the 'node_access_test.private' state variable is
- * TRUE, only 'private' nodes are restricted, and this permission grants access
- * to view private nodes.
- *
- * @see node_access_test_node_access_records()
- * @see node_access_test_node_grants()
+ * @param \Drupal\node\NodeTypeInterface $type
+ *   A node type entity.
  */
-function node_access_test_permission() {
-  return array('node test view' => array('title' => 'View content'));
-}
+function node_access_test_add_field(NodeTypeInterface $type) {
+  $field_storage = FieldStorageConfig::create(array(
+    'field_name' => 'private',
+    'entity_type' => 'node',
+    'type' => 'integer',
+  ));
+  $field_storage->save();
+  $field = FieldConfig::create(array(
+    'field_name' => 'private',
+    'entity_type' => 'node',
+    'bundle' => $type->id(),
+    'label' => 'Private',
+  ));
+  $field->save();
 
-/**
- * Implements hook_entity_base_field_info().
- */
-function node_access_test_entity_base_field_info(EntityTypeInterface $entity_type) {
-  if ($entity_type->id() === 'node') {
-    $fields['private'] = FieldDefinition::create('boolean')
-      ->setLabel(t('Private'))
-      ->setComputed(TRUE)
-      ->setCustomStorage(TRUE);
-
-    return $fields;
-  }
-}
-
-/**
- * Implements hook_form_BASE_FORM_ID_alter().
- */
-function node_access_test_form_node_form_alter(&$form, $form_state) {
-  // Only show this checkbox for NodeAccessBaseTableTestCase.
-  if (\Drupal::state()->get('node_access_test.private')) {
-    $node = $form_state['controller']->getEntity($form_state);
-    $form['private'] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Private'),
-      '#description' => t('Check here if this content should be set private and only shown to privileged users.'),
-      '#default_value' => $node->private->value,
-    );
-  }
-}
-
-/**
- * Implements hook_node_load().
- */
-function node_access_test_node_load($nodes) {
-  $result = db_query('SELECT nid, private FROM {node_access_test} WHERE nid IN(:nids)', array(':nids' => array_keys($nodes)));
-  foreach ($result as $record) {
-    $nodes[$record->nid]->private = $record->private;
-  }
-}
-
-/**
- * Implements hook_node_predelete().
- */
-function node_access_test_node_predelete(NodeInterface $node) {
-  db_delete('node_access_test')->condition('nid', $node->id())->execute();
-}
-
-/**
- * Implements hook_node_insert().
- */
-function node_access_test_node_insert(NodeInterface $node) {
-  _node_access_test_node_write($node);
-}
-
-/**
- * Implements hook_nodeapi_update().
- */
-function node_access_test_node_update(NodeInterface $node) {
-  _node_access_test_node_write($node);
-}
-
-/**
- * Saves the private status of the node in the database.
- */
-function _node_access_test_node_write(NodeInterface $node) {
-  db_merge('node_access_test')
-    ->key('nid', $node->id())
-    ->fields(array('private' => (int) $node->private->value))
-    ->execute();
+  // Assign widget settings for the 'default' form mode.
+  entity_get_form_display('node', $type->id(), 'default')
+    ->setComponent('private', array(
+      'type' => 'number',
+    ))
+    ->save();
 }
 
 /**
  * Implements hook_node_access().
  */
-function node_access_test_node_access($node, $op, $account, $langcode) {
+function node_access_test_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account, $langcode) {
   $secret_catalan = \Drupal::state()->get('node_access_test_secret_catalan') ?: 0;
   if ($secret_catalan && $langcode == 'ca') {
     // Make all Catalan content secret.
-    return NODE_ACCESS_DENY;
+    return AccessResult::forbidden()->setCacheable(FALSE);
   }
-  return NODE_ACCESS_IGNORE;
+  // No opinion.
+  return AccessResult::neutral()->setCacheable(FALSE);
 }

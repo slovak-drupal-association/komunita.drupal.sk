@@ -14,6 +14,7 @@ use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\TranslationInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\comment\CommentManagerInterface;
 use Drupal\node\NodeInterface;
 
 /**
@@ -68,6 +69,13 @@ class ForumManager implements ForumManagerInterface {
   protected $connection;
 
   /**
+   * The comment manager service.
+   *
+   * @var \Drupal\comment\CommentManagerInterface
+   */
+  protected $commentManager;
+
+  /**
    * Array of last post information keyed by forum (term) id.
    *
    * @var array
@@ -113,12 +121,15 @@ class ForumManager implements ForumManagerInterface {
    *   The current database connection.
    * @param \Drupal\Core\StringTranslation\TranslationInterface $string_translation
    *   The translation manager service.
+   * @param \Drupal\comment\CommentManagerInterface $comment_manager
+   *   The comment manager service.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, EntityManagerInterface $entity_manager, Connection $connection, TranslationInterface $string_translation) {
+  public function __construct(ConfigFactoryInterface $config_factory, EntityManagerInterface $entity_manager, Connection $connection, TranslationInterface $string_translation, CommentManagerInterface $comment_manager) {
     $this->configFactory = $config_factory;
     $this->entityManager = $entity_manager;
     $this->connection = $connection;
-    $this->translationManager = $string_translation;
+    $this->stringTranslation = $string_translation;
+    $this->commentManager = $comment_manager;
   }
 
   /**
@@ -184,10 +195,10 @@ class ForumManager implements ForumManagerInterface {
       $query->join('forum_index', 'f', 'f.nid = n.nid');
       $query->addField('f', 'tid', 'forum_tid');
 
-      $query->join('users', 'u', 'n.uid = u.uid');
+      $query->join('users_field_data', 'u', 'n.uid = u.uid AND u.default_langcode = 1');
       $query->addField('u', 'name');
 
-      $query->join('users', 'u2', 'ces.last_comment_uid = u2.uid');
+      $query->join('users_field_data', 'u2', 'ces.last_comment_uid = u2.uid AND u.default_langcode = 1');
 
       $query->addExpression('CASE ces.last_comment_uid WHEN 0 THEN ces.last_comment_name ELSE u2.name END', 'last_comment_name');
 
@@ -225,7 +236,7 @@ class ForumManager implements ForumManagerInterface {
         }
         else {
           $history = $this->lastVisit($topic->id(), $account);
-          $topic->new_replies = $this->numberNew($topic->id(), $history);
+          $topic->new_replies = $this->commentManager->getCountNewComments($topic, 'comment_forum', $history);
           $topic->new = $topic->new_replies || ($topic->last_comment_timestamp > $history);
         }
       }
@@ -289,21 +300,6 @@ class ForumManager implements ForumManagerInterface {
   }
 
   /**
-   * Wraps comment_num_new() in a method.
-   *
-   * @param int $nid
-   *   Node ID.
-   * @param int $timestamp
-   *   Timestamp of last read.
-   *
-   * @return int
-   *   Number of new comments.
-   */
-  protected function numberNew($nid, $timestamp) {
-    return comment_num_new($nid, $timestamp);
-  }
-
-  /**
    * Gets the last time the user viewed a node.
    *
    * @param int $nid
@@ -345,7 +341,7 @@ class ForumManager implements ForumManagerInterface {
     $query = $this->connection->select('node_field_data', 'n');
     $query->join('forum', 'f', 'n.vid = f.vid AND f.tid = :tid', array(':tid' => $tid));
     $query->join('comment_entity_statistics', 'ces', "n.nid = ces.entity_id AND ces.field_name = 'comment_forum' AND ces.entity_type = 'node'");
-    $query->join('users', 'u', 'ces.last_comment_uid = u.uid');
+    $query->join('users_field_data', 'u', 'ces.last_comment_uid = u.uid AND u.default_langcode = 1');
     $query->addExpression('CASE ces.last_comment_uid WHEN 0 THEN ces.last_comment_name ELSE u.name END', 'last_comment_name');
 
     $topic = $query
@@ -467,7 +463,7 @@ class ForumManager implements ForumManagerInterface {
    * {@inheritdoc}
    */
   public function getParents($tid) {
-    return taxonomy_term_load_parents_all($tid);
+    return $this->entityManager->getStorage('taxonomy_term')->loadAllParents($tid);
   }
 
   /**

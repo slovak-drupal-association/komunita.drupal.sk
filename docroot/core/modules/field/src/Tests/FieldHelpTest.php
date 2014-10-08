@@ -11,6 +11,8 @@ use Drupal\simpletest\WebTestBase;
 
 /**
  * Tests help display for the Field module.
+ *
+ * @group field
  */
 class FieldHelpTest extends WebTestBase {
 
@@ -29,15 +31,7 @@ class FieldHelpTest extends WebTestBase {
    */
   protected $adminUser;
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Field help functionality',
-      'description' => 'Verify help display for the Field module.',
-      'group' => 'Field',
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Create the admin user.

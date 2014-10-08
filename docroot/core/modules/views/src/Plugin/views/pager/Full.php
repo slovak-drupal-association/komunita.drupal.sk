@@ -7,6 +7,8 @@
 
 namespace Drupal\views\Plugin\views\pager;
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * The plugin to handle full pager.
  *
@@ -41,26 +43,26 @@ class Full extends SqlBase {
   /**
    * Overrides \Drupal\views\Plugin\views\SqlBase::buildOptionsForm().
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
     $form['quantity'] = array(
       '#type' => 'number',
-      '#title' => t('Number of pager links visible'),
-      '#description' => t('Specify the number of links to pages to display in the pager.'),
+      '#title' => $this->t('Number of pager links visible'),
+      '#description' => $this->t('Specify the number of links to pages to display in the pager.'),
       '#default_value' => $this->options['quantity'],
     );
 
     $form['tags']['first'] = array(
       '#type' => 'textfield',
-      '#title' => t('First page link text'),
+      '#title' => $this->t('First page link text'),
       '#default_value' => $this->options['tags']['first'],
       '#weight' => -10,
     );
 
     $form['tags']['last'] = array(
       '#type' => 'textfield',
-      '#title' => t('Last page link text'),
+      '#title' => $this->t('Last page link text'),
       '#default_value' => $this->options['tags']['last'],
       '#weight' => 10,
     );

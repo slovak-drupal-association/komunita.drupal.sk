@@ -7,6 +7,8 @@
 
 namespace Drupal\views\Plugin\views\style;
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * The default style plugin for summaries.
  *
@@ -29,16 +31,16 @@ class UnformattedSummary extends DefaultSummary {
     return $options;
   }
 
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
     $form['inline'] = array(
       '#type' => 'checkbox',
       '#default_value' => !empty($this->options['inline']),
-      '#title' => t('Display items inline'),
+      '#title' => $this->t('Display items inline'),
     );
     $form['separator'] = array(
       '#type' => 'textfield',
-      '#title' => t('Separator'),
+      '#title' => $this->t('Separator'),
       '#default_value' => $this->options['separator'],
     );
   }

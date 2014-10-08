@@ -12,10 +12,8 @@ use Drupal\Core\Path\PathMatcher;
 use Drupal\Tests\UnitTestCase;
 
 /**
- * Tests that path matching is working properly.
- *
- * @group Drupal
- * @see \Drupal\Core\Path\PathMatcher
+ * @coversDefaultClass \Drupal\Core\Path\PathMatcher
+ * @group Path
  */
 class PathMatcherTest extends UnitTestCase {
 
@@ -29,18 +27,7 @@ class PathMatcherTest extends UnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public static function getInfo() {
-    return array(
-      'name' => 'Path Matcher tests',
-      'description' => 'Tests that path matching is working properly.',
-      'group' => 'Path',
-    );
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
+  protected function setUp() {
     // Create a stub config factory with all config settings that will be
     // checked during this test.
     $config_factory_stub = $this->getConfigFactoryStub(

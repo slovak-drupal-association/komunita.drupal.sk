@@ -11,6 +11,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\PrivateKey;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Cache\CacheBackendInterface;
+use Drupal\Core\Site\Settings;
 
 /**
  * Generates and caches the permissions hash for a user.
@@ -58,7 +59,8 @@ class PermissionsHash implements PermissionsHashInterface {
     }
     else {
       $permissions_hash = $this->doGenerate($sorted_roles);
-      $this->cache->set("user_permissions_hash:$role_list", $permissions_hash, Cache::PERMANENT, array('user_role' => $sorted_roles));
+      $tags = Cache::buildTags('user_role', $sorted_roles);
+      $this->cache->set("user_permissions_hash:$role_list", $permissions_hash, Cache::PERMANENT, $tags);
     }
 
     return $permissions_hash;
@@ -81,7 +83,7 @@ class PermissionsHash implements PermissionsHashInterface {
       sort($permissions);
       $permissions_by_role[$role] = $permissions;
     }
-    return hash('sha256', $this->privateKey->get() . drupal_get_hash_salt() . serialize($permissions_by_role));
+    return hash('sha256', $this->privateKey->get() . Settings::getHashSalt() . serialize($permissions_by_role));
   }
 
 }

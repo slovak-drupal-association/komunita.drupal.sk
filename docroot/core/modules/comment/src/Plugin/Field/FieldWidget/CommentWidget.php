@@ -10,6 +10,7 @@ namespace Drupal\comment\Plugin\Field\FieldWidget;
 use Drupal\comment\Plugin\Field\FieldType\CommentItemInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Provides a default comment widget.
@@ -27,7 +28,7 @@ class CommentWidget extends WidgetBase {
   /**
    * {@inheritdoc}
    */
-  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, array &$form_state) {
+  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $entity = $items->getEntity();
 
     $element['status'] = array(
@@ -62,13 +63,16 @@ class CommentWidget extends WidgetBase {
     // second column on wide-resolutions), place the field as a details element
     // in this tab-set.
     if (isset($form['advanced'])) {
-      // Get default value from the field instance.
+      // Get default value from the field.
       $field_default_values = $this->fieldDefinition->getDefaultValue($entity);
+
+      // Override widget title to be helpful for end users.
+      $element['#title'] = $this->t('Comment settings');
 
       $element += array(
         '#type' => 'details',
         // Open the details when the selected value is different to the stored
-        // default values for the field instance.
+        // default values for the field.
         '#open' => ($items->status != $field_default_values[0]['status']),
         '#group' => 'advanced',
         '#attributes' => array(
@@ -86,7 +90,7 @@ class CommentWidget extends WidgetBase {
   /**
    * {@inheritdoc}
    */
-  public function massageFormValues(array $values, array $form, array &$form_state) {
+  public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
     // Add default values for statistics properties because we don't want to
     // have them in form.
     foreach ($values as &$value) {

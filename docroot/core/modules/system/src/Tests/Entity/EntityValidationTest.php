@@ -8,7 +8,9 @@
 namespace Drupal\system\Tests\Entity;
 
 /**
- * Tests Entity API base functionality.
+ * Tests the Entity Validation API.
+ *
+ * @group Entity
  */
 class EntityValidationTest extends EntityUnitTestBase {
 
@@ -19,18 +21,25 @@ class EntityValidationTest extends EntityUnitTestBase {
    */
   public static $modules = array('filter', 'text');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Entity Validation API',
-      'description' => 'Tests the Entity Validation API',
-      'group' => 'Entity API',
-    );
-  }
+  /**
+   * @var string
+   */
+  protected $entity_name;
+
+  /**
+   * @var \Drupal\user\Entity\User
+   */
+  protected $entity_user;
+
+  /**
+   * @var string
+   */
+  protected $entity_field_text;
 
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->installEntitySchema('entity_test_rev');
@@ -54,9 +63,9 @@ class EntityValidationTest extends EntityUnitTestBase {
    *   The created test entity.
    */
   protected function createTestEntity($entity_type) {
-    $this->entity_name = $this->randomName();
+    $this->entity_name = $this->randomMachineName();
     $this->entity_user = $this->createUser();
-    $this->entity_field_text = $this->randomName();
+    $this->entity_field_text = $this->randomMachineName();
 
     // Pass in the value of the name field when creating. With the user
     // field we test setting a field after creation.
@@ -124,7 +133,7 @@ class EntityValidationTest extends EntityUnitTestBase {
 
     // Make sure the information provided by a violation is correct.
     $violation = $violations[0];
-    $this->assertEqual($violation->getRoot(), $test_entity, 'Violation root is entity.');
+    $this->assertEqual($violation->getRoot()->getValue(), $test_entity, 'Violation root is entity.');
     $this->assertEqual($violation->getPropertyPath(), 'name.0.value', 'Violation property path is correct.');
     $this->assertEqual($violation->getInvalidValue(), $test_entity->name->value, 'Violation contains invalid value.');
 
@@ -142,7 +151,7 @@ class EntityValidationTest extends EntityUnitTestBase {
 
     // Make sure the information provided by a violation is correct.
     $violation = $violations[0];
-    $this->assertEqual($violation->getRoot(), $test_entity, 'Violation root is entity.');
+    $this->assertEqual($violation->getRoot()->getValue(), $test_entity, 'Violation root is entity.');
     $this->assertEqual($violation->getPropertyPath(), 'field_test_text.0.format', 'Violation property path is correct.');
     $this->assertEqual($violation->getInvalidValue(), $test_entity->field_test_text->format, 'Violation contains invalid value.');
   }

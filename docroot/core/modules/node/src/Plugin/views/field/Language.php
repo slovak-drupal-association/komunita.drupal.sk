@@ -7,6 +7,7 @@
 
 namespace Drupal\node\Plugin\views\field;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Plugin\views\field\Node;
 use Drupal\views\ResultRow;
 
@@ -26,13 +27,13 @@ class Language extends Node {
     return $options;
   }
 
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
     $form['native_language'] = array(
-      '#title' => t('Native language'),
+      '#title' => $this->t('Native language'),
       '#type' => 'checkbox',
       '#default_value' => $this->options['native_language'],
-      '#description' => t('If enabled, the native name of the language will be displayed'),
+      '#description' => $this->t('If enabled, the native name of the language will be displayed'),
     );
   }
 

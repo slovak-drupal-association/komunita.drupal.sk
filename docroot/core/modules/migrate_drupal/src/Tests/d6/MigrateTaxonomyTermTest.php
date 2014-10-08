@@ -12,7 +12,9 @@ use Drupal\migrate_drupal\Tests\MigrateDrupalTestBase;
 use Drupal\taxonomy\Entity\Term;
 
 /**
- * Tests the Drupal 6 taxonomy term to Drupal 8 migration.
+ * Upgrade taxonomy terms.
+ *
+ * @group migrate_drupal
  */
 class MigrateTaxonomyTermTest extends MigrateDrupalTestBase {
 
@@ -21,20 +23,9 @@ class MigrateTaxonomyTermTest extends MigrateDrupalTestBase {
   /**
    * {@inheritdoc}
    */
-  public static function getInfo() {
-    return array(
-      'name'  => 'Migrate taxonomy terms',
-      'description'  => 'Upgrade taxonomy terms',
-      'group' => 'Migrate Drupal',
-    );
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   protected function setUp() {
     parent::setUp();
-    $this->prepareIdMappings(array(
+    $this->prepareMigrations(array(
       'd6_taxonomy_vocabulary' => array(
         array(array(1), array('vocabulary_1_i_0_')),
         array(array(2), array('vocabulary_2_i_1_')),
@@ -60,7 +51,7 @@ class MigrateTaxonomyTermTest extends MigrateDrupalTestBase {
         'source_vid' => 1,
         'vid' => 'vocabulary_1_i_0_',
         'weight' => 0,
-        'parent' => array(0),
+        'parent' => array(2),
       ),
       '2' => array(
         'source_vid' => 2,
@@ -102,7 +93,7 @@ class MigrateTaxonomyTermTest extends MigrateDrupalTestBase {
       $this->assertEqual($term->vid->target_id, $values['vid']);
       $this->assertEqual($term->weight->value, $values['weight']);
       if ($values['parent'] === array(0)) {
-        $this->assertEqual($term->parent->value, 0);
+        $this->assertEqual($term->parent->target_id, 0);
       }
       else {
         $parents = array();

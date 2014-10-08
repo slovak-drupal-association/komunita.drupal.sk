@@ -10,7 +10,9 @@ namespace Drupal\system\Tests\System;
 use Drupal\simpletest\WebTestBase;
 
 /**
- * Tests site maintenance functionality.
+ * Tests access to site while in maintenance mode.
+ *
+ * @group system
  */
 class SiteMaintenanceTest extends WebTestBase {
 
@@ -23,15 +25,7 @@ class SiteMaintenanceTest extends WebTestBase {
 
   protected $admin_user;
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Site maintenance mode functionality',
-      'description' => 'Test access to site while in maintenance mode.',
-      'group' => 'System',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Configure 'node' as front page.
@@ -54,7 +48,7 @@ class SiteMaintenanceTest extends WebTestBase {
     );
     $this->drupalPostForm('admin/config/development/maintenance', $edit, t('Save configuration'));
 
-    $admin_message = t('Operating in maintenance mode. <a href="@url">Go online.</a>', array('@url' => url('admin/config/development/maintenance')));
+    $admin_message = t('Operating in maintenance mode. <a href="@url">Go online.</a>', array('@url' => \Drupal::url('system.site_maintenance_mode')));
     $user_message = t('Operating in maintenance mode.');
     $offline_message = t('@site is currently under maintenance. We should be back shortly. Thank you for your patience.', array('@site' => \Drupal::config('system.site')->get('name')));
 

@@ -18,14 +18,14 @@ use Drupal\Core\Entity\EntityStorageInterface;
  * @ConfigEntityType(
  *   id = "config_test",
  *   label = @Translation("Test configuration"),
- *   controllers = {
+ *   handlers = {
  *     "storage" = "Drupal\config_test\ConfigTestStorage",
  *     "list_builder" = "Drupal\config_test\ConfigTestListBuilder",
  *     "form" = {
  *       "default" = "Drupal\config_test\ConfigTestForm",
  *       "delete" = "Drupal\config_test\Form\ConfigTestDeleteForm"
  *     },
- *     "access" = "Drupal\config_test\ConfigTestAccessController"
+ *     "access" = "Drupal\config_test\ConfigTestAccessControlHandler"
  *   },
  *   config_prefix = "dynamic",
  *   entity_keys = {
@@ -34,10 +34,10 @@ use Drupal\Core\Entity\EntityStorageInterface;
  *     "status" = "status"
  *   },
  *   links = {
- *     "edit-form" = "config_test.entity",
- *     "delete-form" = "config_test.entity_delete",
- *     "enable" = "config_test.entity_enable",
- *     "disable" = "config_test.entity_disable"
+ *     "edit-form" = "entity.config_test.edit_form",
+ *     "delete-form" = "entity.config_test.delete_form",
+ *     "enable" = "entity.config_test.enable",
+ *     "disable" = "entity.config_test.disable"
  *   }
  * )
  */
@@ -133,6 +133,26 @@ class ConfigTest extends ConfigEntityBase implements ConfigTestInterface {
       foreach ($deps as $dep) {
         $this->addDependency($type, $dep);
       }
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function onDependencyRemoval(array $dependencies) {
+    $changed = FALSE;
+    $fix_deps = \Drupal::state()->get('config_test.fix_dependencies', array());
+    foreach ($dependencies['entity'] as $entity) {
+      if (in_array($entity->getConfigDependencyName(), $fix_deps)) {
+        $key = array_search($entity->getConfigDependencyName(), $this->test_dependencies['entity']);
+        if ($key !== FALSE) {
+          $changed = TRUE;
+          unset($this->test_dependencies['entity'][$key]);
+        }
+      }
+    }
+    if ($changed) {
+      $this->save();
     }
   }
 

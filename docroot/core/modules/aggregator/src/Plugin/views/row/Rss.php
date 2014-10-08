@@ -7,6 +7,7 @@
 
 namespace Drupal\aggregator\Plugin\views\row;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\row\RowPluginBase;
 
 /**
@@ -43,7 +44,7 @@ class Rss extends RowPluginBase {
   protected function defineOptions() {
     $options = parent::defineOptions();
 
-    $options['item_length'] = array('default' => 'default');
+    $options['view_mode'] = array('default' => 'default');
 
     return $options;
   }
@@ -51,17 +52,17 @@ class Rss extends RowPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function buildOptionsForm(&$form, &$form_state) {
-    $form['item_length'] = array(
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
+    $form['view_mode'] = array(
       '#type' => 'select',
-      '#title' => t('Display type'),
+      '#title' => $this->t('Display type'),
       '#options' => array(
-        'fulltext' => t('Full text'),
-        'teaser' => t('Title plus teaser'),
-        'title' => t('Title only'),
-        'default' => t('Use default RSS settings'),
+        'fulltext' => $this->t('Full text'),
+        'teaser' => $this->t('Title plus teaser'),
+        'title' => $this->t('Title only'),
+        'default' => $this->t('Use default RSS settings'),
       ),
-      '#default_value' => $this->options['item_length'],
+      '#default_value' => $this->options['view_mode'],
     );
   }
 
@@ -72,9 +73,9 @@ class Rss extends RowPluginBase {
     $entity = $row->_entity;
 
     $item = new \stdClass();
-    foreach ($entity->getProperties() as $name => $value) {
+    foreach ($entity as $name => $field) {
       // views_view_row_rss takes care about the escaping.
-      $item->{$name} = $value->value;
+      $item->{$name} = $field->value;
     }
 
     $item->elements = array(

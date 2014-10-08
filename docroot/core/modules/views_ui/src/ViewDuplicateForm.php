@@ -7,6 +7,8 @@
 
 namespace Drupal\views_ui;
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Form controller for the Views duplicate form.
  */
@@ -22,7 +24,7 @@ class ViewDuplicateForm extends ViewFormBase {
   /**
    * {@inheritdoc}
    */
-  public function form(array $form, array &$form_state) {
+  public function form(array $form, FormStateInterface $form_state) {
     parent::form($form, $form_state);
 
     $form['#title'] = $this->t('Duplicate of @label', array('@label' => $this->entity->label()));
@@ -52,29 +54,30 @@ class ViewDuplicateForm extends ViewFormBase {
   /**
    * {@inheritdoc}
    */
-  protected function actions(array $form, array &$form_state) {
+  protected function actions(array $form, FormStateInterface $form_state) {
     $actions['submit'] = array(
       '#type' => 'submit',
       '#value' => $this->t('Duplicate'),
-      '#submit' => array(
-        array($this, 'submit'),
-      ),
+      '#submit' => array('::submitForm'),
     );
     return $actions;
   }
 
   /**
-   * {@inheritdoc}
+   * Form submission handler for the 'clone' action.
+   *
+   * @param array $form
+   *   An associative array containing the structure of the form.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   A reference to a keyed array containing the current state of the form.
    */
-  public function submit(array $form, array &$form_state) {
-    $original = parent::submit($form, $form_state);
-    $this->entity = $original->createDuplicate();
-    $this->entity->set('id', $form_state['values']['id']);
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    $this->entity = $this->entity->createDuplicate();
+    $this->entity->set('id', $form_state->getValue('id'));
     $this->entity->save();
 
     // Redirect the user to the view admin form.
-    $form_state['redirect_route'] = $this->entity->urlInfo('edit-form');
-    return $this->entity;
+    $form_state->setRedirectUrl($this->entity->urlInfo('edit-form'));
   }
 
 }

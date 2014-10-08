@@ -42,17 +42,17 @@ class LinkApprove extends Link {
   protected function renderLink($data, ResultRow $values) {
     $status = $this->getValue($values, 'status');
 
-    // Don't show an approve link on published nodes.
+    // Don't show an approve link on published comment.
     if ($status == CommentInterface::PUBLISHED) {
       return;
     }
 
-    $text = !empty($this->options['text']) ? $this->options['text'] : t('Approve');
+    $text = !empty($this->options['text']) ? $this->options['text'] : $this->t('Approve');
     $comment = $this->get_entity($values);
 
     $this->options['alter']['make_link'] = TRUE;
     $this->options['alter']['path'] = "comment/" . $comment->id() . "/approve";
-    $this->options['alter']['query'] = drupal_get_destination() + array('token' => drupal_get_token($this->options['alter']['path']));
+    $this->options['alter']['query'] = drupal_get_destination() + array('token' => \Drupal::csrfToken()->get($this->options['alter']['path']));
 
     return $text;
   }

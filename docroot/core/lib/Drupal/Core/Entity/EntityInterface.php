@@ -103,9 +103,9 @@ interface EntityInterface extends AccessibleInterface {
    * example:
    * @code
    * links = {
-   *   "canonical" = "node.view",
-   *   "edit-form" = "node.page_edit",
-   *   "version-history" = "node.revision_overview"
+   *   "canonical" = "entity.node.canonical",
+   *   "edit-form" = "entity.node.edit_form",
+   *   "version-history" = "entity.node.version_history"
    * }
    * @endcode
    * or specified in a callback function set like:
@@ -119,10 +119,13 @@ interface EntityInterface extends AccessibleInterface {
    *
    * @param string $rel
    *   The link relationship type, for example: canonical or edit-form.
+   * @param array $options
+   *   See \Drupal\Core\Routing\UrlGeneratorInterface::generateFromRoute() for
+   *   the available options.
    *
    * @return \Drupal\Core\Url
    */
-  public function urlInfo($rel = 'canonical');
+  public function urlInfo($rel = 'canonical', array $options = array());
 
   /**
    * Returns the public URL for this entity.
@@ -137,6 +140,23 @@ interface EntityInterface extends AccessibleInterface {
    *   The URL for this entity.
    */
   public function url($rel = 'canonical', $options = array());
+
+  /**
+   * Generates the HTML for a link to this entity.
+   *
+   * @param string|null $text
+   *   (optional) The link text for the anchor tag as a translated string.
+   *   If NULL, it will use the entity's label. Defaults to NULL.
+   * @param string $rel
+   *   (optional) The link relationship type. Defaults to 'canonical'.
+   * @param array $options
+   *   See \Drupal\Core\Routing\UrlGeneratorInterface::generateFromRoute() for
+   *   the available options.
+   *
+   * @return string
+   *   An HTML string containing a link to the entity.
+   */
+  public function link($text = NULL, $rel = 'canonical', array $options = []);
 
   /**
    * Returns the internal path for this entity.
@@ -357,6 +377,19 @@ interface EntityInterface extends AccessibleInterface {
    *   An array of property values, keyed by property name.
    */
   public function toArray();
+
+  /**
+   * Returns a typed data object for this entity object.
+   *
+   * The returned typed data object wraps this entity and allows dealing with
+   * entities based on the generic typed data API.
+   *
+   * @return \Drupal\Core\TypedData\ComplexDataInterface
+   *   The typed data object for this entity.
+   *
+   * @see \Drupal\Core\TypedData\TypedDataInterface
+   */
+  public function getTypedData();
 
   /**
    * The unique cache tag associated with this entity.

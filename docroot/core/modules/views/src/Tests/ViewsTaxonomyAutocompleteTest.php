@@ -14,6 +14,7 @@ use Drupal\views\Tests\ViewTestBase;
 /**
  * Tests the views taxonomy complete menu callback.
  *
+ * @group views
  * @see views_ajax_autocomplete_taxonomy()
  */
 class ViewsTaxonomyAutocompleteTest extends ViewTestBase {
@@ -46,15 +47,7 @@ class ViewsTaxonomyAutocompleteTest extends ViewTestBase {
    */
   public static $modules = array('node', 'taxonomy');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'View taxonomy autocomplete',
-      'description' => 'Tests the view taxonomy autocomplete AJAX callback.',
-      'group' => 'Views'
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Create the vocabulary for the tag field.
@@ -102,8 +95,8 @@ class ViewsTaxonomyAutocompleteTest extends ViewTestBase {
    */
   protected function createTerm($name = NULL) {
     $term = entity_create('taxonomy_term', array(
-      'name' => $name ?: $this->randomName(),
-      'description' => $this->randomName(),
+      'name' => $name ?: $this->randomMachineName(),
+      'description' => $this->randomMachineName(),
       'vid' => $this->vocabulary->id(),
       'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
     ));

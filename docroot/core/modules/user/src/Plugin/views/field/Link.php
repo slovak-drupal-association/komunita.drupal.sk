@@ -7,6 +7,7 @@
 
 namespace Drupal\user\Plugin\views\field;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
@@ -45,10 +46,10 @@ class Link extends FieldPluginBase {
     return $options;
   }
 
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     $form['text'] = array(
       '#type' => 'textfield',
-      '#title' => t('Text to display'),
+      '#title' => $this->t('Text to display'),
       '#default_value' => $this->options['text'],
     );
     parent::buildOptionsForm($form, $form_state);
@@ -86,7 +87,7 @@ class Link extends FieldPluginBase {
    *   The acutal rendered text (without the link) of this field.
    */
   protected function renderLink(EntityInterface $entity, ResultRow $values) {
-    $text = !empty($this->options['text']) ? $this->options['text'] : t('View');
+    $text = !empty($this->options['text']) ? $this->options['text'] : $this->t('View');
 
     $this->options['alter']['make_link'] = TRUE;
     $this->options['alter']['path'] = $entity->getSystemPath();

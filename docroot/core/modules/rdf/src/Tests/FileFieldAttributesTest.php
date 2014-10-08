@@ -10,7 +10,9 @@ namespace Drupal\rdf\Tests;
 use Drupal\file\Tests\FileFieldTestBase;
 
 /**
- * Tests RDFa markup generation for File fields.
+ * Tests the RDFa markup of filefields.
+ *
+ * @group rdf
  */
 class FileFieldAttributesTest extends FileFieldTestBase {
 
@@ -42,17 +44,9 @@ class FileFieldAttributesTest extends FileFieldTestBase {
    */
   protected $node;
 
-  public static function getInfo() {
-    return array(
-      'name' => 'RDFa markup for files',
-      'description' => 'Tests the RDFa markup of filefields.',
-      'group' => 'RDF',
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
-    $this->fieldName = strtolower($this->randomName());
+    $this->fieldName = strtolower($this->randomMachineName());
 
     $type_name = 'article';
     $this->createFileField($this->fieldName, 'node', $type_name);
@@ -90,10 +84,10 @@ class FileFieldAttributesTest extends FileFieldTestBase {
     // Parses front page where the node is displayed in its teaser form.
     $parser = new \EasyRdf_Parser_Rdfa();
     $graph = new \EasyRdf_Graph();
-    $base_uri = url('<front>', array('absolute' => TRUE));
+    $base_uri = \Drupal::url('<front>', [], ['absolute' => TRUE]);
     $parser->parse($graph, $html, 'rdfa', $base_uri);
 
-    $node_uri = url('node/' . $this->node->id(), array('absolute' => TRUE));
+    $node_uri = $this->node->url('canonical', ['absolute' => TRUE]);
     $file_uri = file_create_url($this->file->getFileUri());
 
     // Node relation to attached file.

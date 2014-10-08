@@ -10,6 +10,8 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
 
 /**
  * Tests field elements in nested forms.
+ *
+ * @group field
  */
 class NestedFormTest extends FieldTestBase {
 
@@ -20,40 +22,32 @@ class NestedFormTest extends FieldTestBase {
    */
   public static $modules = array('field_test', 'entity_test');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Nested form',
-      'description' => 'Test the support for field elements in nested forms.',
-      'group' => 'Field API',
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $web_user = $this->drupalCreateUser(array('view test entity', 'administer entity_test content'));
     $this->drupalLogin($web_user);
 
-    $this->field_single = array(
-      'name' => 'field_single',
+    $this->fieldStorageSingle = array(
+      'field_name' => 'field_single',
       'entity_type' => 'entity_test',
       'type' => 'test_field',
     );
-    $this->field_unlimited = array(
-      'name' => 'field_unlimited',
+    $this->fieldStorageUnlimited = array(
+      'field_name' => 'field_unlimited',
       'entity_type' => 'entity_test',
       'type' => 'test_field',
       'cardinality' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
     );
 
-    $this->instance = array(
+    $this->field = array(
       'entity_type' => 'entity_test',
       'bundle' => 'entity_test',
-      'label' => $this->randomName() . '_label',
+      'label' => $this->randomMachineName() . '_label',
       'description' => '[site:name]_description',
       'weight' => mt_rand(0, 127),
       'settings' => array(
-        'test_instance_setting' => $this->randomName(),
+        'test_field_setting' => $this->randomMachineName(),
       ),
     );
   }
@@ -62,20 +56,20 @@ class NestedFormTest extends FieldTestBase {
    * Tests Field API form integration within a subform.
    */
   function testNestedFieldForm() {
-    // Add two instances on the 'entity_test'
-    entity_create('field_config', $this->field_single)->save();
-    entity_create('field_config', $this->field_unlimited)->save();
-    $this->instance['field_name'] = 'field_single';
-    $this->instance['label'] = 'Single field';
-    entity_create('field_instance_config', $this->instance)->save();
-    entity_get_form_display($this->instance['entity_type'], $this->instance['bundle'], 'default')
-      ->setComponent($this->instance['field_name'])
+    // Add two fields on the 'entity_test'
+    entity_create('field_storage_config', $this->fieldStorageSingle)->save();
+    entity_create('field_storage_config', $this->fieldStorageUnlimited)->save();
+    $this->field['field_name'] = 'field_single';
+    $this->field['label'] = 'Single field';
+    entity_create('field_config', $this->field)->save();
+    entity_get_form_display($this->field['entity_type'], $this->field['bundle'], 'default')
+      ->setComponent($this->field['field_name'])
       ->save();
-    $this->instance['field_name'] = 'field_unlimited';
-    $this->instance['label'] = 'Unlimited field';
-    entity_create('field_instance_config', $this->instance)->save();
-    entity_get_form_display($this->instance['entity_type'], $this->instance['bundle'], 'default')
-      ->setComponent($this->instance['field_name'])
+    $this->field['field_name'] = 'field_unlimited';
+    $this->field['label'] = 'Unlimited field';
+    entity_create('field_config', $this->field)->save();
+    entity_get_form_display($this->field['entity_type'], $this->field['bundle'], 'default')
+      ->setComponent($this->field['field_name'])
       ->save();
 
     // Create two entities.

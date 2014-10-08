@@ -7,6 +7,7 @@
 
 namespace Drupal\views\Plugin\views\style;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\PluginBase;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
 use Drupal\views\Plugin\views\wizard\WizardInterface;
@@ -17,7 +18,7 @@ use Drupal\views\ViewExecutable;
  * @{
  * Plugins that control how the collection of results is rendered in a view.
  *
- * Style plugins control a view is displayed. For the most part, they are
+ * Style plugins control how a view is displayed. For the most part, they are
  * object wrappers around theme templates. Examples of styles include HTML
  * lists, tables, full or teaser content views, etc.
  *
@@ -28,7 +29,7 @@ use Drupal\views\ViewExecutable;
  * information.
  *
  * Style plugins extend \Drupal\views\Plugin\views\style\StylePluginBase. They
- * must be annotated with \Drupal\views\Plugin\Annotation\ViewsStyle
+ * must be annotated with \Drupal\views\Annotation\ViewsStyle
  * annotation, and they must be in namespace directory Plugin\views\style.
  *
  * @ingroup views_plugins
@@ -102,6 +103,13 @@ abstract class StylePluginBase extends PluginBase {
    * @see StylePluginBase::renderGroupingSets()
    */
   protected $groupingTheme = 'views_view_grouping';
+
+  /**
+   * Should field labels be enabled by default.
+   *
+   * @var bool
+   */
+  protected $defaultFieldLabels = FALSE;
 
   /**
    * Overrides \Drupal\views\Plugin\views\PluginBase::init().
@@ -189,6 +197,15 @@ abstract class StylePluginBase extends PluginBase {
   }
 
   /**
+   * Return TRUE if this style enables field labels by default.
+   *
+   * @return bool
+   */
+  public function defaultFieldLabels() {
+    return $this->defaultFieldLabels;
+  }
+
+  /**
    * Return the token replaced row class for the specified row.
    */
   public function getRowClass($row_index) {
@@ -244,14 +261,14 @@ abstract class StylePluginBase extends PluginBase {
     return $options;
   }
 
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
     // Only fields-based views can handle grouping.  Style plugins can also exclude
     // themselves from being groupable by setting their "usesGrouping" property
     // to FALSE.
     // @TODO: Document "usesGrouping" in docs.php when docs.php is written.
     if ($this->usesFields() && $this->usesGrouping()) {
-      $options = array('' => t('- None -'));
+      $options = array('' => $this->t('- None -'));
       $field_labels = $this->displayHandler->getFieldLabels(TRUE);
       $options += $field_labels;
       // If there are no fields, we can't group on them.
@@ -275,16 +292,16 @@ abstract class StylePluginBase extends PluginBase {
           $grouping += array('field' => '', 'rendered' => TRUE, 'rendered_strip' => FALSE);
           $form['grouping'][$i]['field'] = array(
             '#type' => 'select',
-            '#title' => t('Grouping field Nr.@number', array('@number' => $i + 1)),
+            '#title' => $this->t('Grouping field Nr.@number', array('@number' => $i + 1)),
             '#options' => $options,
             '#default_value' => $grouping['field'],
-            '#description' => t('You may optionally specify a field by which to group the records. Leave blank to not group.'),
+            '#description' => $this->t('You may optionally specify a field by which to group the records. Leave blank to not group.'),
           );
           $form['grouping'][$i]['rendered'] = array(
             '#type' => 'checkbox',
-            '#title' => t('Use rendered output to group rows'),
+            '#title' => $this->t('Use rendered output to group rows'),
             '#default_value' => $grouping['rendered'],
-            '#description' => t('If enabled the rendered output of the grouping field is used to group the rows.'),
+            '#description' => $this->t('If enabled the rendered output of the grouping field is used to group the rows.'),
             '#states' => array(
               'invisible' => array(
                 ':input[name="style_options[grouping][' . $i . '][field]"]' => array('value' => ''),
@@ -293,7 +310,7 @@ abstract class StylePluginBase extends PluginBase {
           );
           $form['grouping'][$i]['rendered_strip'] = array(
             '#type' => 'checkbox',
-            '#title' => t('Remove tags from rendered output'),
+            '#title' => $this->t('Remove tags from rendered output'),
             '#default_value' => $grouping['rendered_strip'],
             '#states' => array(
               'invisible' => array(
@@ -307,19 +324,19 @@ abstract class StylePluginBase extends PluginBase {
 
     if ($this->usesRowClass()) {
       $form['row_class'] = array(
-        '#title' => t('Row class'),
-        '#description' => t('The class to provide on each row.'),
+        '#title' => $this->t('Row class'),
+        '#description' => $this->t('The class to provide on each row.'),
         '#type' => 'textfield',
         '#default_value' => $this->options['row_class'],
       );
 
       if ($this->usesFields()) {
-        $form['row_class']['#description'] .= ' ' . t('You may use field tokens from as per the "Replacement patterns" used in "Rewrite the output of this field" for all fields.');
+        $form['row_class']['#description'] .= ' ' . $this->t('You may use field tokens from as per the "Replacement patterns" used in "Rewrite the output of this field" for all fields.');
       }
 
       $form['default_row_class'] = array(
-        '#title' => t('Add views row classes'),
-        '#description' => t('Add the default row classes like views-row-1 to the output. You can use this to quickly reduce the amount of markup the view provides by default, at the cost of making it more difficult to apply CSS.'),
+        '#title' => $this->t('Add views row classes'),
+        '#description' => $this->t('Add the default row classes like views-row-1 to the output. You can use this to quickly reduce the amount of markup the view provides by default, at the cost of making it more difficult to apply CSS.'),
         '#type' => 'checkbox',
         '#default_value' => $this->options['default_row_class'],
       );
@@ -328,20 +345,21 @@ abstract class StylePluginBase extends PluginBase {
     if (!$this->usesFields() || !empty($this->options['uses_fields'])) {
       $form['uses_fields'] = array(
         '#type' => 'checkbox',
-        '#title' => t('Force using fields'),
-        '#description' => t('If neither the row nor the style plugin supports fields, this field allows to enable them, so you can for example use groupby.'),
+        '#title' => $this->t('Force using fields'),
+        '#description' => $this->t('If neither the row nor the style plugin supports fields, this field allows to enable them, so you can for example use groupby.'),
         '#default_value' => $this->options['uses_fields'],
       );
     }
   }
 
-  public function validateOptionsForm(&$form, &$form_state) {
+  public function validateOptionsForm(&$form, FormStateInterface $form_state) {
     // Don't run validation on style plugins without the grouping setting.
-    if (isset($form_state['values']['style_options']['grouping'])) {
+    if ($form_state->hasValue(array('style_options', 'grouping'))) {
       // Don't save grouping if no field is specified.
-      foreach ($form_state['values']['style_options']['grouping'] as $index => $grouping) {
+      $groupings = $form_state->getValue(array('style_options', 'grouping'));
+      foreach ($groupings as $index => $grouping) {
         if (empty($grouping['field'])) {
-          unset($form_state['values']['style_options']['grouping'][$index]);
+          $form_state->unsetValue(array('style_options', 'grouping', $index));
         }
       }
     }
@@ -352,12 +370,12 @@ abstract class StylePluginBase extends PluginBase {
    *
    * @param array $form
    *   An associative array containing the structure of the form.
-   * @param array $form_state
-   *   An associative array containing the current state of the form.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The current state of the form.
    * @param string $type
    *    The display type, either block or page.
    */
-  public function wizardForm(&$form, &$form_state, $type) {
+  public function wizardForm(&$form, FormStateInterface $form_state, $type) {
   }
 
   /**
@@ -365,8 +383,8 @@ abstract class StylePluginBase extends PluginBase {
    *
    * @param array $form
    *   An associative array containing the structure of the form.
-   * @param array $form_state
-   *   An associative array containing the current state of the form.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The current state of the form.
    * @param \Drupal\views\Plugin\views\wizard\WizardInterface $wizard
    *   The current used wizard.
    * @param array $display_options
@@ -375,7 +393,7 @@ abstract class StylePluginBase extends PluginBase {
    * @param string $display_type
    *   The display type, either block or page.
    */
-  public function wizardSubmit(&$form, &$form_state, WizardInterface $wizard, &$display_options, $display_type) {
+  public function wizardSubmit(&$form, FormStateInterface $form_state, WizardInterface $wizard, &$display_options, $display_type) {
   }
 
   /**
@@ -474,9 +492,7 @@ abstract class StylePluginBase extends PluginBase {
         if ($this->usesRowPlugin()) {
           foreach ($set['rows'] as $index => $row) {
             $this->view->row_index = $index;
-            $render = $this->view->rowPlugin->render($row);
-            // Row render arrays cannot be contained by style render arrays.
-            $set['rows'][$index] = drupal_render($render);
+            $set['rows'][$index] = $this->view->rowPlugin->render($row);
           }
         }
 
@@ -685,7 +701,7 @@ abstract class StylePluginBase extends PluginBase {
     if ($this->usesRowPlugin()) {
       $plugin = $this->displayHandler->getPlugin('row');
       if (empty($plugin)) {
-        $errors[] = t('Style @style requires a row style but the row plugin is invalid.', array('@style' => $this->definition['title']));
+        $errors[] = $this->t('Style @style requires a row style but the row plugin is invalid.', array('@style' => $this->definition['title']));
       }
       else {
         $result = $plugin->validate();

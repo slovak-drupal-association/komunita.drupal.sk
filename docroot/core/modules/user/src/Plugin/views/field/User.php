@@ -7,6 +7,7 @@
 
 namespace Drupal\user\Plugin\views\field;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
 use Drupal\views\ResultRow;
@@ -41,10 +42,10 @@ class User extends FieldPluginBase {
   /**
    * Provide link to node option
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     $form['link_to_user'] = array(
-      '#title' => t('Link this field to its user'),
-      '#description' => t("Enable to override this field's links."),
+      '#title' => $this->t('Link this field to its user'),
+      '#description' => $this->t("Enable to override this field's links."),
       '#type' => 'checkbox',
       '#default_value' => $this->options['link_to_user'],
     );

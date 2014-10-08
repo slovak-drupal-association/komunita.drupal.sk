@@ -7,6 +7,7 @@
 
 namespace Drupal\views\Plugin\views\area;
 
+use Drupal\Core\Form\FormStateInterface;
 use \Drupal\Core\Utility\Title as UtilityTitle;
 
 /**
@@ -30,14 +31,14 @@ class Title extends AreaPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
     $form['title'] = array(
       '#type' => 'textfield',
-      '#title' => t('Overridden title'),
+      '#title' => $this->t('Overridden title'),
       '#default_value' => $this->options['title'],
-      '#description' => t('Override the title of this view when it is empty. The available global tokens below can be used here.'),
+      '#description' => $this->t('Override the title of this view when it is empty. The available global tokens below can be used here.'),
     );
 
     // Don't use the AreaPluginBase tokenForm method, we don't want row tokens.

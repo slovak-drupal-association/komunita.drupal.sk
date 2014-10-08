@@ -7,6 +7,7 @@
 
 namespace Drupal\node\Plugin\views\field;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
 use Drupal\views\ResultRow;
@@ -37,13 +38,13 @@ class Path extends FieldPluginBase {
     return $options;
   }
 
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
     $form['absolute'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Use absolute link (begins with "http://")'),
+      '#title' => $this->t('Use absolute link (begins with "http://")'),
       '#default_value' => $this->options['absolute'],
-      '#description' => t('Enable this option to output an absolute link. Required if you want to use the path as a link destination (as in "output this field as a link" above).'),
+      '#description' => $this->t('Enable this option to output an absolute link. Required if you want to use the path as a link destination (as in "output this field as a link" above).'),
       '#fieldset' => 'alter',
     );
   }
@@ -58,7 +59,7 @@ class Path extends FieldPluginBase {
    */
   public function render(ResultRow $values) {
     $nid = $this->getValue($values, 'nid');
-    return url("node/$nid", array('absolute' => $this->options['absolute']));
+    return \Drupal::url('entity.node.canonical', ['node' => $nid], ['absolute' => $this->options['absolute']]);
   }
 
 }

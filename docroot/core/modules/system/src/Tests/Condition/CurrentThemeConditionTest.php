@@ -12,6 +12,8 @@ use Drupal\simpletest\KernelTestBase;
 
 /**
  * Tests the CurrentThemeCondition plugin.
+ *
+ * @group Condition
  */
 class CurrentThemeConditionTest extends KernelTestBase {
 
@@ -21,21 +23,10 @@ class CurrentThemeConditionTest extends KernelTestBase {
   public static $modules = array('system', 'theme_test');
 
   /**
-   * {@inheritdoc}
-   */
-  public static function getInfo() {
-    return array(
-      'name' => 'Current Theme Condition Plugin',
-      'description' => 'Tests the CurrentThemeCondition plugin',
-      'group' => 'Condition API',
-    );
-  }
-
-  /**
    * Tests the current theme condition.
    */
   public function testCurrentTheme() {
-    \Drupal::service('theme_handler')->enable(array('test_theme'));
+    \Drupal::service('theme_handler')->install(array('test_theme'));
 
     $manager = \Drupal::service('plugin.manager.condition');
     /** @var $condition \Drupal\Core\Condition\ConditionInterface */

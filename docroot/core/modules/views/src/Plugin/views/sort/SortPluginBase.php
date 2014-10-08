@@ -7,6 +7,7 @@
 
 namespace Drupal\views\Plugin\views\sort;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\HandlerBase;
 
 /**
@@ -14,7 +15,7 @@ use Drupal\views\Plugin\views\HandlerBase;
  * @{
  * Plugins that handle sorting for Views.
  *
- * Sort handlers extend \Drupal\views\Plugin\views\sort:SortHandlerBase. They
+ * Sort handlers extend \Drupal\views\Plugin\views\sort:SortPluginBase. They
  * must be annotated with \Drupal\views\Annotation\ViewsSort annotation, and
  * they must be in plugin directory Plugin\views\sort.
  *
@@ -59,17 +60,17 @@ abstract class SortPluginBase extends HandlerBase {
    */
   public function adminSummary() {
     if (!empty($this->options['exposed'])) {
-      return t('Exposed');
+      return $this->t('Exposed');
     }
     switch ($this->options['order']) {
       case 'ASC':
       case 'asc':
       default:
-        return t('asc');
+        return $this->t('asc');
         break;
       case 'DESC';
       case 'desc';
-        return t('desc');
+        return $this->t('desc');
         break;
     }
   }
@@ -77,7 +78,7 @@ abstract class SortPluginBase extends HandlerBase {
   /**
    * Basic options for all sort criteria
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
     if ($this->canExpose()) {
       $this->showExposeButton($form, $form_state);
@@ -93,7 +94,7 @@ abstract class SortPluginBase extends HandlerBase {
   /**
    * Shortcut to display the expose/hide button.
    */
-  public function showExposeButton(&$form, &$form_state) {
+  public function showExposeButton(&$form, FormStateInterface $form_state) {
     $form['expose_button'] = array(
       '#prefix' => '<div class="views-expose clearfix">',
       '#suffix' => '</div>',
@@ -108,19 +109,19 @@ abstract class SortPluginBase extends HandlerBase {
       '#attributes' => array('class' => array('js-only')),
     );
     $form['expose_button']['checkbox']['checkbox'] = array(
-      '#title' => t('Expose this sort to visitors, to allow them to change it'),
+      '#title' => $this->t('Expose this sort to visitors, to allow them to change it'),
       '#type' => 'checkbox',
     );
 
     // Then add the button itself.
     if (empty($this->options['exposed'])) {
       $form['expose_button']['markup'] = array(
-        '#markup' => '<div class="description exposed-description" style="float: left; margin-right:10px">' . t('This sort is not exposed. Expose it to allow the users to change it.') . '</div>',
+        '#markup' => '<div class="description exposed-description" style="float: left; margin-right:10px">' . $this->t('This sort is not exposed. Expose it to allow the users to change it.') . '</div>',
       );
       $form['expose_button']['button'] = array(
         '#limit_validation_errors' => array(),
         '#type' => 'submit',
-        '#value' => t('Expose sort'),
+        '#value' => $this->t('Expose sort'),
         '#submit' => array(array($this, 'displayExposedForm')),
         '#attributes' => array('class' => array('use-ajax-submit')),
       );
@@ -128,12 +129,12 @@ abstract class SortPluginBase extends HandlerBase {
     }
     else {
       $form['expose_button']['markup'] = array(
-        '#markup' => '<div class="description exposed-description">' . t('This sort is exposed. If you hide it, users will not be able to change it.') . '</div>',
+        '#markup' => '<div class="description exposed-description">' . $this->t('This sort is exposed. If you hide it, users will not be able to change it.') . '</div>',
       );
       $form['expose_button']['button'] = array(
         '#limit_validation_errors' => array(),
         '#type' => 'submit',
-        '#value' => t('Hide sort'),
+        '#value' => $this->t('Hide sort'),
         '#submit' => array(array($this, 'displayExposedForm')),
         '#attributes' => array('class' => array('use-ajax-submit')),
       );
@@ -144,7 +145,7 @@ abstract class SortPluginBase extends HandlerBase {
   /**
    * Simple validate handler
    */
-  public function validateOptionsForm(&$form, &$form_state) {
+  public function validateOptionsForm(&$form, FormStateInterface $form_state) {
     $this->sortValidate($form, $form_state);
     if (!empty($this->options['exposed'])) {
       $this->validateExposeForm($form, $form_state);
@@ -155,8 +156,10 @@ abstract class SortPluginBase extends HandlerBase {
   /**
    * Simple submit handler
    */
-  public function submitOptionsForm(&$form, &$form_state) {
-    unset($form_state['values']['expose_button']); // don't store this.
+  public function submitOptionsForm(&$form, FormStateInterface $form_state) {
+    // Do not store this values.
+    $form_state->unsetValue('expose_button');
+
     $this->sortSubmit($form, $form_state);
     if (!empty($this->options['exposed'])) {
       $this->submitExposeForm($form, $form_state);
@@ -166,11 +169,11 @@ abstract class SortPluginBase extends HandlerBase {
   /**
    * Shortcut to display the value form.
    */
-  protected function showSortForm(&$form, &$form_state) {
+  protected function showSortForm(&$form, FormStateInterface $form_state) {
     $options = $this->sortOptions();
     if (!empty($options)) {
       $form['order'] = array(
-        '#title' => t('Order'),
+        '#title' => $this->t('Order'),
         '#type' => 'radios',
         '#options' => $options,
         '#default_value' => $this->options['order'],
@@ -178,9 +181,9 @@ abstract class SortPluginBase extends HandlerBase {
     }
   }
 
-  protected function sortValidate(&$form, &$form_state) { }
+  protected function sortValidate(&$form, FormStateInterface $form_state) { }
 
-  public function sortSubmit(&$form, &$form_state) { }
+  public function sortSubmit(&$form, FormStateInterface $form_state) { }
 
   /**
    * Provide a list of options for the default sort form.
@@ -188,12 +191,12 @@ abstract class SortPluginBase extends HandlerBase {
    */
   protected function sortOptions() {
     return array(
-      'ASC' => t('Sort ascending'),
-      'DESC' => t('Sort descending'),
+      'ASC' => $this->t('Sort ascending'),
+      'DESC' => $this->t('Sort descending'),
     );
   }
 
-  public function buildExposeForm(&$form, &$form_state) {
+  public function buildExposeForm(&$form, FormStateInterface $form_state) {
     // #flatten will move everything from $form['expose'][$key] to $form[$key]
     // prior to rendering. That's why the preRender for it needs to run first,
     // so that when the next preRender (the one for fieldsets) runs, it gets
@@ -204,7 +207,7 @@ abstract class SortPluginBase extends HandlerBase {
     $form['expose']['label'] = array(
       '#type' => 'textfield',
       '#default_value' => $this->options['expose']['label'],
-      '#title' => t('Label'),
+      '#title' => $this->t('Label'),
       '#required' => TRUE,
       '#size' => 40,
       '#weight' => -1,

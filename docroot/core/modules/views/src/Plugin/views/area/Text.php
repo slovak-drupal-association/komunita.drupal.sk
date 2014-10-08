@@ -7,6 +7,8 @@
 
 namespace Drupal\views\Plugin\views\area;
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Views area text handler.
  *
@@ -29,11 +31,11 @@ class Text extends TokenizeAreaPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
     $form['content'] = array(
-      '#title' => t('Content'),
+      '#title' => $this->t('Content'),
       '#type' => 'text_format',
       '#default_value' => $this->options['content'],
       '#rows' => 6,
@@ -45,9 +47,10 @@ class Text extends TokenizeAreaPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function submitOptionsForm(&$form, &$form_state) {
-    $form_state['values']['options']['format'] = $form_state['values']['options']['content']['format'];
-    $form_state['values']['options']['content'] = $form_state['values']['options']['content']['value'];
+  public function submitOptionsForm(&$form, FormStateInterface $form_state) {
+    $content = $form_state->getValue(array('options', 'content'));
+    $form_state->setValue(array('options', 'format'), $content['format']);
+    $form_state->setValue(array('options', 'content'), $content['value']);
     parent::submitOptionsForm($form, $form_state);
   }
 

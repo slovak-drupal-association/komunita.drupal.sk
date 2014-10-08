@@ -33,12 +33,6 @@ abstract class ViewTestBase extends WebTestBase {
   protected function setUp() {
     parent::setUp();
 
-    // Views' Page displays put menu links in the 'navigation' menu by default.
-    entity_create('menu', array(
-      'id' => 'navigation',
-      'label' => 'Navigation',
-    ))->save();
-
     // Ensure that the plugin definitions are cleared.
     foreach (ViewExecutable::getPluginTypes() as $plugin_type) {
       $this->container->get("plugin.manager.views.$plugin_type")->clearCachedDefinitions();
@@ -232,7 +226,6 @@ abstract class ViewTestBase extends WebTestBase {
   protected function executeView(ViewExecutable $view, $args = array()) {
     // A view does not really work outside of a request scope, due to many
     // dependencies like the current user.
-    $this->container->enterScope('request');
     $view->setDisplay();
     $view->preExecute($args);
     $view->execute();

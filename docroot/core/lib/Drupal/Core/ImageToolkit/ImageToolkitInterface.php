@@ -7,8 +7,10 @@
 
 namespace Drupal\Core\ImageToolkit;
 
-use Drupal\Component\Plugin\PluginInspectionInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Plugin\PluginFormInterface;
 use Drupal\Core\Image\ImageInterface;
+use Drupal\Component\Plugin\PluginInspectionInterface;
 
 /**
  * @defgroup image Image toolkits
@@ -42,31 +44,22 @@ use Drupal\Core\Image\ImageInterface;
  *
  * An image toolkit provides common image file manipulations like scaling,
  * cropping, and rotating.
+ *
+ * @see \Drupal\Core\ImageToolkit\Annotation\ImageToolkit
+ * @see \Drupal\Core\ImageToolkit\ImageToolkitBase
+ * @see \Drupal\Core\ImageToolkit\ImageToolkitManager
+ * @see plugin_api
  */
-interface ImageToolkitInterface extends PluginInspectionInterface {
-
-  /**
-   * Retrieves the toolkit's settings form.
-   *
-   * @see system_image_toolkit_settings()
-   */
-  public function settingsForm();
-
-  /**
-   * Handles submissions for toolkit's settings form.
-   *
-   * @see system_image_toolkit_settings_submit()
-   */
-  public function settingsFormSubmit($form, &$form_state);
+interface ImageToolkitInterface extends ContainerFactoryPluginInterface, PluginInspectionInterface, PluginFormInterface {
 
   /**
    * Sets the image object that this toolkit instance is tied to.
    *
-   * @throws \BadMethodCallException
-   *   When called twice.
-   *
    * @param \Drupal\Core\Image\ImageInterface $image
    *   The image that this toolkit instance will be tied to.
+   *
+   * @throws \BadMethodCallException
+   *   When called twice.
    */
   public function setImage(ImageInterface $image);
 
@@ -79,63 +72,13 @@ interface ImageToolkitInterface extends PluginInspectionInterface {
   public function getImage();
 
   /**
-   * Scales an image to the specified size.
-   *
-   * @param int $width
-   *   The new width of the resized image, in pixels.
-   * @param int $height
-   *   The new height of the resized image, in pixels.
+   * Checks if the image is valid.
    *
    * @return bool
-   *   TRUE on success, FALSE on failure.
+   *   TRUE if the image toolkit is currently handling a valid image, FALSE
+   *   otherwise.
    */
-  public function resize($width, $height);
-
-  /**
-   * Rotates an image the given number of degrees.
-   *
-   * @param int $degrees
-   *   The number of (clockwise) degrees to rotate the image.
-   * @param string $background
-   *   (optional) An hexadecimal integer specifying the background color to use
-   *   for the uncovered area of the image after the rotation. E.g. 0x000000 for
-   *   black, 0xff00ff for magenta, and 0xffffff for white. For images that
-   *   support transparency, this will default to transparent. Otherwise it will
-   *   be white.
-   *
-   * @return bool
-   *   TRUE on success, FALSE on failure.
-   */
-  public function rotate($degrees, $background = NULL);
-
-  /**
-   * Crops an image.
-   *
-   * @param int $x
-   *   The starting x offset at which to start the crop, in pixels.
-   * @param int $y
-   *   The starting y offset at which to start the crop, in pixels.
-   * @param int $width
-   *   The width of the cropped area, in pixels.
-   * @param int $height
-   *   The height of the cropped area, in pixels.
-   *
-   * @return bool
-   *   TRUE on success, FALSE on failure.
-   *
-   * @see image_crop()
-   */
-  public function crop($x, $y, $width, $height);
-
-  /**
-   * Converts an image resource to grayscale.
-   *
-   * Note that transparent GIFs loose transparency when desaturated.
-   *
-   * @return bool
-   *   TRUE on success, FALSE on failure.
-   */
-  public function desaturate();
+  public function isValid();
 
   /**
    * Writes an image resource to a destination file.
@@ -149,46 +92,11 @@ interface ImageToolkitInterface extends PluginInspectionInterface {
   public function save($destination);
 
   /**
-   * Scales an image while maintaining aspect ratio.
-   *
-   * The resulting image can be smaller for one or both target dimensions.
-   *
-   * @param int $width
-   *   (optional) The target width, in pixels. This value is omitted then the
-   *   scaling will based only on the height value.
-   * @param int $height
-   *   (optional) The target height, in pixels. This value is omitted then the
-   *   scaling will based only on the width value.
-   * @param bool $upscale
-   *   (optional) Boolean indicating that files smaller than the dimensions will
-   *   be scaled up. This generally results in a low quality image.
-   *
-   * @return bool
-   *   TRUE on success, FALSE on failure.
-   */
-  public function scale($width = NULL, $height = NULL, $upscale = FALSE);
-
-  /**
-   * Scales an image to the exact width and height given.
-   *
-   * This function achieves the target aspect ratio by cropping the original
-   * image equally on both sides, or equally on the top and bottom. This
-   * function is useful to create uniform sized avatars from larger images.
-   *
-   * The resulting image always has the exact target dimensions.
-   *
-   * @param int $width
-   *   The target width, in pixels.
-   * @param int $height
-   *   The target height, in pixels.
-   *
-   * @return bool
-   *   TRUE on success, FALSE on failure.
-   */
-  public function scaleAndCrop($width, $height);
-
-  /**
    * Determines if a file contains a valid image.
+   *
+   * Drupal supports GIF, JPG and PNG file formats when used with the GD
+   * toolkit, and may support others, depending on which toolkits are
+   * installed.
    *
    * @return bool
    *   TRUE if the file could be found and is an image, FALSE otherwise.
@@ -249,5 +157,20 @@ interface ImageToolkitInterface extends PluginInspectionInterface {
    *   An array of supported image file extensions (e.g. png/jpeg/gif).
    */
   public static function getSupportedExtensions();
+
+  /**
+   * Applies a toolkit operation to an image.
+   *
+   * @param string $operation
+   *   The toolkit operation to be processed.
+   * @param array $arguments
+   *   An associative array of arguments to be passed to the toolkit
+   *   operation, e.g. array('width' => 50, 'height' => 100,
+   *   'upscale' => TRUE).
+   *
+   * @return bool
+   *   TRUE if the operation was performed successfully, FALSE otherwise.
+   */
+  public function apply($operation, array $arguments = array());
 
 }

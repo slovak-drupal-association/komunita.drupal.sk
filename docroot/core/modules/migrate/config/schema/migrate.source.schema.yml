@@ -39,69 +39,31 @@ migrate.source.variable:
 
 migrate.source.d6_comment:
   type: migrate_source
-  label: 'Drupal 6 book'
-  mapping:
-    constants:
-      type: mapping
-      label: 'Constants'
-      mapping:
-        field_id:
-          type: string
-          label: 'Field ID'
-        entity_type:
-          type: string
-          label: 'Entity type'
-
-migrate.source.d6_comment_variable:
-  type: migrate_source
-  label: 'Drupal 6 book'
-  mapping:
-    constants:
-      type: mapping
-      label: 'Constants'
-      mapping:
-        entity_type:
-          type: string
-          label: 'Entity type'
-        field_name:
-          type: string
-          label: 'Entity type'
-        view_mode:
-          type: string
-          label: 'Entity type'
-        options:
-          type: sequence
-          label: 'Options'
-          sequence:
-            - type: string
-              label: 'Option'
-        type:
-          type: string
-          label: 'Type'
-        id:
-          type: string
-          label: 'ID'
-        name:
-          type: label
-          label: 'Name'
-
-migrate.source.d6_comment:
-  type: migrate_source
   label: 'Drupal 6 comment'
   mapping:
     constants:
       type: mapping
       label: 'Constants'
       mapping:
-        field_name:
-          type: string
-          label: 'Field name'
-        comment_type:
-          type: string
-          label: 'Comment type'
         entity_type:
           type: string
           label: 'Entity type'
+
+migrate.source.d6_comment_variable_per_comment_type:
+  type: migrate_source
+  label: 'Drupal 6 comment variable'
+  mapping:
+    constants:
+      type: migrate_entity_constant
+      label: 'Constants'
+
+migrate.source.d6_comment_entity_form_display_subject:
+  type: migrate_source
+  label: 'Drupal 6 comment subject entity form display'
+  mapping:
+    constants:
+      type: migrate_entity_constant
+      label: 'Constants'
 
 migrate.source.d6_box:
   type: migrate_source
@@ -221,15 +183,8 @@ migrate.source.d6_node_type:
   label: 'Drupal 6 node type'
   mapping:
     constants:
-      type: mapping
+      type: migrate_entity_constant
       label: 'Constants'
-      mapping:
-        preview:
-          type: integer
-          label: 'Preview'
-        create_body:
-          type: boolean
-          label: 'create body'
 
 migrate.source.d6_upload_instance:
   type: migrate_source
@@ -281,6 +236,21 @@ migrate.source.empty:
         display_field:
           type: boolean
           label: 'Display field'
+
+migrate.source.d6_user:
+  type: migrate_source
+  label: 'Drupal 6 user'
+  mapping:
+    constants:
+      type: mapping
+      label: 'Constants'
+      mapping:
+        key:
+          type: string
+          label: 'User data key'
+        module:
+          type: string
+          label: 'Module name'
 
 migrate.source.d6_user_picture_file:
   type: migrate_source
@@ -338,6 +308,12 @@ migrate_entity_constant:
     name:
       type: string
       label: 'Name'
+    preview:
+      type: integer
+      label: 'Preview'
+    create_body:
+      type: boolean
+      label: 'create body'
     required:
       type: boolean
       label: 'Required'

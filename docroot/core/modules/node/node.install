@@ -5,7 +5,9 @@
  * Install, update and uninstall functions for the node module.
  */
 
+use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Component\Uuid\Uuid;
+use Drupal\Core\Url;
 use Drupal\Core\Language\Language;
 
 /**
@@ -17,7 +19,7 @@ function node_requirements($phase) {
     // Only show rebuild button if there are either 0, or 2 or more, rows
     // in the {node_access} table, or if there are modules that
     // implement hook_node_grants().
-    $grant_count = \Drupal::entityManager()->getAccessController('node')->countGrants();
+    $grant_count = \Drupal::entityManager()->getAccessControlHandler('node')->countGrants();
     if ($grant_count != 1 || count(\Drupal::moduleHandler()->getImplementations('node_grants')) > 0) {
       $value = format_plural($grant_count, 'One permission in use', '@count permissions in use', array('@count' => $grant_count));
     }
@@ -29,7 +31,9 @@ function node_requirements($phase) {
     $requirements['node_access'] = array(
       'title' => t('Node Access Permissions'),
       'value' => $value,
-      'description' => $description . ' ' . l(t('Rebuild permissions'), 'admin/reports/status/rebuild'),
+      // The result of t() is safe and so is the result of l(). Preserving
+      // safe object.
+      'description' => SafeMarkup::set($description . ' ' . \Drupal::l(t('Rebuild permissions'), new Url('node.configure_rebuild_confirm'))),
     );
   }
   return $requirements;
@@ -162,7 +166,4 @@ function node_uninstall() {
 
   // Delete remaining general module variables.
   \Drupal::state()->delete('node.node_access_needs_rebuild');
-
-  // Delete any stored state.
-  \Drupal::state()->delete('node.cron_last');
 }

@@ -12,7 +12,9 @@ use Drupal\views\ViewExecutable;
 use Drupal\views\Views;
 
 /**
- * Tests exposed forms.
+ * Tests exposed forms functionality.
+ *
+ * @group views
  */
 class ExposedFormTest extends ViewTestBase {
 
@@ -29,14 +31,6 @@ class ExposedFormTest extends ViewTestBase {
    * @var array
    */
   public static $modules = array('node', 'views_ui', 'block');
-
-  public static function getInfo() {
-    return array(
-      'name' => 'Exposed forms',
-      'description' => 'Test exposed forms functionality.',
-      'group' => 'Views Plugins',
-    );
-  }
 
   protected function setUp() {
     parent::setUp();
@@ -63,7 +57,7 @@ class ExposedFormTest extends ViewTestBase {
     $view->setDisplay();
 
     $exposed_form = $view->display_handler->getOption('exposed_form');
-    $exposed_form['options']['submit_button'] = $expected_label = $this->randomName();
+    $exposed_form['options']['submit_button'] = $expected_label = $this->randomMachineName();
     $view->display_handler->setOption('exposed_form', $exposed_form);
     $view->save();
 
@@ -111,7 +105,7 @@ class ExposedFormTest extends ViewTestBase {
     $view->setDisplay();
 
     $exposed_form = $view->display_handler->getOption('exposed_form');
-    $exposed_form['options']['reset_button_label'] = $expected_label = $this->randomName();
+    $exposed_form['options']['reset_button_label'] = $expected_label = $this->randomMachineName();
     $exposed_form['options']['reset_button'] = TRUE;
     $view->display_handler->setOption('exposed_form', $exposed_form);
     $view->save();
@@ -135,7 +129,7 @@ class ExposedFormTest extends ViewTestBase {
 
     $this->assertFieldByXpath('//form/@id', $this->getExpectedExposedFormId($view), 'Expected form ID found.');
 
-    $expected_action = url($view->display_handler->getUrl());
+    $expected_action = _url($view->display_handler->getUrl());
     $this->assertFieldByXPath('//form/@action', $expected_action, 'The expected value for the action attribute was found.');
   }
 
@@ -149,7 +143,7 @@ class ExposedFormTest extends ViewTestBase {
     $this->drupalGet('test_exposed_block');
 
     // Test there is an exposed form in a block.
-    $xpath = $this->buildXPathQuery('//div[@id=:id]/div/form/@id', array(':id' => drupal_html_id('block-' . $block->id())));
+    $xpath = $this->buildXPathQuery('//div[@id=:id]/form/@id', array(':id' => drupal_html_id('block-' . $block->id())));
     $this->assertFieldByXpath($xpath, $this->getExpectedExposedFormId($view), 'Expected form found in views block.');
 
     // Test there is not an exposed form in the view page content area.

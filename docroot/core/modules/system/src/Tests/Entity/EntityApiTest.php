@@ -11,19 +11,13 @@ use Drupal\Core\Entity\EntityStorageException;
 use Drupal\user\UserInterface;
 
 /**
- * Tests the basic Entity API.
+ * Tests basic CRUD functionality.
+ *
+ * @group Entity
  */
 class EntityApiTest extends EntityUnitTestBase {
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Entity CRUD',
-      'description' => 'Tests basic CRUD functionality.',
-      'group' => 'Entity API',
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->installEntitySchema('entity_test_rev');

@@ -8,6 +8,7 @@
 namespace Drupal\taxonomy\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
+use Drupal\Core\Config\Entity\ThirdPartySettingsTrait;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\taxonomy\VocabularyInterface;
 
@@ -17,7 +18,7 @@ use Drupal\taxonomy\VocabularyInterface;
  * @ConfigEntityType(
  *   id = "taxonomy_vocabulary",
  *   label = @Translation("Taxonomy vocabulary"),
- *   controllers = {
+ *   handlers = {
  *     "storage" = "Drupal\taxonomy\VocabularyStorage",
  *     "list_builder" = "Drupal\taxonomy\VocabularyListBuilder",
  *     "form" = {
@@ -35,15 +36,16 @@ use Drupal\taxonomy\VocabularyInterface;
  *     "weight" = "weight"
  *   },
  *   links = {
- *     "add-form" = "taxonomy.term_add",
- *     "delete-form" = "taxonomy.vocabulary_delete",
- *     "reset" = "taxonomy.vocabulary_reset",
- *     "overview-form" = "taxonomy.overview_terms",
- *     "edit-form" = "taxonomy.vocabulary_edit"
+ *     "add-form" = "entity.taxonomy_term.add_form",
+ *     "delete-form" = "entity.taxonomy_vocabulary.delete_form",
+ *     "reset-form" = "entity.taxonomy_vocabulary.reset_form",
+ *     "overview-form" = "entity.taxonomy_vocabulary.overview_form",
+ *     "edit-form" = "entity.taxonomy_vocabulary.edit_form"
  *   }
  * )
  */
 class Vocabulary extends ConfigEntityBundleBase implements VocabularyInterface {
+  use ThirdPartySettingsTrait;
 
   /**
    * The taxonomy vocabulary ID.
@@ -102,29 +104,27 @@ class Vocabulary extends ConfigEntityBundleBase implements VocabularyInterface {
       // Reflect machine name changes in the definitions of existing 'taxonomy'
       // fields.
       $field_ids = array();
-      $field_map = \Drupal::entityManager()->getFieldMap();
-      foreach ($field_map as $entity_type => $fields) {
-        foreach ($fields as $field => $info) {
-          if ($info['type'] == 'taxonomy_term_reference') {
-            $field_ids[] = $entity_type . '.' . $field;
-          }
+      $field_map = \Drupal::entityManager()->getFieldMapByFieldType('taxonomy_term_reference');
+      foreach ($field_map as $entity_type => $field_storages) {
+        foreach ($field_storages as $field_storage => $info) {
+          $field_ids[] = $entity_type . '.' . $field_storage;
         }
       }
 
-      $fields = \Drupal::entityManager()->getStorage('field_config')->loadMultiple($field_ids);
+      $field_storages = \Drupal::entityManager()->getStorage('field_storage_config')->loadMultiple($field_ids);
 
-      foreach ($fields as $field) {
-        $update_field = FALSE;
+      foreach ($field_storages as $field_storage) {
+        $update_storage = FALSE;
 
-        foreach ($field->settings['allowed_values'] as &$value) {
+        foreach ($field_storage->settings['allowed_values'] as &$value) {
           if ($value['vocabulary'] == $this->getOriginalId()) {
             $value['vocabulary'] = $this->id();
-            $update_field = TRUE;
+            $update_storage = TRUE;
           }
         }
 
-        if ($update_field) {
-          $field->save();
+        if ($update_storage) {
+          $field_storage->save();
         }
       }
     }
@@ -160,24 +160,24 @@ class Vocabulary extends ConfigEntityBundleBase implements VocabularyInterface {
     }
     // Load all Taxonomy module fields and delete those which use only this
     // vocabulary.
-    $taxonomy_fields = entity_load_multiple_by_properties('field_config', array('module' => 'taxonomy'));
-    foreach ($taxonomy_fields as $taxonomy_field) {
-      $modified_field = FALSE;
+    $field_storages = entity_load_multiple_by_properties('field_storage_config', array('module' => 'taxonomy'));
+    foreach ($field_storages as $field_storage) {
+      $modified_storage = FALSE;
       // Term reference fields may reference terms from more than one
       // vocabulary.
-      foreach ($taxonomy_field->settings['allowed_values'] as $key => $allowed_value) {
+      foreach ($field_storage->settings['allowed_values'] as $key => $allowed_value) {
         if (isset($vocabularies[$allowed_value['vocabulary']])) {
-          unset($taxonomy_field->settings['allowed_values'][$key]);
-          $modified_field = TRUE;
+          unset($field_storage->settings['allowed_values'][$key]);
+          $modified_storage = TRUE;
         }
       }
-      if ($modified_field) {
-        if (empty($taxonomy_field->settings['allowed_values'])) {
-          $taxonomy_field->delete();
+      if ($modified_storage) {
+        if (empty($field_storage->settings['allowed_values'])) {
+          $field_storage->delete();
         }
         else {
           // Update the field definition with the new allowed values.
-          $taxonomy_field->save();
+          $field_storage->save();
         }
       }
     }

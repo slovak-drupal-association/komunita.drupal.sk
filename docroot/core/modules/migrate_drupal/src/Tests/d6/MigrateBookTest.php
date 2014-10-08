@@ -11,22 +11,13 @@ use Drupal\migrate\MigrateExecutable;
 use Drupal\migrate_drupal\Tests\MigrateDrupalTestBase;
 
 /**
- * Tests the Drupal 6 book structure to Drupal 8 migration.
+ * Upgrade book structure.
+ *
+ * @group migrate_drupal
  */
 class MigrateBookTest extends MigrateDrupalTestBase {
 
   public static $modules = array('book');
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function getInfo() {
-    return array(
-      'name'  => 'Migrate book',
-      'description'  => 'Upgrade book structure',
-      'group' => 'Migrate Drupal',
-    );
-  }
 
   /**
    * {@inheritdoc}
@@ -44,7 +35,7 @@ class MigrateBookTest extends MigrateDrupalTestBase {
       $entity->save();
       $id_mappings['d6_node'][] = array(array($i), array($i));
     }
-    $this->prepareIdMappings($id_mappings);
+    $this->prepareMigrations($id_mappings);
     // Load database dumps to provide source data.
     $dumps = array(
       $this->getDumpDirectory() . '/Drupal6Book.php',

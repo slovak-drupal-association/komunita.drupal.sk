@@ -11,7 +11,9 @@ use Drupal\Component\Utility\Unicode;
 use Drupal\views\Views;
 
 /**
- * Tests glossary view ( summary of arguments ).
+ * Tests glossary functionality of views.
+ *
+ * @group views
  */
 class GlossaryTest extends ViewTestBase {
 
@@ -21,14 +23,6 @@ class GlossaryTest extends ViewTestBase {
    * @var array
    */
   public static $modules = array('node');
-
-  public static function getInfo() {
-    return array(
-      'name' => 'Glossary tests',
-      'description' => 'Tests glossary functionality of views.',
-      'group' => 'Views Config',
-    );
-  }
 
   /**
    * Tests the default glossary view.
@@ -72,7 +66,7 @@ class GlossaryTest extends ViewTestBase {
     $this->assertResponse(200);
 
     foreach ($nodes_per_char as $char => $count) {
-      $href = url('glossary/' . $char);
+      $href = _url('glossary/' . $char);
       $label = Unicode::strtoupper($char);
       // Get the summary link for a certain character. Filter by label and href
       // to ensure that both of them are correct.

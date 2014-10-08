@@ -22,10 +22,9 @@ class Language implements LanguageInterface {
   public static $defaultValues = array(
     'id' => 'en',
     'name' => 'English',
-    'direction' => 0,
+    'direction' => self::DIRECTION_LTR,
     'weight' => 0,
-    'locked' => 0,
-    'default' => TRUE,
+    'locked' => FALSE,
   );
 
   // Properties within the Language are set up as the default language.
@@ -61,23 +60,6 @@ class Language implements LanguageInterface {
   public $weight = 0;
 
   /**
-   * Flag indicating if this is the only site default language.
-   *
-   * @var bool
-   */
-  public $default = FALSE;
-
-  /**
-   * The language negotiation method used when a language was detected.
-   *
-   * The method ID, for example
-   * \Drupal\language\LanguageNegotiatorInterface::METHOD_ID.
-   *
-   * @var string
-   */
-  public $method_id;
-
-  /**
    * Locked indicates a language used by the system, not an actual language.
    *
    * Examples of locked languages are, LANGCODE_NOT_SPECIFIED, und, and
@@ -86,7 +68,7 @@ class Language implements LanguageInterface {
    *
    * @var bool
    */
-  public $locked = FALSE;
+  protected $locked = FALSE;
 
   /**
    * Constructs a new class instance.
@@ -124,26 +106,8 @@ class Language implements LanguageInterface {
   /**
    * {@inheritdoc}
    */
-  public function setName($name) {
-    $this->name = $name;
-
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function getId() {
     return $this->id;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setId($id) {
-    $this->id = $id;
-
-    return $this;
   }
 
   /**
@@ -156,15 +120,6 @@ class Language implements LanguageInterface {
   /**
    * {@inheritdoc}
    */
-  public function setDirection($direction) {
-    $this->direction = $direction;
-
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function getWeight() {
     return $this->weight;
   }
@@ -172,52 +127,43 @@ class Language implements LanguageInterface {
   /**
    * {@inheritdoc}
    */
-  public function setWeight($weight) {
-    $this->weight = $weight;
-
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function isDefault() {
-    return $this->default;
+    return static::getDefaultLangcode() == $this->getId();
   }
 
   /**
    * {@inheritdoc}
    */
-  public function setDefault($default) {
-    $this->default = $default;
-
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getNegotiationMethodId() {
-    return $this->method_id;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setNegotiationMethodId($method_id) {
-    $this->method_id = $method_id;
-
-    return $this;
+  public function isLocked() {
+    return (bool) $this->locked;
   }
 
   /**
    * Sort language objects.
    *
-   * @param array $languages
+   * @param \Drupal\Core\Language\LanguageInterface[] $languages
    *   The array of language objects keyed by langcode.
    */
   public static function sort(&$languages) {
-    uasort($languages, 'Drupal\Component\Utility\SortArray::sortByWeightAndTitleKey');
+    uasort($languages, function (LanguageInterface $a, LanguageInterface $b) {
+      $a_weight = $a->getWeight();
+      $b_weight = $b->getWeight();
+      if ($a_weight == $b_weight) {
+        return strnatcasecmp($a->getName(), $b->getName());
+      }
+      return ($a_weight < $b_weight) ? -1 : 1;
+    });
+  }
+
+  /**
+   * Gets the default langcode.
+   *
+   * @return string
+   *   The current default langcode.
+   */
+  protected static function getDefaultLangcode() {
+    $language = \Drupal::service('language.default')->get();
+    return $language->getId();
   }
 
 }

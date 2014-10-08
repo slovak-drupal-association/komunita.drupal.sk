@@ -19,6 +19,7 @@ use Drupal\Core\DependencyInjection\ServiceProviderInterface;
 use Drupal\Core\DependencyInjection\YamlFileLoader;
 use Drupal\Core\Extension\ExtensionDiscovery;
 use Drupal\Core\Language\Language;
+use Drupal\Core\PageCache\RequestPolicyInterface;
 use Drupal\Core\PhpStorage\PhpStorageFactory;
 use Drupal\Core\Site\Settings;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -182,19 +183,20 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
    * Create a DrupalKernel object from a request.
    *
    * @param \Symfony\Component\HttpFoundation\Request $request
-   * @param \Composer\Autoload\ClassLoader $class_loader
-   *   (optional) The classloader is only used if $storage is not given or
-   *   the load from storage fails and a container rebuild is required. In
-   *   this case, the loaded modules will be registered with this loader in
-   *   order to be able to find the module serviceProviders.
+   *   The request.
+   * @param $class_loader
+   *   The class loader. Normally Composer's ClassLoader, as included by the
+   *   front controller, but may also be decorated; e.g.,
+   *   \Symfony\Component\ClassLoader\ApcClassLoader.
    * @param string $environment
    *   String indicating the environment, e.g. 'prod' or 'dev'.
    * @param bool $allow_dumping
    *   (optional) FALSE to stop the container from being written to or read
    *   from disk. Defaults to TRUE.
+   *
    * @return static
    */
-  public static function createFromRequest(Request $request, ClassLoader $class_loader, $environment, $allow_dumping = TRUE) {
+  public static function createFromRequest(Request $request, $class_loader, $environment, $allow_dumping = TRUE) {
     // Include our bootstrap file.
     require_once dirname(dirname(dirname(__DIR__))) . '/includes/bootstrap.inc';
 
@@ -204,14 +206,12 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
     static::bootEnvironment();
 
     // Get our most basic settings setup.
-    $site_path = static::findSitePath($request);
-    $kernel->setSitePath($site_path);
-    Settings::initialize($site_path);
+    $kernel->initializeSettings($request);
 
     // Redirect the user to the installation script if Drupal has not been
     // installed yet (i.e., if no $databases array has been defined in the
     // settings.php file) and we are not already installing.
-    if (!Database::getConnectionInfo() && !drupal_installation_attempted() && !drupal_is_cli()) {
+    if (!Database::getConnectionInfo() && !drupal_installation_attempted() && PHP_SAPI !== 'cli') {
       $response = new RedirectResponse($request->getBasePath() . '/core/install.php');
       $response->prepare($request)->send();
     }
@@ -220,20 +220,31 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
   }
 
   /**
+   * Initializes the kernel's site path and the Settings singleton.
+   *
+   * @param \Symfony\Component\HttpFoundation\Request $request
+   *   The request that will be used to determine the site path.
+   */
+  protected function initializeSettings(Request $request) {
+    $site_path = static::findSitePath($request);
+    $this->setSitePath($site_path);
+    Settings::initialize($site_path, $this->classLoader);
+  }
+
+  /**
    * Constructs a DrupalKernel object.
    *
    * @param string $environment
    *   String indicating the environment, e.g. 'prod' or 'dev'.
-   * @param \Composer\Autoload\ClassLoader $class_loader
-   *   (optional) The class loader is only used if $storage is not given or
-   *   the load from storage fails and a container rebuild is required. In
-   *   this case, the loaded modules will be registered with this loader in
-   *   order to be able to find the module serviceProviders.
+   * @param $class_loader
+   *   The class loader. Normally \Composer\Autoload\ClassLoader, as included by
+   *   the front controller, but may also be decorated; e.g.,
+   *   \Symfony\Component\ClassLoader\ApcClassLoader.
    * @param bool $allow_dumping
    *   (optional) FALSE to stop the container from being written to or read
    *   from disk. Defaults to TRUE.
    */
-  public function __construct($environment, ClassLoader $class_loader, $allow_dumping = TRUE) {
+  public function __construct($environment, $class_loader, $allow_dumping = TRUE) {
     $this->environment = $environment;
     $this->classLoader = $class_loader;
     $this->allowDumping = $allow_dumping;
@@ -349,22 +360,19 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
     // Start a page timer:
     Timer::start('page');
 
-    drupal_classloader();
-
     // Load legacy and other functional code.
     require_once DRUPAL_ROOT . '/core/includes/common.inc';
     require_once DRUPAL_ROOT . '/core/includes/database.inc';
-    require_once DRUPAL_ROOT . '/' . Settings::get('path_inc', 'core/includes/path.inc');
+    require_once DRUPAL_ROOT . '/core/includes/path.inc';
     require_once DRUPAL_ROOT . '/core/includes/module.inc';
     require_once DRUPAL_ROOT . '/core/includes/theme.inc';
     require_once DRUPAL_ROOT . '/core/includes/pager.inc';
-    require_once DRUPAL_ROOT . '/' . Settings::get('menu_inc', 'core/includes/menu.inc');
+    require_once DRUPAL_ROOT . '/core/includes/menu.inc';
     require_once DRUPAL_ROOT . '/core/includes/tablesort.inc';
     require_once DRUPAL_ROOT . '/core/includes/file.inc';
     require_once DRUPAL_ROOT . '/core/includes/unicode.inc';
     require_once DRUPAL_ROOT . '/core/includes/form.inc';
     require_once DRUPAL_ROOT . '/core/includes/mail.inc';
-    require_once DRUPAL_ROOT . '/core/includes/ajax.inc';
     require_once DRUPAL_ROOT . '/core/includes/errors.inc';
     require_once DRUPAL_ROOT . '/core/includes/schema.inc';
     require_once DRUPAL_ROOT . '/core/includes/entity.inc';
@@ -373,7 +381,7 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
     if (!$this->sitePath) {
       throw new \Exception('Kernel does not have site path set before calling boot()');
     }
-    // Intialize the container.
+    // Initialize the container.
     $this->initializeContainer();
 
     // Ensure mt_rand() is reseeded to prevent random values from one page load
@@ -404,18 +412,15 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
    */
   public function getContainer() {
     if ($this->containerNeedsDumping && !$this->dumpDrupalContainer($this->container, static::CONTAINER_BASE_CLASS)) {
-      watchdog('DrupalKernel', 'Container cannot be written to disk');
+      $this->container->get('logger.factory')->get('DrupalKernel')->notice('Container cannot be written to disk');
     }
     return $this->container;
   }
 
   /**
-   * Helper method that does request related initialization.
-   *
-   * @param \Symfony\Component\HttpFoundation\Request $request
-   *   The current request.
+   * {@inheritdoc}
    */
-  protected function preHandle(Request $request) {
+  public function preHandle(Request $request) {
     // Load all enabled modules.
     $this->container->get('module_handler')->loadAll();
 
@@ -425,22 +430,11 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
     // Initialize cookie globals.
     $this->initializeCookieGlobals($request);
 
-    // Ensure container has a request scope so we can load file stream wrappers.
-    if (!$this->container->isScopeActive('request')) {
-      // Enter the request scope so that current_user service is available for
-      // locale/translation sake.
-      $this->container->enterScope('request');
-      $this->container->set('request', $request, 'request');
-      $this->container->get('request_stack')->push($request);
-    }
+    // Put the request on the stack.
+    $this->container->get('request_stack')->push($request);
 
     // Make sure all stream wrappers are registered.
     file_get_stream_wrappers();
-
-    // Back out scope required to initialize the file stream wrappers.
-    if ($this->container->isScopeActive('request')) {
-      $this->container->leaveScope('request');
-    }
 
     // Set the allowed protocols once we have the config available.
     $allowed_protocols = $this->container->get('config.factory')->get('system.filter')->get('protocols');
@@ -472,9 +466,8 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
       $cache_enabled = $config->get('cache.page.use_internal');
     }
 
-    // If there is no session cookie and cache is enabled (or forced), try to
-    // serve a cached page.
-    if (!$request->cookies->has(session_name()) && $cache_enabled && drupal_page_is_cacheable()) {
+    $request_policy = \Drupal::service('page_cache_request_policy');
+    if ($cache_enabled && $request_policy->check($request) === RequestPolicyInterface::ALLOW) {
       // Get the page from the cache.
       $response = drupal_page_get_cache($request);
       // If there is a cached page, display it.
@@ -537,10 +530,11 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
         }
       }
     }
-    if (!empty($GLOBALS['conf']['container_yamls'])) {
-      $this->serviceYamls['site'] = $GLOBALS['conf']['container_yamls'];
+    if ($container_yamls = Settings::get('container_yamls')) {
+      $this->serviceYamls['site'] = $container_yamls;
     }
-    if (file_exists($site_services_yml = $this->getSitePath() . '/services.yml')) {
+    $site_services_yml = $this->getSitePath() . '/services.yml';
+    if (file_exists($site_services_yml) && is_readable($site_services_yml)) {
       $this->serviceYamls['site'][] = $site_services_yml;
     }
   }
@@ -570,7 +564,6 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
    */
   public function handle(Request $request, $type = self::MASTER_REQUEST, $catch = TRUE) {
     $this->boot();
-    $this->preHandle($request);
     return $this->getHttpKernel()->handle($request, $type, $catch);
   }
 
@@ -582,8 +575,6 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
     $this->preHandle($request);
     // Enter the request scope so that current_user service is available for
     // locale/translation sake.
-    $this->container->enterScope('request');
-    $this->container->set('request', $request);
     $this->container->get('request_stack')->push($request);
     $this->container->get('router.request_context')->fromRequest($request);
     return $this;
@@ -680,19 +671,16 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
    */
   protected function initializeContainer($rebuild = FALSE) {
     $this->containerNeedsDumping = FALSE;
-    // The request service requires custom persisting logic, since it is also
-    // potentially scoped.
-    $request_scope = FALSE;
-    $request_stack = $request = NULL;
+    $session_manager_started = FALSE;
     if (isset($this->container)) {
-      if ($this->container->isScopeActive('request')) {
-        $request_scope = TRUE;
-      }
-      if ($this->container->initialized('request')) {
-        $request = $this->container->get('request');
-      }
-      if ($this->container->initialized('request_stack')) {
-        $request_stack = $this->container->get('request_stack');
+      // If there is a session manager, close and save the session.
+      if ($this->container->initialized('session_manager')) {
+        $session_manager = $this->container->get('session_manager');
+        if ($session_manager->isStarted()) {
+          $session_manager_started = TRUE;
+          $session_manager->save();
+        }
+        unset($session_manager);
       }
     }
 
@@ -717,9 +705,12 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
       $container = $this->compileContainer();
     }
 
-    $this->attachSynthetic($container, $request, $request_stack, $request_scope);
+    $this->attachSynthetic($container);
 
     $this->container = $container;
+    if ($session_manager_started) {
+      $this->container->get('session_manager')->start();
+    }
     \Drupal::setContainer($this->container);
     return $this->container;
   }
@@ -977,15 +968,10 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
    *
    * @param ContainerInterface $container
    *   Container object
-   * @param Request $request
-   *   Request object.
-   * @param RequestStack $request_stack
-   *   Request stack.
-   * @param null $request_scope
+   *
    * @return ContainerInterface
    */
-  protected function attachSynthetic(ContainerInterface $container, Request $request = NULL, RequestStack $request_stack = NULL, $request_scope = NULL) {
-
+  protected function attachSynthetic(ContainerInterface $container) {
     $persist = array();
     if (isset($this->container)) {
       $persist = $this->getServicesToPersist($this->container);
@@ -1000,16 +986,6 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
 
     // Set the class loader which was registered as a synthetic service.
     $container->set('class_loader', $this->classLoader);
-    // If we have a request set it back to the new container.
-    if ($request_scope) {
-      $container->enterScope('request');
-    }
-    if (isset($request)) {
-      $container->set('request', $request);
-    }
-    if (isset($request_stack)) {
-      $container->set('request_stack', $request_stack);
-    }
     return $container;
   }
 
@@ -1033,13 +1009,22 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
 
     // Get a list of namespaces and put it onto the container.
     $namespaces = $this->getModuleNamespacesPsr4($this->getModuleFileNames());
-    // Add all components in \Drupal\Core and \Drupal\Component that have a
-    // Plugin directory.
+    // Add all components in \Drupal\Core and \Drupal\Component that have one of
+    // the following directories:
+    // - Element
+    // - Entity
+    // - Plugin
     foreach (array('Core', 'Component') as $parent_directory) {
       $path = DRUPAL_ROOT . '/core/lib/Drupal/' . $parent_directory;
       $parent_namespace = 'Drupal\\' . $parent_directory;
       foreach (new \DirectoryIterator($path) as $component) {
-        if (!$component->isDot() && $component->isDir() && is_dir($component->getPathname() . '/Plugin')) {
+        /** @var $component \DirectoryIterator */
+        $pathname = $component->getPathname();
+        if (!$component->isDot() && $component->isDir() && (
+          is_dir($pathname . '/Plugin') ||
+          is_dir($pathname . '/Entity') ||
+          is_dir($pathname . '/Element')
+        )) {
           $namespaces[$parent_namespace . '\\' . $component->getFilename()] = $path . '/' . $component->getFilename();
         }
       }
@@ -1054,7 +1039,7 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
     $default_language_values = Language::$defaultValues;
     if ($system = $this->getConfigStorage()->read('system.site')) {
       if ($default_language_values['id'] != $system['langcode']) {
-        $default_language_values = array('id' => $system['langcode'], 'default' => TRUE);
+        $default_language_values = array('id' => $system['langcode']);
       }
     }
     $container->setParameter('language.default_values', $default_language_values);

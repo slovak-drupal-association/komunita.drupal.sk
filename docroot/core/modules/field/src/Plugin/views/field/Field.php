@@ -7,20 +7,22 @@
 
 namespace Drupal\field\Plugin\views\field;
 
+use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Component\Utility\Xss;
-use Drupal\Core\Entity\ContentEntityDatabaseStorage;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
-use Drupal\Core\Field\FieldDefinition;
+use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Field\FormatterPluginManager;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\LanguageInterface;
-use Drupal\Core\Language\LanguageManager;
+use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
+use Drupal\views\ResultRow;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Views;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -46,7 +48,7 @@ class Field extends FieldPluginBase {
    *
    * A field storage definition turned into a field definition, so it can be
    * used with widgets and formatters. See
-   * FieldDefinition::createFromFieldStorageDefinition().
+   * BaseFieldDefinition::createFromFieldStorageDefinition().
    *
    * @var \Drupal\Core\Field\FieldDefinitionInterface
    */
@@ -54,8 +56,10 @@ class Field extends FieldPluginBase {
 
   /**
    * The field config.
+   *
+   * @var \Drupal\field\FieldStorageConfigInterface
    */
-  protected $fieldConfig;
+  protected $fieldStorageConfig;
 
   /**
    * Does the field supports multiple field values.
@@ -102,7 +106,7 @@ class Field extends FieldPluginBase {
   /**
    * The language manager.
    *
-   * @var \Drupal\Core\Language\LanguageManager
+   * @var \Drupal\Core\Language\LanguageManagerInterface
    */
   protected $languageManager;
 
@@ -119,10 +123,10 @@ class Field extends FieldPluginBase {
    *   The field formatter plugin manager.
    * @param \Drupal\Core\Field\FormatterPluginManager $formatter_plugin_manager
    *   The field formatter plugin manager.
-   * @param \Drupal\Core\Language\LanguageManager $language_manager
+   * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
    *   The language manager.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityManagerInterface $entity_manager, FormatterPluginManager $formatter_plugin_manager, LanguageManager $language_manager) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityManagerInterface $entity_manager, FormatterPluginManager $formatter_plugin_manager, LanguageManagerInterface $language_manager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
     $this->entityManager = $entity_manager;
@@ -152,8 +156,8 @@ class Field extends FieldPluginBase {
    */
   protected function getFieldDefinition() {
     if (!$this->fieldDefinition) {
-      $field_config = $this->getFieldConfig();
-      $this->fieldDefinition = FieldDefinition::createFromFieldStorageDefinition($field_config);
+      $field_storage_config = $this->getFieldStorageConfig();
+      $this->fieldDefinition = BaseFieldDefinition::createFromFieldStorageDefinition($field_storage_config);
     }
     return $this->fieldDefinition;
   }
@@ -161,14 +165,14 @@ class Field extends FieldPluginBase {
   /**
    * Gets the field configuration.
    *
-   * @return \Drupal\field\FieldConfigInterface
+   * @return \Drupal\field\FieldStorageConfigInterface
    */
-  protected function getFieldConfig() {
-    if (!$this->fieldConfig) {
+  protected function getFieldStorageConfig() {
+    if (!$this->fieldStorageConfig) {
       $field_storage_definitions = \Drupal::entityManager()->getFieldStorageDefinitions($this->definition['entity_type']);
-      $this->fieldConfig = $field_storage_definitions[$this->definition['field_name']];
+      $this->fieldStorageConfig = $field_storage_definitions[$this->definition['field_name']];
     }
-    return $this->fieldConfig;
+    return $this->fieldStorageConfig;
   }
 
   /**
@@ -209,8 +213,8 @@ class Field extends FieldPluginBase {
    */
   public function access(AccountInterface $account) {
     $base_table = $this->get_base_table();
-    $access_controller = $this->entityManager->getAccessController($this->definition['entity_tables'][$base_table]);
-    return $access_controller->fieldAccess('view', $this->getFieldDefinition(), $account);
+    $access_control_handler = $this->entityManager->getAccessControlHandler($this->definition['entity_tables'][$base_table]);
+    return $access_control_handler->fieldAccess('view', $this->getFieldDefinition(), $account, NULL, TRUE);
   }
 
   /**
@@ -286,22 +290,20 @@ class Field extends FieldPluginBase {
       $this->ensureMyTable();
       $this->addAdditionalFields($fields);
 
-      // Filter by langcode, if field translation is enabled.
+      // If we are grouping by something on this field, we want to group by
+      // the displayed value, which is translated. So, we need to figure out
+      // which language should be used to translate the value. See also
+      // $this->field_langcode().
       $field = $field_definition;
       if ($field->isTranslatable() && !empty($this->view->display_handler->options['field_langcode_add_to_query'])) {
         $column = $this->tableAlias . '.langcode';
-        // By the same reason as field_language the field might be
-        // LanguageInterface::LANGCODE_NOT_SPECIFIED in reality so allow it as
-        // well.
-        // @see this::field_langcode()
-        $default_langcode = language_default()->id;
-        $langcode = str_replace(
-          array('***CURRENT_LANGUAGE***', '***DEFAULT_LANGUAGE***'),
-          array($this->languageManager->getCurrentLanguage(LanguageInterface::TYPE_CONTENT), $default_langcode),
-          $this->view->display_handler->options['field_langcode']
-        );
+        $langcode = $this->view->display_handler->options['field_langcode'];
+        $substitutions = static::queryLanguageSubstitutions();
+        if (isset($substitutions[$langcode])) {
+          $langcode = $substitutions[$langcode];
+        }
         $placeholder = $this->placeholder();
-        $langcode_fallback_candidates = $this->languageManager->getFallbackCandidates($langcode, array('operation' => 'views_query', 'data' => $this));
+        $langcode_fallback_candidates = $this->languageManager->getFallbackCandidates(array('langcode' => $langcode, 'operation' => 'views_query', 'data' => $this));
         $this->query->addWhereExpression(0, "$column IN($placeholder) OR $column IS NULL", array($placeholder => $langcode_fallback_candidates));
       }
     }
@@ -349,9 +351,12 @@ class Field extends FieldPluginBase {
     }
 
     $this->ensureMyTable();
-    $field_storage_definitions = $this->entityManager->getFieldStorageDefinitions($this->definition['entity_type']);
-    $field = $field_storage_definitions[$this->definition['field_name']];
-    $column = ContentEntityDatabaseStorage::_fieldColumnName($field, $this->options['click_sort_column']);
+    $entity_type_id = $this->definition['entity_type'];
+    $field_storage_definitions = $this->entityManager->getFieldStorageDefinitions($entity_type_id);
+    $field_storage = $field_storage_definitions[$this->definition['field_name']];
+    /** @var \Drupal\Core\Entity\Sql\DefaultTableMapping $table_mapping */
+    $table_mapping = $this->entityManager->getStorage($entity_type_id)->getTableMapping();
+    $column = $table_mapping->getFieldColumnName($field_storage, $this->options['click_sort_column']);
     if (!isset($this->aliases[$column])) {
       // Column is not in query; add a sort on it (without adding the column).
       $this->aliases[$column] = $this->tableAlias . '.' . $column;
@@ -363,9 +368,9 @@ class Field extends FieldPluginBase {
     $options = parent::defineOptions();
 
     $field_storage_definitions = $this->entityManager->getFieldStorageDefinitions($this->definition['entity_type']);
-    $field = $field_storage_definitions[$this->definition['field_name']];
-    $field_type = \Drupal::service('plugin.manager.field.field_type')->getDefinition($field->getType());
-    $column_names = array_keys($field->getColumns());
+    $field_storage = $field_storage_definitions[$this->definition['field_name']];
+    $field_type = \Drupal::service('plugin.manager.field.field_type')->getDefinition($field_storage->getType());
+    $column_names = array_keys($field_storage->getColumns());
     $default_column = '';
     // Try to determine a sensible default.
     if (count($column_names) == 1) {
@@ -400,7 +405,7 @@ class Field extends FieldPluginBase {
     // If we know the exact number of allowed values, then that can be
     // the default. Otherwise, default to 'all'.
     $options['delta_limit'] = array(
-      'default' => ($field->getCardinality() > 1) ? $field->getCardinality() : 'all',
+      'default' => ($field_storage->getCardinality() > 1) ? $field_storage->getCardinality() : 'all',
     );
     $options['delta_offset'] = array(
       'default' => 0,
@@ -432,7 +437,7 @@ class Field extends FieldPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
     $field = $this->getFieldDefinition();
@@ -454,16 +459,16 @@ class Field extends FieldPluginBase {
     else {
       $form['click_sort_column'] = array(
         '#type' => 'select',
-        '#title' => t('Column used for click sorting'),
+        '#title' => $this->t('Column used for click sorting'),
         '#options' => array_combine($column_names, $column_names),
         '#default_value' => $this->options['click_sort_column'],
-        '#description' => t('Used by Style: Table to determine the actual column to click sort the field on. The default is usually fine.'),
+        '#description' => $this->t('Used by Style: Table to determine the actual column to click sort the field on. The default is usually fine.'),
       );
     }
 
     $form['type'] = array(
       '#type' => 'select',
-      '#title' => t('Formatter'),
+      '#title' => $this->t('Formatter'),
       '#options' => $formatters,
       '#default_value' => $this->options['type'],
       '#ajax' => array(
@@ -474,16 +479,16 @@ class Field extends FieldPluginBase {
     );
 
     $form['field_api_classes'] = array(
-      '#title' => t('Use field template'),
+      '#title' => $this->t('Use field template'),
       '#type' => 'checkbox',
       '#default_value' => $this->options['field_api_classes'],
-      '#description' => t('If checked, field api classes will be added by field templates. This is not recommended unless your CSS depends upon these classes. If not checked, template will not be used.'),
+      '#description' => $this->t('If checked, field api classes will be added by field templates. This is not recommended unless your CSS depends upon these classes. If not checked, template will not be used.'),
       '#fieldset' => 'style_settings',
       '#weight' => 20,
     );
 
     if ($this->multiple) {
-      $form['field_api_classes']['#description'] .= ' ' . t('Checking this option will cause the group Display Type and Separator values to be ignored.');
+      $form['field_api_classes']['#description'] .= ' ' . $this->t('Checking this option will cause the group Display Type and Separator values to be ignored.');
     }
 
     // Get the currently selected formatter.
@@ -513,26 +518,26 @@ class Field extends FieldPluginBase {
   /**
    * Provide options for multiple value fields.
    */
-  function multiple_options_form(&$form, &$form_state) {
+  function multiple_options_form(&$form, FormStateInterface $form_state) {
     $field = $this->getFieldDefinition();
 
     $form['multiple_field_settings'] = array(
       '#type' => 'details',
-      '#title' => t('Multiple field settings'),
+      '#title' => $this->t('Multiple field settings'),
       '#weight' => 5,
     );
 
     $form['group_rows'] = array(
-      '#title' => t('Display all values in the same row'),
+      '#title' => $this->t('Display all values in the same row'),
       '#type' => 'checkbox',
       '#default_value' => $this->options['group_rows'],
-      '#description' => t('If checked, multiple values for this field will be shown in the same row. If not checked, each value in this field will create a new row. If using group by, please make sure to group by "Entity ID" for this setting to have any effect.'),
+      '#description' => $this->t('If checked, multiple values for this field will be shown in the same row. If not checked, each value in this field will create a new row. If using group by, please make sure to group by "Entity ID" for this setting to have any effect.'),
       '#fieldset' => 'multiple_field_settings',
     );
 
     // Make the string translatable by keeping it as a whole rather than
     // translating prefix and suffix separately.
-    list($prefix, $suffix) = explode('@count', t('Display @count value(s)'));
+    list($prefix, $suffix) = explode('@count', $this->t('Display @count value(s)'));
 
     if ($field->getCardinality() == FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED) {
       $type = 'textfield';
@@ -547,11 +552,11 @@ class Field extends FieldPluginBase {
     }
     $form['multi_type'] = array(
       '#type' => 'radios',
-      '#title' => t('Display type'),
+      '#title' => $this->t('Display type'),
       '#options' => array(
-        'ul' => t('Unordered list'),
-        'ol' => t('Ordered list'),
-        'separator' => t('Simple separator'),
+        'ul' => $this->t('Unordered list'),
+        'ol' => $this->t('Ordered list'),
+        'separator' => $this->t('Simple separator'),
       ),
       '#states' => array(
         'visible' => array(
@@ -564,7 +569,7 @@ class Field extends FieldPluginBase {
 
     $form['separator'] = array(
       '#type' => 'textfield',
-      '#title' => t('Separator'),
+      '#title' => $this->t('Separator'),
       '#default_value' => $this->options['separator'],
       '#states' => array(
         'visible' => array(
@@ -591,7 +596,7 @@ class Field extends FieldPluginBase {
       '#fieldset' => 'multiple_field_settings',
     );
 
-    list($prefix, $suffix) = explode('@count', t('starting from @count'));
+    list($prefix, $suffix) = explode('@count', $this->t('starting from @count'));
     $form['delta_offset'] = array(
       '#type' => 'textfield',
       '#size' => 5,
@@ -603,11 +608,11 @@ class Field extends FieldPluginBase {
           ':input[name="options[group_rows]"]' => array('checked' => TRUE),
         ),
       ),
-      '#description' => t('(first item is 0)'),
+      '#description' => $this->t('(first item is 0)'),
       '#fieldset' => 'multiple_field_settings',
     );
     $form['delta_reversed'] = array(
-      '#title' => t('Reversed'),
+      '#title' => $this->t('Reversed'),
       '#type' => 'checkbox',
       '#default_value' => $this->options['delta_reversed'],
       '#suffix' => $suffix,
@@ -616,11 +621,11 @@ class Field extends FieldPluginBase {
           ':input[name="options[group_rows]"]' => array('checked' => TRUE),
         ),
       ),
-      '#description' => t('(start from last values)'),
+      '#description' => $this->t('(start from last values)'),
       '#fieldset' => 'multiple_field_settings',
     );
     $form['delta_first_last'] = array(
-      '#title' => t('First and last only'),
+      '#title' => $this->t('First and last only'),
       '#type' => 'checkbox',
       '#default_value' => $this->options['delta_first_last'],
       '#suffix' => '</div>',
@@ -636,21 +641,21 @@ class Field extends FieldPluginBase {
   /**
    * Extend the groupby form with group columns.
    */
-  public function buildGroupByForm(&$form, &$form_state) {
+  public function buildGroupByForm(&$form, FormStateInterface $form_state) {
     parent::buildGroupByForm($form, $form_state);
     // With "field API" fields, the column target of the grouping function
     // and any additional grouping columns must be specified.
 
     $field_columns = array_keys($this->getFieldDefinition()->getColumns());
     $group_columns = array(
-      'entity_id' => t('Entity ID'),
+      'entity_id' => $this->t('Entity ID'),
     ) + array_map('ucfirst', array_combine($field_columns, $field_columns));
 
     $form['group_column'] = array(
       '#type' => 'select',
-      '#title' => t('Group column'),
+      '#title' => $this->t('Group column'),
       '#default_value' => $this->options['group_column'],
-      '#description' => t('Select the column of this field to apply the grouping function selected above.'),
+      '#description' => $this->t('Select the column of this field to apply the grouping function selected above.'),
       '#options' => $group_columns,
     );
 
@@ -662,20 +667,20 @@ class Field extends FieldPluginBase {
     // Add on defined fields, noting that they're prefixed with the field name.
     $form['group_columns'] = array(
       '#type' => 'checkboxes',
-      '#title' => t('Group columns (additional)'),
+      '#title' => $this->t('Group columns (additional)'),
       '#default_value' => $this->options['group_columns'],
-      '#description' => t('Select any additional columns of this field to include in the query and to group on.'),
+      '#description' => $this->t('Select any additional columns of this field to include in the query and to group on.'),
       '#options' => $options + $group_columns,
     );
   }
 
-  public function submitGroupByForm(&$form, &$form_state) {
+  public function submitGroupByForm(&$form, FormStateInterface $form_state) {
     parent::submitGroupByForm($form, $form_state);
-    $item = &$form_state['handler']->options;
+    $item = &$form_state->get('handler')->options;
 
     // Add settings for "field API" fields.
-    $item['group_column'] = $form_state['values']['options']['group_column'];
-    $item['group_columns'] = array_filter($form_state['values']['options']['group_columns']);
+    $item['group_column'] = $form_state->getValue(array('options', 'group_column'));
+    $item['group_columns'] = array_filter($form_state->getValue(array('options', 'group_columns')));
   }
 
   /**
@@ -686,12 +691,22 @@ class Field extends FieldPluginBase {
    */
   protected function renderItems($items) {
     if (!empty($items)) {
+      $output = '';
       if (!$this->options['group_rows']) {
-        return implode('', $items);
+        foreach ($items as $item) {
+          $output .= SafeMarkup::escape($item);
+        }
+        return SafeMarkup::set($output);
       }
-
       if ($this->options['multi_type'] == 'separator') {
-        return implode(Xss::filterAdmin($this->options['separator']), $items);
+        $output = '';
+        $separator = '';
+        $escaped_separator = Xss::filterAdmin($this->options['separator']);
+        foreach ($items as $item) {
+          $output .= $separator . SafeMarkup::escape($item);
+          $separator = $escaped_separator;
+        }
+        return SafeMarkup::set($output);
       }
       else {
         $item_list = array(
@@ -706,9 +721,15 @@ class Field extends FieldPluginBase {
   }
 
   /**
-   * Return an array of items for the field.
+   * Gets an array of items for the field.
+   *
+   * @param \Drupal\views\ResultRow $values
+   *   The result row object containing the values.
+   *
+   * @return array
+   *   An array of items for the field.
    */
-  public function getItems($values) {
+  public function getItems(ResultRow $values) {
     $original_entity = $this->getEntity($values);
     if (!$original_entity) {
       return array();
@@ -725,7 +746,7 @@ class Field extends FieldPluginBase {
       // Pass the View object in the display so that fields can act on it.
       'views_view' => $this->view,
       'views_field' => $this,
-      'views_row_id' => $this->view->row_index,
+      'views_row_id' => $values->index,
     );
     $render_array = $entity->get($this->definition['field_name'])->view($display);
 
@@ -868,7 +889,7 @@ class Field extends FieldPluginBase {
   protected function documentSelfTokens(&$tokens) {
     $field = $this->getFieldDefinition();
     foreach ($field->getColumns() as $id => $column) {
-      $tokens['[' . $this->options['id'] . '-' . $id . ']'] = t('Raw @column', array('@column' => $id));
+      $tokens['[' . $this->options['id'] . '-' . $id . ']'] = $this->t('Raw @column', array('@column' => $id));
     }
   }
 
@@ -901,12 +922,11 @@ class Field extends FieldPluginBase {
    */
   function field_langcode(EntityInterface $entity) {
     if ($this->getFieldDefinition()->isTranslatable()) {
-      $default_langcode = language_default()->id;
-      $langcode = str_replace(
-        array('***CURRENT_LANGUAGE***', '***DEFAULT_LANGUAGE***'),
-        array($this->languageManager->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->id, $default_langcode),
-        $this->view->display_handler->options['field_langcode']
-      );
+      $langcode = $this->view->display_handler->options['field_langcode'];
+      $substitutions = static::queryLanguageSubstitutions();
+      if (isset($substitutions[$langcode])) {
+        $langcode = $substitutions[$langcode];
+      }
 
       // Give the Entity Field API a chance to fallback to a different language
       // (or LanguageInterface::LANGCODE_NOT_SPECIFIED), in case the field has
@@ -926,8 +946,8 @@ class Field extends FieldPluginBase {
    * {@inheritdoc}
    */
   public function getDependencies() {
-    // Add the module providing the configured field as a dependency.
-    return array('entity' => array($this->getFieldConfig()->getConfigDependencyName()));
+    // Add the module providing the configured field storage as a dependency.
+    return array('entity' => array($this->getFieldStorageConfig()->getConfigDependencyName()));
   }
 
 

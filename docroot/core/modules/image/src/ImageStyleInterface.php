@@ -8,11 +8,12 @@
 namespace Drupal\image;
 
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
+use Drupal\Core\Config\Entity\ThirdPartySettingsInterface;
 
 /**
  * Provides an interface defining an image style entity.
  */
-interface ImageStyleInterface extends ConfigEntityInterface {
+interface ImageStyleInterface extends ConfigEntityInterface, ThirdPartySettingsInterface {
 
   /**
    * Returns the replacement ID.
@@ -36,7 +37,7 @@ interface ImageStyleInterface extends ConfigEntityInterface {
    * @param string $name
    *   The name of the image style.
    *
-   * @return \Drupal\image\ImageEffectInterface
+   * @return \Drupal\image\ImageStyleInterface
    *   The class instance this method is called on.
    */
   public function setName($name);

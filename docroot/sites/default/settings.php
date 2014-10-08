@@ -217,6 +217,7 @@
  *   );
  * @endcode
  */
+$databases = array();
 
 /**
  * Location of the site configuration files.
@@ -271,7 +272,7 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'bu-e_n6W4N2pgyo2mWTa0pPgkdGmXt0ryanY7ZWz8Nh30_q1QYiJpvbZQv-fJGJiQpABKcM7Og';
+$settings['hash_salt'] = '';
 
 /**
  * Access control for update.php script.
@@ -370,17 +371,23 @@ $settings['update_free_access'] = FALSE;
 /**
  * Class Loader.
  *
- * By default, Drupal uses Composer's ClassLoader, which is best for
- * development, as it does not break when code is moved on the file
- * system. It is possible, however, to wrap the class loader with a
- * cached class loader solution for better performance, which is
+ * By default, Composer's ClassLoader is used, which is best for development, as
+ * it does not break when code is moved in the file system. You can decorate the
+ * class loader with a cached solution for better performance, which is
  * recommended for production sites.
  *
- * Examples:
- *   $settings['class_loader'] = 'apc';
- *   $settings['class_loader'] = 'default';
+ * To do so, you may decorate and replace the local $class_loader variable.
+ *
+ * For example, to use Symfony's APC class loader, uncomment the code below.
  */
-# $settings['class_loader'] = 'apc';
+/*
+if ($settings['hash_salt']) {
+  $apc_loader = new \Symfony\Component\ClassLoader\ApcClassLoader('drupal.' . $settings['hash_salt'], $class_loader);
+  $class_loader->unregister();
+  $apc_loader->register();
+  $class_loader = $apc_loader;
+}
+*/
 
 /**
  * Authorized file system operations:
@@ -633,20 +640,11 @@ ini_set('session.cookie_lifetime', 2000000);
 #   include __DIR__ . '/settings.local.php';
 # }
 
-// if (file_exists('/var/www/site-php')) {
-  // require '/var/www/site-php/slovakda/slovakda-settings.inc';
-// }
 
-$databases['default']['default'] = array (
-  'database' => 'slovakdadev',
-  'username' => 's9846',
-  'password' => 'tSA6SKcjoKuMa2i',
-  'prefix' => '',
-  'host' => 'staging-3383.prod.hosting.acquia.com',
-  'port' => '3306',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
-$settings['install_profile'] = 'standard';
-$config_directories['active'] = 'sites/default/files/config_hkcrgxn34YRHzE9KRZIYSXgPQIyX34aM9E8yRM0U66TxPwdZDIrKh8Y-nQIkLod51ZNJCCjuJw/active';
-$config_directories['staging'] = 'sites/default/files/config_hkcrgxn34YRHzE9KRZIYSXgPQIyX34aM9E8yRM0U66TxPwdZDIrKh8Y-nQIkLod51ZNJCCjuJw/staging';
+// On Acquia Cloud, this include file configures Drupal to use the correct
+// database in each site environment (Dev, Stage, or Prod). To use this
+// settings.php for development on your local workstation, set $db_url
+// (Drupal 5 or 6) or $databases (Drupal 7 or 8) as described in comments above.
+if (file_exists('/var/www/site-php')) {
+  require('/var/www/site-php/slovakda/slovakda-settings.inc');
+}

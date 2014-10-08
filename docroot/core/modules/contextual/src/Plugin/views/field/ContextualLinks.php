@@ -9,6 +9,7 @@ namespace Drupal\contextual\Plugin\views\field;
 
 use Drupal\Component\Serialization\Json;
 use Drupal\Component\Utility\UrlHelper;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
 
@@ -37,24 +38,24 @@ class ContextualLinks extends FieldPluginBase {
     return $options;
   }
 
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     $all_fields = $this->view->display_handler->getFieldLabels();
     // Offer to include only those fields that follow this one.
     $field_options = array_slice($all_fields, 0, array_search($this->options['id'], array_keys($all_fields)));
     $form['fields'] = array(
       '#type' => 'checkboxes',
-      '#title' => t('Fields'),
-      '#description' => t('Fields to be included as contextual links.'),
+      '#title' => $this->t('Fields'),
+      '#description' => $this->t('Fields to be included as contextual links.'),
       '#options' => $field_options,
       '#default_value' => $this->options['fields'],
     );
     $form['destination'] = array(
       '#type' => 'select',
-      '#title' => t('Include destination'),
-      '#description' => t('Include a "destination" parameter in the link to return the user to the original view upon completing the contextual action.'),
+      '#title' => $this->t('Include destination'),
+      '#description' => $this->t('Include a "destination" parameter in the link to return the user to the original view upon completing the contextual action.'),
       '#options' => array(
-        '0' => t('No'),
-        '1' => t('Yes'),
+        '0' => $this->t('No'),
+        '1' => $this->t('Yes'),
       ),
       '#default_value' => $this->options['destination'],
     );
@@ -85,7 +86,7 @@ class ContextualLinks extends FieldPluginBase {
   public function render(ResultRow $values) {
     $links = array();
     foreach ($this->options['fields'] as $field) {
-      $rendered_field = $this->view->style_plugin->getField($this->view->row_index, $field);
+      $rendered_field = $this->view->style_plugin->getField($values->index, $field);
       if (empty($rendered_field)) {
         continue;
       }

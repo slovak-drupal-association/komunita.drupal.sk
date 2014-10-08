@@ -10,22 +10,16 @@ namespace Drupal\search\Tests;
 use Drupal\Core\Language\LanguageInterface;
 
 /**
- * Tests that various number formats match each other in searching.
+ * Tests that numbers can be searched with more complex matching.
+ *
+ * @group search
  */
 class SearchNumberMatchingTest extends SearchTestBase {
   protected $test_user;
   protected $numbers;
   protected $nodes;
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Search number matching',
-      'description' => 'Check that numbers can be searched with more complex matching',
-      'group' => 'Search',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->test_user = $this->drupalCreateUser(array('search content', 'access content', 'administer nodes', 'access site reports'));

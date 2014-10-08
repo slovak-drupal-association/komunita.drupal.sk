@@ -4,10 +4,10 @@ description: 'Enables the use of both personal and site-wide contact forms.'
 package: Core
 # version: VERSION
 # core: 8.x
-configure: contact.category_list
+configure: contact.form_list
 
-# Information added by Drupal.org packaging script on 2014-07-02
-version: '8.0-alpha13'
+# Information added by Drupal.org packaging script on 2014-10-01
+version: '8.0.0-beta1'
 core: '8.x'
 project: 'drupal'
-datestamp: 1404296639
+datestamp: 1412147204

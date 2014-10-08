@@ -18,7 +18,7 @@ easily test the client.
 Procedural API
 --------------
 
-Here's an example of sending a ``GET`` request using the procedural API.
+Here's an example of sending a ``POST`` request using the procedural API.
 
 .. code-block:: php
 
@@ -50,7 +50,7 @@ then you'll need to use a ``GuzzleHttp\ClientInterface`` object.
     use GuzzleHttp\Client;
 
     $client = new Client();
-    $response = $client->get('https://github.com/timeline.json');
+    $response = $client->get('http://httpbin.org/get');
 
     // You can use the same methods you saw in the procedural API
     $response = $client->delete('http://httpbin.org/delete');
@@ -120,9 +120,9 @@ response.
 
 .. code-block:: php
 
-    $response = $client->get('https://github.com/timeline.json');
+    $response = $client->get('http://httpbin.org/get');
     $json = $response->json();
-    var_dump($json[0]['repository']);
+    var_dump($json[0]['origin']);
 
 Guzzle internally uses PHP's ``json_decode()`` function to parse responses. If
 Guzzle is unable to parse the JSON response body, then a
@@ -377,7 +377,7 @@ Guzzle can maintain a cookie session for you if instructed using the
 - Set to ``true`` to use a shared cookie session associated with the client.
 - Pass an associative array containing cookies to send in the request and start
   a new cookie session.
-- Set to a ``GuzzleHttp\Subscriber\CookieJar\CookieJarInterface`` object to uss
+- Set to a ``GuzzleHttp\Subscriber\CookieJar\CookieJarInterface`` object to use
   an existing cookie jar.
 
 Redirects
@@ -437,7 +437,7 @@ Guzzle throws exceptions for errors that occur during a transfer.
           }
       }
 
-- A ``GuzzleHttp\Exception\ClientErrorResponseException`` is thrown for 400
+- A ``GuzzleHttp\Exception\ClientException`` is thrown for 400
   level errors if the ``exceptions`` request option is set to true. This
   exception extends from ``GuzzleHttp\Exception\BadResponseException`` and
   ``GuzzleHttp\Exception\BadResponseException`` extends from
@@ -445,16 +445,16 @@ Guzzle throws exceptions for errors that occur during a transfer.
 
   .. code-block:: php
 
-      use GuzzleHttp\Exception\ClientErrorResponseException;
+      use GuzzleHttp\Exception\ClientException;
 
       try {
           $client->get('https://github.com/_abc_123_404');
-      } catch (ClientErrorResponseException $e) {
+      } catch (ClientException $e) {
           echo $e->getRequest();
           echo $e->getResponse();
       }
 
-- A ``GuzzleHttp\Exception\ServerErrorResponse`` is thrown for 500 level
+- A ``GuzzleHttp\Exception\ServerException`` is thrown for 500 level
   errors if the ``exceptions`` request option is set to true. This
   exception extends from ``GuzzleHttp\Exception\BadResponseException``.
 - A ``GuzzleHttp\Exception\TooManyRedirectsException`` is thrown when too

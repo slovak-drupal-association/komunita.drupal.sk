@@ -7,6 +7,8 @@
 
 namespace Drupal\views\Plugin\views\field;
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * A abstract handler which provides a collection of links.
  *
@@ -36,21 +38,21 @@ abstract class Links extends FieldPluginBase {
   /**
    * Overrides \Drupal\views\Plugin\views\field\FieldPluginBase::defineOptions().
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
     // Only show fields that precede this one.
     $field_options = $this->getPreviousFieldLabels();
     $form['fields'] = array(
       '#type' => 'checkboxes',
-      '#title' => t('Fields'),
-      '#description' => t('Fields to be included as links.'),
+      '#title' => $this->t('Fields'),
+      '#description' => $this->t('Fields to be included as links.'),
       '#options' => $field_options,
       '#default_value' => $this->options['fields'],
     );
     $form['destination'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Include destination'),
-      '#description' => t('Include a "destination" parameter in the link to return the user to the original view upon completing the link action.'),
+      '#title' => $this->t('Include destination'),
+      '#description' => $this->t('Include a "destination" parameter in the link to return the user to the original view upon completing the link action.'),
       '#default_value' => $this->options['destination'],
     );
   }

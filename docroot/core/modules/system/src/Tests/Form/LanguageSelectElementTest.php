@@ -9,11 +9,14 @@ namespace Drupal\system\Tests\Form;
 
 use Drupal\Component\Serialization\Json;
 use Drupal\Core\Language\LanguageInterface;
+use Drupal\language\Entity\ConfigurableLanguage;
 use Drupal\simpletest\WebTestBase;
-use Drupal\Core\Language\Language;
 
 /**
- * Functional tests for the language select form element.
+ * Tests that the language select form element prints and submits the right
+ * options.
+ *
+ * @group Form
  */
 class LanguageSelectElementTest extends WebTestBase {
 
@@ -24,30 +27,20 @@ class LanguageSelectElementTest extends WebTestBase {
    */
   public static $modules = array('form_test', 'language');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Language select form element',
-      'description' => 'Checks that the language select form element prints and submits the right options.',
-      'group' => 'Form API',
-    );
-  }
-
   /**
    * Tests that the options printed by the language select element are correct.
    */
   function testLanguageSelectElementOptions() {
     // Add some languages.
-    $language = new Language(array(
+    ConfigurableLanguage::create(array(
       'id' => 'aaa',
-      'name' => $this->randomName(),
-    ));
-    language_save($language);
+      'label' => $this->randomMachineName(),
+    ))->save();
 
-    $language = new Language(array(
+    ConfigurableLanguage::create(array(
       'id' => 'bbb',
-      'name' => $this->randomName(),
-    ));
-    language_save($language);
+      'label' => $this->randomMachineName(),
+    ))->save();
 
     \Drupal::languageManager()->reset();
 
@@ -63,7 +56,7 @@ class LanguageSelectElementTest extends WebTestBase {
       $this->assertField($id, format_string('The @id field was found on the page.', array('@id' => $id)));
       $options = array();
       foreach ($this->container->get('language_manager')->getLanguages($flags) as $langcode => $language) {
-        $options[$langcode] = $language->locked ? t('- @name -', array('@name' => $language->name)) : $language->name;
+        $options[$langcode] = $language->isLocked() ? t('- @name -', array('@name' => $language->name)) : $language->name;
       }
       $this->_testLanguageSelectElementOptions($id, $options);
     }
@@ -81,7 +74,7 @@ class LanguageSelectElementTest extends WebTestBase {
   function testHiddenLanguageSelectElement() {
     // Disable the language module, so that the language select field will not
     // be rendered.
-    module_uninstall(array('language'));
+    $this->container->get('module_handler')->uninstall(array('language'));
     $this->drupalGet('form-test/language_select');
     // Check that the language fields were rendered on the page.
     $ids = array('edit-languages-all', 'edit-languages-configurable', 'edit-languages-locked', 'edit-languages-config-and-locked');

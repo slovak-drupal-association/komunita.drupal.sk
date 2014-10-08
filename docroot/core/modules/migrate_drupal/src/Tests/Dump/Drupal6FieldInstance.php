@@ -626,6 +626,170 @@ class Drupal6FieldInstance extends Drupal6DumpBase {
       )),
       'description' => 'An example datetime field.',
     ))
+    ->values(array(
+      'field_name' => 'field_test_decimal_radio_buttons',
+      'type_name' => 'story',
+      'weight' => 13,
+      'label' => 'Decimal Radio Buttons Field',
+      'widget_type' => 'optionwidgets_buttons',
+      'widget_settings' => 'a:2:{s:13:"default_value";a:1:{i:0;a:1:{s:5:"value";s:0:"";}}s:17:"default_value_php";N;}',
+      'display_settings' => serialize(array(
+        'weight' => 13,
+        'parent' => '',
+        'label' => array(
+          'format' => 'above',
+        ),
+        'teaser' => array(
+          'format' => 'unformatted',
+          'exclude' => 0,
+        ),
+        'full' => array(
+          'format' => 'us_0',
+          'exclude' => 0,
+        ),
+        4 => array(
+          'format' => 'unformatted',
+          'exclude' => 0,
+        ),
+        5 => array(
+          'format' => 'default',
+          'exclude' => 1,
+        ),
+      )),
+      'description' => 'An example decimal field using radio buttons.',
+    ))
+    ->values(array(
+      'field_name' => 'field_test_float_single_checkbox',
+      'type_name' => 'story',
+      'weight' => 14,
+      'label' => 'Float Single Checkbox Field',
+      'widget_type' => 'optionwidgets_onoff',
+      'widget_settings' => 'a:2:{s:13:"default_value";a:1:{i:0;a:1:{s:5:"value";N;}}s:17:"default_value_php";N;}',
+      'display_settings' => serialize(array(
+        'weight' => 14,
+        'parent' => '',
+        'label' => array(
+          'format' => 'above',
+        ),
+        'teaser' => array(
+          'format' => 'unformatted',
+          'exclude' => 0,
+        ),
+        'full' => array(
+          'format' => 'us_0',
+          'exclude' => 0,
+        ),
+        4 => array(
+          'format' => 'unformatted',
+          'exclude' => 0,
+        ),
+        5 => array(
+          'format' => 'default',
+          'exclude' => 1,
+        ),
+      )),
+      'description' => 'An example float field using a single on/off checkbox.',
+    ))
+    ->values(array(
+      'field_name' => 'field_test_integer_selectlist',
+      'type_name' => 'story',
+      'weight' => 15,
+      'label' => 'Integer Select List Field',
+      'widget_type' => 'optionwidgets_select',
+      'widget_settings' => 'a:2:{s:13:"default_value";a:1:{i:0;a:1:{s:5:"value";s:0:"";}}s:17:"default_value_php";N;}',
+      'display_settings' => serialize(array(
+        'weight' => 15,
+        'parent' => '',
+        'label' => array(
+          'format' => 'above',
+        ),
+        'teaser' => array(
+          'format' => 'unformatted',
+          'exclude' => 0,
+        ),
+        'full' => array(
+          'format' => 'us_0',
+          'exclude' => 0,
+        ),
+        4 => array(
+          'format' => 'unformatted',
+          'exclude' => 0,
+        ),
+        5 => array(
+          'format' => 'default',
+          'exclude' => 1,
+        ),
+      )),
+      'description' => 'An example integer field using a select list.',
+    ))
+    ->values(array(
+      'field_name' => 'field_test_text_single_checkbox',
+      'type_name' => 'story',
+      'weight' => 16,
+      'label' => 'Text Single Checkbox Field',
+      'widget_type' => 'optionwidgets_onoff',
+      'widget_settings' => 'a:2:{s:13:"default_value";a:1:{i:0;a:1:{s:5:"value";N;}}s:17:"default_value_php";N;}',
+      'display_settings' => serialize(array(
+        'weight' => 16,
+        'parent' => '',
+        'label' => array(
+          'format' => 'above',
+        ),
+        'teaser' => array(
+          'format' => 'trimmed',
+          'exclude' => 0,
+        ),
+        'full' => array(
+          'format' => 'default',
+          'exclude' => 0,
+        ),
+        4 => array(
+          'format' => 'trimmed',
+          'exclude' => 0,
+        ),
+        5 => array(
+          'format' => 'default',
+          'exclude' => 1,
+        ),
+      )),
+      'description' => 'An example text field using a single on/off checkbox.',
+    ))
+    ->values(array(
+      'field_name' => 'field_multivalue',
+      'type_name' => 'test_planet',
+      'weight' => 2,
+      'label' => 'Decimal Field',
+      'widget_type' => 'number',
+      'widget_settings' => serialize(array(
+        'default_value' => array(
+          0 => array(
+            'value' => '',
+            '_error_element' => 'default_value_widget][field_multivalue][0][value',
+          ),
+        ),
+        'default_value_php' => NULL,
+      )),
+      'display_settings' => serialize(array(
+        'weight' => 2,
+        'parent' => '',
+        'label' => array(
+          'format' => 'above',
+        ),
+        'teaser' => array(
+          'format' => 'default',
+          'exclude' => 0,
+        ),
+        'full' => array(
+          'format' => 'default',
+          'exclude' => 0,
+        ),
+        4 => array(
+          'format' => 'default',
+          'exclude' => 0,
+        ),
+      )),
+      'description' => 'An example multi-valued decimal field.',
+    ))
     ->execute();
 
     // Create the field table.
@@ -856,6 +1020,68 @@ class Drupal6FieldInstance extends Drupal6DumpBase {
       'db_columns' => 'a:0:{}',
       'active' => 0,
     ))
+    ->values(array(
+      'field_name' => 'field_test_decimal_radio_buttons',
+      'module' => 'number',
+      'type' => 'number_decimal',
+      'global_settings' => 'a:9:{s:6:"prefix";s:0:"";s:6:"suffix";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:14:"allowed_values";s:7:"1.2
+2.1";s:18:"allowed_values_php";s:0:"";s:9:"precision";s:2:"10";s:5:"scale";s:1:"2";s:7:"decimal";s:1:".";}',
+      'multiple' => 0,
+      'db_storage' => 1,
+      'db_columns' => 'a:0:{}',
+      'active' => 1,
+    ))
+    ->values(array(
+      'field_name' => 'field_test_float_single_checkbox',
+      'module' => 'number',
+      'type' => 'number_float',
+      'global_settings' => 'a:6:{s:6:"prefix";s:0:"";s:6:"suffix";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:14:"allowed_values";s:11:"3.142
+1.234";s:18:"allowed_values_php";s:0:"";}',
+      'multiple' => 0,
+      'db_storage' => 1,
+      'db_columns' => 'a:0:{}',
+      'active' => 1,
+    ))
+    ->values(array(
+      'field_name' => 'field_test_integer_selectlist',
+      'module' => 'number',
+      'type' => 'number_integer',
+      'global_settings' => 'a:6:{s:6:"prefix";s:0:"";s:6:"suffix";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:14:"allowed_values";s:19:"1234
+2341
+3412
+4123";s:18:"allowed_values_php";s:0:"";}',
+      'multiple' => 0,
+      'db_storage' => 1,
+      'db_columns' => serialize(array(
+        'value' => array(
+          'type' => 'int',
+          'not null' => FALSE,
+          'sortable' => TRUE,
+        ),
+      )),
+      'active' => 1,
+    ))
+    ->values(array(
+      'field_name' => 'field_test_text_single_checkbox',
+      'module' => 'text',
+      'type' => 'text',
+      'global_settings' => 'a:4:{s:15:"text_processing";s:1:"0";s:10:"max_length";s:0:"";s:14:"allowed_values";s:13:"Hello
+Goodbye";s:18:"allowed_values_php";s:0:"";}',
+      'multiple' => 0,
+      'db_storage' => 1,
+      'db_columns' => 'a:0:{}',
+      'active' => 1,
+    ))
+    ->values(array(
+      'field_name' => 'field_multivalue',
+      'module' => 'number',
+      'type' => 'number_decimal',
+      'global_settings' => 'a:9:{s:6:"prefix";s:0:"";s:6:"suffix";s:0:"";s:3:"min";s:0:"";s:3:"max";s:0:"";s:14:"allowed_values";s:0:"";s:18:"allowed_values_php";s:0:"";s:9:"precision";s:2:"10";s:5:"scale";s:1:"2";s:7:"decimal";s:1:".";}',
+      'multiple' => 1,
+      'db_storage' => 0,
+      'db_columns' => 'a:1:{s:5:"value";a:5:{s:4:"type";s:7:"numeric";s:9:"precision";s:2:"10";s:5:"scale";s:1:"2";s:8:"not null";b:0;s:8:"sortable";b:1;}}',
+      'active' => 1,
+    ))
     ->execute();
 
     $this->createTable('content_field_test', array(
@@ -903,7 +1129,6 @@ class Drupal6FieldInstance extends Drupal6DumpBase {
           'field_test_format' => 1,
         ))
       ->execute();
-
 
     $this->createTable('content_field_test_two', array(
       'description' => 'Table for field_test_two',
@@ -963,6 +1188,57 @@ class Drupal6FieldInstance extends Drupal6DumpBase {
       'field_test_two_value' => 20,
       'delta' => 1,
       'field_test_two_format' => 1,
+    ))
+    ->execute();
+
+    $this->createTable('content_field_multivalue', array(
+      'description' => 'Table for field_multivalue',
+      'fields' => array(
+        'vid' => array(
+          'description' => 'The primary identifier for this version.',
+          'type' => 'serial',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+        ),
+        'nid' => array(
+          'description' => 'The {node} this version belongs to.',
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+          'default' => 0,
+        ),
+        'field_multivalue_value' => array(
+          'type' => 'numeric',
+          'precision' => '10',
+          'scale' => '2',
+          'not null' => false,
+        ),
+        'delta' => array(
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+          'default' => 0,
+        ),
+      ),
+      'primary key' => array('vid', 'delta'),
+    ));
+    $this->database->insert('content_field_multivalue')->fields(array(
+      'vid',
+      'nid',
+      'field_multivalue_value',
+      'delta',
+    ))
+    ->values(array(
+      'vid' => 4,
+      'nid' => 3,
+      'field_multivalue_value' => 33,
+      'delta' => 0,
+    ))
+    ->values(array(
+      'vid' => 4,
+      'nid' => 3,
+      'field_multivalue_value' => 44,
+      'delta' => 1,
     ))
     ->execute();
     $this->setModuleVersion('content', '6001');

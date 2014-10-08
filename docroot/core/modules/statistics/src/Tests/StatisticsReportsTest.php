@@ -8,17 +8,11 @@
 namespace Drupal\statistics\Tests;
 
 /**
- * Tests that report pages render properly, and that access logging works.
+ * Tests display of statistics report blocks.
+ *
+ * @group statistics
  */
 class StatisticsReportsTest extends StatisticsTestBase {
-
-  public static function getInfo() {
-    return array(
-      'name' => 'Statistics reports tests',
-      'description' => 'Tests display of statistics report blocks.',
-      'group' => 'Statistics'
-    );
-  }
 
   /**
    * Tests the "popular content" block.
@@ -55,7 +49,7 @@ class StatisticsReportsTest extends StatisticsTestBase {
     $this->assertText('All time', 'Found the all time popular content.');
     $this->assertText('Last viewed', 'Found the last viewed popular content.');
 
-    $this->assertRaw(l($node->label(), 'node/' . $node->id()), 'Found link to visited node.');
+    $this->assertRaw(\Drupal::l($node->label(), $node->urlInfo()), 'Found link to visited node.');
   }
 
 }

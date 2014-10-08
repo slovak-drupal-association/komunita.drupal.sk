@@ -7,12 +7,13 @@
 namespace Drupal\rdf\Tests\Field;
 
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
-use Drupal\rdf\Tests\Field\FieldRdfaTestBase;
-use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Language\LanguageInterface;
+use Drupal\user\Entity\Role;
 
 /**
  * Tests the RDFa output of the taxonomy term reference field formatter.
+ *
+ * @group rdf
  */
 class TaxonomyTermReferenceRdfaTest extends FieldRdfaTestBase {
 
@@ -40,28 +41,20 @@ class TaxonomyTermReferenceRdfaTest extends FieldRdfaTestBase {
    */
   public static $modules = array('taxonomy', 'options', 'text', 'filter');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Field formatter: taxonomy term reference',
-      'description' => 'Tests RDFa output by taxonomy term reference field formatters.',
-      'group' => 'RDF',
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->installEntitySchema('taxonomy_term');
 
     $vocabulary = entity_create('taxonomy_vocabulary', array(
-      'name' => $this->randomName(),
-      'vid' => drupal_strtolower($this->randomName()),
+      'name' => $this->randomMachineName(),
+      'vid' => drupal_strtolower($this->randomMachineName()),
       'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
     ));
     $vocabulary->save();
 
-    entity_create('field_config', array(
-      'name' => $this->fieldName,
+    entity_create('field_storage_config', array(
+      'field_name' => $this->fieldName,
       'entity_type' => 'entity_test',
       'type' => 'taxonomy_term_reference',
       'cardinality' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
@@ -74,14 +67,14 @@ class TaxonomyTermReferenceRdfaTest extends FieldRdfaTestBase {
         ),
       ),
     ))->save();
-    entity_create('field_instance_config', array(
+    entity_create('field_config', array(
       'entity_type' => 'entity_test',
       'field_name' => $this->fieldName,
       'bundle' => 'entity_test',
     ))->save();
 
     $this->term = entity_create('taxonomy_term', array(
-      'name' => $this->randomName(),
+      'name' => $this->randomMachineName(),
       'vid' => $vocabulary->id(),
       'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
     ));
@@ -106,6 +99,10 @@ class TaxonomyTermReferenceRdfaTest extends FieldRdfaTestBase {
   public function testAllFormatters() {
     // Tests the plain formatter.
     $this->assertFormatterRdfa(array('type' => 'taxonomy_term_reference_plain'), 'http://schema.org/about', array('value' => $this->term->getName(), 'type' => 'literal'));
+    // Grant the access content permission to the anonymous user.
+    Role::create(array('id' => DRUPAL_ANONYMOUS_RID))
+      ->grantPermission('access content')
+      ->save();
     // Tests the link formatter.
     $term_uri = $this->getAbsoluteUri($this->term);
     $this->assertFormatterRdfa(array('type'=>'taxonomy_term_reference_link'), 'http://schema.org/about', array('value' => $term_uri, 'type' => 'uri'));

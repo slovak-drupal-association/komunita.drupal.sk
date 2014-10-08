@@ -10,6 +10,7 @@ namespace Drupal\views\Plugin\views\row;
 use Drupal\Component\Utility\String;
 use Drupal\Core\DependencyInjection\Container;
 use Drupal\Core\Entity\EntityManagerInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
 use Drupal\views\ViewExecutable;
@@ -125,13 +126,13 @@ class EntityRow extends RowPluginBase {
   /**
    * Overrides Drupal\views\Plugin\views\row\RowPluginBase::buildOptionsForm().
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
     $form['view_mode'] = array(
       '#type' => 'select',
       '#options' => \Drupal::entityManager()->getViewModeOptions($this->entityTypeId),
-      '#title' => t('View mode'),
+      '#title' => $this->t('View mode'),
       '#default_value' => $this->options['view_mode'],
     );
 
@@ -139,7 +140,7 @@ class EntityRow extends RowPluginBase {
     $form['rendering_language'] = array(
       '#type' => 'select',
       '#options' => $options,
-      '#title' => t('Rendering language'),
+      '#title' => $this->t('Rendering language'),
       '#default_value' => $this->options['rendering_language'],
       '#access' => $this->languageManager->isMultilingual(),
     );
@@ -169,7 +170,7 @@ class EntityRow extends RowPluginBase {
       return String::checkPlain($options[$this->options['view_mode']]);
     }
     else {
-      return t('No view mode selected');
+      return $this->t('No view mode selected');
     }
   }
 

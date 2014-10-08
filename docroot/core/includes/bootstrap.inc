@@ -4,8 +4,10 @@
  * Functions that need to be loaded on every Drupal request.
  */
 
+use Drupal\Component\Datetime\DateTimePlus;
 use Drupal\Component\Utility\Crypt;
 use Drupal\Component\Utility\Environment;
+use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Component\Utility\String;
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\DrupalKernel;
@@ -24,8 +26,11 @@ const DRUPAL_MINIMUM_PHP = '5.4.2';
 
 /**
  * Minimum recommended value of PHP memory_limit.
+ *
+ * @todo Reduce the memory required to install on some environments in
+ *   https://www.drupal.org/node/2289201 and then decrease this limit.
  */
-const DRUPAL_MINIMUM_PHP_MEMORY_LIMIT = '32M';
+const DRUPAL_MINIMUM_PHP_MEMORY_LIMIT = '64M';
 
 /**
  * Error reporting level: display no errors.
@@ -385,30 +390,6 @@ function drupal_page_get_cache(Request $request) {
 }
 
 /**
- * Determines the cacheability of the current page.
- *
- * Note: we do not serve cached pages to authenticated users, or to anonymous
- * users when $_SESSION is non-empty. $_SESSION may contain status messages
- * from a form submission, the contents of a shopping cart, or other user-
- * specific content that should not be cached and displayed to other users.
- *
- * @param $allow_caching
- *   Set to FALSE if you want to prevent this page to get cached.
- *
- * @return
- *   TRUE if the current page can be cached, FALSE otherwise.
- */
-function drupal_page_is_cacheable($allow_caching = NULL) {
-  $allow_caching_static = &drupal_static(__FUNCTION__, TRUE);
-  if (isset($allow_caching)) {
-    $allow_caching_static = $allow_caching;
-  }
-
-  return $allow_caching_static && ($_SERVER['REQUEST_METHOD'] == 'GET' || $_SERVER['REQUEST_METHOD'] == 'HEAD')
-    && !drupal_is_cli();
-}
-
-/**
  * Sets an HTTP response header for the current page.
  *
  * Note: When sending a Content-Type header, always include a 'charset' type,
@@ -572,7 +553,7 @@ function drupal_page_header() {
 
   $default_headers = array(
     'Expires' => 'Sun, 19 Nov 1978 05:00:00 GMT',
-    'Last-Modified' => gmdate(DATE_RFC1123, REQUEST_TIME),
+    'Last-Modified' => gmdate(DateTimePlus::RFC7231, REQUEST_TIME),
     'Cache-Control' => 'no-cache, must-revalidate, post-check=0, pre-check=0',
     'ETag' => '"' . REQUEST_TIME . '"',
   );
@@ -712,19 +693,6 @@ function t($string, array $args = array(), array $options = array()) {
  */
 function format_string($string, array $args = array()) {
   return String::format($string, $args);
-}
-
-/**
- * Encodes special characters in a plain-text string for display as HTML.
- *
- * @see drupal_validate_utf8()
- * @ingroup sanitization
- *
- * @deprecated in Drupal 8.x-dev, will be removed before Drupal 8.0.
- *   Use \Drupal\Component\Utility\String::checkPlain().
- */
-function check_plain($text) {
-  return String::checkPlain($text);
 }
 
 /**
@@ -900,8 +868,27 @@ function watchdog($type, $message, array $variables = array(), $severity = WATCH
  *
  * @return array|null
  *   A multidimensional array with keys corresponding to the set message types.
- *   The indexed array values of each contain the set messages for that type.
- *   Or, if there are no messages set, the function returns NULL.
+ *   The indexed array values of each contain the set messages for that type,
+ *   and each message is an associative array with the following format:
+ *   - safe: Boolean indicating whether the message string has been marked as
+ *     safe. Non-safe strings will be escaped automatically.
+ *   - message: The message string.
+ *   So, the following is an example of the full return array structure:
+ *   @code
+ *     array(
+ *       'status' => array(
+ *         array(
+ *           'safe' => TRUE,
+ *           'message' => 'A <em>safe</em> markup string.',
+ *         ),
+ *         array(
+ *           'safe' => FALSE,
+ *           'message' => "$arbitrary_user_input to escape.",
+ *         ),
+ *       ),
+ *     );
+ *   @endcode
+ *   If there are no messages set, the function returns NULL.
  *
  * @see drupal_get_messages()
  * @see theme_status_messages()
@@ -913,11 +900,14 @@ function drupal_set_message($message = NULL, $type = 'status', $repeat = FALSE) 
     }
 
     if ($repeat || !in_array($message, $_SESSION['messages'][$type])) {
-      $_SESSION['messages'][$type][] = $message;
+      $_SESSION['messages'][$type][] = array(
+        'safe' => SafeMarkup::isSafe($message),
+        'message' => $message,
+      );
     }
 
     // Mark this page as being uncacheable.
-    drupal_page_is_cacheable(FALSE);
+    \Drupal::service('page_cache_kill_switch')->trigger();
   }
 
   // Messages not set when DB connection fails.
@@ -940,17 +930,25 @@ function drupal_set_message($message = NULL, $type = 'status', $repeat = FALSE) 
  *   intact. Defaults to TRUE.
  *
  * @return array
- *   A multidimensional array with keys corresponding to the set message types.
- *   The indexed array values of each contain the set messages for that type.
- *   The messages returned are limited to the type specified in the $type
- *   parameter. If there are no messages of the specified type, an empty array
- *   is returned.
+ *   An associative, nested array of messages grouped by message type, with
+ *   the top-level keys as the message type. The messages returned are
+ *   limited to the type specified in the $type parameter, if any. If there
+ *   are no messages of the specified type, an empty array is returned. See
+ *   drupal_set_message() for the array structure of individual messages.
  *
  * @see drupal_set_message()
  * @see theme_status_messages()
  */
 function drupal_get_messages($type = NULL, $clear_queue = TRUE) {
   if ($messages = drupal_set_message()) {
+    foreach ($messages as $message_type => $message_typed_messages) {
+      foreach ($message_typed_messages as $key => $message) {
+        if ($message['safe']) {
+          $message['message'] = SafeMarkup::set($message['message']);
+        }
+        $messages[$message_type][$key] = $message['message'];
+      }
+    }
     if ($type) {
       if ($clear_queue) {
         unset($_SESSION['messages'][$type]);
@@ -982,7 +980,7 @@ function drupal_get_messages($type = NULL, $clear_queue = TRUE) {
  * @param $phase
  *   A constant telling which phase to bootstrap to. Possible values:
  *   - DRUPAL_BOOTSTRAP_CONFIGURATION: Initializes configuration.
- *   - DRUPAL_BOOTSTRAP_KERNEL: Initalizes a kernel.
+ *   - DRUPAL_BOOTSTRAP_KERNEL: Initializes a kernel.
  *
  * @return int
  *   The most recently completed phase.
@@ -1002,7 +1000,8 @@ function drupal_bootstrap($phase = NULL) {
 
       switch ($current_phase) {
         case DRUPAL_BOOTSTRAP_CONFIGURATION:
-          $kernel = DrupalKernel::createFromRequest($request, drupal_classloader(), 'prod');
+          $classloader = require __DIR__ . '/../vendor/autoload.php';
+          $kernel = DrupalKernel::createFromRequest($request, $classloader, 'prod');
           break;
 
         case DRUPAL_BOOTSTRAP_KERNEL:
@@ -1041,19 +1040,6 @@ function drupal_get_user_timezone() {
     $config_data_default_timezone = $config->get('timezone.default');
     return !empty($config_data_default_timezone) ? $config_data_default_timezone : @date_default_timezone_get();
   }
-}
-
-/**
- * Gets a salt useful for hardening against SQL injection.
- *
- * @return
- *   A salt based on information in settings.php, not in the database.
- *
- * @deprecated in Drupal 8.x-dev, will be removed before Drupal 8.0. Use
- *   \Drupal\Core\Site\Settings::getHashSalt() instead.
- */
-function drupal_get_hash_salt() {
-  return Settings::getHashSalt();
 }
 
 /**
@@ -1159,61 +1145,6 @@ function module_invoke($module, $hook) {
   // Remove $module and $hook from the arguments.
   unset($args[0], $args[1]);
   return \Drupal::moduleHandler()->invoke($module, $hook, $args);
-}
-
-/**
- * Invokes a hook in all enabled modules that implement it.
- *
- * All arguments are passed by value. Use \Drupal::moduleHandler()->alter() if
- * you need to pass arguments by reference.
- *
- * @deprecated in Drupal 8.x-dev, will be removed before Drupal 8.0.
- *   Use \Drupal::moduleHandler()->invokeAll($hook).
- *
- * @see \Drupal\Core\Extension\ModuleHandler::alter()
- * @see \Drupal\Core\Extension\ModuleHandler::invokeAll()
- */
-function module_invoke_all($hook) {
-  $args = func_get_args();
-  // Remove $hook from the arguments.
-  unset($args[0]);
-  return \Drupal::moduleHandler()->invokeAll($hook, $args);
-}
-
-/**
- * Passes alterable variables to specific hook_TYPE_alter() implementations.
- *
- * @deprecated in Drupal 8.x-dev, will be removed before Drupal 8.0.
- *   Use \Drupal::moduleHandler()->alter($hook).
- *
- * @see \Drupal\Core\Extension\ModuleHandler::alter()
- */
-function drupal_alter($type, &$data, &$context1 = NULL, &$context2 = NULL) {
-  return \Drupal::moduleHandler()->alter($type, $data, $context1, $context2);
-}
-
-/**
- * Determines whether a given module exists.
- *
- * @deprecated in Drupal 8.x-dev, will be removed before Drupal 8.0.
- *   Use \Drupal::moduleHandler()->moduleExists($module).
- *
- * @see \Drupal\Core\Extension\ModuleHandler::moduleExists()
- */
-function module_exists($module) {
-  return \Drupal::moduleHandler()->moduleExists($module);
-}
-
-/**
- * Determines whether a module implements a hook.
- *
- * @deprecated in Drupal 8.x-dev, will be removed before Drupal 8.0.
- *   Use \Drupal::moduleHandler()->implementsHook($module, $hook).
- *
- * @see \Drupal\Core\Extension\ModuleHandler::implementsHook()
- */
-function module_hook($module, $hook) {
-  return \Drupal::moduleHandler()->implementsHook($module, $hook);
 }
 
 /**
@@ -1331,21 +1262,6 @@ function drupal_installation_attempted() {
 }
 
 /**
- * Returns the language object for a given language type.
- *
- * @see \Drupal\Core\Language\LanguageManager
- *
- * @param string $type
- *   The type of language object needed, e.g. Language::TYPE_INTERFACE.
- *
- * @deprecated in Drupal 8.x-dev, will be removed before Drupal 8.0.
- *   Use \Drupal::languageManager()->getCurrentLanguage().
- */
-function language($type) {
-  return \Drupal::languageManager()->getCurrentLanguage($type);
-}
-
-/**
  * Returns a list of languages set up on the site.
  *
  * @param $flags
@@ -1353,7 +1269,7 @@ function language($type) {
  *   It can be: LanguageInterface::STATE_CONFIGURABLE,
  *   LanguageInterface::STATE_LOCKED, LanguageInterface::STATE_ALL.
  *
- * @return array
+ * @return \Drupal\Core\Language\LanguageInterface[]
  *   An associative array of languages, keyed by the language code, ordered by
  *   weight ascending and name ascending.
  *
@@ -1460,103 +1376,6 @@ function _current_path($path = NULL) {
 }
 
 /**
- * Returns a component of the current Drupal path.
- *
- * When viewing a page at the path "admin/structure/types", for example, arg(0)
- * returns "admin", arg(1) returns "structure", and arg(2) returns "types".
- *
- * Avoid use of this function where possible, as resulting code is hard to
- * read. In menu callback functions, attempt to use named arguments. See the
- * explanation in menu.inc for how to construct callbacks that take arguments.
- * When attempting to use this function to load an element from the current
- * path, e.g. loading the node on a node page, use menu_get_object() instead.
- *
- * @param $index
- *   The index of the component, where each component is separated by a '/'
- *   (forward-slash), and where the first component has an index of 0 (zero).
- * @param $path
- *   A path to break into components. Defaults to the path of the current page.
- *
- * @return
- *   The component specified by $index, or NULL if the specified component was
- *   not found. If called without arguments, it returns an array containing all
- *   the components of the current path.
- *
- * @deprecated in Drupal 8.x-dev, will be removed before Drupal 8.0.
- */
-function arg($index = NULL, $path = NULL) {
-  // Even though $arguments doesn't need to be resettable for any functional
-  // reasons (the result of explode() does not depend on any run-time
-  // information), it should be resettable anyway in case a module needs to
-  // free up the memory used by it.
-  // Use the advanced drupal_static() pattern, since this is called very often.
-  static $drupal_static_fast;
-  if (!isset($drupal_static_fast)) {
-    $drupal_static_fast['arguments'] = &drupal_static(__FUNCTION__);
-  }
-  $arguments = &$drupal_static_fast['arguments'];
-
-  if (!isset($path)) {
-    // @todo The public function current_path() is not available during early
-    //   bootstrap.
-    $path = _current_path();
-  }
-  if (!isset($arguments[$path])) {
-    $arguments[$path] = explode('/', $path);
-  }
-  if (!isset($index)) {
-    return $arguments[$path];
-  }
-  if (isset($arguments[$path][$index])) {
-    return $arguments[$path][$index];
-  }
-}
-
-/**
- * Initializes and returns the class loader.
- *
- * The class loader is responsible for lazy-loading all PSR-0 compatible
- * classes, interfaces, and traits (PHP 5.4 and later). It's only dependency
- * is DRUPAL_ROOT. Otherwise it may be called as early as possible.
- *
- * @param $class_loader
- *   The name of class loader to use. This can be used to change the class
- *   loader class when calling drupal_classloader() from settings.php. It is
- *   ignored otherwise.
- *
- * @return \Composer\Autoload\ClassLoader
- *   A ClassLoader class instance (or extension thereof).
- */
-function drupal_classloader($class_loader = NULL) {
-  // By default, use the ClassLoader which is best for development, as it does
-  // not break when code is moved on the file system. However, as it is slow,
-  // allow to use the APC class loader in production.
-  static $loader;
-
-  if (!isset($loader)) {
-
-    // Retrieve the Composer ClassLoader for loading classes.
-    $loader = include __DIR__ . '/../vendor/autoload.php';
-
-    // Register the class loader.
-    // When configured to use APC, the ApcClassLoader is registered instead.
-    // Note that ApcClassLoader decorates ClassLoader and only provides the
-    // findFile() method, but none of the others. The actual registry is still
-    // in ClassLoader.
-    if (!isset($class_loader)) {
-      $class_loader = Settings::get('class_loader', 'default');
-    }
-    if ($class_loader === 'apc') {
-      require_once __DIR__ . '/../vendor/symfony/class-loader/Symfony/Component/ClassLoader/ApcClassLoader.php';
-      $apc_loader = new ApcClassLoader('drupal.' . drupal_get_hash_salt(), $loader);
-      $loader->unregister();
-      $apc_loader->register();
-    }
-  }
-  return $loader;
-}
-
-/**
  * Registers an additional namespace.
  *
  * @param string $name
@@ -1565,7 +1384,7 @@ function drupal_classloader($class_loader = NULL) {
  *   The relative path to the Drupal component in the filesystem.
  */
 function drupal_classloader_register($name, $path) {
-  $loader = drupal_classloader();
+  $loader = \Drupal::service('class_loader');
   $loader->addPsr4('Drupal\\' . $name . '\\', DRUPAL_ROOT . '/' . $path . '/src');
 }
 
@@ -1644,7 +1463,7 @@ function drupal_classloader_register($name, $path) {
  * static $foo = &drupal_static(__FUNCTION__);
  * @endcode
  * However, the above line of code does not work, because PHP only allows static
- * variables to be initializied by literal values, and does not allow static
+ * variables to be initialized by literal values, and does not allow static
  * variables to be assigned to references.
  * - http://php.net/manual/language.variables.scope.php#language.variables.scope.static
  * - http://php.net/manual/language.variables.scope.php#language.variables.scope.references
@@ -1653,13 +1472,13 @@ function drupal_classloader_register($name, $path) {
  *
  * Example:
  * @code
- * function user_access($string, $account = NULL) {
+ * function example_default_format_type() {
  *   // Use the advanced drupal_static() pattern, since this is called very often.
  *   static $drupal_static_fast;
  *   if (!isset($drupal_static_fast)) {
- *     $drupal_static_fast['perm'] = &drupal_static(__FUNCTION__);
+ *     $drupal_static_fast['format_type'] = &drupal_static(__FUNCTION__);
  *   }
- *   $perm = &$drupal_static_fast['perm'];
+ *   $format_type = &$drupal_static_fast['format_type'];
  *   ...
  * }
  * @endcode
@@ -1672,11 +1491,9 @@ function drupal_classloader_register($name, $path) {
  * @param $default_value
  *   Optional default value.
  * @param $reset
- *   TRUE to reset a specific named variable, or all variables if $name is NULL.
- *   Resetting every variable should only be used, for example, for running
- *   unit tests with a clean environment. Should be used only though via
- *   function drupal_static_reset() and the return value should not be used in
- *   this case.
+ *   TRUE to reset one or all variables(s). This parameter is only used
+ *   internally and should not be passed in; use drupal_static_reset() instead.
+ *   (This function's return value should not be used when TRUE is passed in.)
  *
  * @return
  *   Returns a variable by reference.
@@ -1721,16 +1538,11 @@ function &drupal_static($name, $default_value = NULL, $reset = FALSE) {
  *
  * @param $name
  *   Name of the static variable to reset. Omit to reset all variables.
+ *   Resetting all variables should only be used, for example, for running
+ *   unit tests with a clean environment.
  */
 function drupal_static_reset($name = NULL) {
   drupal_static($name, NULL, TRUE);
-}
-
-/**
- * Detects whether the current script is running in a command-line environment.
- */
-function drupal_is_cli() {
-  return PHP_SAPI === 'cli';
 }
 
 /**
@@ -1807,40 +1619,4 @@ function _drupal_shutdown_function() {
     }
     error_log($exception);
   }
-}
-
-/**
- * Compares the memory required for an operation to the available memory.
- *
- * @param $required
- *   The memory required for the operation, expressed as a number of bytes with
- *   optional SI or IEC binary unit prefix (e.g. 2, 3K, 5MB, 10G, 6GiB, 8bytes,
- *   9mbytes).
- * @param $memory_limit
- *   (optional) The memory limit for the operation, expressed as a number of
- *   bytes with optional SI or IEC binary unit prefix (e.g. 2, 3K, 5MB, 10G,
- *   6GiB, 8bytes, 9mbytes). If no value is passed, the current PHP
- *   memory_limit will be used. Defaults to NULL.
- *
- * @return
- *   TRUE if there is sufficient memory to allow the operation, or FALSE
- *   otherwise.
- *
- * @deprecated in Drupal 8.x-dev, will be removed before Drupal 8.0.
- *   Use \Drupal\Component\Utility\Environment::checkMemoryLimit().
- */
-function drupal_check_memory_limit($required, $memory_limit = NULL) {
-  return Environment::checkMemoryLimit($required, $memory_limit);
-}
-
-/**
- * Get locking layer instance.
- *
- * @deprecated in Drupal 8.x-dev, will be removed before Drupal 8.0.
- *   Use \Drupal::lock().
- *
- * @return \Drupal\Core\Lock\LockBackendInterface
- */
-function lock() {
-  return \Drupal::lock();
 }

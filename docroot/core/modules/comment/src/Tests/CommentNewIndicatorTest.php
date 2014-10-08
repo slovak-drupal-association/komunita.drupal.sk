@@ -12,7 +12,9 @@ use Drupal\Core\Language\LanguageInterface;
 use Drupal\comment\CommentInterface;
 
 /**
- * Tests the 'new' marker on comments.
+ * Tests the 'new' indicator posted on comments.
+ *
+ * @group comment
  */
 class CommentNewIndicatorTest extends CommentTestBase {
 
@@ -24,14 +26,6 @@ class CommentNewIndicatorTest extends CommentTestBase {
    * @todo Remove this dependency.
    */
   public static $modules = array('views');
-
-  public static function getInfo() {
-    return array(
-      'name' => "Comment 'new' indicator",
-      'description' => "Tests the 'new' indicator posted on comments.",
-      'group' => 'Comment',
-    );
-  }
 
   /**
    * Get node "x new comments" metadata from the server for the current user.
@@ -61,7 +55,7 @@ class CommentNewIndicatorTest extends CommentTestBase {
 
     // Perform HTTP request.
     return $this->curlExec(array(
-      CURLOPT_URL => url('comments/render_new_comments_node_links', array('absolute' => TRUE)),
+      CURLOPT_URL => \Drupal::url('comment.new_comments_node_links', array(), array('absolute' => TRUE)),
       CURLOPT_POST => TRUE,
       CURLOPT_POSTFIELDS => $post,
       CURLOPT_HTTPHEADER => array(
@@ -98,10 +92,10 @@ class CommentNewIndicatorTest extends CommentTestBase {
       'pid' => 0,
       'uid' => $this->loggedInUser->id(),
       'status' => CommentInterface::PUBLISHED,
-      'subject' => $this->randomName(),
+      'subject' => $this->randomMachineName(),
       'hostname' => '127.0.0.1',
       'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
-      'comment_body' => array(LanguageInterface::LANGCODE_NOT_SPECIFIED => array($this->randomName())),
+      'comment_body' => array(LanguageInterface::LANGCODE_NOT_SPECIFIED => array($this->randomMachineName())),
     ));
     $comment->save();
     $this->drupalLogout();
@@ -120,7 +114,7 @@ class CommentNewIndicatorTest extends CommentTestBase {
     $json = Json::decode($response);
     $expected = array($this->node->id() => array(
       'new_comment_count' => 1,
-      'first_new_comment_link' => url('node/' . $this->node->id(), array('fragment' => 'new')),
+      'first_new_comment_link' => $this->node->url('canonical', array('fragment' => 'new')),
     ));
     $this->assertIdentical($expected, $json);
 

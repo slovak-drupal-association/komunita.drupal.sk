@@ -11,7 +11,9 @@ use Drupal\simpletest\WebTestBase;
 use Drupal\Core\Utility\ThemeRegistry;
 
 /**
- * Tests the ThemeRegistry class.
+ * Tests the behavior of the ThemeRegistry class.
+ *
+ * @group Theme
  */
 class RegistryTest extends WebTestBase {
 
@@ -23,21 +25,12 @@ class RegistryTest extends WebTestBase {
   public static $modules = array('theme_test');
 
   protected $profile = 'testing';
-  public static function getInfo() {
-    return array(
-      'name' => 'ThemeRegistry',
-      'description' => 'Tests the behavior of the ThemeRegistry class',
-      'group' => 'Theme',
-    );
-  }
-
   /**
    * Tests the behavior of the theme registry class.
    */
   function testRaceCondition() {
     // The theme registry is not marked as persistable in case we don't have a
     // proper request.
-    \Drupal::getContainer()->enterScope('request');
     \Drupal::request()->setMethod('GET');
     $cid = 'test_theme_registry';
 
@@ -45,7 +38,7 @@ class RegistryTest extends WebTestBase {
     // entry to be written in __construct().
     $cache = \Drupal::cache();
     $lock_backend = \Drupal::lock();
-    $registry = new ThemeRegistry($cid, $cache, $lock_backend, array('theme_registry' => TRUE), $this->container->get('module_handler')->isLoaded());
+    $registry = new ThemeRegistry($cid, $cache, $lock_backend, array('theme_registry'), $this->container->get('module_handler')->isLoaded());
 
     $this->assertTrue(\Drupal::cache()->get($cid), 'Cache entry was created.');
 
@@ -65,7 +58,7 @@ class RegistryTest extends WebTestBase {
     // Create a new instance of the class. Confirm that both the offset
     // requested previously, and one that has not yet been requested are both
     // available.
-    $registry = new ThemeRegistry($cid, $cache, $lock_backend, array('theme_registry' => TRUE), $this->container->get('module_handler')->isLoaded());
+    $registry = new ThemeRegistry($cid, $cache, $lock_backend, array('theme_registry'), $this->container->get('module_handler')->isLoaded());
     $this->assertTrue($registry->get('theme_test_template_test'), 'Offset was returned correctly from the theme registry');
     $this->assertTrue($registry->get('theme_test_template_test_2'), 'Offset was returned correctly from the theme registry');
   }

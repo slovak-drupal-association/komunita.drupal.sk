@@ -7,6 +7,7 @@
 
 namespace Drupal\file\Plugin\views\field;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
 
@@ -31,12 +32,12 @@ class Extension extends FieldPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
     $form['extension_detect_tar'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Detect if tar is part of the extension'),
-      '#description' => t("See if the previous extension is '.tar' and if so, add that, so we see 'tar.gz' or 'tar.bz2' instead of just 'gz'."),
+      '#title' => $this->t('Detect if tar is part of the extension'),
+      '#description' => $this->t("See if the previous extension is '.tar' and if so, add that, so we see 'tar.gz' or 'tar.bz2' instead of just 'gz'."),
       '#default_value' => $this->options['extension_detect_tar'],
     );
   }

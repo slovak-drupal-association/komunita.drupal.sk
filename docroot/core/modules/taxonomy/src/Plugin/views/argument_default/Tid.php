@@ -7,6 +7,7 @@
 
 namespace Drupal\taxonomy\Plugin\views\argument_default;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\taxonomy\TermInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
@@ -55,21 +56,21 @@ class Tid extends ArgumentDefaultPluginBase {
     return $options;
   }
 
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     $form['term_page'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Load default filter from term page'),
+      '#title' => $this->t('Load default filter from term page'),
       '#default_value' => $this->options['term_page'],
     );
     $form['node'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Load default filter from node page, that\'s good for related taxonomy blocks'),
+      '#title' => $this->t('Load default filter from node page, that\'s good for related taxonomy blocks'),
       '#default_value' => $this->options['node'],
     );
 
     $form['limit'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Limit terms by vocabulary'),
+      '#title' => $this->t('Limit terms by vocabulary'),
       '#default_value' => $this->options['limit'],
       '#states' => array(
         'visible' => array(
@@ -86,7 +87,7 @@ class Tid extends ArgumentDefaultPluginBase {
 
     $form['vids'] = array(
       '#type' => 'checkboxes',
-      '#title' => t('Vocabularies'),
+      '#title' => $this->t('Vocabularies'),
       '#options' => $options,
       '#default_value' => $this->options['vids'],
       '#states' => array(
@@ -99,11 +100,11 @@ class Tid extends ArgumentDefaultPluginBase {
 
     $form['anyall'] = array(
       '#type' => 'radios',
-      '#title' => t('Multiple-value handling'),
+      '#title' => $this->t('Multiple-value handling'),
       '#default_value' => $this->options['anyall'],
       '#options' => array(
-        ',' => t('Filter to items that share all terms'),
-        '+' => t('Filter to items that share any term'),
+        ',' => $this->t('Filter to items that share all terms'),
+        '+' => $this->t('Filter to items that share any term'),
       ),
       '#states' => array(
         'visible' => array(
@@ -113,7 +114,7 @@ class Tid extends ArgumentDefaultPluginBase {
     );
   }
 
-  public function submitOptionsForm(&$form, &$form_state, &$options = array()) {
+  public function submitOptionsForm(&$form, FormStateInterface $form_state, &$options = array()) {
     // Filter unselected items so we don't unnecessarily store giant arrays.
     $options['vids'] = array_filter($options['vids']);
   }

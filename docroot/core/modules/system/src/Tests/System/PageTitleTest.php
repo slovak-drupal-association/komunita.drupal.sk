@@ -14,6 +14,8 @@ use Drupal\simpletest\WebTestBase;
 
 /**
  * Tests HTML output escaping of page title, site name, and slogan.
+ *
+ * @group system
  */
 class PageTitleTest extends WebTestBase {
 
@@ -28,20 +30,9 @@ class PageTitleTest extends WebTestBase {
   protected $saved_title;
 
   /**
-   * Implement getInfo().
-   */
-  public static function getInfo() {
-    return array(
-      'name' => 'Page titles',
-      'description' => 'Tests correct escaping of page title, site name and slogan.',
-      'group' => 'System'
-    );
-  }
-
-  /**
    * Implement setUp().
    */
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->drupalCreateContentType(array('type' => 'page', 'name' => 'Basic page'));
@@ -57,8 +48,8 @@ class PageTitleTest extends WebTestBase {
     $title = "string with <em>HTML</em>";
     // Generate node content.
     $edit = array(
-      'title[0][value]' => '!SimpleTest! ' . $title . $this->randomName(20),
-      'body[0][value]' => '!SimpleTest! test body' . $this->randomName(200),
+      'title[0][value]' => '!SimpleTest! ' . $title . $this->randomMachineName(20),
+      'body[0][value]' => '!SimpleTest! test body' . $this->randomMachineName(200),
     );
     // Create the node with HTML in the title.
     $this->drupalPostForm('node/add/page', $edit, t('Save'));
@@ -84,8 +75,6 @@ class PageTitleTest extends WebTestBase {
     $edit = array(
       'toggle_name'           => TRUE,
       'toggle_slogan'         => TRUE,
-      'toggle_main_menu'      => TRUE,
-      'toggle_secondary_menu' => TRUE,
     );
     $this->drupalPostForm('admin/appearance/settings', $edit, t('Save configuration'));
 

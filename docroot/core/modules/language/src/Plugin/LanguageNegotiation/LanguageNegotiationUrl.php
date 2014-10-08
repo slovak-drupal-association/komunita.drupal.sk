@@ -141,7 +141,7 @@ class LanguageNegotiationUrl extends LanguageNegotiationMethodBase implements In
     $config = $this->config->get('language.negotiation')->get('url');
     if ($config['source'] == LanguageNegotiationUrl::CONFIG_PATH_PREFIX) {
       if (is_object($options['language']) && !empty($config['prefixes'][$options['language']->id])) {
-        return empty($path) ? $config['prefixes'][$options['language']->id] : $config['prefixes'][$options['language']->id] . '/' . $path;
+        $options['prefix'] = $config['prefixes'][$options['language']->id] . '/';
       }
     }
     elseif ($config['source'] ==  LanguageNegotiationUrl::CONFIG_DOMAIN) {
@@ -190,10 +190,10 @@ class LanguageNegotiationUrl extends LanguageNegotiationMethodBase implements In
   function getLanguageSwitchLinks(Request $request, $type, $path) {
     $links = array();
 
-    foreach ($this->languageManager->getLanguages() as $language) {
+    foreach ($this->languageManager->getNativeLanguages() as $language) {
       $links[$language->id] = array(
         'href' => $path,
-        'title' => $language->name,
+        'title' => $language->getName(),
         'language' => $language,
         'attributes' => array('class' => array('language-link')),
       );

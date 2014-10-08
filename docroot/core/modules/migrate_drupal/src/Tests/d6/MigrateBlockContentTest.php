@@ -10,12 +10,13 @@ namespace Drupal\migrate_drupal\Tests\d6;
 use Drupal\Core\Language\Language;
 use Drupal\block_content\Entity\BlockContent;
 use Drupal\Core\Language\LanguageInterface;
-use Drupal\custom_block\Entity\CustomBlock;
 use Drupal\migrate\MigrateExecutable;
 use Drupal\migrate_drupal\Tests\MigrateDrupalTestBase;
 
 /**
- * Tests the Drupal 6 custom block to Drupal 8 migration.
+ * Upgrade custom blocks.
+ *
+ * @group migrate_drupal
  */
 class MigrateBlockContentTest extends MigrateDrupalTestBase {
 
@@ -24,20 +25,9 @@ class MigrateBlockContentTest extends MigrateDrupalTestBase {
   /**
    * {@inheritdoc}
    */
-  public static function getInfo() {
-    return array(
-      'name'  => 'Migrate custom blocks.',
-      'description'  => 'Upgrade custom blocks.',
-      'group' => 'Migrate Drupal',
-    );
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
-    $this->prepareIdMappings(array(
+    $this->prepareMigrations(array(
       'd6_filter_format' => array(
         array(array(2), array('full_html'))
       )
@@ -61,7 +51,7 @@ class MigrateBlockContentTest extends MigrateDrupalTestBase {
     $this->assertEqual('My block 1', $block->label());
     $this->assertEqual(1, $block->getRevisionId());
     $this->assertTrue(REQUEST_TIME <= $block->getChangedTime() && $block->getChangedTime() <= time());
-    $this->assertEqual(LanguageInterface::LANGCODE_NOT_SPECIFIED, $block->language()->id);
+    $this->assertEqual('en', $block->language()->id);
     $this->assertEqual('<h3>My first custom block body</h3>', $block->body->value);
     $this->assertEqual('full_html', $block->body->format);
 
@@ -69,7 +59,7 @@ class MigrateBlockContentTest extends MigrateDrupalTestBase {
     $this->assertEqual('My block 2', $block->label());
     $this->assertEqual(2, $block->getRevisionId());
     $this->assertTrue(REQUEST_TIME <= $block->getChangedTime() && $block->getChangedTime() <= time());
-    $this->assertEqual(LanguageInterface::LANGCODE_NOT_SPECIFIED, $block->language()->id);
+    $this->assertEqual('en', $block->language()->id);
     $this->assertEqual('<h3>My second custom block body</h3>', $block->body->value);
     $this->assertEqual('full_html', $block->body->format);
   }

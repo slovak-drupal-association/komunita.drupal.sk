@@ -11,7 +11,9 @@ use Drupal\migrate\MigrateExecutable;
 use Drupal\migrate_drupal\Tests\MigrateDrupalTestBase;
 
 /**
- * Tests the Drupal 6 user roles to Drupal 8 migration.
+ * Upgrade user roles to user.role.*.yml.
+ *
+ * @group migrate_drupal
  */
 class MigrateUserRoleTest extends MigrateDrupalTestBase {
 
@@ -25,18 +27,7 @@ class MigrateUserRoleTest extends MigrateDrupalTestBase {
   /**
    * {@inheritdoc}
    */
-  public static function getInfo() {
-    return array(
-      'name'  => 'Migrate user roles to user.role.*.yml',
-      'description'  => 'Upgrade user roles to user.role.*.yml',
-      'group' => 'Migrate Drupal',
-    );
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
     // We need some sample data so we can use the Migration process plugin.
     $id_mappings = array(
@@ -45,7 +36,7 @@ class MigrateUserRoleTest extends MigrateDrupalTestBase {
         array(array(2), array('full_html'))
       ),
     );
-    $this->prepareIdMappings($id_mappings);
+    $this->prepareMigrations($id_mappings);
 
     /** @var \Drupal\migrate\entity\Migration $migration */
     $migration = entity_load('migration', 'd6_user_role');

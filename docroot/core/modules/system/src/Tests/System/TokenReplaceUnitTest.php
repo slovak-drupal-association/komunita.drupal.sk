@@ -11,17 +11,12 @@ use Drupal\Component\Utility\String;
 use Drupal\Component\Utility\Xss;
 
 /**
- * Test token replacement in strings.
+ * Generates text using placeholders for dummy content to check token
+ * replacement.
+ *
+ * @group system
  */
 class TokenReplaceUnitTest extends TokenReplaceUnitTestBase {
-
-  public static function getInfo() {
-    return array(
-      'name' => 'Token replacement unit test',
-      'description' => 'Generates text using placeholders for dummy content to check token replacement.',
-      'group' => 'System',
-    );
-  }
 
   /**
    * Test whether token-replacement works in various contexts.
@@ -79,7 +74,7 @@ class TokenReplaceUnitTest extends TokenReplaceUnitTestBase {
    * Tests the generation of all system site information tokens.
    */
   public function testSystemSiteTokenReplacement() {
-    // The use of the url() function requires the url_alias table to exist.
+    // The use of the _url() function requires the url_alias table to exist.
     $this->installSchema('system', 'url_alias');
     $url_options = array(
       'absolute' => TRUE,
@@ -103,9 +98,9 @@ class TokenReplaceUnitTest extends TokenReplaceUnitTestBase {
     $tests['[site:name]'] = String::checkPlain($config->get('name'));
     $tests['[site:slogan]'] = $safe_slogan;
     $tests['[site:mail]'] = $config->get('mail');
-    $tests['[site:url]'] = url('<front>', $url_options);
-    $tests['[site:url-brief]'] = preg_replace(array('!^https?://!', '!/$!'), '', url('<front>', $url_options));
-    $tests['[site:login-url]'] = url('user', $url_options);
+    $tests['[site:url]'] = \Drupal::url('<front>', [], $url_options);
+    $tests['[site:url-brief]'] = preg_replace(array('!^https?://!', '!/$!'), '', \Drupal::url('<front>', [], $url_options));
+    $tests['[site:login-url]'] = \Drupal::url('user.page', [], $url_options);
 
     // Test to make sure that we generated something for each token.
     $this->assertFalse(in_array(0, array_map('strlen', $tests)), 'No empty tokens generated.');
@@ -145,12 +140,12 @@ class TokenReplaceUnitTest extends TokenReplaceUnitTestBase {
 
     // Generate and test tokens.
     $tests = array();
-    $date_service = \Drupal::service('date');
-    $tests['[date:short]'] = $date_service->format($date, 'short', '', NULL, $this->interfaceLanguage->id);
-    $tests['[date:medium]'] = $date_service->format($date, 'medium', '', NULL, $this->interfaceLanguage->id);
-    $tests['[date:long]'] = $date_service->format($date, 'long', '', NULL, $this->interfaceLanguage->id);
-    $tests['[date:custom:m/j/Y]'] = $date_service->format($date, 'custom', 'm/j/Y', NULL, $this->interfaceLanguage->id);
-    $tests['[date:since]'] = $date_service->formatInterval(REQUEST_TIME - $date, 2, $this->interfaceLanguage->id);
+    $date_formatter = \Drupal::service('date.formatter');
+    $tests['[date:short]'] = $date_formatter->format($date, 'short', '', NULL, $this->interfaceLanguage->id);
+    $tests['[date:medium]'] = $date_formatter->format($date, 'medium', '', NULL, $this->interfaceLanguage->id);
+    $tests['[date:long]'] = $date_formatter->format($date, 'long', '', NULL, $this->interfaceLanguage->id);
+    $tests['[date:custom:m/j/Y]'] = $date_formatter->format($date, 'custom', 'm/j/Y', NULL, $this->interfaceLanguage->id);
+    $tests['[date:since]'] = $date_formatter->formatInterval(REQUEST_TIME - $date, 2, $this->interfaceLanguage->id);
     $tests['[date:raw]'] = Xss::filter($date);
 
     // Test to make sure that we generated something for each token.

@@ -12,6 +12,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Tests views contextual links on nodes.
+ *
+ * @group node
  */
 class NodeContextualLinksTest extends NodeTestBase {
 
@@ -29,18 +31,11 @@ class NodeContextualLinksTest extends NodeTestBase {
    */
   public static $testViews = array('test_contextual_links');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Node: contextual links',
-      'description' => 'Tests views contextual links on nodes.',
-      'group' => 'Views module integration',
-    );
-  }
-
   /**
    * Tests contextual links.
    */
   public function testNodeContextualLinks() {
+    $this->drupalCreateContentType(array('type' => 'page'));
     $this->drupalCreateNode(array('promote' => 1));
     $this->drupalGet('node');
 
@@ -89,7 +84,7 @@ class NodeContextualLinksTest extends NodeTestBase {
 
     // Perform HTTP request.
     return $this->curlExec(array(
-      CURLOPT_URL => url('contextual/render', array('absolute' => TRUE, 'query' => array('destination' => $current_path))),
+      CURLOPT_URL => \Drupal::url('contextual.render', [], ['absolute' => TRUE, 'query' => array('destination' => $current_path)]),
       CURLOPT_POST => TRUE,
       CURLOPT_POSTFIELDS => $post,
       CURLOPT_HTTPHEADER => array(

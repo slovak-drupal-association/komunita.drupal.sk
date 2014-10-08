@@ -276,18 +276,22 @@ function file_stream_wrapper_get_class($scheme) {
 /**
  * Returns the scheme of a URI (e.g. a stream).
  *
- * @param $uri
- *   A stream, referenced as "scheme://target".
+ * @param string $uri
+ *   A stream, referenced as "scheme://target"  or "data:target".
  *
- * @return
+ * @return string
  *   A string containing the name of the scheme, or FALSE if none. For example,
  *   the URI "public://example.txt" would return "public".
  *
  * @see file_uri_target()
  */
 function file_uri_scheme($uri) {
-  $position = strpos($uri, '://');
-  return $position ? substr($uri, 0, $position) : FALSE;
+  if (preg_match('/^([\w\-]+):\/\/|^(data):/', $uri, $matches)) {
+    // The scheme will always be the last element in the matches array.
+    return array_pop($matches);
+  }
+
+  return FALSE;
 }
 
 /**
@@ -312,10 +316,10 @@ function file_stream_wrapper_valid_scheme($scheme) {
 /**
  * Returns the part of a URI after the schema.
  *
- * @param $uri
- *   A stream, referenced as "scheme://target".
+ * @param string $uri
+ *   A stream, referenced as "scheme://target" or "data:target".
  *
- * @return
+ * @return string|bool
  *   A string containing the target (path), or FALSE if none.
  *   For example, the URI "public://sample/test.txt" would return
  *   "sample/test.txt".
@@ -323,10 +327,12 @@ function file_stream_wrapper_valid_scheme($scheme) {
  * @see file_uri_scheme()
  */
 function file_uri_target($uri) {
-  $data = explode('://', $uri, 2);
+  // Remove the scheme from the URI and remove erroneous leading or trailing,
+  // forward-slashes and backslashes.
+  $target = trim(preg_replace('/^[\w\-]+:\/\/|^data:/', '', $uri), '\/');
 
-  // Remove erroneous leading or trailing, forward-slashes and backslashes.
-  return count($data) == 2 ? trim($data[1], '\/') : FALSE;
+  // If nothing was replaced, the URI doesn't have a valid scheme.
+  return $target !== $uri ? $target : FALSE;
 }
 
 /**
@@ -439,11 +445,11 @@ function file_stream_wrapper_get_instance_by_scheme($scheme) {
  * - "shipped files", i.e. those outside of the files directory, which ship as
  *   part of Drupal core or contributed modules or themes.
  *
- * @param $uri
+ * @param string $uri
  *   The URI to a file for which we need an external URL, or the path to a
  *   shipped file.
  *
- * @return
+ * @return string
  *   A string containing a URL that may be used to access the file.
  *   If the provided string already contains a preceding 'http', 'https', or
  *   '/', nothing is done and the same string is returned. If a stream wrapper
@@ -476,9 +482,9 @@ function file_create_url($uri) {
       return $GLOBALS['base_url'] . '/' . UrlHelper::encodePath($uri);
     }
   }
-  elseif ($scheme == 'http' || $scheme == 'https') {
-    // Check for HTTP so that we don't have to implement getExternalUrl() for
-    // the HTTP wrapper.
+  elseif ($scheme == 'http' || $scheme == 'https' || $scheme == 'data') {
+    // Check for HTTP and data URI-encoded URLs so that we don't have to
+    // implement getExternalUrl() for the HTTP and data schemes.
     return $uri;
   }
   else {
@@ -652,7 +658,7 @@ function file_htaccess_lines($private = TRUE) {
  *   TRUE if the URI is allowed.
  */
 function file_valid_uri($uri) {
-  // Assert that the URI has an allowed scheme. Barepaths are not allowed.
+  // Assert that the URI has an allowed scheme. Bare paths are not allowed.
   $uri_scheme = file_uri_scheme($uri);
   if (!file_stream_wrapper_valid_scheme($uri_scheme)) {
     return FALSE;
@@ -880,7 +886,7 @@ function file_munge_filename($filename, $extensions, $alerts = TRUE) {
     // Remove any null bytes. See http://php.net/manual/en/security.filesystem.nullbytes.php
     $filename = str_replace(chr(0), '', $filename);
 
-    $whitelist = array_unique(explode(' ', trim($extensions)));
+    $whitelist = array_unique(explode(' ', strtolower(trim($extensions))));
 
     // Split the filename up by periods. The first part becomes the basename
     // the last part the final extension.
@@ -893,7 +899,7 @@ function file_munge_filename($filename, $extensions, $alerts = TRUE) {
     // of allowed extensions.
     foreach ($filename_parts as $filename_part) {
       $new_filename .= '.' . $filename_part;
-      if (!in_array($filename_part, $whitelist) && preg_match("/^[a-zA-Z]{2,5}\d?$/", $filename_part)) {
+      if (!in_array(strtolower($filename_part), $whitelist) && preg_match("/^[a-zA-Z]{2,5}\d?$/", $filename_part)) {
         $new_filename .= '_';
       }
     }
@@ -1297,16 +1303,19 @@ function file_upload_max_size() {
  * @param $mapping
  *   An optional map of extensions to their mimetypes, in the form:
  *    - 'mimetypes': a list of mimetypes, keyed by an identifier,
- *    - 'extensions': the mapping itself, an associative array in which
- *      the key is the extension (lowercase) and the value is the mimetype
- *      identifier. If $mapping is NULL file_mimetype_mapping() is called.
+ *    - 'extensions': the mapping itself, an associative array in which the key
+ *      is the extension (lowercase) and the value is the mimetype identifier.
  *
  * @return
  *   The internet media type registered for the extension or
  *   application/octet-stream for unknown extensions.
  *
- * @deprecated in Drupal 8.x-dev, will be removed before Drupal 8.0.
- *   Use \Drupal::service('file.mime_type.guesser')->guess($uri).
+ * @deprecated in Drupal 8.x-dev, will be removed before Drupal 8.0. Calls are
+ *   passed on to a new file.mime_type.guesser service, and the $mapping
+ *   parameter is ignored. Use
+ *   \Drupal::service('file.mime_type.guesser')->guess($uri).
+ *
+ * @see \Drupal\Core\File\MimeType\ExtensionMimeTypeGuesser::guess()
  */
 function file_get_mimetype($uri, $mapping = NULL) {
   return \Drupal::service('file.mime_type.guesser')->guess($uri);

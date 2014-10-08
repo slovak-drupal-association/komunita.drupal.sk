@@ -7,11 +7,14 @@
 
 namespace Drupal\node\Tests;
 
-use Drupal\Core\Language\Language;
 use Drupal\Core\Language\LanguageInterface;
+use Drupal\language\Entity\ConfigurableLanguage;
 
 /**
- * Verifies node access functionality for multiple languages.
+ * Tests node_access and db_select() with node_access tag functionality with
+ * multiple languages with a test node access module that is not language-aware.
+ *
+ * @group node
  */
 class NodeAccessLanguageTest extends NodeTestBase {
 
@@ -22,16 +25,10 @@ class NodeAccessLanguageTest extends NodeTestBase {
    */
   public static $modules = array('language', 'node_access_test');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Node access language',
-      'description' => 'Test node_access and db_select() with node_access tag functionality with multiple languages with a test node access module that is not language-aware.',
-      'group' => 'Node',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
+
+    node_access_test_add_field(entity_load('node_type', 'page'));
 
     // After enabling a node access module, the access table has to be rebuild.
     node_access_rebuild();
@@ -39,19 +36,10 @@ class NodeAccessLanguageTest extends NodeTestBase {
     // Enable the private node feature of the node_access_test module.
     \Drupal::state()->set('node_access_test.private', TRUE);
 
-    // Add Hungarian and Catalan.
-    $language = new Language(array(
-      'id' => 'hu',
-    ));
-    language_save($language);
-    $language = new Language(array(
-      'id' => 'ca',
-    ));
-    language_save($language);
-    $language = new Language(array(
-      'id' => 'hr',
-    ));
-    language_save($language);
+    // Add Hungarian, Catalan and Croatian.
+    ConfigurableLanguage::createFromLangcode('hu')->save();
+    ConfigurableLanguage::createFromLangcode('ca')->save();
+    ConfigurableLanguage::createFromLangcode('hr')->save();
   }
 
   /**
@@ -82,7 +70,10 @@ class NodeAccessLanguageTest extends NodeTestBase {
 
     // Creating a public node with no special langcode, like when no language
     // module enabled.
-    $node_public_no_language = $this->drupalCreateNode(array('private' => FALSE));
+    $node_public_no_language = $this->drupalCreateNode(array(
+      'private' => FALSE,
+      'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
+    ));
     $this->assertTrue($node_public_no_language->language()->id == LanguageInterface::LANGCODE_NOT_SPECIFIED, 'Node created with not specified language.');
 
     // Tests that access is granted if requested with no language.
@@ -98,7 +89,7 @@ class NodeAccessLanguageTest extends NodeTestBase {
     $this->assertNodeAccess($expected_node_access_no_access, $node_public_no_language, $web_user, 'hr');
 
     // Reset the node access cache and turn on our test node access code.
-    \Drupal::entityManager()->getAccessController('node')->resetCache();
+    \Drupal::entityManager()->getAccessControlHandler('node')->resetCache();
     \Drupal::state()->set('node_access_test_secret_catalan', 1);
     $node_public_ca = $this->drupalCreateNode(array('body' => array(array()), 'langcode' => 'ca', 'private' => FALSE));
     $this->assertTrue($node_public_ca->language()->id == 'ca', 'Node created as Catalan.');
@@ -125,7 +116,7 @@ class NodeAccessLanguageTest extends NodeTestBase {
     // static cache has not been reset.
     $this->assertNodeAccess($expected_node_access_no_access, $node_public_ca, $web_user, 'ca');
 
-    \Drupal::entityManager()->getAccessController('node')->resetCache();
+    \Drupal::entityManager()->getAccessControlHandler('node')->resetCache();
 
     // Tests that access is granted if requested with no language.
     $this->assertNodeAccess($expected_node_access, $node_public_no_language, $web_user);
@@ -172,7 +163,10 @@ class NodeAccessLanguageTest extends NodeTestBase {
 
     // Creating a private node with no special langcode, like when no language
     // module enabled.
-    $node_private_no_language = $this->drupalCreateNode(array('private' => TRUE));
+    $node_private_no_language = $this->drupalCreateNode(array(
+      'private' => TRUE,
+      'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
+    ));
     $this->assertTrue($node_private_no_language->language()->id == LanguageInterface::LANGCODE_NOT_SPECIFIED, 'Node created with not specified language.');
 
     // Tests that access is not granted if requested with no language.
@@ -188,7 +182,7 @@ class NodeAccessLanguageTest extends NodeTestBase {
     $this->assertNodeAccess($expected_node_access_no_access, $node_private_no_language, $web_user, 'hr');
 
     // Reset the node access cache and turn on our test node access code.
-    \Drupal::entityManager()->getAccessController('node')->resetCache();
+    \Drupal::entityManager()->getAccessControlHandler('node')->resetCache();
     \Drupal::state()->set('node_access_test_secret_catalan', 1);
 
     // Tests that access is not granted if requested with no language.
@@ -210,7 +204,7 @@ class NodeAccessLanguageTest extends NodeTestBase {
     $this->assertNodeAccess($expected_node_access_no_access, $node_private_ca, $web_user, 'ca');
     $this->assertNodeAccess($expected_node_access_no_access, $node_private_ca, $private_ca_user, 'ca');
 
-    \Drupal::entityManager()->getAccessController('node')->resetCache();
+    \Drupal::entityManager()->getAccessControlHandler('node')->resetCache();
     \Drupal::state()->set('node_access_test_secret_catalan', 0);
 
     // Tests that Catalan is still not accessible for a user with no access to
@@ -245,7 +239,10 @@ class NodeAccessLanguageTest extends NodeTestBase {
 
     // Creating a public node with no special langcode, like when no language
     // module enabled.
-    $node_no_language = $this->drupalCreateNode(array('private' => FALSE));
+    $node_no_language = $this->drupalCreateNode(array(
+      'private' => FALSE,
+      'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
+    ));
     $this->assertTrue($node_no_language->language()->id == LanguageInterface::LANGCODE_NOT_SPECIFIED, 'Node created with not specified language.');
 
     // Query the nodes table as the web user with the node access tag and no

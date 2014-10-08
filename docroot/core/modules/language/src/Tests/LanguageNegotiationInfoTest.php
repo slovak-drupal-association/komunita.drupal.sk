@@ -12,7 +12,9 @@ use Drupal\language\Plugin\LanguageNegotiation\LanguageNegotiationUI;
 use Drupal\simpletest\WebTestBase;
 
 /**
- * Functional test for language types/negotiation info.
+ * Tests alterations to language types/negotiation info.
+ *
+ * @group language
  */
 class LanguageNegotiationInfoTest extends WebTestBase {
 
@@ -26,18 +28,7 @@ class LanguageNegotiationInfoTest extends WebTestBase {
   /**
    * {@inheritdoc}
    */
-  public static function getInfo() {
-    return array(
-      'name' => 'Language negotiation info',
-      'description' => 'Tests alterations to language types/negotiation info.',
-      'group' => 'Language',
-    );
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
     $admin_user = $this->drupalCreateUser(array('administer languages', 'access administration pages', 'view the administration theme'));
     $this->drupalLogin($admin_user);

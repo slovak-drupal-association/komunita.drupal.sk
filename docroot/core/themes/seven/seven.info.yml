@@ -8,20 +8,44 @@ package: Core
 # core: 8.x
 stylesheets:
   screen:
-    - seven.base.css
-    - style.css
+    - css/base/elements.css
+    - css/components/admin-list.css
+    - css/components/admin-options.css
+    - css/components/admin-panel.css
+    - css/components/block-recent-content.css
+    - css/components/branding.css
+    - css/components/breadcrumb.css
     - css/components/buttons.css
     - css/components/buttons.theme.css
+    - css/components/comments.css
+    - css/components/messages.css
     - css/components/dropbutton.component.css
+    - css/components/entity-meta.css
+    - css/components/field-ui.css
+    - css/components/form.css
+    - css/components/help.css
+    - css/components/menus-and-lists.css
+    - css/components/modules-page.css
+    - css/components/node.css
+    - css/components/page-title.css
+    - css/components/pager.css
+    - css/components/skip-link.css
+    - css/components/tables.css
+    - css/components/tabs.css
     - css/components/tour.theme.css
+    - css/components/update-status.css
+    - css/components/views-ui.css
+    - css/layout/layout.css
+    - css/layout/node-add.css
+    - css/theme/appearance-page.css
 stylesheets-override:
-  - vertical-tabs.css
-  - jquery.ui.theme.css
-  - css/dialog.theme.css
+  - css/components/vertical-tabs.css
+  - css/components/jquery.ui.theme.css
+  - css/components/dialog.theme.css
 stylesheets-remove:
   - jquery.ui.dialog.css
 quickedit_stylesheets:
-  - quickedit.css
+  - css/components/quickedit.css
 regions:
   content: Content
   help: Help
@@ -34,8 +58,8 @@ regions_hidden:
 settings:
   shortcut_module_link: true
 
-# Information added by Drupal.org packaging script on 2014-07-02
-version: '8.0-alpha13'
+# Information added by Drupal.org packaging script on 2014-10-01
+version: '8.0.0-beta1'
 core: '8.x'
 project: 'drupal'
-datestamp: 1404296640
+datestamp: 1412147204

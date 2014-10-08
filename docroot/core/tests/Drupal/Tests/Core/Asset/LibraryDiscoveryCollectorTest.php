@@ -7,9 +7,8 @@ use Drupal\Core\Cache\Cache;
 use Drupal\Tests\UnitTestCase;
 
 /**
- * Tests the library discovery parser.
- *
  * @coversDefaultClass \Drupal\Core\Asset\LibraryDiscoveryCollector
+ * @group Asset
  */
 class LibraryDiscoveryCollectorTest extends UnitTestCase {
 
@@ -60,18 +59,7 @@ class LibraryDiscoveryCollectorTest extends UnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public static function getInfo() {
-    return array(
-      'name' => 'Tests \Drupal\Core\Asset\LibraryDiscoveryCollector',
-      'description' => '',
-      'group' => 'Asset handling',
-    );
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
+  protected function setUp() {
     $this->cache = $this->getMock('Drupal\Core\Cache\CacheBackendInterface');
     $this->lock = $this->getMock('Drupal\Core\Lock\LockBackendInterface');
     $this->libraryDiscoveryParser = $this->getMockBuilder('Drupal\Core\Asset\LibraryDiscoveryParser')
@@ -119,7 +107,7 @@ class LibraryDiscoveryCollectorTest extends UnitTestCase {
       ->will($this->returnValue(FALSE));
     $this->cache->expects($this->once())
       ->method('set')
-      ->with('library_info', array('test' => $this->libraryData), Cache::PERMANENT, array('library_info' => array(TRUE)));
+      ->with('library_info', array('test' => $this->libraryData), Cache::PERMANENT, array('library_info'));
     $this->lock->expects($this->once())
       ->method('release')
       ->with($lock_key);

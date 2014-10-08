@@ -15,6 +15,8 @@ use Drupal\simpletest\DrupalUnitTestBase;
 
 /**
  * Tests importing configuration from files into active configuration.
+ *
+ * @group config
  */
 class ConfigImporterTest extends DrupalUnitTestBase {
 
@@ -32,15 +34,7 @@ class ConfigImporterTest extends DrupalUnitTestBase {
    */
   public static $modules = array('config_test', 'system', 'config_import_test');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Import configuration',
-      'description' => 'Tests importing configuration from files into active configuration.',
-      'group' => 'Configuration',
-    );
-  }
-
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->installConfig(array('config_test'));

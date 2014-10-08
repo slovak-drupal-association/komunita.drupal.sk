@@ -7,12 +7,18 @@
 
 namespace Drupal\Core\Display;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\PluginBase;
 use Drupal\Core\Plugin\PluginDependencyTrait;
 use Drupal\Core\Session\AccountInterface;
 
 /**
  * Provides a base class for DisplayVariant plugins.
+ *
+ * @see \Drupal\Core\Display\Annotation\DisplayVariant
+ * @see \Drupal\Core\Display\VariantInterface
+ * @see \Drupal\Core\Display\VariantManager
+ * @see plugin_api
  */
 abstract class VariantBase extends PluginBase implements VariantInterface {
 
@@ -100,7 +106,7 @@ abstract class VariantBase extends PluginBase implements VariantInterface {
   /**
    * {@inheritdoc}
    */
-  public function buildConfigurationForm(array $form, array &$form_state) {
+  public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
     $form['label'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Label'),
@@ -114,14 +120,14 @@ abstract class VariantBase extends PluginBase implements VariantInterface {
   /**
    * {@inheritdoc}
    */
-  public function validateConfigurationForm(array &$form, array &$form_state) {
+  public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
   }
 
   /**
    * {@inheritdoc}
    */
-  public function submitConfigurationForm(array &$form, array &$form_state) {
-    $this->configuration['label'] = $form_state['values']['label'];
+  public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
+    $this->configuration['label'] = $form_state->getValue('label');
   }
 
   /**

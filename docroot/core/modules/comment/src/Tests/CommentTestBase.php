@@ -8,8 +8,10 @@
 namespace Drupal\comment\Tests;
 
 use Drupal\comment\Entity\CommentType;
+use Drupal\comment\Entity\Comment;
 use Drupal\comment\CommentInterface;
-use Drupal\field\Entity\FieldInstanceConfig;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\comment\Plugin\Field\FieldType\CommentItemInterface;
 use Drupal\simpletest\WebTestBase;
 
 /**
@@ -45,7 +47,7 @@ abstract class CommentTestBase extends WebTestBase {
    */
   protected $node;
 
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Create an article content type only if it does not yet exist, so that
@@ -107,24 +109,25 @@ abstract class CommentTestBase extends WebTestBase {
     $edit['comment_body[0][value]'] = $comment;
 
     if ($entity !== NULL) {
-      $instance = FieldInstanceConfig::loadByName('node', $entity->bundle(), $field_name);
+      $field = FieldConfig::loadByName('node', $entity->bundle(), $field_name);
     }
     else {
-      $instance = FieldInstanceConfig::loadByName('node', 'article', $field_name);
+      $field = FieldConfig::loadByName('node', 'article', $field_name);
     }
-    $preview_mode = $instance->settings['preview'];
-    $subject_mode = $instance->settings['subject'];
+    $preview_mode = $field->settings['preview'];
 
     // Must get the page before we test for fields.
     if ($entity !== NULL) {
       $this->drupalGet('comment/reply/node/' . $entity->id() . '/' . $field_name);
     }
 
-    if ($subject_mode == TRUE) {
-      $edit['subject'] = $subject;
+    // Determine the visibility of subject form field.
+    if (entity_get_form_display('comment', 'comment', 'default')->getComponent('subject')) {
+      // Subject input allowed.
+      $edit['subject[0][value]'] = $subject;
     }
     else {
-      $this->assertNoFieldByName('subject', '', 'Subject field not found.');
+      $this->assertNoFieldByName('subject[0][value]', '', 'Subject field not found.');
     }
 
     if ($contact !== NULL && is_array($contact)) {
@@ -163,7 +166,8 @@ abstract class CommentTestBase extends WebTestBase {
     }
 
     if (isset($match[1])) {
-      return comment_load($match[1], TRUE);
+      \Drupal::entityManager()->getStorage('comment')->resetCache(array($match[1]));
+      return Comment::load($match[1]);
     }
   }
 
@@ -180,11 +184,12 @@ abstract class CommentTestBase extends WebTestBase {
    */
   function commentExists(CommentInterface $comment = NULL, $reply = FALSE) {
     if ($comment) {
-      $regex = '/' . ($reply ? '<div class="indented">(.*?)' : '');
+      $regex = '!' . ($reply ? '<div class="indented">(.*?)' : '');
       $regex .= '<a id="comment-' . $comment->id() . '"(.*?)';
       $regex .= $comment->getSubject() . '(.*?)';
       $regex .= $comment->comment_body->value . '(.*?)';
-      $regex .= '/s';
+      $regex .= ($reply ? '</article>\s</div>(.*?)' : '');
+      $regex .= '!s';
 
       return (boolean) preg_match($regex, $this->drupalGetContent());
     }
@@ -209,12 +214,20 @@ abstract class CommentTestBase extends WebTestBase {
    *
    * @param bool $enabled
    *   Boolean specifying whether the subject field should be enabled.
-   * @param string $field_name
-   *   (optional) Field name through which the comment should be posted.
-   *   Defaults to 'comment'.
    */
-  public function setCommentSubject($enabled, $field_name = 'comment') {
-    $this->setCommentSettings('subject', ($enabled ? '1' : '0'), 'Comment subject ' . ($enabled ? 'enabled' : 'disabled') . '.', $field_name);
+  public function setCommentSubject($enabled) {
+    $form_display = entity_get_form_display('comment', 'comment', 'default');
+    if ($enabled) {
+      $form_display->setComponent('subject', array(
+        'type' => 'string_textfield',
+      ));
+    }
+    else {
+      $form_display->removeComponent('subject');
+    }
+    $form_display->save();
+    // Display status message.
+    $this->pass('Comment subject ' . ($enabled ? 'enabled' : 'disabled') . '.');
   }
 
   /**
@@ -254,7 +267,7 @@ abstract class CommentTestBase extends WebTestBase {
    *   Defaults to 'comment'.
    */
   public function setCommentForm($enabled, $field_name = 'comment') {
-    $this->setCommentSettings('form_location', ($enabled ? COMMENT_FORM_BELOW : COMMENT_FORM_SEPARATE_PAGE), 'Comment controls ' . ($enabled ? 'enabled' : 'disabled') . '.', $field_name);
+    $this->setCommentSettings('form_location', ($enabled ? CommentItemInterface::FORM_BELOW : CommentItemInterface::FORM_SEPARATE_PAGE), 'Comment controls ' . ($enabled ? 'enabled' : 'disabled') . '.', $field_name);
   }
 
   /**
@@ -297,9 +310,9 @@ abstract class CommentTestBase extends WebTestBase {
    *   Defaults to 'comment'.
    */
   public function setCommentSettings($name, $value, $message, $field_name = 'comment') {
-    $instance = FieldInstanceConfig::loadByName('node', 'article', $field_name);
-    $instance->settings[$name] = $value;
-    $instance->save();
+    $field = FieldConfig::loadByName('node', 'article', $field_name);
+    $field->settings[$name] = $value;
+    $field->save();
     // Display status message.
     $this->pass($message);
   }

@@ -11,9 +11,10 @@ use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\Core\Field\FieldDefinition;
+use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Url;
 use Drupal\shortcut\ShortcutInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Defines the shortcut entity class.
@@ -21,8 +22,8 @@ use Drupal\shortcut\ShortcutInterface;
  * @ContentEntityType(
  *   id = "shortcut",
  *   label = @Translation("Shortcut link"),
- *   controllers = {
- *     "access" = "Drupal\shortcut\ShortcutAccessController",
+ *   handlers = {
+ *     "access" = "Drupal\shortcut\ShortcutAccessControlHandler",
  *     "form" = {
  *       "default" = "Drupal\shortcut\ShortcutForm",
  *       "add" = "Drupal\shortcut\ShortcutForm",
@@ -41,10 +42,9 @@ use Drupal\shortcut\ShortcutInterface;
  *     "label" = "title"
  *   },
  *   links = {
- *     "canonical" = "shortcut.link_edit",
- *     "delete-form" = "shortcut.link_delete",
- *     "edit-form" = "shortcut.link_edit",
- *     "admin-form" = "shortcut.link_edit"
+ *     "canonical" = "entity.shortcut.canonical",
+ *     "delete-form" = "entity.shortcut.delete_form",
+ *     "edit-form" = "entity.shortcut.canonical",
  *   },
  *   bundle_entity_type = "shortcut_set"
  * )
@@ -79,6 +79,13 @@ class Shortcut extends ContentEntityBase implements ShortcutInterface {
   public function setWeight($weight) {
     $this->set('weight', $weight);
     return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getUrl() {
+    return new Url($this->getRouteName(), $this->getRouteParams());
   }
 
   /**
@@ -128,7 +135,15 @@ class Shortcut extends ContentEntityBase implements ShortcutInterface {
   public function preSave(EntityStorageInterface $storage) {
     parent::preSave($storage);
 
-    $url = Url::createFromPath($this->path->value);
+    // @todo fix PathValidatorInterface::getUrlIfValid() so we can use it
+    //   here. The problem is that we need an exception, not a FALSE
+    //   return value. https://www.drupal.org/node/2346695
+    if ($this->path->value == '<front>') {
+      $url = new Url($this->path->value);
+    }
+    else {
+      $url = Url::createFromRequest(Request::create("/{$this->path->value}"));
+    }
     $this->setRouteName($url->getRouteName());
     $this->setRouteParams($url->getRouteParameters());
   }
@@ -152,24 +167,24 @@ class Shortcut extends ContentEntityBase implements ShortcutInterface {
    * {@inheritdoc}
    */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
-    $fields['id'] = FieldDefinition::create('integer')
+    $fields['id'] = BaseFieldDefinition::create('integer')
       ->setLabel(t('ID'))
       ->setDescription(t('The ID of the shortcut.'))
       ->setReadOnly(TRUE)
       ->setSetting('unsigned', TRUE);
 
-    $fields['uuid'] = FieldDefinition::create('uuid')
+    $fields['uuid'] = BaseFieldDefinition::create('uuid')
       ->setLabel(t('UUID'))
       ->setDescription(t('The UUID of the shortcut.'))
       ->setReadOnly(TRUE);
 
-    $fields['shortcut_set'] = FieldDefinition::create('entity_reference')
+    $fields['shortcut_set'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Shortcut set'))
       ->setDescription(t('The bundle of the shortcut.'))
       ->setSetting('target_type', 'shortcut_set')
       ->setRequired(TRUE);
 
-    $fields['title'] = FieldDefinition::create('string')
+    $fields['title'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
       ->setDescription(t('The name of the shortcut.'))
       ->setRequired(TRUE)
@@ -177,30 +192,30 @@ class Shortcut extends ContentEntityBase implements ShortcutInterface {
       ->setDefaultValue('')
       ->setSetting('max_length', 255)
       ->setDisplayOptions('form', array(
-        'type' => 'string',
+        'type' => 'string_textfield',
         'weight' => -10,
         'settings' => array(
           'size' => 40,
         ),
       ));
 
-    $fields['weight'] = FieldDefinition::create('integer')
+    $fields['weight'] = BaseFieldDefinition::create('integer')
       ->setLabel(t('Weight'))
       ->setDescription(t('Weight among shortcuts in the same shortcut set.'));
 
-    $fields['route_name'] = FieldDefinition::create('string')
+    $fields['route_name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Route name'))
       ->setDescription(t('The machine name of a defined Route this shortcut represents.'));
 
-    $fields['route_parameters'] = FieldDefinition::create('map')
+    $fields['route_parameters'] = BaseFieldDefinition::create('map')
       ->setLabel(t('Route parameters'))
       ->setDescription(t('A serialized array of route parameters of this shortcut.'));
 
-    $fields['langcode'] = FieldDefinition::create('language')
+    $fields['langcode'] = BaseFieldDefinition::create('language')
       ->setLabel(t('Language code'))
       ->setDescription(t('The language code of the shortcut.'));
 
-    $fields['path'] = FieldDefinition::create('string')
+    $fields['path'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Path'))
       ->setDescription(t('The computed shortcut path.'))
       ->setComputed(TRUE)

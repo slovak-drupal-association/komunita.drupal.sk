@@ -14,10 +14,6 @@ use Drupal\Tests\UnitTestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-if (!defined('DRUPAL_ROOT')) {
-  define('DRUPAL_ROOT', dirname(dirname(substr(__DIR__, 0, -strlen(__NAMESPACE__)))));
-}
-
 /**
  * Defines a base unit test for testing existence of local tasks.
  *
@@ -79,9 +75,8 @@ abstract class LocalTaskIntegrationTest extends UnitTestCase {
     $property->setAccessible(TRUE);
     $property->setValue($manager, $request_stack);
 
-    $accessManager = $this->getMockBuilder('Drupal\Core\Access\AccessManager')
-      ->disableOriginalConstructor()
-      ->getMock();    $property = new \ReflectionProperty('Drupal\Core\Menu\LocalTaskManager', 'accessManager');
+    $accessManager = $this->getMock('Drupal\Core\Access\AccessManagerInterface');
+    $property = new \ReflectionProperty('Drupal\Core\Menu\LocalTaskManager', 'accessManager');
     $property->setAccessible(TRUE);
     $property->setValue($manager, $accessManager);
 
@@ -101,14 +96,14 @@ abstract class LocalTaskIntegrationTest extends UnitTestCase {
     $property = new \ReflectionProperty('Drupal\Core\Menu\LocalTaskManager', 'moduleHandler');
     $property->setAccessible(TRUE);
     $property->setValue($manager, $module_handler);
-    // Set all the modules as being existant.
+    // Set all the modules as being existent.
     $module_handler->expects($this->any())
       ->method('moduleExists')
       ->will($this->returnCallback(function ($module) use ($module_dirs) {
         return isset($module_dirs[$module]);
       }));
 
-    $pluginDiscovery = new YamlDiscovery('local_tasks', $module_dirs);
+    $pluginDiscovery = new YamlDiscovery('links.task', $module_dirs);
     $pluginDiscovery = new ContainerDerivativeDiscoveryDecorator($pluginDiscovery);
     $property = new \ReflectionProperty('Drupal\Core\Menu\LocalTaskManager', 'discovery');
     $property->setAccessible(TRUE);
@@ -128,7 +123,7 @@ abstract class LocalTaskIntegrationTest extends UnitTestCase {
     $property->setValue($manager, $factory);
 
     $cache_backend = $this->getMock('Drupal\Core\Cache\CacheBackendInterface');
-    $manager->setCacheBackend($cache_backend, 'local_task.en', array('local_task' => 1));
+    $manager->setCacheBackend($cache_backend, 'local_task.en', array('local_task'));
 
     return $manager;
   }

@@ -8,10 +8,13 @@
 namespace Drupal\rdf\Tests;
 
 use Drupal\comment\CommentInterface;
+use Drupal\comment\CommentManagerInterface;
 use Drupal\comment\Tests\CommentTestBase;
 
 /**
  * Tests the RDFa markup of comments.
+ *
+ * @group rdf
  */
 class CommentAttributesTest extends CommentTestBase {
 
@@ -22,15 +25,7 @@ class CommentAttributesTest extends CommentTestBase {
    */
   public static $modules = array('views', 'node', 'comment', 'rdf');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'RDFa markup for comments',
-      'description' => 'Tests the RDFa markup of comments.',
-      'group' => 'RDF',
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Enables anonymous user comments.
@@ -44,11 +39,11 @@ class CommentAttributesTest extends CommentTestBase {
     $this->setCommentPreview(DRUPAL_OPTIONAL);
     $this->setCommentForm(TRUE);
     $this->setCommentSubject(TRUE);
-    $this->setCommentSettings('comment_default_mode', COMMENT_MODE_THREADED, 'Comment paging changed.');
+    $this->setCommentSettings('comment_default_mode', CommentManagerInterface::COMMENT_MODE_THREADED, 'Comment paging changed.');
 
     // Prepares commonly used URIs.
-    $this->base_uri = url('<front>', array('absolute' => TRUE));
-    $this->node_uri = url('node/' . $this->node->id(), array('absolute' => TRUE));
+    $this->base_uri = \Drupal::url('<front>', [], ['absolute' => TRUE]);
+    $this->node_uri = $this->node->url('canonical', ['absolute' => TRUE]);
 
     // Set relation between node and comment.
     $article_mapping = rdf_get_mapping('node', 'article');
@@ -77,12 +72,12 @@ class CommentAttributesTest extends CommentTestBase {
       'created' => array(
         'properties' => array('dc:date', 'dc:created'),
         'datatype' => 'xsd:dateTime',
-        'datatype_callback' => array('callable' => 'date_iso8601'),
+        'datatype_callback' => array('callable' => 'Drupal\rdf\CommonDataConverter::dateIso8601Value'),
       ),
       'changed' => array(
         'properties' => array('dc:modified'),
         'datatype' => 'xsd:dateTime',
-        'datatype_callback' => array('callable' => 'date_iso8601'),
+        'datatype_callback' => array('callable' => 'Drupal\rdf\CommonDataConverter::dateIso8601Value'),
       ),
       'comment_body' => array(
         'properties' => array('content:encoded'),
@@ -160,7 +155,7 @@ class CommentAttributesTest extends CommentTestBase {
 
     // Posts comment #2 as anonymous user.
     $anonymous_user = array();
-    $anonymous_user['name'] = $this->randomName();
+    $anonymous_user['name'] = $this->randomMachineName();
     $anonymous_user['mail'] = 'tester@simpletest.org';
     $anonymous_user['homepage'] = 'http://example.org/';
     $comment2 = $this->saveComment($this->node->id(), 0, $anonymous_user);
@@ -187,11 +182,11 @@ class CommentAttributesTest extends CommentTestBase {
     $this->drupalLogin($this->web_user);
     $comment_1 = $this->saveComment($this->node->id(), $this->web_user->id());
 
-    $comment_1_uri = url('comment/' . $comment_1->id(), array('absolute' => TRUE));
+    $comment_1_uri = $comment_1->url('canonical', ['absolute' => TRUE]);
 
     // Posts a reply to the first comment.
     $comment_2 = $this->saveComment($this->node->id(), $this->web_user->id(), NULL, $comment_1->id());
-    $comment_2_uri = url('comment/' . $comment_2->id(), array('absolute' => TRUE));
+    $comment_2_uri = $comment_2->url('canonical', ['absolute' => TRUE]);
 
     $parser = new \EasyRdf_Parser_Rdfa();
     $graph = new \EasyRdf_Graph();
@@ -276,7 +271,7 @@ class CommentAttributesTest extends CommentTestBase {
 
     // The comment author can be a registered user or an anonymous user.
     if ($comment->getOwnerId() > 0) {
-      $author_uri = url('user/' . $comment->getOwnerId(), array('absolute' => TRUE));
+      $author_uri = \Drupal::url('entity.user.canonical', ['user' => $comment->getOwnerId()], array('absolute' => TRUE));
       // Comment relation to author.
       $expected_value = array(
         'type' => 'uri',
@@ -336,8 +331,8 @@ class CommentAttributesTest extends CommentTestBase {
       'field_name' => 'comment',
       'uid' => $uid,
       'pid' => $pid,
-      'subject' => $this->randomName(),
-      'comment_body' => $this->randomName(),
+      'subject' => $this->randomMachineName(),
+      'comment_body' => $this->randomMachineName(),
       'status' => 1,
     );
     if ($contact) {

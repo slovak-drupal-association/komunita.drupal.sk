@@ -32,7 +32,7 @@ class Opml extends StylePluginBase {
   /**
    * {@inheritdoc}
    */
-  public function attachTo($display_id, $path, $title) {
+  public function attachTo(array &$build, $display_id, $path, $title) {
     $display = $this->view->displayHandlers->get($display_id);
     $url_options = array();
     $input = $this->view->getExposedInput();
@@ -41,23 +41,19 @@ class Opml extends StylePluginBase {
     }
     $url_options['absolute'] = TRUE;
 
-    $url = url($this->view->getUrl(NULL, $path), $url_options);
+    $url = _url($this->view->getUrl(NULL, $path), $url_options);
     if ($display->hasPath()) {
       if (empty($this->preview)) {
         $build['#attached']['drupal_add_feed'][] = array($url, $title);
-        drupal_render($build);
       }
     }
     else {
-      if (empty($this->view->feed_icon)) {
-        $this->view->feed_icon = '';
-      }
       $feed_icon = array(
         '#theme' => 'feed_icon',
         '#url' => $url,
         '#title' => $title,
       );
-      $this->view->feed_icon .= drupal_render($feed_icon);
+      $this->view->feed_icon = $feed_icon;
     }
   }
 
@@ -83,7 +79,7 @@ class Opml extends StylePluginBase {
       '#rows' => $rows,
     );
     unset($this->view->row_index);
-    return drupal_render($build);
+    return $build;
   }
 
 }

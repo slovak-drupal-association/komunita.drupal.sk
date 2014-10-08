@@ -7,6 +7,7 @@
 
 namespace Drupal\Tests\Core;
 
+use Drupal\Core\Access\AccessManagerInterface;
 use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\Core\Url;
 use Drupal\Tests\UnitTestCase;
@@ -16,14 +17,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
 /**
- * Tests the \Drupal\Core\Url class.
- *
- * @group Drupal
- * @group Url
- *
  * @coversDefaultClass \Drupal\Core\Url
+ * @group UrlTest
  */
 class UrlTest extends UnitTestCase {
+
+  /**
+   * @var \Symfony\Component\DependencyInjection\ContainerInterface
+   */
+  protected $container;
 
   /**
    * The URL generator
@@ -49,17 +51,6 @@ class UrlTest extends UnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public static function getInfo() {
-    return array(
-      'name' => 'Url object (internal)',
-      'description' => 'Tests the \Drupal\Core\Url class.',
-      'group' => 'Routing',
-    );
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   protected function setUp() {
     parent::setUp();
 
@@ -75,76 +66,77 @@ class UrlTest extends UnitTestCase {
       ->will($this->returnValueMap($this->map));
 
     $this->router = $this->getMock('Drupal\Tests\Core\Routing\TestRouterInterface');
-    $container = new ContainerBuilder();
-    $container->set('router', $this->router);
-    $container->set('url_generator', $this->urlGenerator);
-    \Drupal::setContainer($container);
+    $this->container = new ContainerBuilder();
+    $this->container->set('router.no_access_checks', $this->router);
+    $this->container->set('url_generator', $this->urlGenerator);
+    \Drupal::setContainer($this->container);
   }
 
   /**
-   * Tests the createFromPath method.
-   *
-   * @covers ::createFromPath()
+   * Tests creating a Url from a request.
    */
-  public function testCreateFromPath() {
-    $this->router->expects($this->any())
-      ->method('match')
-      ->will($this->returnValueMap(array(
-        array('/node', array(
+  public function testUrlFromRequest() {
+    $this->router->expects($this->at(0))
+      ->method('matchRequest')
+      ->with($this->getRequestConstraint('/node'))
+      ->willReturn([
           RouteObjectInterface::ROUTE_NAME => 'view.frontpage.page_1',
           '_raw_variables' => new ParameterBag(),
-        )),
-        array('/node/1', array(
-          RouteObjectInterface::ROUTE_NAME => 'node_view',
-          '_raw_variables' => new ParameterBag(array('node' => '1')),
-        )),
-        array('/node/2/edit', array(
-          RouteObjectInterface::ROUTE_NAME => 'node_edit',
-          '_raw_variables' => new ParameterBag(array('node' => '2')),
-        )),
-      )));
+        ]);
+    $this->router->expects($this->at(1))
+      ->method('matchRequest')
+      ->with($this->getRequestConstraint('/node/1'))
+      ->willReturn([
+        RouteObjectInterface::ROUTE_NAME => 'node_view',
+        '_raw_variables' => new ParameterBag(['node' => '1']),
+      ]);
+    $this->router->expects($this->at(2))
+      ->method('matchRequest')
+      ->with($this->getRequestConstraint('/node/2/edit'))
+      ->willReturn([
+        RouteObjectInterface::ROUTE_NAME => 'node_edit',
+        '_raw_variables' => new ParameterBag(['node' => '2']),
+      ]);
 
     $urls = array();
     foreach ($this->map as $index => $values) {
-      $path = trim(array_pop($values), '/');
-      $url = Url::createFromPath($path);
+      $path = array_pop($values);
+      $url = Url::createFromRequest(Request::create("$path"));
       $this->assertSame($values, array_values($url->toArray()));
       $urls[$index] = $url;
     }
     return $urls;
   }
 
-  /**
-   * Tests the createFromPath method with the special <front> path.
+   /**
+   * This constraint checks whether a Request object has the right path.
    *
-   * @covers ::createFromPath()
+   * @param string $path
+   *   The path.
+   *
+   * @return \PHPUnit_Framework_Constraint_Callback
+   *   The constraint checks whether a Request object has the right path.
    */
-  public function testCreateFromPathFront() {
-    $url = Url::createFromPath('<front>');
-    $this->assertSame('<front>', $url->getRouteName());
+  protected function getRequestConstraint($path) {
+    return $this->callback(function (Request $request) use ($path) {
+      return $request->getPathInfo() == $path;
+    });
   }
 
   /**
-   * Tests that an invalid path will thrown an exception.
+   * Tests the fromRoute() method with the special <front> path.
    *
-   * @covers ::createFromPath()
-   *
-   * @expectedException \Drupal\Core\Routing\MatchingRouteNotFoundException
-   * @expectedExceptionMessage No matching route could be found for the path "non-existent"
+   * @covers ::fromRoute
    */
-  public function testCreateFromPathInvalid() {
-    $this->router->expects($this->once())
-      ->method('match')
-      ->with('/non-existent')
-      ->will($this->throwException(new ResourceNotFoundException()));
-
-    $this->assertNull(Url::createFromPath('non-existent'));
+  public function testFromRouteFront() {
+    $url = Url::fromRoute('<front>');
+    $this->assertSame('<front>', $url->getRouteName());
   }
 
   /**
    * Tests the createFromRequest method.
    *
-   * @covers ::createFromRequest()
+   * @covers ::createFromRequest
    */
   public function testCreateFromRequest() {
     $attributes = array(
@@ -168,17 +160,12 @@ class UrlTest extends UnitTestCase {
   /**
    * Tests that an invalid request will thrown an exception.
    *
-   * @covers ::createFromRequest()
+   * @covers ::createFromRequest
    *
-   * @expectedException \Drupal\Core\Routing\MatchingRouteNotFoundException
-   * @expectedExceptionMessage No matching route could be found for the request: request_as_a_string
+   * @expectedException \Symfony\Component\Routing\Exception\ResourceNotFoundException
    */
-  public function testCreateFromRequestInvalid() {
-    // Mock the request in order to override the __toString() method.
-    $request = $this->getMock('Symfony\Component\HttpFoundation\Request');
-    $request->expects($this->once())
-      ->method('__toString')
-      ->will($this->returnValue('request_as_a_string'));
+  public function testUrlFromRequestInvalid() {
+    $request = Request::create('/test-path');
 
     $this->router->expects($this->once())
       ->method('matchRequest')
@@ -191,9 +178,9 @@ class UrlTest extends UnitTestCase {
   /**
    * Tests the isExternal() method.
    *
-   * @depends testCreateFromPath
+   * @depends testUrlFromRequest
    *
-   * @covers ::isExternal()
+   * @covers ::isExternal
    */
   public function testIsExternal($urls) {
     foreach ($urls as $url) {
@@ -202,28 +189,31 @@ class UrlTest extends UnitTestCase {
   }
 
   /**
-   * Tests the getPath() method for internal URLs.
+   * Tests the getUri() method for internal URLs.
    *
-   * @depends testCreateFromPath
+   * @param \Drupal\Core\Url[] $urls
+   *   Array of URL objects.
+   *
+   * @depends testUrlFromRequest
    *
    * @expectedException \UnexpectedValueException
    *
-   * @covers ::getPath()
+   * @covers ::getUri
    */
-  public function testGetPathForInternalUrl($urls) {
+  public function testGetUriForInternalUrl($urls) {
     foreach ($urls as $url) {
-      $url->getPath();
+      $url->getUri();
     }
   }
 
   /**
-   * Tests the getPath() method for external URLs.
+   * Tests the getUri() method for external URLs.
    *
-   * @covers ::getPath
+   * @covers ::getUri
    */
-  public function testGetPathForExternalUrl() {
-    $url = Url::createFromPath('http://example.com/test');
-    $this->assertEquals('http://example.com/test', $url->getPath());
+  public function testGetUriForExternalUrl() {
+    $url = Url::fromUri('http://example.com/test');
+    $this->assertEquals('http://example.com/test', $url->getUri());
   }
 
   /**
@@ -232,9 +222,9 @@ class UrlTest extends UnitTestCase {
    * @param \Drupal\Core\Url[] $urls
    *   An array of Url objects.
    *
-   * @depends testCreateFromPath
+   * @depends testUrlFromRequest
    *
-   * @covers ::toString()
+   * @covers ::toString
    */
   public function testToString($urls) {
     foreach ($urls as $index => $url) {
@@ -249,9 +239,9 @@ class UrlTest extends UnitTestCase {
    * @param \Drupal\Core\Url[] $urls
    *   An array of Url objects.
    *
-   * @depends testCreateFromPath
+   * @depends testUrlFromRequest
    *
-   * @covers ::toArray()
+   * @covers ::toArray
    */
   public function testToArray($urls) {
     foreach ($urls as $index => $url) {
@@ -270,9 +260,9 @@ class UrlTest extends UnitTestCase {
    * @param \Drupal\Core\Url[] $urls
    *   An array of Url objects.
    *
-   * @depends testCreateFromPath
+   * @depends testUrlFromRequest
    *
-   * @covers ::getRouteName()
+   * @covers ::getRouteName
    */
   public function testGetRouteName($urls) {
     foreach ($urls as $index => $url) {
@@ -287,7 +277,7 @@ class UrlTest extends UnitTestCase {
    * @expectedException \UnexpectedValueException
    */
   public function testGetRouteNameWithExternalUrl() {
-    $url = Url::createFromPath('http://example.com');
+    $url = Url::fromUri('http://example.com');
     $url->getRouteName();
   }
 
@@ -297,9 +287,9 @@ class UrlTest extends UnitTestCase {
    * @param \Drupal\Core\Url[] $urls
    *   An array of Url objects.
    *
-   * @depends testCreateFromPath
+   * @depends testUrlFromRequest
    *
-   * @covers ::getRouteParameters()
+   * @covers ::getRouteParameters
    */
   public function testGetRouteParameters($urls) {
     foreach ($urls as $index => $url) {
@@ -314,7 +304,7 @@ class UrlTest extends UnitTestCase {
    * @expectedException \UnexpectedValueException
    */
   public function testGetRouteParametersWithExternalUrl() {
-    $url = Url::createFromPath('http://example.com');
+    $url = Url::fromUri('http://example.com');
     $url->getRouteParameters();
   }
 
@@ -324,14 +314,90 @@ class UrlTest extends UnitTestCase {
    * @param \Drupal\Core\Url[] $urls
    *   An array of Url objects.
    *
-   * @depends testCreateFromPath
+   * @depends testUrlFromRequest
    *
-   * @covers ::getOptions()
+   * @covers ::getOptions
    */
   public function testGetOptions($urls) {
     foreach ($urls as $index => $url) {
       $this->assertSame($this->map[$index][2], $url->getOptions());
     }
   }
+
+  /**
+   * Tests the access() method.
+   *
+   * @param bool $access
+   *
+   * @covers ::access
+   * @covers ::accessManager
+   * @dataProvider accessProvider
+   */
+  public function testAccess($access) {
+    $account = $this->getMock('Drupal\Core\Session\AccountInterface');
+    $url = new TestUrl('entity.node.canonical', ['node' => 3]);
+    $url->setAccessManager($this->getMockAccessManager($access, $account));
+    $this->assertEquals($access, $url->access($account));
+  }
+
+  /**
+   * Tests the renderAccess() method.
+   *
+   * @param bool $access
+   *
+   * @covers ::renderAccess
+   * @dataProvider accessProvider
+   */
+  public function testRenderAccess($access) {
+    $element = array(
+      '#route_name' => 'entity.node.canonical',
+      '#route_parameters' => ['node' => 3],
+      '#options' => [],
+    );
+    $this->container->set('current_user', $this->getMock('Drupal\Core\Session\AccountInterface'));
+    $this->container->set('access_manager', $this->getMockAccessManager($access));
+    $this->assertEquals($access, TestUrl::renderAccess($element));
+  }
+
+  /**
+   * Creates a mock access manager for the access tests.
+   *
+   * @param bool $access
+   * @param \Drupal\Core\Session\AccountInterface|NULL $account
+   *
+   * @return \Drupal\Core\Access\AccessManagerInterface|\PHPUnit_Framework_MockObject_MockObject
+   */
+  protected function getMockAccessManager($access, $account = NULL) {
+    $access_manager = $this->getMock('Drupal\Core\Access\AccessManagerInterface');
+    $access_manager->expects($this->once())
+      ->method('checkNamedRoute')
+      ->with('entity.node.canonical', ['node' => 3], $account)
+      ->willReturn($access);
+    return $access_manager;
+  }
+
+  /**
+   * Data provider for the access test methods.
+   */
+  public function accessProvider() {
+    return array(
+      array(TRUE),
+      array(FALSE),
+    );
+  }
+
+}
+
+class TestUrl extends Url {
+
+  /**
+   * Sets the access manager.
+   *
+   * @param \Drupal\Core\Access\AccessManagerInterface $access_manager
+   */
+  public function setAccessManager(AccessManagerInterface $access_manager) {
+    $this->accessManager = $access_manager;
+  }
+
 
 }

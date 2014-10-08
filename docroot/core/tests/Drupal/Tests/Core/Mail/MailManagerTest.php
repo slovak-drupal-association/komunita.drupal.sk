@@ -11,12 +11,8 @@ use Drupal\Core\Mail\MailManager;
 use Drupal\Component\Plugin\Discovery\DiscoveryInterface;
 
 /**
- * Tests the mail plugin manager.
- *
- * @group Drupal
+ * @coversDefaultClass \Drupal\Core\Mail\MailManager
  * @group Mail
- *
- * @see \Drupal\Core\Mail\MailManager
  */
 class MailManagerTest extends UnitTestCase {
 
@@ -49,6 +45,13 @@ class MailManagerTest extends UnitTestCase {
   protected $discovery;
 
   /**
+   * The mail manager under test.
+   *
+   * @var \Drupal\Tests\Core\Mail\TestMailManager
+   */
+  protected $mailManager;
+
+  /**
    * A list of mail plugin definitions.
    *
    * @var array
@@ -63,17 +66,6 @@ class MailManagerTest extends UnitTestCase {
       'class' => 'Drupal\Core\Mail\Plugin\Mail\TestMailCollector',
     ),
   );
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function getInfo() {
-    return array(
-      'name' => 'Mail manager test',
-      'description' => 'Tests the mail plugin manager.',
-      'group' => 'Mail',
-    );
-  }
 
   /**
    * {@inheritdoc}
@@ -97,11 +89,15 @@ class MailManagerTest extends UnitTestCase {
    */
   protected function setUpMailManager($interface = array()) {
     // Use the provided config for system.mail.interface settings.
-    $this->configFactory = $this->getConfigFactoryStub(array('system.mail' => array(
-      'interface' => $interface,
-    )));
+    $this->configFactory = $this->getConfigFactoryStub(array(
+      'system.mail' => array(
+        'interface' => $interface,
+      ),
+    ));
+    $logger_factory = $this->getMock('\Drupal\Core\Logger\LoggerChannelFactoryInterface');
+    $string_translation = $this->getStringTranslationStub();
     // Construct the manager object and override its discovery.
-    $this->mailManager = new TestMailManager(new \ArrayObject(), $this->cache, $this->moduleHandler, $this->configFactory);
+    $this->mailManager = new TestMailManager(new \ArrayObject(), $this->cache, $this->moduleHandler, $this->configFactory, $logger_factory, $string_translation);
     $this->mailManager->setDiscovery($this->discovery);
   }
 

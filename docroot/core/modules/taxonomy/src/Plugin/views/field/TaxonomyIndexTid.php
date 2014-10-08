@@ -7,6 +7,7 @@
 
 namespace Drupal\taxonomy\Plugin\views\field;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
 use Drupal\views\Plugin\views\field\PrerenderList;
@@ -49,16 +50,16 @@ class TaxonomyIndexTid extends PrerenderList {
   /**
    * Provide "link to term" option.
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     $form['link_to_taxonomy'] = array(
-      '#title' => t('Link this field to its term page'),
+      '#title' => $this->t('Link this field to its term page'),
       '#type' => 'checkbox',
       '#default_value' => !empty($this->options['link_to_taxonomy']),
     );
 
     $form['limit'] = array(
       '#type' => 'checkbox',
-      '#title' => t('Limit terms by vocabulary'),
+      '#title' => $this->t('Limit terms by vocabulary'),
       '#default_value' => $this->options['limit'],
     );
 
@@ -70,7 +71,7 @@ class TaxonomyIndexTid extends PrerenderList {
 
     $form['vids'] = array(
       '#type' => 'checkboxes',
-      '#title' => t('Vocabularies'),
+      '#title' => $this->t('Vocabularies'),
       '#options' => $options,
       '#default_value' => $this->options['vids'],
       '#states' => array(
@@ -102,29 +103,23 @@ class TaxonomyIndexTid extends PrerenderList {
     }
 
     if ($nids) {
-      $query = db_select('taxonomy_term_data', 'td');
-      $query->innerJoin('taxonomy_index', 'tn', 'td.tid = tn.tid');
-      $query->fields('td');
-      $query->addField('tn', 'nid', 'node_nid');
-      $query->orderby('td.weight');
-      $query->orderby('td.name');
-      $query->condition('tn.nid', $nids);
-      $query->addTag('term_access');
       $vocabs = array_filter($this->options['vids']);
-      if (!empty($this->options['limit']) && !empty($vocabs)) {
-        $query->condition('td.vid', $vocabs);
+      if (empty($this->options['limit'])) {
+        $vocabs = array();
       }
-      $result = $query->execute();
+      $result = \Drupal::entityManager()->getStorage('taxonomy_term')->getNodeTerms($nids, $vocabs);
 
-      foreach ($result as $term_record) {
-        $this->items[$term_record->node_nid][$term_record->tid]['name'] = String::checkPlain($term_record->name);
-        $this->items[$term_record->node_nid][$term_record->tid]['tid'] = $term_record->tid;
-        $this->items[$term_record->node_nid][$term_record->tid]['vocabulary_vid'] = $term_record->vid;
-        $this->items[$term_record->node_nid][$term_record->tid]['vocabulary'] = String::checkPlain($vocabularies[$term_record->vid]->label());
+      foreach ($result as $node_nid => $data) {
+        foreach ($data as $tid => $term) {
+          $this->items[$node_nid][$tid]['name'] = \Drupal::entityManager()->getTranslationFromContext($term)->label();
+          $this->items[$node_nid][$tid]['tid'] = $tid;
+          $this->items[$node_nid][$tid]['vocabulary_vid'] = $term->getVocabularyId();
+          $this->items[$node_nid][$tid]['vocabulary'] = String::checkPlain($vocabularies[$term->getVocabularyId()]->label());
 
-        if (!empty($this->options['link_to_taxonomy'])) {
-          $this->items[$term_record->node_nid][$term_record->tid]['make_link'] = TRUE;
-          $this->items[$term_record->node_nid][$term_record->tid]['path'] = 'taxonomy/term/' . $term_record->tid;
+          if (!empty($this->options['link_to_taxonomy'])) {
+            $this->items[$node_nid][$tid]['make_link'] = TRUE;
+            $this->items[$node_nid][$tid]['path'] = 'taxonomy/term/' . $tid;
+          }
         }
       }
     }
@@ -135,10 +130,10 @@ class TaxonomyIndexTid extends PrerenderList {
   }
 
   protected function documentSelfTokens(&$tokens) {
-    $tokens['[' . $this->options['id'] . '-tid' . ']'] = t('The taxonomy term ID for the term.');
-    $tokens['[' . $this->options['id'] . '-name' . ']'] = t('The taxonomy term name for the term.');
-    $tokens['[' . $this->options['id'] . '-vocabulary-vid' . ']'] = t('The machine name for the vocabulary the term belongs to.');
-    $tokens['[' . $this->options['id'] . '-vocabulary' . ']'] = t('The name for the vocabulary the term belongs to.');
+    $tokens['[' . $this->options['id'] . '-tid' . ']'] = $this->t('The taxonomy term ID for the term.');
+    $tokens['[' . $this->options['id'] . '-name' . ']'] = $this->t('The taxonomy term name for the term.');
+    $tokens['[' . $this->options['id'] . '-vocabulary-vid' . ']'] = $this->t('The machine name for the vocabulary the term belongs to.');
+    $tokens['[' . $this->options['id'] . '-vocabulary' . ']'] = $this->t('The name for the vocabulary the term belongs to.');
   }
 
   protected function addSelfTokens(&$tokens, $item) {

@@ -7,6 +7,7 @@
 
 namespace Drupal\views\Plugin\views\pager;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
 
@@ -36,9 +37,9 @@ class None extends PagerPluginBase {
 
   public function summaryTitle() {
     if (!empty($this->options['offset'])) {
-      return t('All items, skip @skip', array('@skip' => $this->options['offset']));
+      return $this->t('All items, skip @skip', array('@skip' => $this->options['offset']));
     }
-    return t('All items');
+    return $this->t('All items');
   }
 
   protected function defineOptions() {
@@ -51,12 +52,12 @@ class None extends PagerPluginBase {
   /**
    * Provide the default form for setting options.
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
     $form['offset'] = array(
       '#type' => 'textfield',
-      '#title' => t('Offset (number of items to skip)'),
-      '#description' => t('For example, set this to 3 and the first 3 items will not be displayed.'),
+      '#title' => $this->t('Offset (number of items to skip)'),
+      '#description' => $this->t('For example, set this to 3 and the first 3 items will not be displayed.'),
       '#default_value' => $this->options['offset'],
     );
   }

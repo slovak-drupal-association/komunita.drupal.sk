@@ -10,7 +10,9 @@ namespace Drupal\system\Tests\Path;
 use Drupal\simpletest\WebTestBase;
 
 /**
- * Tests hook_url_alter functions.
+ * Tests altering the inbound path and the outbound path.
+ *
+ * @group Path
  */
 class UrlAlterFunctionalTest extends WebTestBase {
 
@@ -20,14 +22,6 @@ class UrlAlterFunctionalTest extends WebTestBase {
    * @var array
    */
   public static $modules = array('path', 'forum', 'url_alter_test');
-
-  public static function getInfo() {
-    return array(
-      'name' => 'URL altering',
-      'description' => 'Tests altering the inbound path and the outbound path.',
-      'group' => 'Path API',
-    );
-  }
 
   /**
    * Test that URL altering works and that it occurs in the correct order.
@@ -69,7 +63,7 @@ class UrlAlterFunctionalTest extends WebTestBase {
     $this->assertText('General discussion', 'The community path gets resolved correctly');
     $this->assertUrlOutboundAlter('forum', 'community');
     $forum_vid = \Drupal::config('forum.settings')->get('vocabulary');
-    $term_name = $this->randomName();
+    $term_name = $this->randomMachineName();
     $term = entity_create('taxonomy_term', array(
       'name' => $term_name,
       'vid' => $forum_vid,
@@ -93,9 +87,9 @@ class UrlAlterFunctionalTest extends WebTestBase {
    * Assert that an outbound path is altered to an expected value.
    *
    * @param $original
-   *   A string with the original path that is run through url().
+   *   A string with the original path that is run through _url().
    * @param $final
-   *   A string with the expected result after url().
+   *   A string with the expected result after _url().
    * @return
    *   TRUE if $original was correctly altered to $final, FALSE otherwise.
    */
@@ -113,7 +107,7 @@ class UrlAlterFunctionalTest extends WebTestBase {
    * @param $original
    *   The original path before it has been altered by inbound URL processing.
    * @param $final
-   *   A string with the expected result after url().
+   *   A string with the expected result after _url().
    * @return
    *   TRUE if $original was correctly altered to $final, FALSE otherwise.
    */

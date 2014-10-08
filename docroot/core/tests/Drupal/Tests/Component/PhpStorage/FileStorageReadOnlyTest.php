@@ -11,12 +11,8 @@ use Drupal\Component\PhpStorage\FileStorage;
 use Drupal\Component\PhpStorage\FileReadOnlyStorage;
 
 /**
- * Tests the simple file storage.
- *
- * @group Drupal
- * @group PhpStorage
- *
  * @coversDefaultClass \Drupal\Component\PhpStorage\FileReadOnlyStorage
+ * @group PhpStorage
  */
 class FileStorageReadOnlyTest extends PhpStorageTestBase {
 
@@ -37,18 +33,7 @@ class FileStorageReadOnlyTest extends PhpStorageTestBase {
   /**
    * {@inheritdoc}
    */
-  public static function getInfo() {
-    return array(
-      'name' => 'Simple read only file storage',
-      'description' => 'Tests the FileStorageReadOnly implementation.',
-      'group' => 'PHP Storage',
-    );
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $dir_path = sys_get_temp_dir() . '/php';
@@ -72,7 +57,7 @@ class FileStorageReadOnlyTest extends PhpStorageTestBase {
    */
   public function testReadOnly() {
     $php = new FileStorage($this->standardSettings);
-    $name = $this->randomName() . '/' . $this->randomName() . '.php';
+    $name = $this->randomMachineName() . '/' . $this->randomMachineName() . '.php';
 
     // Find a global that doesn't exist.
     do {

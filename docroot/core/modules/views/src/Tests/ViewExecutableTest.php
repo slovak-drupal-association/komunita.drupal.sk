@@ -25,11 +25,12 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Tests the ViewExecutable class.
  *
+ * @group views
  * @see \Drupal\views\ViewExecutable
  */
 class ViewExecutableTest extends ViewUnitTestBase {
 
-  public static $modules = array('system', 'node', 'comment', 'user', 'filter', 'entity', 'field', 'field_sql_storage', 'text');
+  public static $modules = array('system', 'node', 'comment', 'user', 'filter', 'entity', 'field', 'text');
 
   /**
    * Views used by this test.
@@ -74,14 +75,6 @@ class ViewExecutableTest extends ViewUnitTestBase {
     'old_view',
     'parent_views',
   );
-
-  public static function getInfo() {
-    return array(
-      'name' => 'View executable tests',
-      'description' => 'Tests the ViewExecutable class.',
-      'group' => 'Views'
-    );
-  }
 
   protected function setUpFixtures() {
     $this->installEntitySchema('user');
@@ -320,12 +313,12 @@ class ViewExecutableTest extends ViewUnitTestBase {
     $this->assertEqual($view->generateHandlerId('test', $test_ids), 'test_2');
 
     // Test the getPath() method.
-    $path = $this->randomName();
+    $path = $this->randomMachineName();
     $view->displayHandlers->get('page_1')->overrideOption('path', $path);
     $view->setDisplay('page_1');
     $this->assertEqual($view->getPath(), $path);
     // Test the override_path property override.
-    $override_path = $this->randomName();
+    $override_path = $this->randomMachineName();
     $view->override_path = $override_path;
     $this->assertEqual($view->getPath(), $override_path);
 

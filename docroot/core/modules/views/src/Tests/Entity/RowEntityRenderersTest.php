@@ -7,13 +7,15 @@
 
 namespace Drupal\views\Tests\Entity;
 
-use Drupal\Core\Language\Language;
+use Drupal\language\Entity\ConfigurableLanguage;
+use Drupal\node\Entity\NodeType;
 use Drupal\views\Tests\ViewUnitTestBase;
 use Drupal\views\Views;
 
 /**
  * Tests the entity row renderers.
  *
+ * @group views
  * @see \Drupal\views\Entity\Render\RendererBase
  */
 class RowEntityRenderersTest extends ViewUnitTestBase {
@@ -23,7 +25,7 @@ class RowEntityRenderersTest extends ViewUnitTestBase {
    *
    * @var array
    */
-  public static $modules = array('entity', 'field', 'filter', 'text', 'node', 'user', 'language', 'menu_link');
+  public static $modules = array('entity', 'field', 'filter', 'text', 'node', 'user', 'language');
 
   /**
    * Views used by this test.
@@ -42,17 +44,6 @@ class RowEntityRenderersTest extends ViewUnitTestBase {
   /**
    * {@inheritdoc}
    */
-  public static function getInfo() {
-    return array(
-      'name' => 'Entity: renderers',
-      'description' => 'Tests the entity row renderers.',
-      'group' => 'Views module integration',
-    );
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   protected function setUp() {
     parent::setUp();
 
@@ -61,21 +52,20 @@ class RowEntityRenderersTest extends ViewUnitTestBase {
     $this->installSchema('node', array('node_access'));
     $this->installConfig(array('node', 'language'));
 
-    // The node.view route must exist when nodes are rendered.
+    // The entity.node.canonical route must exist when nodes are rendered.
     $this->container->get('router.builder')->rebuild();
 
     $this->langcodes = array(\Drupal::languageManager()->getDefaultLanguage()->id);
     for ($i = 0; $i < 2; $i++) {
       $langcode = 'l' . $i;
       $this->langcodes[] = $langcode;
-      $language = new Language(array('id' => $langcode));
-      language_save($language);
+      ConfigurableLanguage::createFromLangcode($langcode)->save();
     }
 
     // Make sure we do not try to render non-existing user data.
-    $config = \Drupal::config('node.type.test');
-    $config->set('settings.node.submitted', FALSE);
-    $config->save();
+    $node_type = NodeType::create(array('type' => 'test'));
+    $node_type->setDisplaySubmitted(FALSE);
+    $node_type->save();
   }
 
   /**
@@ -95,7 +85,7 @@ class RowEntityRenderersTest extends ViewUnitTestBase {
 
       foreach ($langcodes as $langcode) {
         // Ensure we have a predictable result order.
-        $values[$i][$langcode] = $i . '-' . $langcode . '-' . $this->randomName();
+        $values[$i][$langcode] = $i . '-' . $langcode . '-' . $this->randomMachineName();
 
         if ($langcode != $default_langcode) {
           $node->addTranslation($langcode, array('title' => $values[$i][$langcode]));

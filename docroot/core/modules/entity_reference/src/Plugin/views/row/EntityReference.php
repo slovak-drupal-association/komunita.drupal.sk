@@ -7,6 +7,7 @@
 
 namespace Drupal\entity_reference\Plugin\views\row;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\row\Fields;
 
 /**
@@ -38,11 +39,11 @@ class EntityReference extends Fields {
   /**
    * Overrides \Drupal\views\Plugin\views\row\Fields::buildOptionsForm().
    */
-  public function buildOptionsForm(&$form, &$form_state) {
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
     // Expand the description of the 'Inline field' checkboxes.
-    $form['inline']['#description'] .= '<br />' . t("<strong>Note:</strong> In 'Entity Reference' displays, all fields will be displayed inline unless an explicit selection of inline fields is made here." );
+    $form['inline']['#description'] .= '<br />' . $this->t("<strong>Note:</strong> In 'Entity Reference' displays, all fields will be displayed inline unless an explicit selection of inline fields is made here." );
   }
 
   /**

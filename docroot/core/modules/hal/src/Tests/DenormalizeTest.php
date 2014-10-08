@@ -10,17 +10,11 @@ namespace Drupal\hal\Tests;
 use Symfony\Component\Serializer\Exception\UnexpectedValueException;
 
 /**
- * Test the HAL normalizer's denormalize function.
+ * Tests that entities can be denormalized from HAL.
+ *
+ * @group hal
  */
 class DenormalizeTest extends NormalizerTestBase {
-
-  public static function getInfo() {
-    return array(
-      'name' => 'Denormalize Test',
-      'description' => 'Test that entities can be denormalized from HAL.',
-      'group' => 'HAL',
-    );
-  }
 
   /**
    * Tests that the type link relation in incoming data is handled correctly.
@@ -30,7 +24,7 @@ class DenormalizeTest extends NormalizerTestBase {
     $data_with_valid_type = array(
       '_links' => array(
         'type' => array(
-          'href' => url('rest/type/entity_test/entity_test', array('absolute' => TRUE)),
+          'href' => _url('rest/type/entity_test/entity_test', array('absolute' => TRUE)),
         ),
       ),
     );
@@ -42,10 +36,10 @@ class DenormalizeTest extends NormalizerTestBase {
       '_links' => array(
         'type' => array(
           array(
-            'href' => url('rest/types/foo', array('absolute' => TRUE)),
+            'href' => _url('rest/types/foo', array('absolute' => TRUE)),
           ),
           array(
-            'href' => url('rest/type/entity_test/entity_test', array('absolute' => TRUE)),
+            'href' => _url('rest/type/entity_test/entity_test', array('absolute' => TRUE)),
           ),
         ),
       ),
@@ -57,7 +51,7 @@ class DenormalizeTest extends NormalizerTestBase {
     $data_with_invalid_type = array(
       '_links' => array(
         'type' => array(
-          'href' => url('rest/types/foo', array('absolute' => TRUE)),
+          'href' => _url('rest/types/foo', array('absolute' => TRUE)),
         ),
       ),
     );
@@ -90,7 +84,7 @@ class DenormalizeTest extends NormalizerTestBase {
     $no_field_data = array(
       '_links' => array(
         'type' => array(
-          'href' => url('rest/type/entity_test/entity_test', array('absolute' => TRUE)),
+          'href' => _url('rest/type/entity_test/entity_test', array('absolute' => TRUE)),
         ),
       ),
     );
@@ -100,7 +94,7 @@ class DenormalizeTest extends NormalizerTestBase {
     $empty_field_data = array(
       '_links' => array(
         'type' => array(
-          'href' => url('rest/type/entity_test/entity_test', array('absolute' => TRUE)),
+          'href' => _url('rest/type/entity_test/entity_test', array('absolute' => TRUE)),
         ),
       ),
       'field_test_text' => array(),
@@ -118,7 +112,7 @@ class DenormalizeTest extends NormalizerTestBase {
     $data = array(
       '_links' => array(
         'type' => array(
-          'href' => url('rest/type/entity_test/entity_test', array('absolute' => TRUE)),
+          'href' => _url('rest/type/entity_test/entity_test', array('absolute' => TRUE)),
         ),
       ),
       'uuid' => array(
@@ -128,26 +122,26 @@ class DenormalizeTest extends NormalizerTestBase {
       ),
       'field_test_text' => array(
         array(
-          'value' => $this->randomName(),
+          'value' => $this->randomMachineName(),
           'format' => 'full_html',
         ),
       ),
       'field_test_translatable_text' => array(
         array(
-          'value' => $this->randomName(),
+          'value' => $this->randomMachineName(),
           'format' => 'full_html',
         ),
         array(
-          'value' => $this->randomName(),
+          'value' => $this->randomMachineName(),
           'format' => 'filtered_html',
         ),
         array(
-          'value' => $this->randomName(),
+          'value' => $this->randomMachineName(),
           'format' => 'filtered_html',
           'lang' => 'de',
         ),
         array(
-          'value' => $this->randomName(),
+          'value' => $this->randomMachineName(),
           'format' => 'full_html',
           'lang' => 'de',
         ),
@@ -188,12 +182,12 @@ class DenormalizeTest extends NormalizerTestBase {
     $data = array(
       '_links' => array(
         'type' => array(
-          'href' => url('rest/type/entity_test/entity_test', array('absolute' => TRUE)),
+          'href' => _url('rest/type/entity_test/entity_test', array('absolute' => TRUE)),
         ),
       ),
       'field_test_text' => array(
         array(
-          'value' => $this->randomName(),
+          'value' => $this->randomMachineName(),
           'format' => 'full_html',
         ),
       ),

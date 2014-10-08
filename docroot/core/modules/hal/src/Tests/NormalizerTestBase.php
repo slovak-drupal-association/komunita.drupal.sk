@@ -8,12 +8,12 @@
 namespace Drupal\hal\Tests;
 
 use Drupal\Core\Cache\MemoryBackend;
-use Drupal\Core\Language\Language;
 use Drupal\hal\Encoder\JsonEncoder;
 use Drupal\hal\Normalizer\ContentEntityNormalizer;
 use Drupal\hal\Normalizer\EntityReferenceItemNormalizer;
 use Drupal\hal\Normalizer\FieldItemNormalizer;
 use Drupal\hal\Normalizer\FieldNormalizer;
+use Drupal\language\Entity\ConfigurableLanguage;
 use Drupal\rest\LinkManager\LinkManager;
 use Drupal\rest\LinkManager\RelationLinkManager;
 use Drupal\rest\LinkManager\TypeLinkManager;
@@ -33,7 +33,7 @@ abstract class NormalizerTestBase extends DrupalUnitTestBase {
    *
    * @var array
    */
-  public static $modules = array('entity', 'entity_test', 'entity_reference', 'field', 'hal', 'language', 'rest', 'serialization', 'system', 'text', 'user', 'filter',  'menu_link');
+  public static $modules = array('entity', 'entity_test', 'entity_reference', 'field', 'hal', 'language', 'rest', 'serialization', 'system', 'text', 'user', 'filter');
 
   /**
    * The mock serializer.
@@ -59,34 +59,27 @@ abstract class NormalizerTestBase extends DrupalUnitTestBase {
   /**
    * {@inheritdoc}
    */
-  function setUp() {
+  protected function setUp() {
     parent::setUp();
     $this->installSchema('system', array('url_alias', 'router'));
     $this->installEntitySchema('user');
     $this->installEntitySchema('entity_test');
     $this->installConfig(array('field', 'language'));
 
-    // Add English as a language.
-    $english = new Language(array(
-      'id' => 'en',
-      'name' => 'English',
-    ));
-    language_save($english);
     // Add German as a language.
-    $german = new Language(array(
+    ConfigurableLanguage::create(array(
       'id' => 'de',
-      'name' => 'Deutsch',
+      'label' => 'Deutsch',
       'weight' => -1,
-    ));
-    language_save($german);
+    ))->save();
 
     // Create the test text field.
-    entity_create('field_config', array(
-      'name' => 'field_test_text',
+    entity_create('field_storage_config', array(
+      'field_name' => 'field_test_text',
       'entity_type' => 'entity_test',
       'type' => 'text',
     ))->save();
-    entity_create('field_instance_config', array(
+    entity_create('field_config', array(
       'entity_type' => 'entity_test',
       'field_name' => 'field_test_text',
       'bundle' => 'entity_test',
@@ -94,12 +87,12 @@ abstract class NormalizerTestBase extends DrupalUnitTestBase {
     ))->save();
 
     // Create the test translatable field.
-    entity_create('field_config', array(
-      'name' => 'field_test_translatable_text',
+    entity_create('field_storage_config', array(
+      'field_name' => 'field_test_translatable_text',
       'entity_type' => 'entity_test',
       'type' => 'text',
     ))->save();
-    entity_create('field_instance_config', array(
+    entity_create('field_config', array(
       'entity_type' => 'entity_test',
       'field_name' => 'field_test_translatable_text',
       'bundle' => 'entity_test',
@@ -107,15 +100,15 @@ abstract class NormalizerTestBase extends DrupalUnitTestBase {
     ))->save();
 
     // Create the test entity reference field.
-    entity_create('field_config', array(
-      'name' => 'field_test_entity_reference',
+    entity_create('field_storage_config', array(
+      'field_name' => 'field_test_entity_reference',
       'entity_type' => 'entity_test',
       'type' => 'entity_reference',
       'settings' => array(
         'target_type' => 'entity_test',
       ),
     ))->save();
-    entity_create('field_instance_config', array(
+    entity_create('field_config', array(
       'entity_type' => 'entity_test',
       'field_name' => 'field_test_entity_reference',
       'bundle' => 'entity_test',

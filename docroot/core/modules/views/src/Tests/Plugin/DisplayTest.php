@@ -12,6 +12,8 @@ use Drupal\views_test_data\Plugin\views\display\DisplayTest as DisplayTestPlugin
 
 /**
  * Tests the basic display plugin.
+ *
+ * @group views
  */
 class DisplayTest extends PluginTestBase {
 
@@ -29,15 +31,7 @@ class DisplayTest extends PluginTestBase {
    */
   public static $modules = array('views_ui', 'node', 'block');
 
-  public static function getInfo() {
-    return array(
-      'name' => 'Display',
-      'description' => 'Tests the basic display plugin.',
-      'group' => 'Views Plugins',
-    );
-  }
-
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->enableViewsTestModule();
@@ -183,7 +177,7 @@ class DisplayTest extends PluginTestBase {
 
     $this->drupalSetContent($output);
     $result = $this->xpath('//a[@class=:class]', array(':class' => 'more-link'));
-    $this->assertEqual($result[0]->attributes()->href, url('test_display_more'), 'The right more link is shown.');
+    $this->assertEqual($result[0]->attributes()->href, \Drupal::url('view.test_display_more.page_1'), 'The right more link is shown.');
     $this->assertEqual(trim($result[0][0]), $expected_more_text, 'The right link text is shown.');
 
     // Test the renderMoreLink method directly. This could be directly unit
@@ -192,7 +186,7 @@ class DisplayTest extends PluginTestBase {
     $more_link = drupal_render($more_link);
     $this->drupalSetContent($more_link);
     $result = $this->xpath('//a[@class=:class]', array(':class' => 'more-link'));
-    $this->assertEqual($result[0]->attributes()->href, url('test_display_more'), 'The right more link is shown.');
+    $this->assertEqual($result[0]->attributes()->href, \Drupal::url('view.test_display_more.page_1'), 'The right more link is shown.');
     $this->assertEqual(trim($result[0][0]), $expected_more_text, 'The right link text is shown.');
 
     // Test the useMoreText method directly. This could be directly unit

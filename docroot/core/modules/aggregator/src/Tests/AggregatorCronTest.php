@@ -8,17 +8,11 @@
 namespace Drupal\aggregator\Tests;
 
 /**
- * Tests functionality of the cron process in the Aggregator module.
+ * Update feeds on cron.
+ *
+ * @group aggregator
  */
 class AggregatorCronTest extends AggregatorTestBase {
-  public static function getInfo() {
-    return array(
-      'name' => 'Update on cron functionality',
-      'description' => 'Update feeds on cron.',
-      'group' => 'Aggregator'
-    );
-  }
-
   /**
    * Adds feeds and updates them via cron process.
    */
@@ -27,11 +21,11 @@ class AggregatorCronTest extends AggregatorTestBase {
     $this->createSampleNodes();
     $feed = $this->createFeed();
     $this->cronRun();
-    $this->assertEqual(5, db_query('SELECT COUNT(*) FROM {aggregator_item} WHERE fid = :fid', array(':fid' => $feed->id()))->fetchField(), 'Expected number of items in database.');
+    $this->assertEqual(5, db_query('SELECT COUNT(*) FROM {aggregator_item} WHERE fid = :fid', array(':fid' => $feed->id()))->fetchField());
     $this->deleteFeedItems($feed);
-    $this->assertEqual(0, db_query('SELECT COUNT(*) FROM {aggregator_item} WHERE fid = :fid', array(':fid' => $feed->id()))->fetchField(), 'Expected number of items in database.');
+    $this->assertEqual(0, db_query('SELECT COUNT(*) FROM {aggregator_item} WHERE fid = :fid', array(':fid' => $feed->id()))->fetchField());
     $this->cronRun();
-    $this->assertEqual(5, db_query('SELECT COUNT(*) FROM {aggregator_item} WHERE fid = :fid', array(':fid' => $feed->id()))->fetchField(), 'Expected number of items in database.');
+    $this->assertEqual(5, db_query('SELECT COUNT(*) FROM {aggregator_item} WHERE fid = :fid', array(':fid' => $feed->id()))->fetchField());
 
     // Test feed locking when queued for update.
     $this->deleteFeedItems($feed);
@@ -42,7 +36,7 @@ class AggregatorCronTest extends AggregatorTestBase {
       ))
       ->execute();
     $this->cronRun();
-    $this->assertEqual(0, db_query('SELECT COUNT(*) FROM {aggregator_item} WHERE fid = :fid', array(':fid' => $feed->id()))->fetchField(), 'Expected number of items in database.');
+    $this->assertEqual(0, db_query('SELECT COUNT(*) FROM {aggregator_item} WHERE fid = :fid', array(':fid' => $feed->id()))->fetchField());
     db_update('aggregator_feed')
       ->condition('fid', $feed->id())
       ->fields(array(
@@ -50,6 +44,6 @@ class AggregatorCronTest extends AggregatorTestBase {
       ))
       ->execute();
     $this->cronRun();
-    $this->assertEqual(5, db_query('SELECT COUNT(*) FROM {aggregator_item} WHERE fid = :fid', array(':fid' => $feed->id()))->fetchField(), 'Expected number of items in database.');
+    $this->assertEqual(5, db_query('SELECT COUNT(*) FROM {aggregator_item} WHERE fid = :fid', array(':fid' => $feed->id()))->fetchField());
   }
 }
