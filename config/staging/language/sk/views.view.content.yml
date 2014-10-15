@@ -1,0 +1,52 @@
+label: Obsah
+description: 'Vyhľadať a spravovať obsah'
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Reset
+      fields:
+        title:
+          label: Nadpis
+        name:
+          label: Autor
+        status:
+          label: Stav
+        changed:
+          label: Aktualizované
+        edit_node:
+          text: Upraviť
+        delete_node:
+          text: Odstrániť
+        dropbutton:
+          label: Operácie
+      filters:
+        status:
+          expose:
+            label: Stav
+          group_info:
+            group_items:
+              1:
+                title: Zverejnené
+        type:
+          expose:
+            label: Typ
+        title:
+          expose:
+            label: Nadpis
+        langcode:
+          expose:
+            label: Jazyk
+      title: Obsah
+      empty:
+        area_text_custom:
+          content: 'Nie je žiadny obsah.'
+  page_1:
+    display_options:
+      menu:
+        title: Obsah
+      tab_options:
+        title: Obsah
+    display_title: Stránka

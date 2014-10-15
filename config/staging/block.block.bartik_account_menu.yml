@@ -1,0 +1,27 @@
+uuid: dc456758-7967-41da-ac00-f2832d99cea1
+langcode: en
+status: true
+dependencies:
+  entity:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - bartik
+id: bartik_account_menu
+theme: bartik
+region: secondary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  visibility: {  }
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  provider: system
+  label_display: '0'
+  cache:
+    max_age: -1
+    contexts: {  }
+  level: 1
+  depth: 1

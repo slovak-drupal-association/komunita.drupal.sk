@@ -1,0 +1,19 @@
+uuid: 9ee0eb56-6495-43bd-a207-07c608d350a4
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_system_image
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 image toolkit configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - image_toolkit
+process:
+  toolkit: image_toolkit
+destination:
+  plugin: config
+  config_name: system.image
+migration_dependencies: {  }

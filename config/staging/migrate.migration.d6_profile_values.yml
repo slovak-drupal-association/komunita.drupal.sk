@@ -1,0 +1,25 @@
+uuid: b5ca4203-6884-4255-b200-b0b73f750c58
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_profile_values
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 profile values'
+load:
+  plugin: drupal_entity
+source:
+  plugin: d6_profile_field_values
+process:
+  uid:
+    plugin: migration
+    migration: d6_user
+    source: uid
+destination:
+  plugin: 'entity:user'
+migration_dependencies:
+  required:
+    - d6_user
+    - d6_user_profile_field_instance
+    - d6_user_profile_entity_display
+    - d6_user_profile_entity_form_display

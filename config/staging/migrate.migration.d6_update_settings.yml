@@ -1,0 +1,25 @@
+uuid: 86fa0887-7890-4ce0-ab00-0c0284154aa0
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_update_settings
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 update configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - update_max_fetch_attempts
+    - update_fetch_url
+    - update_notification_threshold
+    - update_notify_emails
+process:
+  fetch/max_attempts: update_max_fetch_attempts
+  fetch/url: update_fetch_url
+  notification/threshold: update_notification_threshold
+  notification/emails: update_notify_emails
+destination:
+  plugin: config
+  config_name: update.settings
+migration_dependencies: {  }

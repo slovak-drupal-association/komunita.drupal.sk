@@ -1,0 +1,18 @@
+uuid: e1e03fd5-71c1-41b5-8e00-b22f3c8dd7c2
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_url_alias
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 URL aliases'
+load: {  }
+source:
+  plugin: d6_url_alias
+process:
+  source: src
+  alias: dst
+  langcode: language
+destination:
+  plugin: url_alias
+migration_dependencies: {  }

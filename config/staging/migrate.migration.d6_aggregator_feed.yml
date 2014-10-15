@@ -1,0 +1,25 @@
+uuid: 09401997-7344-479c-a800-dd8998263548
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_aggregator_feed
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 aggregator feeds'
+load: {  }
+source:
+  plugin: d6_aggregator_feed
+process:
+  fid: fid
+  title: title
+  url: url
+  refresh: refresh
+  checked: checked
+  link: link
+  description: description
+  image: image
+  etag: etag
+  modified: modified
+destination:
+  plugin: 'entity:aggregator_feed'
+migration_dependencies: {  }

@@ -1,0 +1,31 @@
+uuid: 2c6d989c-f4a8-45ba-9700-a45e2f0b7033
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_upload
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 file uploads'
+load: {  }
+source:
+  plugin: d6_upload
+process:
+  nid: nid
+  vid: vid
+  type: type
+  upload:
+    plugin: iterator
+    source: upload
+    process:
+      target_id:
+        plugin: migration
+        migration: d6_file
+        source: fid
+      display: list
+      description: description
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - d6_file
+    - d6_node

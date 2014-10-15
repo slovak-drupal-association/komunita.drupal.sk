@@ -1,0 +1,33 @@
+uuid: 59700ccf-2f16-4390-b058-8880651cffc8
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_taxonomy_term
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 taxonomy terms'
+load: {  }
+source:
+  plugin: d6_taxonomy_term
+process:
+  tid: tid
+  vid:
+    plugin: migration
+    migration: d6_taxonomy_vocabulary
+    source: vid
+  name: name
+  description: description
+  weight: weight
+  parent:
+    -
+      plugin: skip_process_on_empty
+      source: parent
+    -
+      plugin: migration
+      migration: d6_taxonomy_term
+  changed: timestamp
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies:
+  required:
+    - d6_taxonomy_vocabulary

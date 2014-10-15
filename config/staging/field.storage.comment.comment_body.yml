@@ -1,0 +1,17 @@
+uuid: 356608f2-fcca-4624-bd10-16ca529eead0
+langcode: sk
+status: true
+dependencies:
+  module:
+    - comment
+    - text
+id: comment.comment_body
+field_name: comment_body
+entity_type: comment
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }

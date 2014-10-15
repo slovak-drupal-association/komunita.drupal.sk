@@ -1,0 +1,20 @@
+uuid: 163f6e57-31b8-4b41-b700-c2024c3ab649
+langcode: sk
+status: true
+dependencies:
+  entity:
+    - comment.type.comment
+    - field.storage.comment.comment_body
+id: comment.comment.comment_body
+field_name: comment_body
+entity_type: comment
+bundle: comment
+label: Comment
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: text_long

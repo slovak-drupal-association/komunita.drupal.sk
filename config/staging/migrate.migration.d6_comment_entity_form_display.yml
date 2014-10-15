@@ -1,0 +1,29 @@
+uuid: d3e5f7dd-e551-4bd8-b102-2db70318d1f1
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_comment_entity_form_display
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 comment field form display configuration'
+load: {  }
+source:
+  plugin: d6_comment_variable
+  constants:
+    entity_type: node
+    field_name: comment
+    form_mode: default
+    options:
+      type: comment_default
+      weight: 20
+process:
+  entity_type: constants/entity_type
+  field_name: constants/field_name
+  form_mode: constants/form_mode
+  options: constants/options
+  bundle: node_type
+destination:
+  plugin: component_entity_form_display
+migration_dependencies:
+  required:
+    - d6_comment_field_instance

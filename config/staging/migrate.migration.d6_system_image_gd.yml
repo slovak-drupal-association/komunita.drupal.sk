@@ -1,0 +1,19 @@
+uuid: dd64adc3-3abe-45b6-a50b-1134335e8d8b
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_system_image_gd
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 image quality configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - image_jpeg_quality
+process:
+  jpeg_quality: image_jpeg_quality
+destination:
+  plugin: config
+  config_name: system.image.gd
+migration_dependencies: {  }

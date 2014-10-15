@@ -1,0 +1,32 @@
+uuid: 0a22b560-7264-468d-b518-24fce27b9179
+langcode: sk
+status: true
+dependencies:
+  entity:
+    - field.storage.node.comment
+    - node.type.article
+id: node.article.comment
+field_name: comment
+entity_type: node
+bundle: article
+label: Comments
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_name: null
+    last_comment_timestamp: 0
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 1
+  per_page: 50
+  form_location: true
+  anonymous: 0
+  preview: 1
+third_party_settings: {  }
+field_type: comment

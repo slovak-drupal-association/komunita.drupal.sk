@@ -1,0 +1,27 @@
+uuid: 99cba8cb-62d0-43f0-9f48-72bc0f4ca08a
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_book
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 books'
+load: {  }
+source:
+  plugin: d6_book
+process:
+  nid: nid
+  book/bid: bid
+  book/weight: weight
+  book/pid:
+    -
+      plugin: skip_process_on_empty
+      source: plid
+    -
+      plugin: migration
+      migration: d6_book
+destination:
+  plugin: book
+migration_dependencies:
+  required:
+    - d6_node

@@ -1,0 +1,11 @@
+uuid: 80098d6b-687a-4e7b-9b5b-91fea7b49992
+name: Drupal.sk
+mail: havran@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: sk

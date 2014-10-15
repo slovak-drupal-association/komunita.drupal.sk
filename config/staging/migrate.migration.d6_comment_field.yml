@@ -1,0 +1,24 @@
+uuid: be8994c6-47ee-4f09-951f-31ae3679d26b
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_comment_field
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 comment field configuration'
+load: {  }
+source:
+  plugin: d6_comment_variable_per_comment_type
+  constants:
+    entity_type: node
+    type: comment
+process:
+  entity_type: constants/entity_type
+  field_name: comment_type
+  type: constants/type
+  settings/comment_type: comment_type
+destination:
+  plugin: 'entity:field_storage_config'
+migration_dependencies:
+  required:
+    - d6_comment_type

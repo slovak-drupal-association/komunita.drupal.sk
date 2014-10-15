@@ -1,0 +1,19 @@
+uuid: 6eda8b47-8715-40b7-b402-0278e286c93d
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_action_settings
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 action configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - actions_max_stack
+process:
+  recursion_limit: actions_max_stack
+destination:
+  plugin: config
+  config_name: action.settings
+migration_dependencies: {  }

@@ -1,0 +1,21 @@
+uuid: b6c20021-871d-4dd4-aa1c-28d1e11781ab
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_comment_type
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 comment type'
+load: {  }
+source:
+  plugin: d6_comment_variable_per_comment_type
+  constants:
+    entity_type: node
+process:
+  target_entity_type_id: constants/entity_type
+  id: comment_type
+  label: label
+  description: description
+destination:
+  plugin: 'entity:comment_type'
+migration_dependencies: {  }

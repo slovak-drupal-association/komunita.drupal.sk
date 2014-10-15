@@ -1,0 +1,22 @@
+label: 'Termín taxonómie'
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          reset_button_label: Reset
+      arguments:
+        tid:
+          exception:
+            title: Všetky
+  page_1:
+    display_title: Stránka
+  feed_1:
+    display_options:
+      pager:
+        options:
+          tags:
+            previous: '‹ predchádzajúca'
+            next: 'nasledujúca ›'
+            first: '« prvá'
+            last: 'posledná »'

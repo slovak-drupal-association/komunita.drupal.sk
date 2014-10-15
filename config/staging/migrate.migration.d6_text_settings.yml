@@ -1,0 +1,19 @@
+uuid: 40c23dfc-e862-48b6-aa2c-4407c72f4436
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_text_settings
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 teaser length configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - teaser_length
+process:
+  default_summary_length: teaser_length
+destination:
+  plugin: config
+  config_name: text.settings
+migration_dependencies: {  }

@@ -1,0 +1,22 @@
+uuid: bd097bd5-aa85-4830-995f-95f1f770d416
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_node_setting_sticky
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 node type ''sticky'' setting'
+load: {  }
+source:
+  plugin: d6_node_type
+  constants:
+    entity_type: node
+    field_name: sticky
+process:
+  entity_type: constants/entity_type
+  bundle: type
+  field_name: constants/field_name
+  default_value: options/sticky
+destination:
+  plugin: 'entity:base_field_override'
+migration_dependencies: {  }

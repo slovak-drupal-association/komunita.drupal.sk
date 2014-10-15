@@ -1,0 +1,21 @@
+uuid: fb01a0d7-c67e-47c0-a700-f92cb270bb99
+langcode: en
+status: true
+dependencies:
+  entity:
+    - node.type.book
+id: node.book.promote
+field_name: promote
+entity_type: node
+bundle: book
+label: Promote
+description: 'A boolean indicating whether the node should be displayed on the front page.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: boolean

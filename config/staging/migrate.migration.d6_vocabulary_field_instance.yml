@@ -1,0 +1,26 @@
+uuid: b66e8712-18dd-4c98-ac08-8a6f67863737
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_vocabulary_field_instance
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 vocabulary field instance configuration'
+load: {  }
+source:
+  plugin: d6_taxonomy_vocabulary_per_type
+  constants:
+    entity_type: node
+    parent: 0
+process:
+  entity_type: constants/entity_type
+  bundle: type
+  field_name:
+    plugin: migration
+    migration: d6_taxonomy_vocabulary
+    source: vid
+destination:
+  plugin: 'entity:field_config'
+migration_dependencies:
+  required:
+    - d6_vocabulary_field

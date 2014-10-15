@@ -1,0 +1,18 @@
+display:
+  default:
+    display_options:
+      empty:
+        area_text_custom:
+          content: 'Obsah titulnej stránky zatiať nebol vytvorený.'
+      exposed_form:
+        options:
+          reset_button_label: Reset
+      pager:
+        options:
+          tags:
+            previous: '‹ predchádzajúca'
+            next: 'nasledujúca ›'
+            first: '« prvá'
+            last: 'posledná »'
+  page_1:
+    display_title: Stránka

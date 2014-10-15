@@ -1,0 +1,22 @@
+uuid: 15a09690-9ee1-428e-9421-33aa90c197ce
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_term_node
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 term/node relationships'
+load:
+  plugin: d6_term_node
+source:
+  plugin: d6_term_node
+process:
+  nid: nid
+  type: type
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - d6_vocabulary_entity_display
+    - d6_vocabulary_entity_form_display
+    - d6_node

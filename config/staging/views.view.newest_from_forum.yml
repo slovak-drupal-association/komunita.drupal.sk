@@ -1,0 +1,295 @@
+uuid: 8f63cba4-e94c-4509-8b1d-29b010401b65
+langcode: sk
+status: true
+dependencies:
+  module:
+    - node
+    - user
+id: newest_from_forum
+label: 'Najnovšie z fóra'
+module: views
+description: ''
+tag: ''
+base_table: node
+base_field: nid
+core: 8.x
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    provider: views
+    display_options:
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+        provider: user
+        dependencies: {  }
+      cache:
+        type: none
+        options: {  }
+        provider: views
+        dependencies: {  }
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: false
+          query_tags: {  }
+        provider: views
+        dependencies: {  }
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+        provider: views
+        dependencies: {  }
+      pager:
+        type: some
+        options:
+          items_per_page: 3
+          offset: 0
+      style:
+        type: default
+      row:
+        type: fields
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          provider: node
+          label: ''
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            trim: false
+            word_boundary: false
+            ellipsis: false
+            strip_tags: false
+            html: false
+          hide_empty: false
+          empty_zero: false
+          link_to_node: 1
+          relationship: none
+          group_type: group
+          admin_label: ''
+          dependencies: {  }
+          exclude: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_alter_empty: true
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          dependencies:
+            module:
+              - views
+              - views
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: ''
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: custom
+          custom_date_format: 'd.m.Y H:i:s'
+          timezone: ''
+          plugin_id: date
+          provider: views
+        name:
+          id: name
+          table: users_field_data
+          field: name
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          dependencies:
+            module:
+              - user
+              - user
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '[created] | [name]'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: ''
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          link_to_user: true
+          overwrite_anonymous: false
+          anonymous_text: ''
+          format_username: true
+          plugin_id: user_name
+          provider: user
+      filters:
+        status:
+          value: true
+          table: node_field_data
+          field: status
+          provider: node
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node
+          field: type
+          value:
+            forum: forum
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          order: DESC
+          relationship: none
+          group_type: group
+          admin_label: ''
+          dependencies: {  }
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+      title: 'Najnovšie z fóra'
+      header: {  }
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          dependencies:
+            module:
+              - views
+          empty: false
+          tokenize: false
+          content: '<a href="/forum">Zobraziť všetky</a>'
+          plugin_id: text_custom
+          provider: views
+      empty: {  }
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          dependencies:
+            module:
+              - views
+          required: false
+          plugin_id: standard
+          provider: views
+      arguments: {  }
+      field_langcode: '***LANGUAGE_language_content***'
+      field_langcode_add_to_query: null
+      use_more: false
+      use_more_always: true
+      use_more_text: more
+  block_1:
+    display_plugin: block
+    id: block_1
+    display_title: Block
+    position: 1
+    provider: views
+    display_options:
+      field_langcode: '***LANGUAGE_language_content***'
+      field_langcode_add_to_query: null
+      field:
+        title:
+          link_to_node: 1

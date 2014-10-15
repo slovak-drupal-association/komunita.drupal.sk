@@ -1,0 +1,21 @@
+uuid: 06cbb424-7bd8-4e11-9532-5007044c6659
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_cck_field_revision
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 field revisions'
+load:
+  plugin: drupal_entity
+  bundle_migration: d6_node_type
+source:
+  plugin: d6_cck_field_revision
+process:
+  vid: vid
+destination:
+  plugin: 'entity_revision:node'
+migration_dependencies:
+  required:
+    - d6_cck_field_values
+    - d6_node_revision

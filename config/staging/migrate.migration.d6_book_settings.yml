@@ -1,0 +1,23 @@
+uuid: a8ca9ec3-8897-4f4f-be00-b6895c9b6f22
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_book_settings
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 book configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - book_child_type
+    - book_block_mode
+    - book_allowed_types
+process:
+  child_type: book_child_type
+  block/navigation/mode: book_block_mode
+  allowed_types: book_allowed_types
+destination:
+  plugin: config
+  config_name: book.settings
+migration_dependencies: {  }

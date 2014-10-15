@@ -1,0 +1,23 @@
+uuid: 134884dd-fdae-4b29-8a3b-59ebb2babed9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bartik
+id: bartik_powered
+theme: bartik
+region: footer
+weight: -6
+provider: null
+plugin: system_powered_by_block
+settings:
+  visibility: {  }
+  id: system_powered_by_block
+  label: 'Beží na Drupale'
+  provider: system
+  label_display: '0'
+  cache:
+    max_age: 0
+    contexts: {  }

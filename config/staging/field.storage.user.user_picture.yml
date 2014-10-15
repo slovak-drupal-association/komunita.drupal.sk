@@ -1,0 +1,30 @@
+uuid: da2b7ea8-fc34-4ffe-9c4d-77cf4868bc05
+langcode: en
+status: true
+dependencies:
+  module:
+    - image
+    - user
+id: user.user_picture
+field_name: user_picture
+entity_type: user
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    fid: null
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+  target_bundle: null
+module: image
+locked: false
+cardinality: 1
+translatable: false
+indexes:
+  target_id:
+    - target_id

@@ -1,0 +1,27 @@
+uuid: 82757d1c-7f24-4438-bb00-f8ffc153c8b6
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_date_formats
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 date format configuration'
+load: {  }
+source:
+  plugin: variable_multirow
+  variables:
+    - date_format_long
+    - date_format_medium
+    - date_format_short
+process:
+  id:
+    plugin: static_map
+    source: name
+    map:
+      date_format_long: long
+      date_format_short: short
+      date_format_medium: medium
+  pattern: value
+destination:
+  plugin: 'entity:date_format'
+migration_dependencies: {  }

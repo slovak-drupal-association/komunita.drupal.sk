@@ -1,0 +1,23 @@
+uuid: 4c14436c-a212-4d16-9f11-17ac2d2e297d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bartik
+id: bartik_content
+theme: bartik
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  visibility: {  }
+  id: system_main_block
+  label: 'Obsah hlavnej stránky'
+  provider: system
+  label_display: '0'
+  cache:
+    max_age: 0
+    contexts: {  }

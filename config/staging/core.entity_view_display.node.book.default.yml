@@ -1,0 +1,27 @@
+uuid: 61f08560-0ebe-4a6f-8b0e-14dd045ea4e7
+langcode: sk
+status: true
+dependencies:
+  entity:
+    - field.field.node.book.body
+    - node.type.book
+  module:
+    - text
+    - user
+id: node.book.default
+label: null
+targetEntityType: node
+bundle: book
+mode: default
+content:
+  links:
+    weight: 100
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+third_party_settings: {  }

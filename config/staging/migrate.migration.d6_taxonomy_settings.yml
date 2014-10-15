@@ -1,0 +1,21 @@
+uuid: d54e7f60-1f9b-4674-a803-3a6f9ff354f3
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_taxonomy_settings
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 taxonomy configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - taxonomy_override_selector
+    - taxonomy_terms_per_page_admin
+process:
+  override_selector: taxonomy_override_selector
+  terms_per_page_admin: taxonomy_terms_per_page_admin
+destination:
+  plugin: config
+  config_name: taxonomy.settings
+migration_dependencies: {  }

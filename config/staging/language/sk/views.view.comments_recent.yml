@@ -1,0 +1,12 @@
+label: 'Nedávne komentáre'
+display:
+  default:
+    display_options:
+      title: 'Nedávne komentáre'
+      empty:
+        area_text_custom:
+          content: 'Nie sú žiadne komentáre.'
+  block_1:
+    display_title: Blok
+    display_options:
+      block_description: 'Nedávne komentáre'

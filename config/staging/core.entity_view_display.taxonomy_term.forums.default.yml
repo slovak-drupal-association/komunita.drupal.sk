@@ -1,0 +1,22 @@
+uuid: bdc6c8ef-66a4-4dad-b22d-4510e75605c5
+langcode: sk
+status: true
+dependencies:
+  entity:
+    - taxonomy.vocabulary.forums
+  module:
+    - text
+id: taxonomy_term.forums.default
+label: null
+targetEntityType: taxonomy_term
+bundle: forums
+mode: default
+content:
+  description:
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    label: above
+hidden: {  }
+third_party_settings: {  }

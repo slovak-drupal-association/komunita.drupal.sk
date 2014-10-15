@@ -1,0 +1,19 @@
+uuid: 9856dc61-4395-4a9c-8f05-5d3bfcb90497
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_dblog_settings
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 database logging configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - dblog_row_limit
+process:
+  row_limit: dblog_row_limit
+destination:
+  plugin: config
+  config_name: dblog.settings
+migration_dependencies: {  }

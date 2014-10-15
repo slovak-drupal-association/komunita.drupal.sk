@@ -1,0 +1,27 @@
+uuid: 121b5169-54ee-4cc6-9257-8743a9b2e3c6
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_upload_field
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 upload field configuration'
+load: {  }
+source:
+  plugin: empty
+  provider: upload
+  constants:
+    entity_type: node
+    type: file
+    name: upload
+    cardinality: -1
+    display_field: true
+process:
+  entity_type: constants/entity_type
+  field_name: constants/name
+  type: constants/type
+  cardinality: constants/cardinality
+  settings/display_field: constants/display_field
+destination:
+  plugin: 'entity:field_storage_config'
+migration_dependencies: {  }

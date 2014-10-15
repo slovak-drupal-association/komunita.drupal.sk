@@ -1,0 +1,31 @@
+uuid: 9c6a2335-3da5-40e1-8200-f580016c6f81
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_search_page
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 search page configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - node_rank_comments
+    - node_rank_promote
+    - node_rank_recent
+    - node_rank_relevance
+    - node_rank_sticky
+    - node_rank_views
+  constants:
+    id: node_search
+    path: node
+    plugin: node_search
+process:
+  id: constants/id
+  path: constants/path
+  plugin: constants/plugin
+  configuration/rankings:
+    plugin: d6_search_configuration_rankings
+destination:
+  plugin: 'entity:search_page'
+migration_dependencies: {  }

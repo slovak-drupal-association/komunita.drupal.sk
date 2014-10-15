@@ -1,0 +1,13 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          reset_button_label: Reset
+      title: 'Kto je nový'
+  block_1:
+    display_title: 'Kto je nový'
+    display_options:
+      block_description: 'Kto je nový'
+      block_category: Používateľ
+label: 'Kto je nový'

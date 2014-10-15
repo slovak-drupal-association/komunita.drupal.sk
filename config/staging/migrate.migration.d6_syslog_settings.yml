@@ -1,0 +1,21 @@
+uuid: 5e8a277e-dcb6-4c89-8709-093485ce3268
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_syslog_settings
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 system log configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - syslog_identity
+    - syslog_facility
+process:
+  identity: syslog_identity
+  facility: syslog_facility
+destination:
+  plugin: config
+  config_name: syslog.settings
+migration_dependencies: {  }

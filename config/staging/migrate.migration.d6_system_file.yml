@@ -1,0 +1,21 @@
+uuid: fb1dffaf-b7a0-4a3d-af48-727cc85117cc
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_system_file
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 file system configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - file_directory_path
+    - file_directory_temp
+process:
+  path/private: file_directory_path
+  path/temporary: file_directory_temp
+destination:
+  plugin: config
+  config_name: system.file
+migration_dependencies: {  }

@@ -1,0 +1,10 @@
+id: node.print
+uuid: 806e2ad1-a1b3-410c-8a1b-2794b5f44211
+label: Print
+targetEntityType: node
+status: false
+cache: true
+langcode: sk
+dependencies:
+  module:
+    - node

@@ -1,0 +1,17 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          reset_button_label: Reset
+      fields:
+        title:
+          label: Nadpis
+        name:
+          label: Autor
+        changed:
+          label: 'Posledná aktualizácia'
+  page_1:
+    display_title: Stránka
+  attachment_1:
+    display_title: Príloha

@@ -1,0 +1,25 @@
+uuid: a575296d-c92e-4c07-a036-54aef9ffdf79
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_search_settings
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 search configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - minimum_word_size
+    - overlap_cjk
+    - search_cron_limit
+    - search_tag_weights
+    - search_and_or_limit
+process:
+  index/minimum_word_size: minimum_word_size
+  index/overlap_cjk: overlap_cjk
+  index/cron_limit: search_cron_limit
+destination:
+  plugin: config
+  config_name: search.settings
+migration_dependencies: {  }

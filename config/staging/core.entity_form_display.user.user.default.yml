@@ -1,0 +1,29 @@
+uuid: 9765ce6f-3d70-4db3-8650-804825dbb2b5
+langcode: sk
+status: true
+dependencies:
+  module:
+    - image
+    - user
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: -10
+  user_picture:
+    type: image_image
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    weight: -1
+  language:
+    weight: 0
+  contact:
+    weight: 5
+  timezone:
+    weight: 6
+hidden: {  }
+third_party_settings: {  }

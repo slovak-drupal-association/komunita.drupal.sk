@@ -1,0 +1,29 @@
+uuid: d2d5893c-742a-4a64-a110-16bc853c7995
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_aggregator_item
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 aggregator items'
+load: {  }
+source:
+  plugin: d6_aggregator_item
+process:
+  iid: iid
+  fid:
+    plugin: migration
+    migration: d6_aggregator_feed
+    source:
+      - fid
+  title: title
+  link: link
+  author: author
+  description: description
+  timestamp: timestamp
+  guid: guid
+destination:
+  plugin: 'entity:aggregator_item'
+migration_dependencies:
+  required:
+    - d6_aggregator_feed

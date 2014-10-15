@@ -1,0 +1,21 @@
+uuid: b5e4adcf-aa4d-4d6a-a802-2cd481dad6fb
+langcode: sk
+status: true
+dependencies:
+  entity:
+    - field.storage.node.body
+    - node.type.forum
+id: node.forum.body
+field_name: body
+entity_type: node
+bundle: forum
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+third_party_settings: {  }
+field_type: text_with_summary

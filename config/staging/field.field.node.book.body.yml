@@ -1,0 +1,21 @@
+uuid: e2b81625-7f8e-4bdd-b306-6b3e08aa91d6
+langcode: sk
+status: true
+dependencies:
+  entity:
+    - field.storage.node.body
+    - node.type.book
+id: node.book.body
+field_name: body
+entity_type: node
+bundle: book
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+third_party_settings: {  }
+field_type: text_with_summary

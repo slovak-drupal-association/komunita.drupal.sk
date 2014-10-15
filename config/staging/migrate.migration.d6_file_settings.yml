@@ -1,0 +1,23 @@
+uuid: db092fb9-c822-4582-9d00-c4201383ebad
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_file_settings
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 file configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - file_description_type
+    - file_description_length
+    - file_icon_directory
+process:
+  description/type: file_description_type
+  description/length: file_description_length
+  icon/directory: file_icon_directory
+destination:
+  plugin: config
+  config_name: file.settings
+migration_dependencies: {  }

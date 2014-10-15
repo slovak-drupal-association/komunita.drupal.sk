@@ -1,0 +1,25 @@
+cancel_confirm:
+  body: "[user:name],\r\n\r\nna [site:name] sme zaznamenali požiadavku o zrušenie účtu.\r\n\r\nZrušenie vášho účtu na [site:url-brief] môžete potvrdiť kliknutím na tento odkaz alebo jeho skopírovaním do poľa s adresou vo vašom prehliadači:\r\n\r\n[user:cancel-url]\r\n\r\nPOZOR: Zrušenie vášho účtu sa už nedá neskôr odvolať.\r\n\r\nPlatnosť tohto odkazu vyprší v priebehu jedného dňa a ak ho nevyužijete, k zrušeniu účtu nedôjde.\r\n\r\n--  Tím [site:name]"
+  subject: 'Žiadosť o zrušenie účtu pre [user:name] na [site:name]'
+password_reset:
+  body: "[user:name],\r\n\r\nna [site:name] sme zaznamenali požiadavku o nové heslo.\r\n\r\nTeraz sa môžete prihlásiť kliknutím na tento odkaz alebo jeho skopírovaním do poľa s adresou vo vašom prehliadači:\r\n\r\n[user:one-time-login-url]\r\n\r\nTento odkaz môžete použiť na jednorázové prihlásenie a zavedie vás na stránku, kde si môžete zmeniť heslo. Platnosť tohto odkazu vyprší v priebehu jedného dňa a nič sa nestane, ak nebude použitý. \r\n\r\n--  Tím [site:name]"
+  subject: 'Nahradné prihlasovacie údaje pre [user:name] na [site:name]'
+register_admin_created:
+  body: "[user:name],\r\n\r\nadministrátor [site:name] vám vytvoril používateľský účet. Môžete sa prihlásiť kliknutím na nasledujúci odkaz alebo jeho skopírovaním do adresového poľa prehliadača:\r\n\r\n[user:one-time-login-url]\r\n\r\nTento odkaz je na jednorázové prihlásenie a zavedie vás na stránku, kde si môžete zmeniť heslo.\r\n\r\nPo nastavení hesla sa budete môcť prihlásiť na [site:login-url] v budúcnosti použitím týchto údajov:\r\n\r\npoužívateľské meno: [user:name]\r\nheslo: Vaše heslo\r\n\r\n--  Tím [site:name]"
+  subject: 'Správca vám vytvoril účet na [site:name]'
+register_no_approval_required:
+  body: "[user:name],\r\n\r\nďakujeme vám za registráciu na [site:name]. Môžete sa prihlásiť kliknutím na nasledujúci odkaz, alebo jeho skopírovaním do adresového poľa prehliadača:\r\n\r\n[user:one-time-login-url]\r\n\r\nTento odkaz slúži ako jednorázové prihlásenie a zavedie vás na stránku, kde si môžete nastaviť heslo.\r\n\r\nPo nastavení hesla sa budete môcť prihlásiť na [site:login-url] aj v budúcnosti použitím nasledujúcich údajov:\r\n\r\npoužívateľské meno: [user:name]\r\nheslo: Vaše heslo\r\n\r\n--  Tím [site:name]"
+register_pending_approval:
+  subject: 'Podrobnosti o účte používateľa [user:name] na [site:name] (čaká sa na schválenie správcom)'
+register_pending_approval_admin:
+  body: "Používateľ [user:name] požiadal o účet.\r\n\r\n[user:edit-url]"
+  subject: 'Podrobnosti o účte používateľa [user:name] na [site:name] (čaká sa na schválenie správcom)'
+status_activated:
+  body: "[user:name],\r\n\r\naktivácia vášho účtu na [site:name] prebehla úspešne.\r\n\r\nTeraz sa môžete prihlásiť kliknutím na tento odkaz alebo jeho skopírovaním do poľa s adresou vo vašom prehliadači:\r\n\r\n[user:one-time-login-url]\r\n\r\nTento odkaz môžete na jednorázové prihlásenie a zavedie vás na stránku, kde si môžete zmeniť heslo.\r\n\r\nPo nastavení hesla sa môžete prihlásiť na [site:login-url] aj v budúcnosti s použitím týchto údajov:\r\n\r\npoužívateľské meno: [user:name]\r\nheslo: Vaše heslo\r\n\r\n--  Tím [site:name]"
+  subject: 'Podrobnosti účtu pre [user:name] na [site:name] (schválené)'
+status_blocked:
+  body: "[user:name],\r\n\r\nVáš účet na [site:name] bol zablokovaný.\r\n\r\n--  Tím [site:name]"
+  subject: 'Podrobnosti účtu pre [user:name] na [site:name] (blokované)'
+status_canceled:
+  body: "[user:name],\r\n\r\nVáš účet na [site:name] bol zrušený.\r\n\r\n--  [site:name] tím"
+  subject: 'Podrobnosti účtu pre [user:name] na [site:name] (zrušené)'

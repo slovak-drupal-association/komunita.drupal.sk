@@ -1,0 +1,24 @@
+uuid: d525661a-2909-42ad-9b0d-1333aff3fce1
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_user_picture_field
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 user picture field configuration'
+load: {  }
+source:
+  plugin: empty
+  constants:
+    entity_type: user
+    type: image
+    name: user_picture
+    cardinality: 1
+process:
+  entity_type: constants/entity_type
+  field_name: constants/name
+  type: constants/type
+  cardinality: constants/cardinality
+destination:
+  plugin: 'entity:field_storage_config'
+migration_dependencies: {  }

@@ -1,0 +1,22 @@
+uuid: 11ec569e-1adc-4fb1-9f09-9b96528446c8
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_node_setting_promote
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 node type ''promote'' setting'
+load: {  }
+source:
+  plugin: d6_node_type
+  constants:
+    entity_type: node
+    field_name: promote
+process:
+  entity_type: constants/entity_type
+  bundle: type
+  field_name: constants/field_name
+  default_value: options/promote
+destination:
+  plugin: 'entity:base_field_override'
+migration_dependencies: {  }

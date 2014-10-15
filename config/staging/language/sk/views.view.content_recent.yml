@@ -1,0 +1,18 @@
+label: 'Najnovší obsah'
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          reset_button_label: Reset
+      fields:
+        edit_node:
+          text: upraviť
+        delete_node:
+          text: odstrániť
+      title: 'Najnovší obsah'
+      empty:
+        area_text_custom:
+          content: 'Nie je žiadny obsah.'
+  block_1:
+    display_title: Blok

@@ -1,0 +1,31 @@
+uuid: af4e1f56-fa05-4555-a000-0e13bca1f92e
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_aggregator_settings
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 aggregator configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - aggregator_fetcher
+    - aggregator_parser
+    - aggregator_processors
+    - aggregator_allowed_html_tags
+    - aggregator_teaser_length
+    - aggregator_clear
+    - aggregator_summary_items
+process:
+  fetcher: aggregator_fetcher
+  parser: aggregator_parser
+  processors: aggregator_processors
+  items/allowed_html: aggregator_allowed_html_tags
+  items/teaser_length: aggregator_teaser_length
+  items/expire: aggregator_clear
+  source/list_max: aggregator_summary_items
+destination:
+  plugin: config
+  config_name: aggregator.settings
+migration_dependencies: {  }

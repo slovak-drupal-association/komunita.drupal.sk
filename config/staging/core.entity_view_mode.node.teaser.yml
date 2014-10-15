@@ -1,0 +1,10 @@
+id: node.teaser
+uuid: 8228ff7f-1f44-41fe-b100-fcbe9e8e16ec
+label: Teaser
+targetEntityType: node
+status: true
+cache: true
+langcode: sk
+dependencies:
+  module:
+    - node

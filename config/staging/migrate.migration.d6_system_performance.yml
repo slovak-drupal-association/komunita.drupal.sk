@@ -1,0 +1,23 @@
+uuid: 59648443-41a6-4990-8e0e-1441bd489bd1
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_system_performance
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 performance configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - preprocess_css
+    - preprocess_js
+    - cache_lifetime
+process:
+  css/preprocess: preprocess_css
+  js/preprocess: preprocess_js
+  cache/page/max_age: cache_lifetime
+destination:
+  plugin: config
+  config_name: system.performance
+migration_dependencies: {  }

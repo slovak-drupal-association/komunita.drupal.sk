@@ -1,0 +1,21 @@
+uuid: d1f00648-9ec1-4405-b205-058ddb4162f3
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_system_maintenance
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 maintainence page configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - site_offline
+    - site_offline_message
+process:
+  enable: site_offline
+  message: site_offline_message
+destination:
+  plugin: config
+  config_name: system.maintenance
+migration_dependencies: {  }

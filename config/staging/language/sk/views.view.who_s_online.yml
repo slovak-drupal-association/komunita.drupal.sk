@@ -1,0 +1,16 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          reset_button_label: Reset
+      filters:
+        access:
+          expose:
+            label: 'Posledný prístup'
+            description: 'Používateľ sa považuje za online v tomto čase od posledného zobrazenia stránky.'
+      title: 'Kto je online'
+  who_s_online_block:
+    display_title: 'Kto je online'
+    display_options:
+      block_description: 'Kto je online'

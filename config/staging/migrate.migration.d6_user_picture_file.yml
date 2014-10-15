@@ -1,0 +1,27 @@
+uuid: 6e9d3762-115b-48cc-a200-cac6d778fce9
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_user_picture_file
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 user pictures'
+load: {  }
+source:
+  plugin: d6_user_picture_file
+  constants:
+    is_public: true
+process:
+  filename: filename
+  uri:
+    plugin: file_uri
+    source:
+      - picture
+      - file_directory_path
+      - constants/is_public
+destination:
+  plugin: 'entity:file'
+  source_path_property: picture
+migration_dependencies:
+  optional:
+    - d6_file

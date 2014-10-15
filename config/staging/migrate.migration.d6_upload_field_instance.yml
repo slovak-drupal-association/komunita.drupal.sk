@@ -1,0 +1,29 @@
+uuid: 62abd99d-22d7-49d5-9a00-faba73c65974
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_upload_field_instance
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 upload field instance configuration'
+load: {  }
+source:
+  plugin: d6_upload_instance
+  constants:
+    entity_type: node
+    name: upload
+    settings:
+      description_field: 1
+process:
+  entity_type: constants/entity_type
+  bundle: node_type
+  field_name: constants/name
+  settings: constants/settings
+  settings/file_extensions: file_extensions
+  settings/max_filesize: max_filesize
+destination:
+  plugin: 'entity:field_config'
+migration_dependencies:
+  required:
+    - d6_upload_field
+    - d6_node_type

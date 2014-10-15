@@ -1,0 +1,27 @@
+uuid: ddf5a773-0d30-42ac-bb00-f6ae10216a72
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_file
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 files'
+load: {  }
+source:
+  plugin: d6_file
+process:
+  fid: fid
+  filename: filename
+  uri:
+    plugin: file_uri
+    source:
+      - filepath
+      - file_directory_path
+      - is_public
+  filemime: filemime
+  filesize: filesize
+  status: status
+  changed: timestamp
+destination:
+  plugin: 'entity:file'
+migration_dependencies: {  }

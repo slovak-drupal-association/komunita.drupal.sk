@@ -1,0 +1,19 @@
+uuid: 3f8d07d1-9b7a-4af3-bc17-235729698461
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_system_filter
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 filter configuration'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - filter_allowed_protocols
+process:
+  protocols: filter_allowed_protocols
+destination:
+  plugin: config
+  config_name: system.filter
+migration_dependencies: {  }

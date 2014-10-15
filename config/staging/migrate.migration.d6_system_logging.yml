@@ -1,0 +1,27 @@
+uuid: 7174baa2-06b5-4ae8-9d09-9f2c6539302f
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_system_logging
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 system logging'
+load: {  }
+source:
+  plugin: variable
+  variables:
+    - error_level
+process:
+  error_level:
+    plugin: static_map
+    source: error_level
+    default_value: all
+    map:
+      - hide
+      - some
+      - all
+      - verbose
+destination:
+  plugin: config
+  config_name: system.logging
+migration_dependencies: {  }

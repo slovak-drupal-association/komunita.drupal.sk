@@ -1,0 +1,36 @@
+uuid: 702bf7f7-33fb-43c0-a308-8a84d4b78fde
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_comment_entity_form_display_subject
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 comment subject form display configuration'
+load: {  }
+source:
+  plugin: d6_comment_variable_per_comment_type
+  constants:
+    entity_type: comment
+    field_name: subject
+    form_mode: default
+    options:
+      type: string
+      weight: 10
+process:
+  entity_type: constants/entity_type
+  field_name: constants/field_name
+  form_mode: constants/form_mode
+  options: constants/options
+  hidden:
+    plugin: static_map
+    source: comment_type
+    default_value: false
+    map:
+      comment_no_subject: true
+      comment: false
+  bundle: comment_type
+destination:
+  plugin: component_entity_form_display
+migration_dependencies:
+  required:
+    - d6_comment_type

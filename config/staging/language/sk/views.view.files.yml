@@ -1,0 +1,45 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Reset
+      pager:
+        options:
+          tags:
+            previous: '‹ predchádzajúca'
+            next: 'nasledujúca ›'
+      fields:
+        filename:
+          label: Názov
+        filesize:
+          label: Veľkosť
+        status:
+          label: Stav
+        count:
+          label: 'Použité v'
+      filters:
+        filename:
+          expose:
+            label: 'Názov súboru'
+        status:
+          expose:
+            label: Stav
+      title: Súbory
+  page_1:
+    display_options:
+      menu:
+        title: Súbory
+  page_2:
+    display_options:
+      pager:
+        options:
+          tags:
+            previous: '‹ predchádzajúca'
+            next: 'nasledujúca ›'
+      arguments:
+        fid:
+          exception:
+            title: Všetky
+label: Súbory

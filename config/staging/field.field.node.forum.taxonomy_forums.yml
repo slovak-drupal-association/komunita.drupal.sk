@@ -1,0 +1,21 @@
+uuid: 1d9f7d34-fafb-455e-b700-c4e714b90735
+langcode: sk
+status: true
+dependencies:
+  entity:
+    - field.storage.node.taxonomy_forums
+    - node.type.forum
+id: node.forum.taxonomy_forums
+field_name: taxonomy_forums
+entity_type: node
+bundle: forum
+label: Forums
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+third_party_settings: {  }
+field_type: taxonomy_term_reference

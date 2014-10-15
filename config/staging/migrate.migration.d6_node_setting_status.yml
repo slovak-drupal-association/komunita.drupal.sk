@@ -1,0 +1,22 @@
+uuid: a4e8cc45-ad02-45fb-9600-a5f1d4367e7c
+langcode: sk
+status: true
+dependencies: {  }
+id: d6_node_setting_status
+migration_groups:
+  - 'Drupal 6'
+label: 'Drupal 6 node type ''status'' setting'
+load: {  }
+source:
+  plugin: d6_node_type
+  constants:
+    entity_type: node
+    field_name: status
+process:
+  entity_type: constants/entity_type
+  bundle: type
+  field_name: constants/field_name
+  default_value: options/status
+destination:
+  plugin: 'entity:base_field_override'
+migration_dependencies: {  }

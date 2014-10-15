@@ -1,0 +1,25 @@
+uuid: f2a20836-4a56-4705-a000-c3bcfe78c5a5
+langcode: sk
+status: true
+dependencies:
+  module:
+    - image
+    - user
+id: user.user.default
+label: null
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  user_picture:
+    type: image
+    weight: 0
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }
+    label: hidden
+  member_for:
+    weight: 5
+hidden: {  }
+third_party_settings: {  }

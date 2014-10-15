@@ -1,0 +1,23 @@
+uuid: 08251ade-7672-468e-a946-70279a5724de
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - bartik
+id: bartik_search
+theme: bartik
+region: header
+weight: -1
+provider: null
+plugin: search_form_block
+settings:
+  visibility: {  }
+  id: search_form_block
+  label: Hľadať
+  provider: search
+  label_display: visible
+  cache:
+    max_age: 0
+    contexts: {  }
