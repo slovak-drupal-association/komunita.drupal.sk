@@ -4,3 +4,4 @@ docroot/sites/*/files
 docroot/sites/*/private
 
 docroot/nbproject
+settings.local.php
