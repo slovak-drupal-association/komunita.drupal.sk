@@ -648,3 +648,7 @@ ini_set('session.cookie_lifetime', 2000000);
 if (file_exists('/var/www/site-php')) {
   require('/var/www/site-php/slovakda/slovakda-settings.inc');
 }
+
+if (file_exists('sites/default/settings.local.php')) {
+  require('sites/default/settings.local.php');
+}
