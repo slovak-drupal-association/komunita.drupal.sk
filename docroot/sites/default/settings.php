@@ -272,7 +272,7 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = '6b1b1fe5750b0fd9fdcb9887d86b47e412300e836ca102cf5df913fabb7dfd42';
 
 /**
  * Access control for update.php script.
