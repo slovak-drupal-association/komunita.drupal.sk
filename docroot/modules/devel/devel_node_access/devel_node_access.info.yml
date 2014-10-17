@@ -10,8 +10,8 @@ dependencies:
 tags:
  - developer
 
-# Information added by Drupal.org packaging script on 2014-10-05
+# Information added by Drupal.org packaging script on 2014-10-13
 version: '8.x-1.x-dev'
 core: '8.x'
 project: 'devel'
-datestamp: 1412543638
+datestamp: 1413227338
