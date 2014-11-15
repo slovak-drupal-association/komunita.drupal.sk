@@ -7,8 +7,8 @@ configure: devel.admin_settings
 tags:
  - developer
 
-# Information added by Drupal.org packaging script on 2014-10-13
+# Information added by Drupal.org packaging script on 2014-10-26
 version: '8.x-1.x-dev'
 core: '8.x'
 project: 'devel'
-datestamp: 1413227338
+datestamp: 1414348438
