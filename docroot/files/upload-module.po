@@ -1,0 +1,171 @@
+# Slovak translation of SEM Dolný Kubín
+# Copyright (c) 2006 mirek <mirek.binas@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal CMS 4.7\n"
+"POT-Creation-Date: 2005-06-30 11:06+0200\n"
+"PO-Revision-Date: 2006-09-07 04:13+0100\n"
+"Last-Translator: mirek <mirek@host.sk>\n"
+"Language-Team: www.drupal.sk <mirek.binas@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n>=2 && n<=4 ? 1 : 2;\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: modules/upload.module:16
+msgid "The upload module allows users to upload files to the site.  The ability to upload files to a site is important for members of a community who want to share work. It is also useful to administrators who want to keep uploaded files connected to a node or page."
+msgstr ""
+
+#: modules/upload.module:17
+msgid "Users with the upload files permission can upload attachments. You can choose which post types can take attachments on the content types settings page.  Each user role can be customized for the file size of uploads, and the dimension of image files."
+msgstr "<p>Používatelia s právami pre upload súborov môžu uploadovať prílohy. Môžete si zvoliť, ku ktorým príspevkom bude možné pridávať prílohy cez stránku nastavenia typov obsahu. V každej používateľskej roli je možné nastaviť veľkosť súboru pre upload a rozmery súborov s obrázkami."
+
+#: modules/upload.module:18
+msgid ""
+"<p>You can</p>\n"
+"<ul>\n"
+"<li>administer user permissions at <a href=\"%admin-access\">administer &gt;&gt; access control</a>.</li>\n"
+"<li>administer content at <a href=\"%admin-content-types\">administer &gt;&gt; settings &gt;&gt; content types</a>.</li>\n"
+"<li>administer upload at <a href=\"%admin-upload\">administer &gt;&gt; settings &gt;&gt; upload</a>.</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: modules/upload.module:25
+msgid "For more information please read the configuration and customization handbook <a href=\"%upload\">Upload page</a>."
+msgstr ""
+
+#: modules/upload.module:28
+msgid "Allows users to upload and attach files to content."
+msgstr "Umožňuje používateľom uploadovať a pripájať súbory k príspevkom."
+
+#: modules/upload.module:30
+msgid "<p>Users with the <a href=\"%permissions\">upload files permission</a> can upload attachments. Users with the <a href=\"%permissions\">view uploaded files permission</a> can view uploaded attachments. You can choose which post types can take attachments on the <a href=\"%types\">content types settings</a> page.</p>"
+msgstr "<p>Používatelia s <a href=\"%permissions\">právami pre upload súborov</a> môžu uploadovať prílohy. Môžete si zvoliť, ku ktorým typom príspevkov bude možné pridávať prílohy cez stránku <a href=\"%types\">nastavenia typov obsahu</a>.</p>"
+
+#: modules/upload.module:56
+msgid "Read full article to view attachments."
+msgstr ""
+
+#: modules/upload.module:107
+msgid "Maximum resolution for uploaded images"
+msgstr "Maximálne rozlíšenie pre uploadnuté obrázky"
+
+#: modules/upload.module:108
+msgid "The maximum allowed image size expressed as WIDTHxHEIGHT (e.g. 640x480). Set to 0 for no restriction."
+msgstr ""
+
+#: modules/upload.module:111
+msgid "List files by default"
+msgstr ""
+
+#: modules/upload.module:114
+msgid "Set whether files attached to nodes are listed or not in the node view by default."
+msgstr ""
+
+#: modules/upload.module:120
+msgid "Settings for %role"
+msgstr "Nastavenia pre %role"
+
+#: modules/upload.module:122
+msgid "Permitted file extensions"
+msgstr ""
+
+#: modules/upload.module:123
+msgid "Extensions that users in this role can upload. Separate extensions with a space and do not include the leading dot."
+msgstr "Prípony súborov, ktoré môžu používatelia uploadnuť. Prípony oddteľte pomocou medzery a neuvádzajte pred príponou aj bodku."
+
+#: modules/upload.module:126
+msgid "Maximum file size per upload"
+msgstr ""
+
+#: modules/upload.module:127
+msgid "The maximum size of a file a user can upload (in megabytes)."
+msgstr "Maximálna veľkosť súboru, ktorý môže používateľ uploadnuť (v MB)."
+
+#: modules/upload.module:130
+msgid "Total file size per user"
+msgstr ""
+
+#: modules/upload.module:131
+msgid "The maximum size of all files a user can have on the site (in megabytes)."
+msgstr "Maximálna veľkosť všetkých súborov, ktoré môže mať používateľ na stránke (v MB)."
+
+#: modules/upload.module:234
+msgid "Attachments"
+msgstr "Prílohy"
+
+#: modules/upload.module:247
+msgid "File attachments"
+msgstr "Prílohy"
+
+#: modules/upload.module:250
+msgid "Changes made to the attachments are not permanent until you save this post. The first \"listed\" file will be included in RSS feeds."
+msgstr ""
+
+#: modules/upload.module:315
+msgid "The selected file %name can not be attached to this post, because it is only possible to attach files with the following extensions: %files-allowed."
+msgstr ""
+
+#: modules/upload.module:319
+msgid "The selected file %name can not be attached to this post, because it exceeded the maximum filesize of %maxsize."
+msgstr ""
+
+#: modules/upload.module:323
+msgid "The selected file %name can not be attached to this post, because the disk quota of %quota has been reached."
+msgstr ""
+
+#: modules/upload.module:327
+msgid "The selected file %name can not be attached to this post, because the filename is too long."
+msgstr ""
+
+#: modules/upload.module:442
+msgid "Attachment"
+msgstr "Príloha"
+
+#: modules/upload.module:442;673
+msgid "Size"
+msgstr "Veľkosť"
+
+#: modules/upload.module:524
+msgid "Your filename has been renamed to conform to site policy."
+msgstr ""
+
+#: modules/upload.module:658
+msgid "Attach new file"
+msgstr "Priložiť súbor"
+
+#: modules/upload.module:659
+msgid "Attach"
+msgstr "Priložiť"
+
+#: modules/upload.module:673
+msgid "List"
+msgstr "Zoznam"
+
+#: modules/upload.module:723
+msgid "The image was resized to fit within the maximum allowed resolution of %resolution pixels."
+msgstr ""
+
+#: modules/upload.module:56;409
+msgid "1 attachment"
+msgid_plural "%count attachments"
+msgstr[0] "1 príloha"
+msgstr[1] "%count prílohy"
+msgstr[2] "%count príloh"
+
+#: modules/upload.module:38
+msgid "upload files"
+msgstr "upload súborov"
+
+#: modules/upload.module:38
+msgid "view uploaded files"
+msgstr "zobraziť uploadnuté súbory"
+
+#: modules/upload.module:0
+msgid "upload"
+msgstr "upload"
+

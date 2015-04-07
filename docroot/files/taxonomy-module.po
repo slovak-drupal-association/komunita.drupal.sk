@@ -1,0 +1,265 @@
+# Slovak translation of SEM Dolný Kubín
+# Copyright (c) 2006 mirek <mirek.binas@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal CMS 4.7\n"
+"POT-Creation-Date: 2005-06-30 11:06+0200\n"
+"PO-Revision-Date: 2006-09-07 04:03+0100\n"
+"Last-Translator: mirek <mirek@host.sk>\n"
+"Language-Team: www.drupal.sk <mirek.binas@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n>=2 && n<=4 ? 1 : 2;\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: modules/taxonomy.module:65
+msgid "add vocabulary"
+msgstr "pridať slovník"
+
+#: modules/taxonomy.module:71;134
+msgid "edit vocabulary"
+msgstr "upraviť slovník"
+
+#: modules/taxonomy.module:77
+msgid "edit term"
+msgstr "upraviť položku"
+
+#: modules/taxonomy.module:83
+msgid "taxonomy term"
+msgstr ""
+
+#: modules/taxonomy.module:89
+msgid "autocomplete taxonomy"
+msgstr ""
+
+#: modules/taxonomy.module:97;135
+msgid "list terms"
+msgstr ""
+
+#: modules/taxonomy.module:109
+msgid "add term"
+msgstr "pridať položku"
+
+#: modules/taxonomy.module:136
+msgid "add terms"
+msgstr ""
+
+#: modules/taxonomy.module:140
+msgid "No categories available."
+msgstr ""
+
+#: modules/taxonomy.module:172
+msgid "No terms available."
+msgstr ""
+
+#: modules/taxonomy.module:190
+msgid "Vocabulary name"
+msgstr "Názov slovníka"
+
+#: modules/taxonomy.module:193
+msgid "The name for this vocabulary.  Example: \"Topic\"."
+msgstr "Názov nového slovníka. Napríklad: \"Téma\"."
+
+#: modules/taxonomy.module:199
+msgid "Description of the vocabulary; can be used by modules."
+msgstr "Popis slovníka; môže byť použitý niektorými modulmi."
+
+#: modules/taxonomy.module:202
+msgid "Help text"
+msgstr "Pomocný text"
+
+#: modules/taxonomy.module:205
+msgid "Instructions to present to the user when choosing a term."
+msgstr ""
+
+#: modules/taxonomy.module:208
+msgid "Types"
+msgstr "Typy"
+
+#: modules/taxonomy.module:211
+msgid "A list of node types you want to associate with this vocabulary."
+msgstr ""
+
+#: modules/taxonomy.module:215
+msgid "Hierarchy"
+msgstr "Hierarchia"
+
+#: modules/taxonomy.module:217
+msgid "Single"
+msgstr ""
+
+#: modules/taxonomy.module:217
+msgid "Multiple"
+msgstr ""
+
+#: modules/taxonomy.module:218
+msgid "Allows <a href=\"%help-url\">a tree-like hierarchy</a> between terms of this vocabulary."
+msgstr ""
+
+#: modules/taxonomy.module:221;375
+msgid "Related terms"
+msgstr ""
+
+#: modules/taxonomy.module:223
+msgid "Allows <a href=\"%help-url\">related terms</a> in this vocabulary."
+msgstr ""
+
+#: modules/taxonomy.module:226
+msgid "Free tagging"
+msgstr ""
+
+#: modules/taxonomy.module:228
+msgid "Content is categorized by typing terms instead of choosing from a list."
+msgstr ""
+
+#: modules/taxonomy.module:231
+msgid "Multiple select"
+msgstr "Viacnásobný výber"
+
+#: modules/taxonomy.module:233
+msgid "Allows nodes to have more than one term from this vocabulary (always true for free tagging)."
+msgstr ""
+
+#: modules/taxonomy.module:238
+msgid "If enabled, every node <strong>must</strong> have at least one term in this vocabulary."
+msgstr ""
+
+#: modules/taxonomy.module:243
+msgid "In listings, the heavier vocabularies will sink and the lighter vocabularies will be positioned nearer the top."
+msgstr "Najťažšie slovníky v zoznamoch budú umiestnené na konci a najľahšie na začiatku."
+
+#: modules/taxonomy.module:272
+msgid "Created new vocabulary %name."
+msgstr "Nový slovník %name bol vytvorený."
+
+#: modules/taxonomy.module:275
+msgid "Updated vocabulary %name."
+msgstr "Slovník %name bol aktualizovaný."
+
+#: modules/taxonomy.module:335
+msgid "Are you sure you want to delete the vocabulary %title?"
+msgstr "Naozaj chcete zmazať slovník %title?"
+
+#: modules/taxonomy.module:337
+msgid "Deleting a vocabulary will delete all the terms in it. This action cannot be undone."
+msgstr ""
+
+#: modules/taxonomy.module:344
+msgid "Deleted vocabulary %name."
+msgstr "Zmazať slovník %name."
+
+#: modules/taxonomy.module:352
+msgid "Term name"
+msgstr ""
+
+#: modules/taxonomy.module:352
+msgid "The name for this term.  Example: \"Linux\"."
+msgstr "Názov tejto položky. Napr.: \"Linux\"."
+
+#: modules/taxonomy.module:354
+msgid "A description of the term."
+msgstr "Popis položky."
+
+#: modules/taxonomy.module:367
+msgid "Parent term"
+msgstr ""
+
+#: modules/taxonomy.module:370
+msgid "Parents"
+msgstr ""
+
+#: modules/taxonomy.module:370
+msgid "Parent terms"
+msgstr ""
+
+#: modules/taxonomy.module:378
+msgid "Synonyms"
+msgstr "Synonymá"
+
+#: modules/taxonomy.module:378
+msgid "<a href=\"%help-url\">Synonyms</a> of this term, one synonym per line."
+msgstr ""
+
+#: modules/taxonomy.module:379
+msgid "In listings, the heavier terms will sink and the lighter terms will be positioned nearer the top."
+msgstr "Najťažšie položky v zoznamoch budú na konci a najľahšie budú na začiatku."
+
+#: modules/taxonomy.module:411
+msgid "Created new term %term."
+msgstr "Bolo vytvorené nové fórum/kontainer %term."
+
+#: modules/taxonomy.module:414
+msgid "The term %term has been updated."
+msgstr "Položka %term bola aktualizovaná."
+
+#: modules/taxonomy.module:521
+msgid "Are you sure you want to delete the term %title?"
+msgstr "Naozaj chcete zmazať položku %title?"
+
+#: modules/taxonomy.module:524
+msgid "Deleting a term will delete all its children if there are any. This action cannot be undone."
+msgstr "Zmazaním tejto položky tiež zmažete všetkých jej potomkov, pokiaľ nejakí sú. Táto akcia sa nebude dať vrátiť späť."
+
+#: modules/taxonomy.module:531
+msgid "Deleted term %name."
+msgstr "Položka %name bola zmazaná."
+
+#: modules/taxonomy.module:639
+msgid "A comma-separated list of terms describing this content.  Example: funny, bungee jumping, \"Company, Inc.\"."
+msgstr ""
+
+#: modules/taxonomy.module:710
+msgid "The %name vocabulary can not be modified in this way."
+msgstr ""
+
+#: modules/taxonomy.module:1147
+msgid "There are currently no posts in this category."
+msgstr ""
+
+#: modules/taxonomy.module:1307
+msgid "The taxonomy module is one of the most popular features because users often want to create categories to organize content by type. It can automatically classify new content, which is very useful for organizing content on-the-fly. A simple example would be organizing a list of music reviews by musical genre."
+msgstr ""
+
+#: modules/taxonomy.module:1308
+msgid "Taxonomy is also the study of classification. The taxonomy module allows you to define vocabularies (sets of categories) which are used to classify content. The module supports hierarchical classification and association between terms, allowing for truly flexible information retrieval and classification. The taxonomy module allows multiple lists of categories for classification (controlled vocabularies) and offers the possibility of creating thesauri (controlled vocabularies that indicate the relationship of terms) and taxonomies (controlled vocabularies where relationships are indicated hierarchically). To view and manage the terms of each vocabulary, click on the associated <em>list terms</em> link. To delete a vocabulary and all its terms, choose <em>edit vocabulary.</em>"
+msgstr ""
+
+#: modules/taxonomy.module:1309
+msgid "A controlled vocabulary is a set of terms to use for describing content (known as descriptors in indexing lingo). Drupal allows you to describe each piece of content (blog, story, etc.) using one or many of these terms. For simple implementations, you might create a set of categories without subcategories, similar to Slashdot's sections. For more complex implementations, you might create a hierarchical list of categories."
+msgstr ""
+
+#: modules/taxonomy.module:1310
+msgid ""
+"<p>You can</p>\n"
+"<ul>\n"
+"<li>add a vocabulary at <a href=\"%admin-taxonomy-add-vocabulary\">administer &gt;&gt; categories &gt;&gt;  add vocabulary</a>.</li>\n"
+"<li>administer taxonomy at <a href=\"%admin-taxonomy\">administer &gt;&gt; categories</a>.</li>\n"
+"<li>restrict content access by category for specific users roles using the <a href=\"%external-http-drupal-org-project-taxonomy_access\">taxonomy access module</a>.</li>\n"
+"<li>build a custom view of your categories using the <a href=\"%external-http-drupal-org-project-taxonomy_browser\">taxonomy browser</a>.</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: modules/taxonomy.module:1318
+msgid "For more information please read the configuration and customization handbook <a href=\"%taxonomy\">Taxonomy page</a>."
+msgstr ""
+
+#: modules/taxonomy.module:1321
+msgid "Enables the categorization of content."
+msgstr "Podpora kategorizácie obsahu."
+
+#: modules/taxonomy.module:1323
+msgid "<p>The taxonomy module allows you to classify content into categories and subcategories; it allows multiple lists of categories for classification (controlled vocabularies) and offers the possibility of creating thesauri (controlled vocabularies that indicate the relationship of terms), taxonomies (controlled vocabularies where relationships are indicated hierarchically), and free vocabularies where terms, or tags, are defined during content creation. To view and manage the terms of each vocabulary, click on the associated <em>list terms</em> link. To delete a vocabulary and all its terms, choose \"edit vocabulary\".</p>"
+msgstr ""
+
+#: modules/taxonomy.module:1325
+msgid "<p>When you create a controlled vocabulary you are creating a set of terms to use for describing content (known as descriptors in indexing lingo).  Drupal allows you to describe each piece of content (blog, story, etc.) using one or many of these terms. For simple implementations, you might create a set of categories without subcategories, similar to Slashdot.org's or Kuro5hin.org's sections. For more complex implementations, you might create a hierarchical list of categories.</p>"
+msgstr ""
+
+#: modules/taxonomy.module:13
+msgid "administer taxonomy"
+msgstr ""
+

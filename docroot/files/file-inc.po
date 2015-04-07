@@ -1,0 +1,98 @@
+# Slovak translation of SEM Dolný Kubín
+# Copyright (c) 2006 mirek <mirek.binas@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal CMS 4.7\n"
+"POT-Creation-Date: 2005-06-30 11:06+0200\n"
+"PO-Revision-Date: 2006-09-06 21:34+0100\n"
+"Last-Translator: mirek <mirek@host.sk>\n"
+"Language-Team: Slovak <mirek.binas@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n>=2 && n<=4 ? 1 : 2;\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: includes/file.inc:92
+msgid "The directory %directory has been created."
+msgstr ""
+
+#: includes/file.inc:97
+msgid "The directory %directory does not exist."
+msgstr ""
+
+#: includes/file.inc:106
+msgid "The permissions of directory %directory have been changed to make it writable."
+msgstr ""
+
+#: includes/file.inc:109
+msgid "The directory %directory is not writable"
+msgstr ""
+
+#: includes/file.inc:110
+msgid "The directory %directory is not writable, because it does not have the correct permissions set."
+msgstr ""
+
+#: includes/file.inc:121
+msgid "Security warning: Couldn't write .htaccess file. Please create a .htaccess file in your %directory directory which contains the following lines: <code>%htaccess</code>"
+msgstr ""
+
+#: includes/file.inc:207
+msgid "The file %file could not be saved, because it exceeds the maximum allowed size for uploads."
+msgstr ""
+
+#: includes/file.inc:212
+msgid "The file %file could not be saved, because the upload did not complete."
+msgstr ""
+
+#: includes/file.inc:217
+msgid "The file %file could not be saved. An unknown error has occurred."
+msgstr ""
+
+#: includes/file.inc:240
+msgid "File upload error. Could not move uploaded file."
+msgstr ""
+
+#: includes/file.inc:241
+msgid "Upload Error. Could not move uploaded file(%file) to destination(%destination)."
+msgstr ""
+
+#: includes/file.inc:321
+msgid "The selected file %file could not be uploaded, because the destination %directory is not properly configured."
+msgstr ""
+
+#: includes/file.inc:322
+msgid "The selected file %file could not not be uploaded, because the destination %directory could not be found, or because its permissions do not allow the file to be written."
+msgstr ""
+
+#: includes/file.inc:337
+msgid "The selected file %file could not be copied, because no file by that name exists.  Please check that you supplied the correct filename."
+msgstr ""
+
+#: includes/file.inc:369
+msgid "The selected file %file could not be copied, because a file by that name already exists in the destination."
+msgstr ""
+
+#: includes/file.inc:375
+msgid "The selected file %file could not be copied."
+msgstr ""
+
+#: includes/file.inc:424
+msgid "The removal of the original file %file has failed."
+msgstr ""
+
+#: includes/file.inc:527
+msgid "The file could not be created."
+msgstr ""
+
+#: includes/file.inc:110;322
+msgid "file system"
+msgstr "súborový systém"
+
+#: includes/file.inc:241
+msgid "file"
+msgstr "súbor"
+

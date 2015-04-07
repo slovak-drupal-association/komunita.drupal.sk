@@ -1,0 +1,675 @@
+# Slovak translation of Drupal (6.8)
+# Copyright (c) 2009 by the Slovak translation team
+# Generated from files:
+#  taxonomy.module,v 1.414.2.5 2008/09/17 12:55:37 goba
+#  taxonomy.admin.inc,v 1.22.2.2 2008/10/08 14:23:59 goba
+#  taxonomy.install,v 1.7 2008/01/08 07:46:41 goba
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal (6.8)\n"
+"POT-Creation-Date: 2009-01-04 11:20+0100\n"
+"PO-Revision-Date: 2008-12-20 19:05+0100\n"
+"Language-Team: Slovak\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((n==1)?(0):(((n>=2)&&(n<=4))?(1):2));\n"
+
+#: modules/taxonomy/taxonomy.module:128
+msgid "Add vocabulary"
+msgstr "Pridať slovník"
+
+#: modules/taxonomy/taxonomy.module:138
+msgid "Edit vocabulary"
+msgstr "Upraviť slovník"
+
+#: modules/taxonomy/taxonomy.module:147
+msgid "Edit term"
+msgstr "Upraviť termín"
+
+#: modules/taxonomy/taxonomy.module:155
+msgid "Taxonomy term"
+msgstr "Termín taxonómie"
+
+#: modules/taxonomy/taxonomy.module:164
+msgid "Autocomplete taxonomy"
+msgstr "Automatické dokončovanie taxonómie"
+
+#: modules/taxonomy/taxonomy.module:171
+msgid "List terms"
+msgstr "Zoznam termínov"
+
+#: modules/taxonomy/taxonomy.module:186
+msgid "Add term"
+msgstr "Pridať termín"
+
+#: modules/taxonomy/taxonomy.admin.inc:29
+msgid "edit vocabulary"
+msgstr "upraviť slovník"
+
+#: modules/taxonomy/taxonomy.admin.inc:30
+msgid "list terms"
+msgstr "Zoznam termínov"
+
+#: modules/taxonomy/taxonomy.admin.inc:31
+msgid "add terms"
+msgstr "Pridať termíny"
+
+#: modules/taxonomy/taxonomy.admin.inc:409
+msgid "No terms available."
+msgstr "Nie sú k dispozícii žiadne termíny."
+
+#: modules/taxonomy/taxonomy.admin.inc:122
+msgid "Vocabulary name"
+msgstr "Názov slovníka"
+
+#: modules/taxonomy/taxonomy.admin.inc:131
+msgid "Description of the vocabulary; can be used by modules."
+msgstr "Popis tohto slovníka; môžu ho využívať niektoré moduly."
+
+#: modules/taxonomy/taxonomy.admin.inc:134
+msgid "Help text"
+msgstr "Text pomocníka"
+
+#: modules/taxonomy/taxonomy.admin.inc:696
+msgid "Related terms"
+msgstr "Príbuzné termíny"
+
+#: modules/taxonomy/taxonomy.admin.inc:161
+msgid "Multiple select"
+msgstr "Viacnásobný výber"
+
+#: modules/taxonomy/taxonomy.admin.inc:203,202
+msgid "Created new vocabulary %name."
+msgstr "Vytvorený nový slovník %name."
+
+#: modules/taxonomy/taxonomy.admin.inc:207,206
+msgid "Updated vocabulary %name."
+msgstr "Slovník %name aktualizovaný."
+
+#: modules/taxonomy/taxonomy.admin.inc:873
+msgid "Are you sure you want to delete the vocabulary %title?"
+msgstr "Naozaj chcete odstrániť slovník %title?"
+
+#: modules/taxonomy/taxonomy.admin.inc:876
+msgid ""
+"Deleting a vocabulary will delete all the terms in it. This action cannot be "
+"undone."
+msgstr ""
+"Pri odstránení slovníka sa odstránia taktiež všetky jeho termíny. Tento krok "
+"už nemožno vrátiť späť."
+
+#: modules/taxonomy/taxonomy.admin.inc:889,888
+msgid "Deleted vocabulary %name."
+msgstr "Slovník %name bol odstránený."
+
+#: modules/taxonomy/taxonomy.admin.inc:663
+msgid "Term name"
+msgstr "Názov termínu"
+
+#: modules/taxonomy/taxonomy.admin.inc:666
+msgid "The name of this term."
+msgstr "Názov tohto termínu."
+
+#: modules/taxonomy/taxonomy.install:35
+msgid "A description of the term."
+msgstr "Popis termínu."
+
+#: modules/taxonomy/taxonomy.admin.inc:695
+msgid "Parents"
+msgstr "Rodičia"
+
+#: modules/taxonomy/taxonomy.admin.inc:695
+msgid "Parent terms"
+msgstr "Nadradené termíny"
+
+#: modules/taxonomy/taxonomy.admin.inc:700
+msgid "Synonyms"
+msgstr "Synonymá"
+
+#: modules/taxonomy/taxonomy.admin.inc:769,768
+msgid "Created new term %term."
+msgstr "Vytvorený nový termín %term."
+
+#: modules/taxonomy/taxonomy.admin.inc:773,772
+msgid "Updated term %term."
+msgstr "Aktualizovaný termín %term."
+
+#: modules/taxonomy/taxonomy.admin.inc:838
+msgid "Are you sure you want to delete the term %title?"
+msgstr "Naozaj chcete odstrániť termín %title?"
+
+#: modules/taxonomy/taxonomy.admin.inc:841
+msgid ""
+"Deleting a term will delete all its children if there are any. This action "
+"cannot be undone."
+msgstr ""
+"Pri odstránení termínu sa odstránia aj všetky podriadené termíny. Tento krok "
+"už nemožno vrátiť späť."
+
+#: modules/taxonomy/taxonomy.admin.inc:855,854
+msgid "Deleted term %name."
+msgstr "Termín %name bol odstránený."
+
+#: modules/taxonomy/taxonomy.module:422
+msgid "- None selected -"
+msgstr "- Žiadne vybrané -"
+
+#: modules/taxonomy/taxonomy.module:425
+msgid "- None -"
+msgstr "- Žiadne -"
+
+#: modules/taxonomy/taxonomy.module:521
+msgid ""
+"A comma-separated list of terms describing this content. Example: funny, "
+"bungee jumping, \"Company, Inc.\"."
+msgstr ""
+"Čiarkou oddelený zoznam termínov, ktoré popisujú tento obsah (napr.: zábava, "
+"bungee jumping, \"Spoločnosť, s.r.o.\")."
+
+#: modules/taxonomy/taxonomy.module:639
+msgid "The %name vocabulary can not be modified in this way."
+msgstr "Slovník %name nie je možné takto upraviť."
+
+#: modules/taxonomy/taxonomy.module:1138
+msgid "There are currently no posts in this category."
+msgstr "V tejto kategórii nie sú žiadne príspevky."
+
+#: modules/taxonomy/taxonomy.module:13
+msgid "administer taxonomy"
+msgstr "administrácia taxonómie"
+
+#: modules/taxonomy/taxonomy.admin.inc:85
+msgid "No vocabularies available."
+msgstr "Nebol vytvorený žiadny slovník."
+
+#: modules/taxonomy/taxonomy.admin.inc:148
+msgid "Select content types to categorize using this vocabulary."
+msgstr "Vyberte typy obsahov určených pre kategorizáciu v tomto slovníku."
+
+#: modules/taxonomy/taxonomy.admin.inc:156
+msgid "Tags"
+msgstr "Značky"
+
+#: modules/taxonomy/taxonomy.admin.inc:158
+msgid ""
+"Terms are created by users when submitting posts by typing a comma separated "
+"list."
+msgstr ""
+"Termíny vytvoria používatelia pri odoslaní príspevku. Napíšu ich do zoznamu "
+"a jednotlivé termíny oddelia čiarkou."
+
+#: modules/taxonomy/taxonomy.admin.inc:163
+msgid ""
+"Allows posts to have more than one term from this vocabulary (always true "
+"for tags)."
+msgstr ""
+"Umožňuje aby príspevky patrili aj do viacerých termínov z tohto slovníka "
+"(vždy, ak ide o značky)."
+
+#: modules/taxonomy/taxonomy.admin.inc:168
+msgid ""
+"At least one term in this vocabulary must be selected when submitting a post."
+msgstr ""
+"Minimálne jeden termín zo slovníka musíte vybrať ak chcete príspevok "
+"uverejniť."
+
+#: modules/taxonomy/taxonomy.admin.inc:173
+msgid "Vocabularies are displayed in ascending order by weight."
+msgstr "Slovníky sú zoradené vzostupne podľa váhy."
+
+#: modules/taxonomy/taxonomy.admin.inc:254
+msgid "Terms in %vocabulary"
+msgstr "Termíny v %vocabulary"
+
+#: modules/taxonomy/taxonomy.admin.inc:912,445,418
+msgid "Reset to alphabetical"
+msgstr "Znovu nastaviť na abecedný"
+
+#: modules/taxonomy/taxonomy.admin.inc:624
+msgid "Add term to %vocabulary"
+msgstr "Pridať termín do %vocabulary"
+
+#: modules/taxonomy/taxonomy.admin.inc:672
+msgid ""
+"A description of the term. To be displayed on taxonomy/term pages and RSS "
+"feeds."
+msgstr "Popis termínu. Bude zobrazený v taxonomy/term a v RSS."
+
+#: modules/taxonomy/taxonomy.admin.inc:702
+msgid "Synonyms of this term, one synonym per line."
+msgstr "Synonymá pre tento termín. Jedno synonymum v jednom riadku."
+
+#: modules/taxonomy/taxonomy.admin.inc:708
+msgid "Terms are displayed in ascending order by weight."
+msgstr "Termíny budú zobrazené vzostupne podľa váhy."
+
+#: modules/taxonomy/taxonomy.admin.inc:739
+msgid "Weight value must be numeric."
+msgstr "Váha musí byť číslo."
+
+#: modules/taxonomy/taxonomy.admin.inc:818
+msgid "Set multiple term parents?"
+msgstr "Nastaviť viacerých rodičov pre termín?"
+
+#: modules/taxonomy/taxonomy.admin.inc:819
+msgid ""
+"Adding multiple parents to a term will cause the %vocabulary vocabulary to "
+"look for multiple parents on every term. Because multiple parents are not "
+"supported when using the drag and drop outline interface, drag and drop will "
+"be disabled if you enable this option. If you choose to have multiple "
+"parents, you will only be able to set parents by using the term edit form."
+msgstr ""
+"Pridanie viacnásobných rodičov k termínu spôsobí, že %vocabulary slovník "
+"bude hľadať viacnásobných rodičov pre každý termín. Pretože viacnásobní "
+"rodičia nie sú podporovaní, pokiaľ používate rozhranie ťahaj&pusť, toto sa "
+"vypne, ak zvolíte túto možnosť. Ak zvolíte viacnásobných rodičov, budete mať "
+"možnosť nastavovať rodičov iba cez formulár úprav."
+
+#: modules/taxonomy/taxonomy.admin.inc:820
+msgid ""
+"You may re-enable the drag and drop interface at any time by reducing "
+"multiple parents to a single parent for the terms in this vocabulary."
+msgstr ""
+"Je možné kedykoľvek znovu povoliť rozhranie ťahaj&pusť vypnutím "
+"viacnásobných rodičov pre termíny v slovníku."
+
+#: modules/taxonomy/taxonomy.admin.inc:821
+msgid "Set multiple parents"
+msgstr "Nastaviť viacerých rodičov"
+
+#: modules/taxonomy/taxonomy.admin.inc:908
+msgid ""
+"Are you sure you want to reset the vocabulary %title to alphabetical order?"
+msgstr "Naozaj chcete zoradiť slovník %title podľa abecedy?"
+
+#: modules/taxonomy/taxonomy.admin.inc:911
+msgid ""
+"Resetting a vocabulary will discard all custom ordering and sort items "
+"alphabetically."
+msgstr ""
+"Znovu nastavenie slovníka odstráni vaše vlastné zoradenia a zoradí položky "
+"abecedne."
+
+#: modules/taxonomy/taxonomy.admin.inc:924,923
+msgid "Reset vocabulary %name to alphabetical order."
+msgstr "Znovu nastaviť slovník %name na abecedné poradie."
+
+#: modules/taxonomy/taxonomy.module:552
+msgid "Vocabularies"
+msgstr "Slovníky"
+
+#: modules/taxonomy/taxonomy.module:1241
+msgid ""
+"The taxonomy module allows you to categorize content using various systems "
+"of classification. Free-tagging vocabularies are created by users on the fly "
+"when they submit posts (as commonly found in blogs and social bookmarking "
+"applications). Controlled vocabularies allow for administrator-defined short "
+"lists of terms as well as complex hierarchies with multiple relationships "
+"between different terms. These methods can be applied to different content "
+"types and combined together to create a powerful and flexible method of "
+"classifying and presenting your content."
+msgstr ""
+"Modul Taxonomy umožňuje triediť obsah do kategórií a podkategórií.  Slovníky "
+"s voľným označovaním sú vytvárané samotnými používateľmi priebežne pri "
+"vkladaní príspevkov (tak, ako to býva v blogoch a aplikáciách pre komunity). "
+"Riadené slovníky umožňujú používať iba správcom preddefinovaný krátky zoznam "
+"termínov ale i komplexné hierarchie s mnohými väzbami medzi rôznymi "
+"termínmi. Tieto metódy sa dajú využiť pre rôzne typy obsahu a navzájom ich "
+"kombinovať, čo umožňuje vytvoriť výkonné a flexibilné metódy pre "
+"kategorizovanie a prezentovanie obsahu."
+
+#: modules/taxonomy/taxonomy.module:1242
+msgid ""
+"For example, when creating a recipe site, you might want to classify posts "
+"by both the type of meal and preparation time. A vocabulary for each allows "
+"you to categorize using each criteria independently instead of creating a "
+"tag for every possible combination."
+msgstr ""
+"Napríklad: vytvárate web \"kuchárska kniha\" a chcete triediť príspevky "
+"podľa typu jedla a aj podľa času prípravy. Slovník vám umožnuje  triediť "
+"obsah podľa kritérií pre každú túto vlastnosť nezávisle, namiesto vytvárania "
+"značiek pre všetky možné kombinácie."
+
+#: modules/taxonomy/taxonomy.module:1243
+msgid "Type of Meal: <em>Appetizer, Main Course, Salad, Dessert</em>"
+msgstr "Typ jedla: <em>predjedlo, hlavné jedlo, šalát, dezert</em>"
+
+#: modules/taxonomy/taxonomy.module:1244
+msgid "Preparation Time: <em>0-30mins, 30-60mins, 1-2 hrs, 2hrs+</em>"
+msgstr "Čas prípravy: <em>0-30min, 30-60min, 1-2 h, 2h a viac</em>"
+
+#: modules/taxonomy/taxonomy.module:1245
+msgid ""
+"Each taxonomy term (often called a 'category' or 'tag' in other systems) "
+"automatically provides lists of posts and a corresponding RSS feed. These "
+"taxonomy/term URLs can be manipulated to generate AND and OR lists of posts "
+"classified with terms. In our recipe site example, it then becomes easy to "
+"create pages displaying 'Main courses', '30 minute recipes', or '30 minute "
+"main courses and appetizers' by using terms on their own or in combination "
+"with others. There are a significant number of contributed modules which you "
+"to alter and extend the behavior of the core module for both display and "
+"organization of terms."
+msgstr ""
+"Každý termín taxonómie (v iných systémoch často nazývaný 'kategória‘ alebo "
+"'značka‘) automaticky poskytuje zoznam príspevkov a súvisiaci RSS zdroj. "
+"Tieto URL taxonómie/termínu môžu byť nastavené ku generovaniu AND alebo OR "
+"zoznamov príspevkov triedených podľa termínov. V našom príklade s "
+"kuchárskymi recepty je možné jednoducho zobraziť 'hlavné chody', 'recepty na "
+"30 minút' alebo 'predjedlá a hlavné chody na 30 minút' pomocou jednotlivých "
+"termínov alebo ich vzájomných kombinácií. Existuje značné množstvo modulov, "
+"ktoré môžu zmeniť a rozšíriť funkcie tohto modulu jadra pre zobrazovanie a "
+"organizáciu termínov."
+
+#: modules/taxonomy/taxonomy.module:1246
+msgid ""
+"Terms can also be organized in parent/child relationships from the admin "
+"interface. An example would be a vocabulary grouping countries under their "
+"parent geo-political regions. The taxonomy module also enables advanced "
+"implementations of hierarchy, for example placing Turkey in both the 'Middle "
+"East' and 'Europe'."
+msgstr ""
+"Termíny môžu byť tiež organizované v administračnom rozhraní do vzťahov "
+"rodič/nasledovník. Takto možno napr. vytvoriť slovník triediaci zeme podľa "
+"ich geopolitického regionu. Modul taxonomy umožňuje pokročilé vytváranie "
+"hierarchií, napr. umiestnenie Turecka zároveň do oblasti ‚Blízky východ‘ aj "
+"‚Európa‘."
+
+#: modules/taxonomy/taxonomy.module:1247
+msgid ""
+"The taxonomy module supports the use of both synonyms and related terms, but "
+"does not directly use this functionality. However, optional contributed or "
+"custom modules may make full use of these advanced features."
+msgstr ""
+"Modul taxonomy podporuje používanie synoným a príbuzných termínov, ale túto "
+"funkciu nepoužíva priamo, avšak ďalšie podporované alebo vaše vlastné moduly "
+"môžu túto rozšírujúcu funkciu naplno využiť."
+
+#: modules/taxonomy/taxonomy.module:1248
+msgid ""
+"For more information, see the online handbook entry for <a href=\"@taxonomy"
+"\">Taxonomy module</a>."
+msgstr ""
+"Ďalšie informácie sa dozviete v online príručke v kapitole <a href=\"@filter"
+"\">modul Taxonomy</a>."
+
+#: modules/taxonomy/taxonomy.module:1251
+msgid ""
+"The taxonomy module allows you to categorize your content using both tags "
+"and administrator defined terms. It is a flexible tool for classifying "
+"content with many advanced features. To begin, create a 'Vocabulary' to hold "
+"one set of terms or tags. You can create one free-tagging vocabulary for "
+"everything, or separate controlled vocabularies to define the various "
+"properties of your content, for example 'Countries' or 'Colors'."
+msgstr ""
+"Modul Taxonomy umožňuje kategorizovať obsah s využitím označení aj "
+"administrátorom definovaných termínov. Je to flexibilný nástroj na triedenie "
+"obsahu s mnohými funkciami. Najprv vytvorte 'Slovník', ktorý bude obsahovať "
+"niekoľko termínov. Môžete vytvoriť jeden slovník s voľnými označeniami pre "
+"všetko, alebo vytvoriť niekoľko kontrolovaných slovníkov, do ktorých "
+"zadefinujete rôzne vlastnosti obsahu, napr. 'Krajiny', 'Farby'."
+
+#: modules/taxonomy/taxonomy.module:1257
+msgid ""
+"%capital_name is a free-tagging vocabulary. To change the name or "
+"description of a term, click the <em>edit</em> link next to the term."
+msgstr ""
+"%capital_name je slovník pre free-tagging. Pre zmenu mena alebo popisu "
+"termínu je treba kliknúť na odkaz <em>upraviť</em> vedľa termínu."
+
+#: modules/taxonomy/taxonomy.module:1261
+msgid ""
+"%capital_name is a flat vocabulary. You may organize the terms in the %name "
+"vocabulary by using the handles on the left side of the table. To change the "
+"name or description of a term, click the <em>edit</em> link next to the term."
+msgstr ""
+"%capital_name je slovník bez hierarchie. Termíny v slovníku %name môžete "
+"organizovať pomocou značiek na ľavej strane tabuľky. Pre zmenu mena alebo "
+"popisu termínu je treba kliknúť na odkaz <em>upraviť</em> vedľa termínu."
+
+#: modules/taxonomy/taxonomy.module:1263
+msgid ""
+"%capital_name is a single hierarchy vocabulary. You may organize the terms "
+"in the %name vocabulary by using the handles on the left side of the table. "
+"To change the name or description of a term, click the <em>edit</em> link "
+"next to the term."
+msgstr ""
+"%capital_name je slovník s jednoduchou hierarchiou. Termíny v slovníku %name "
+"môžete organizovať pomocou značiek na ľavej strane tabuľky. Pre zmenu mena "
+"alebo popisu termínu je treba kliknúť na odkaz <em>upraviť</em> vedľa "
+"termínu."
+
+#: modules/taxonomy/taxonomy.module:1265
+msgid ""
+"%capital_name is a multiple hierarchy vocabulary. To change the name or "
+"description of a term, click the <em>edit</em> link next to the term. Drag "
+"and drop of multiple hierarchies is not supported, but you can re-enable "
+"drag and drop support by editing each term to include only a single parent."
+msgstr ""
+"%capital_name je slovník s viacnásobnou hierarchiou. Termíny v slovníku %"
+"name môžete organizovať pomocou značiek na ľavej strane tabuľky. Pre zmenu "
+"mena alebo popisu termínu je treba kliknúť na odkaz <em>upraviť</em> vedľa "
+"termínu. Drag and drop nie je pre viacnásobnú hierarchiu podporovaný, ale "
+"môžete ho znovu povoliť vypnutím viacnásobnej hierarchie."
+
+#: modules/taxonomy/taxonomy.module:1268
+msgid ""
+"Define how your vocabulary will be presented to administrators and users, "
+"and which content types to categorize with it. Tags allows users to create "
+"terms when submitting posts by typing a comma separated list. Otherwise "
+"terms are chosen from a select list and can only be created by users with "
+"the \"administer taxonomy\" permission."
+msgstr ""
+"Nastavuje zobrazovanie slovníka administrátorom a používateľom a typ obsahu, "
+"ktorý je možné týmto slovníkom triediť. Značky umožňujú používateľom "
+"vytváranie termínov pri vkladaní príspevkov uvedením zoznamu čiarkou "
+"oddelených značiek. Inak sa termíny vyberajú zo zoznamu a môžu ich vytvárať "
+"iba používatelia s oprávnením „administrovať taxonómiu“."
+
+#: modules/taxonomy/taxonomy.module:114
+msgid "Manage tagging, categorization, and classification of your content."
+msgstr "Správa označovania, kategorizácie a triedenie obsahu."
+
+#: modules/taxonomy/taxonomy.install:9
+msgid "Stores term information."
+msgstr "Ukladá informácie o výrazoch."
+
+#: modules/taxonomy/taxonomy.install:15
+msgid "Primary Key: Unique term ID."
+msgstr "Primárny kľúč: Jedinečné ID termínu."
+
+#: modules/taxonomy/taxonomy.install:22
+msgid "The {vocabulary}.vid of the vocabulary to which the term is assigned."
+msgstr "{vocabulary}.vid slovníka, ku ktorému je termín priradený."
+
+#: modules/taxonomy/taxonomy.install:29
+msgid "The term name."
+msgstr "Meno termínu."
+
+#: modules/taxonomy/taxonomy.install:42
+msgid "The weight of this term in relation to other terms."
+msgstr "Váha termínu v pomere k iným termínom."
+
+#: modules/taxonomy/taxonomy.install:53
+msgid "Stores the hierarchical relationship between terms."
+msgstr "Ukladá hierarchické vzťahy medzi výrazmi."
+
+#: modules/taxonomy/taxonomy.install:60
+msgid "Primary Key: The {term_data}.tid of the term."
+msgstr "Primárny kľúč: {term_data}.tid termínu."
+
+#: modules/taxonomy/taxonomy.install:67
+msgid ""
+"Primary Key: The {term_data}.tid of the term's parent. 0 indicates no parent."
+msgstr "Primárny kľúč: {term_data}.tid rodiča termínu. 0 znamená bez rodiča."
+
+#: modules/taxonomy/taxonomy.install:77
+msgid "Stores the relationship of terms to nodes."
+msgstr "Ukladá vzťahy výrazov k uzlom."
+
+#: modules/taxonomy/taxonomy.install:84
+msgid "Primary Key: The {node}.nid of the node."
+msgstr "Primárny kľúč: {node}.nid uzla."
+
+#: modules/taxonomy/taxonomy.install:98
+msgid "Primary Key: The {term_data}.tid of a term assigned to the node."
+msgstr "Primárny kľúč: {term_data}.tid termínu priradeného uzla."
+
+#: modules/taxonomy/taxonomy.install:109
+msgid "Stores non-hierarchical relationships between terms."
+msgstr "Uchováva nehierarchické vzťahy medzi termínmy."
+
+#: modules/taxonomy/taxonomy.install:114
+msgid "Primary Key: Unique term relation ID."
+msgstr "Primárny kľúč: Jedinečné ID príbuzného termínu."
+
+#: modules/taxonomy/taxonomy.install:121
+msgid "The {term_data}.tid of the first term in a relationship."
+msgstr "{term_data}.tid prvý termín vo vzťahu."
+
+#: modules/taxonomy/taxonomy.install:128
+msgid "The {term_data}.tid of the second term in a relationship."
+msgstr "{term_data}.tid druhého termínu vo vzťahu."
+
+#: modules/taxonomy/taxonomy.install:141
+msgid "Stores term synonyms."
+msgstr "Ukladá synonymné výrazy."
+
+#: modules/taxonomy/taxonomy.install:146
+msgid "Primary Key: Unique term synonym ID."
+msgstr "Primárny kľúč: Jedinečné ID synonyma."
+
+#: modules/taxonomy/taxonomy.install:153
+msgid "The {term_data}.tid of the term."
+msgstr "{term_data}.tid termínu."
+
+#: modules/taxonomy/taxonomy.install:160
+msgid "The name of the synonym."
+msgstr "Názov synonyma."
+
+#: modules/taxonomy/taxonomy.install:171
+msgid "Stores vocabulary information."
+msgstr "Ukladá informácie o slovníku."
+
+#: modules/taxonomy/taxonomy.install:177
+msgid "Primary Key: Unique vocabulary ID."
+msgstr "Primárny kľúč: Jedinečné ID slovníka."
+
+#: modules/taxonomy/taxonomy.install:184
+msgid "Name of the vocabulary."
+msgstr "Meno slovníka."
+
+#: modules/taxonomy/taxonomy.install:190
+msgid "Description of the vocabulary."
+msgstr "Popis slovníka."
+
+#: modules/taxonomy/taxonomy.install:197
+msgid "Help text to display for the vocabulary."
+msgstr "Text pomocníka pre slovník."
+
+#: modules/taxonomy/taxonomy.install:205
+msgid ""
+"Whether or not related terms are enabled within the vocabulary. (0 = "
+"disabled, 1 = enabled)"
+msgstr ""
+"Či sú alebo nie sú v rámci slovníka povolené príbuzné termíny. (0 = vypnuté, "
+"1 = zapnuté)"
+
+#: modules/taxonomy/taxonomy.install:213
+msgid ""
+"The type of hierarchy allowed within the vocabulary. (0 = disabled, 1 = "
+"single, 2 = multiple)"
+msgstr ""
+"Typ hierarchie v slovníku. (0 = žiadna, 1 = jednoduchá, 2 = viacnásobná)"
+
+#: modules/taxonomy/taxonomy.install:221
+msgid ""
+"Whether or not multiple terms from this vocabulary may be assigned to a "
+"node. (0 = disabled, 1 = enabled)"
+msgstr ""
+"Či je alebo nie je dovolené jednému uzlu priradiť viacero termínov z tohto "
+"slovníka. (0 = vypnuté, 1 = zapnuté)"
+
+#: modules/taxonomy/taxonomy.install:229
+msgid ""
+"Whether or not terms are required for nodes using this vocabulary. (0 = "
+"disabled, 1 = enabled)"
+msgstr ""
+"Či sú alebo nie sú pre uzly vyžadované termíny používajúce tento slovník. (0 "
+"= vypnuté, 1 = zapnuté)"
+
+#: modules/taxonomy/taxonomy.install:237
+msgid ""
+"Whether or not free tagging is enabled for the vocabulary. (0 = disabled, 1 "
+"= enabled)"
+msgstr ""
+"Či je alebo nie je povolené voľné označovanie pre tento slovník. (0 = "
+"vypnuté, 1 = zapnuté)"
+
+#: modules/taxonomy/taxonomy.install:244
+msgid "The module which created the vocabulary."
+msgstr "Modul, ktorý vytvára slovník."
+
+#: modules/taxonomy/taxonomy.install:251
+msgid "The weight of the vocabulary in relation to other vocabularies."
+msgstr "Váha slovníka vzhľadom k ostatným slovníkom."
+
+#: modules/taxonomy/taxonomy.install:261
+msgid "Stores which node types vocabularies may be used with."
+msgstr "Ukladá typy uzlov, ktoré môžu byť použité v slovníkoch."
+
+#: modules/taxonomy/taxonomy.install:268
+msgid "Primary Key: the {vocabulary}.vid of the vocabulary."
+msgstr "Primárny kľúč:{vocabulary}.vid slovníka."
+
+#: modules/taxonomy/taxonomy.install:275
+msgid "The {node}.type of the node type for which the vocabulary may be used."
+msgstr "{node}.type typu uzla, pre ktorý môže byť použitý slovník."
+
+#: modules/taxonomy/taxonomy.module:1252
+msgid ""
+"Use the list below to configure and review the vocabularies defined on your "
+"site, or to list and manage the terms (tags) they contain. A vocabulary may "
+"(optionally) be tied to specific content types as shown in the <em>Type</em> "
+"column and, if so, will be displayed when creating or editing posts of that "
+"type. Multiple vocabularies tied to the same content type will be displayed "
+"in the order shown below. To change the order of a vocabulary, grab a drag-"
+"and-drop handle under the <em>Name</em> column and drag it to a new location "
+"in the list. (Grab a handle by clicking and holding the mouse while hovering "
+"over a handle icon.) Remember that your changes will not be saved until you "
+"click the <em>Save</em> button at the bottom of the page."
+msgstr ""
+"Nižšie uvedený zoznam vám umožní nastaviť a upraviť slovníky alebo k nim "
+"priradené termíny (tagy) definované na tomto webe. Slovníku môže byť "
+"(volitelne) priradený konkrétny typ obsahu, ako je vidieť ve stĺpci <em>Typ</"
+"em>, a bude zobrazený, keď sa vytvára alebo upravuje príspevok tohoto typu. "
+"Viaceré slovníky zviazané s rovnakým typom obsahu sa zobrazia v nižšie "
+"uvedenom výpise. Poradie slovníkov je možné zmeniť pretiahnutím ovládacieho "
+"prvku v stĺpci <em>Názov</em> do nového umiestnenia v zozname.  (Kliknite na "
+"ovládací prvok a počas presunu držte ľavé tlačidlo myši.) Nezabudnite, že "
+"zmeny se uložia až po stlačení tlačidla <em>Uložiť</em> na spodu stránky."
+
+#: modules/taxonomy/taxonomy.module:1307
+msgid "After saving a new term to the database"
+msgstr "Po uložení nového termínu do databázy."
+
+#: modules/taxonomy/taxonomy.module:1310
+msgid "After saving an updated term to the database"
+msgstr "Po uložení aktualizovaného termínu do databázy."
+
+#: modules/taxonomy/taxonomy.module:1313
+msgid "After deleting a term"
+msgstr "Po vymazaní termínu."
+
+#: modules/taxonomy/taxonomy.admin.inc:125
+msgid "The name for this vocabulary, e.g., <em>\"Tags\"</em>."
+msgstr "Meno tohto slovníka, napr. <em>\"Zaujímavosti\"</em>."
+
+#: modules/taxonomy/taxonomy.admin.inc:137
+msgid ""
+"Instructions to present to the user when selecting terms, e.g., <em>\"Enter "
+"a comma separated list of words\"</em>."
+msgstr ""
+"Pokyny, ktoré sa budú zobrazovať používateľovi pri výbere termínov, tj. <em>"
+"\"Zadajte čiarkou oddelený zoznam slov\"</em>."

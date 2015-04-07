@@ -1,0 +1,214 @@
+# Slovak translation of SEM Dolný Kubín
+# Copyright (c) 2006 mirek <mirek.binas@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal CMS 4.7\n"
+"POT-Creation-Date: 2005-06-30 11:06+0200\n"
+"PO-Revision-Date: 2006-09-06 21:10+0100\n"
+"Last-Translator: mirek <mirek@host.sk>\n"
+"Language-Team: Slovak <mirek.binas@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n>=2 && n<=4 ? 1 : 2;\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: modules/book.module:13;83
+msgid "book page"
+msgstr ""
+
+#: modules/book.module:61
+msgid "add child page"
+msgstr ""
+
+#: modules/book.module:64
+msgid "printer-friendly version"
+msgstr ""
+
+#: modules/book.module:66
+msgid "Show a printer-friendly version of this book page and its sub-pages."
+msgstr ""
+
+#: modules/book.module:87;104
+msgid "books"
+msgstr "knihy"
+
+#: modules/book.module:98
+msgid "orphan pages"
+msgstr ""
+
+#: modules/book.module:123;1001
+msgid "outline"
+msgstr ""
+
+#: modules/book.module:145
+msgid "Book navigation"
+msgstr ""
+
+#: modules/book.module:246
+msgid "The parent section in which to place this page.  Note that each page whose parent is &lt;top-level&gt; is an independent, top-level book."
+msgstr ""
+
+#: modules/book.module:246
+msgid "The parent that this page belongs in."
+msgstr ""
+
+#: modules/book.module:278;308
+msgid "Pages at a given level are ordered first by weight and then by title."
+msgstr ""
+
+#: modules/book.module:302
+msgid "The parent page in the book."
+msgstr ""
+
+#: modules/book.module:313
+msgid "An explanation to help other authors understand your motivations to put this post into the book."
+msgstr ""
+
+#: modules/book.module:319;346
+msgid "Update book outline"
+msgstr ""
+
+#: modules/book.module:322;351
+msgid "Remove from book outline"
+msgstr ""
+
+#: modules/book.module:326;341
+msgid "Add to book outline"
+msgstr ""
+
+#: modules/book.module:344
+msgid "The post has been added to the book."
+msgstr ""
+
+#: modules/book.module:349
+msgid "The book outline has been updated."
+msgstr ""
+
+#: modules/book.module:353
+msgid "The post has been removed from the book."
+msgstr ""
+
+#: modules/book.module:471
+msgid "The post has been submitted for moderation and won't be accessible until it has been approved."
+msgstr ""
+
+#: modules/book.module:521
+msgid "up"
+msgstr ""
+
+#: modules/book.module:521
+msgid "Go to parent page"
+msgstr ""
+
+#: modules/book.module:575
+msgid "top-level"
+msgstr ""
+
+#: modules/book.module:679
+msgid "Unknown export format."
+msgstr ""
+
+#: modules/book.module:913;949
+msgid "Save book pages"
+msgstr ""
+
+#: modules/book.module:955
+msgid "There are no orphan pages."
+msgstr ""
+
+#: modules/book.module:968;0
+msgid "book"
+msgstr "kniha"
+
+#: modules/book.module:975
+msgid "Updated book %title."
+msgstr ""
+
+#: modules/book.module:979
+msgid "Updated orphan book pages."
+msgstr ""
+
+#: modules/book.module:1003
+msgid "Book"
+msgstr "Kniha"
+
+#: modules/book.module:1014
+msgid "The <em>book</em> content type is suited for creating structured, multi-page hypertexts such as site resource guides, manuals, and Frequently Asked Questions (FAQs).  It permits a document to have chapters, sections, subsections, etc.  Authors with suitable permissions can add pages to a collaborative book,  placing them into the existing document by adding them to a table of contents menu. "
+msgstr ""
+
+#: modules/book.module:1015
+msgid "Books have additional <em>previous</em>, <em>up</em>, and <em>next</em> navigation elements at the bottom of each page for moving through the text.  Additional navigation may be provided by enabling the <em>book navigation block</em> on the <a href=\"%admin-block\">block administration page</a>."
+msgstr ""
+
+#: modules/book.module:1016
+msgid "Users can select the <em>printer-friendly version</em> link visible at the bottom of a book page to generate a printer-friendly display of the page and all of its subsections. "
+msgstr ""
+
+#: modules/book.module:1017
+msgid "Administrators can view a book outline, from which is it possible to change the titles of sections, and their <i>weight</i> (thus reordering sections).   From this outline, it is also possible to edit and/or delete book pages.   Many content types besides pages (for example, blog entries, stories, and polls) can be added to a collaborative book by choosing the <em>outline</em> tab when viewing the post."
+msgstr ""
+
+#: modules/book.module:1018
+msgid ""
+"<p>You can</p>\n"
+"<ul>\n"
+"<li>create new book pages: <a href=\"%node-add-book\">create content &gt;&gt; book page</a>.</li>\n"
+"<li>administer individual books (choose a book from list): <a href=\"%admin-node-book\">administer &gt;&gt; content &gt;&gt; books</a>.</li>\n"
+"<li>set workflow and other global book settings on the book configuration page: <a href=\"%admin-settings-content-types-book-page\" title=\"book page content type\">administer &gt;&gt; settings &gt;&gt; content types &gt;&gt; configure book page</a>.</li>\n"
+"<li>enable the book navigation block: <a href=\"%admin-block\">administer &gt;&gt; blocks</a>.</li>\n"
+"<li>control who can create, edit, and outline posts in books by setting access permissions: <a href=\"%admin-access\">administer &gt;&gt; access control</a>.</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: modules/book.module:1027
+msgid "For more information please read the configuration and customization handbook <a href=\"%book\">Book page</a>."
+msgstr ""
+
+#: modules/book.module:1030
+msgid "Allows users to collaboratively author a book."
+msgstr ""
+
+#: modules/book.module:1032
+msgid "<p>The book module offers a means to organize content, authored by many users, in an online manual, outline or FAQ.</p>"
+msgstr ""
+
+#: modules/book.module:1034
+msgid "<p>Pages in a book are like a tree. As pages are edited, reorganized and removed, child pages might be left with no link to the rest of the book.  Such pages are referred to as \"orphan pages\".  On this page, administrators can review their books for orphans and reattach those pages as desired.</p>"
+msgstr ""
+
+#: modules/book.module:1036
+msgid "A book is a collaborative writing effort: users can collaborate writing the pages of the book, positioning the pages in the right order, and reviewing or modifying pages previously written.  So when you have some information to share or when you read a page of the book and you didn't like it, or if you think a certain page could have been written better, you can do something about it."
+msgstr ""
+
+#: modules/book.module:1040
+msgid "The outline feature allows you to include posts in the <a href=\"%book\">book hierarchy</a>."
+msgstr ""
+
+#: modules/book.module:20
+msgid "outline posts in books"
+msgstr ""
+
+#: modules/book.module:20
+msgid "create book pages"
+msgstr ""
+
+#: modules/book.module:20
+msgid "create new books"
+msgstr ""
+
+#: modules/book.module:20
+msgid "edit book pages"
+msgstr ""
+
+#: modules/book.module:20
+msgid "edit own book pages"
+msgstr ""
+
+#: modules/book.module:20
+msgid "see printer-friendly version"
+msgstr ""
+

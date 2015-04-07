@@ -1,0 +1,301 @@
+# Slovak translation of SEM Dolný Kubín
+# Copyright (c) 2006 mirek <mirek.binas@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal CMS 4.7\n"
+"POT-Creation-Date: 2005-06-30 11:06+0200\n"
+"PO-Revision-Date: 2006-09-07 03:34+0100\n"
+"Last-Translator: mirek <mirek@host.sk>\n"
+"Language-Team: www.drupal.sk <mirek.binas@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n>=2 && n<=4 ? 1 : 2;\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: modules/profile.module:23
+msgid "The profile module allows you to define custom fields (such as country, real name, age, ...) in the user profile. This permits users of a site to share more information about themselves, and can help community-based sites to organize users around profile fields."
+msgstr ""
+
+#: modules/profile.module:24
+msgid ""
+"<p>The following types of fields can be added to the user profile:</p>\n"
+"<ul>\n"
+"<li>single-line textfield</li>\n"
+"<li>multi-line textfield</li>\n"
+"<li>checkbox</li>\n"
+"<li>list selection</li>\n"
+"<li>freeform list</li>\n"
+"<li>URL</li>\n"
+"<li>date</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: modules/profile.module:35
+msgid ""
+"<p>You can</p>\n"
+"<ul>\n"
+"<li>view user <a href=\"%profile\">profiles</a>.</li>\n"
+"<li>administer profile settings: <a href=\"%admin-settings-profile\">administer &gt;&gt; settings &gt;&gt; profiles</a>.</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: modules/profile.module:41
+msgid "For more information please read the configuration and customization handbook <a href=\"%profile\">Profile page</a>."
+msgstr ""
+
+#: modules/profile.module:44
+msgid "Supports configurable user profiles."
+msgstr "Podpora konfigurovateľných používateľských profilov."
+
+#: modules/profile.module:46
+msgid "<p>Here you can define custom fields that users can fill in in their user profile (such as <em>country</em>, <em>real name</em>, <em>age</em>, ...).</p>"
+msgstr "<p>Na tomto mieste si môžete zadefinovať vlastné políčka, ktoré môže používateľ vyplniť vo svojom profile (napr.: <em>krajina</em>, <em>meno a priezvisko</em>, <em>vek</em>, ...).</p>"
+
+#: modules/profile.module:58;489
+msgid "user list"
+msgstr "zoznam používateľov"
+
+#: modules/profile.module:63
+msgid "profiles"
+msgstr "profily"
+
+#: modules/profile.module:66
+msgid "add field"
+msgstr "pridať položku"
+
+#: modules/profile.module:70
+msgid "edit field"
+msgstr "upraviť položku"
+
+#: modules/profile.module:74
+msgid "delete field"
+msgstr "zmazať položku"
+
+#: modules/profile.module:88
+msgid "Author information"
+msgstr ""
+
+#: modules/profile.module:99
+msgid "Link to full user profile"
+msgstr ""
+
+#: modules/profile.module:101
+msgid "Profile fields to display"
+msgstr ""
+
+#: modules/profile.module:104
+msgid "Select which profile fields you wish to display in the block. Only fields designated as public in the <a href=\"%profile-admin\">profile field configuration</a> are available."
+msgstr ""
+
+#: modules/profile.module:135
+msgid "View full user profile"
+msgstr "Zobraziť úplný profil používateľa"
+
+#: modules/profile.module:140
+msgid "About %name"
+msgstr "O %name"
+
+#: modules/profile.module:187
+msgid "edit %title"
+msgstr "upraviť %title"
+
+#: modules/profile.module:205
+msgid "add new %type"
+msgstr "pridať nové %type"
+
+#: modules/profile.module:210
+msgid "Field settings"
+msgstr "Nastavenie položky"
+
+#: modules/profile.module:215
+msgid "The category the new field should be part of. Categories are used to group fields logically. An example category is \"Personal information\"."
+msgstr "Kategória, do ktorej bude nová položka patriť. Kategórie sa používajú na logické spájanie položiek. Príkladom kategórie môžu byť \"Osobné informácie\"."
+
+#: modules/profile.module:221
+msgid "The title of the new field. The title will be shown to the user. An example title is \"Favorite color\"."
+msgstr "Názov novej položky. Názov bude zobrazený používateľovi. Príklad: \"Obľúbená farba\"."
+
+#: modules/profile.module:225
+msgid "Form name"
+msgstr "Názov formulára"
+
+#: modules/profile.module:227
+msgid ""
+"The name of the field. The form name is not shown to the user but used internally in the HTML code and URLs.\n"
+"Unless you know what you are doing, it is highly recommended that you prefix the form name with <code>profile_</code> to avoid name clashes with other fields. Spaces or any other special characters except dash (-) and underscore (_) are not allowed. An example name is \"profile_favorite_color\" or perhaps just \"profile_color\"."
+msgstr ""
+"Názov položky. Tento názov sa nebude zobrazovať používateľovi, ale použije sa vo vnútri HTML kódu a v URL.\n"
+"Aby sa predišlo konfliktom s ostatnými položkami, odporúča sa pred samotný názov položky uviesť prefix v tvare <code>profile_</code>. Medzery alebo akékoľvek iné špeciálne znaky okrem pomlčky (-) a podtrhnítka (_) nie sú dovolené. Príkladom názvu môže byť \"profile_oblubena_farba\" alebo jednoducho \"profile_farba\"."
+
+#: modules/profile.module:232
+msgid "Explanation"
+msgstr "Vysvetlenie"
+
+#: modules/profile.module:234
+msgid "An optional explanation to go with the new field. The explanation will be shown to the user."
+msgstr "Voliteľná vysvetlivka pre danú položku, ktorá sa bude zobrazovať používateľovi."
+
+#: modules/profile.module:238
+msgid "Selection options"
+msgstr "Možnosti výberu"
+
+#: modules/profile.module:240
+msgid "A list of all options. Put each option on a separate line. Example options are \"red\", \"blue\", \"green\", etc."
+msgstr "Zoznam všetkých možností. Každú možnosť vložte na samostatný riadok. Príklad možností: \"červená\", \"modrá\", \"zelená\", atď."
+
+#: modules/profile.module:247
+msgid "The weights define the order in which the form fields are shown. Lighter fields \"float up\" towards the top of the category."
+msgstr "Váha určuje poradie, v ktorom sa položky vo formulári zobrazia. Ľahšie položky \"vyplávajú\" v kategórii nahor."
+
+#: modules/profile.module:250
+msgid "Visibility"
+msgstr "Viditeľnosť"
+
+#: modules/profile.module:252
+msgid "Hidden profile field, only accessible by administrators, modules and themes."
+msgstr ""
+
+#: modules/profile.module:252
+msgid "Private field, content only available to privileged users."
+msgstr "Súkromná položka. Obsah bude viditeľný iba privilegovaným používateľom."
+
+#: modules/profile.module:252
+msgid "Public field, content shown on profile page but not used on member list pages."
+msgstr "Verejná položka. Obsah bude zobrazený v profile používateľa, ale nebude zobrazený v zozname používateľov."
+
+#: modules/profile.module:252
+msgid "Public field, content shown on profile page and on member list pages."
+msgstr "Verejná položka. Obsah bude zobrazený v profile používateľa a taktiež v zozname používateľov."
+
+#: modules/profile.module:256;263
+msgid "Page title"
+msgstr ""
+
+#: modules/profile.module:258
+msgid "To enable browsing this field by value, enter a title for the resulting page. The word <code>%value</code> will be substituted with the corresponding value. An example page title is \"People whose favorite color is %value\". This is only applicable for a public field."
+msgstr ""
+
+#: modules/profile.module:265
+msgid "To enable browsing this field by value, enter a title for the resulting page. An example page title is \"People who are employed\". This is only applicable for a public field."
+msgstr ""
+
+#: modules/profile.module:269
+msgid "The user must enter a value."
+msgstr "Musí byť vyplnené."
+
+#: modules/profile.module:273
+msgid "Visible in user registration form."
+msgstr "Viditeľné na registračnom formulári používateľa."
+
+#: modules/profile.module:277
+msgid "Save field"
+msgstr "Uložiť"
+
+#: modules/profile.module:288
+msgid "The specified form name contains one or more illegal characters. Spaces or any other special characters expect dash (-) and underscore (_) are not allowed."
+msgstr "Názov formulára obsahuje jeden alebo viac neprípustných znakov. Medzery alebo akékoľvek iné špeciálne znaky okrem pomlčky (-) a podtrhnítka (_) nie sú povolené."
+
+#: modules/profile.module:292
+msgid "The specified form name is reserved for use by Drupal."
+msgstr "Zadaný názov je vyhradený."
+
+#: modules/profile.module:299
+msgid "The specified category name is reserved for use by Drupal."
+msgstr "Zadaný názov kategórie je rezervovaný pre použitie Drupal-om."
+
+#: modules/profile.module:311
+msgid "The specified title is already in use."
+msgstr "Zadaný názov už existuje."
+
+#: modules/profile.module:314
+msgid "The specified name is already in use."
+msgstr "Zadané meno už existuje. "
+
+#: modules/profile.module:325
+msgid "The field has been created."
+msgstr "Položka bola vytvorená."
+
+#: modules/profile.module:326
+msgid "Profile field %field added under category %category."
+msgstr ""
+
+#: modules/profile.module:331
+msgid "The field has been updated."
+msgstr "Položka bola aktualizovaná."
+
+#: modules/profile.module:350
+msgid "Are you sure you want to delete the field %field?"
+msgstr ""
+
+#: modules/profile.module:350
+msgid "This action cannot be undone. If users have entered values into this field in their profile, these entries will also be deleted. If you want to keep the user-entered data, instead of deleting the field you may wish to <a href=\"%edit-field\">edit this field</a> and change it to a %hidden-field so that it may only be accessed by administrators."
+msgstr ""
+
+#: modules/profile.module:350
+msgid "hidden profile field"
+msgstr ""
+
+#: modules/profile.module:362
+msgid "The field %field has been deleted."
+msgstr "Položka %field bola zmazaná."
+
+#: modules/profile.module:363
+msgid "Profile field %field deleted."
+msgstr "Položka profilu %field bola zmazaná."
+
+#: modules/profile.module:379
+msgid "No fields defined."
+msgstr "Žiadne položky nie sú definované."
+
+#: modules/profile.module:385
+msgid "Add new field"
+msgstr "Pridať položku"
+
+#: modules/profile.module:581
+msgid "The content of this field is private and only visible to yourself."
+msgstr "Táto informácia je súkromná a viditeľná iba pre vás."
+
+#: modules/profile.module:597
+msgid "Put each item on a separate line or separate them by commas. No HTML allowed."
+msgstr "Každú položku napíšte na samostatný riadok alebo ich oddeľte čiarkami. HTML nie je povolené."
+
+#: modules/profile.module:720
+msgid "The value provided for %field is not a valid URL."
+msgstr "Zadaná hodnota položky %field nie je platná URL."
+
+#: modules/profile.module:725
+msgid "The field %field is required."
+msgstr "Položka %field je povinná."
+
+#: modules/profile.module:776
+msgid "single-line textfield"
+msgstr "jednoriadkové textové pole"
+
+#: modules/profile.module:777
+msgid "multi-line textfield"
+msgstr "viacriadkové textové pole"
+
+#: modules/profile.module:778
+msgid "checkbox"
+msgstr "zaškrtávatko"
+
+#: modules/profile.module:779
+msgid "list selection"
+msgstr "výber možností"
+
+#: modules/profile.module:780
+msgid "freeform list"
+msgstr "voľný výber"
+
+#: modules/profile.module:782
+msgid "date"
+msgstr "dátum"
+
+#: modules/profile.module:326;363;0
+msgid "profile"
+msgstr "profil"
+

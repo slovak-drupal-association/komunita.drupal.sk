@@ -1,0 +1,185 @@
+# Slovak translation of SEM Dolný Kubín
+# Copyright (c) 2006 mirek <mirek.binas@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal CMS 4.7\n"
+"POT-Creation-Date: 2005-06-30 11:06+0200\n"
+"PO-Revision-Date: 2006-09-06 21:32+0100\n"
+"Last-Translator: mirek <mirek@host.sk>\n"
+"Language-Team: Slovak <mirek.binas@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n>=2 && n<=4 ? 1 : 2;\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: modules/drupal.module:15
+msgid "The Drupal module uses the XML-RPC network communication protocol to connect your site with a central server that maintains a directory of client sites."
+msgstr ""
+
+#: modules/drupal.module:16
+msgid ""
+"<p>Enabling the Drupal module will allow you to:</p>\n"
+"<ul>\n"
+"  <li>register your site with a server, including (optionally) posting information on your installed modules and themes and summary statistics on your number of posts and users, information that can help rank Drupal modules and themes</li>\n"
+"  <li>enable other sites to register with your site</li>\n"
+"  <li>allow members on all sites using the Drupal module to log in to your site without registering using their distributed identification</li>\n"
+"  <li>allow members to log in to any other site that uses the Drupal module, using a login name that looks much like an e-mail address: <em>username@example.com</em></li>\n"
+"</ul>\n"
+msgstr ""
+
+#: modules/drupal.module:24
+msgid "The Drupal module administration page allows you to set the xml-rpc server page and other related options."
+msgstr ""
+
+#: modules/drupal.module:25
+msgid ""
+"<p>You can</p>\n"
+"<ul>\n"
+"  <li>run your cron job at your site's <a href=\"%file-cron\">cron page</a></li>\n"
+"  <li>view your <a href=\"%file-xmlrpc\">XML-RPC page</a>.</li>\n"
+"  <li>administer Drupal <a href=\"%admin-settings-drupal\">administer &gt;&gt; settings &gt;&gt; drupal</a>.</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: modules/drupal.module:32
+msgid ""
+"If you maintain a directory of sites, you can list them on a page using the <code>drupal_client_page()</code> function. Sample instructions:\n"
+"<ul>\n"
+"  <li>Enable the page module. Select create content &gt;&gt; page.</li>\n"
+"  <li>For input format, select PHP code.</li>\n"
+"  <li>Give the page a title. For body, put:\n"
+"<pre>\n"
+"&lt;?php\n"
+"print drupal_client_page();\n"
+"?&gt;\n"
+"</pre>\n"
+"  <li>Save the page.</li>\n"
+"</ul>"
+msgstr ""
+
+#: modules/drupal.module:45
+msgid "For more information please read the configuration and customization handbook <a href=\"%drupal\">Drupal page</a>."
+msgstr ""
+
+#: modules/drupal.module:48
+msgid "Lets you register your site with a central server and improve ranking of Drupal projects by posting information on your installed modules and themes; also enables users to log in using a Drupal ID."
+msgstr ""
+
+#: modules/drupal.module:50
+msgid "<p>Using this your site can \"call home\" to another Drupal server. By calling home to drupal.org and sending a list of your installed modules and themes, you help rank projects on drupal.org and so assist all Drupal administrators to find the best components for meeting their needs. If you want to register with a different server, you can change the Drupal XML-RPC server setting -- but the server has to be able to handle Drupal XML. Some XML-RPC servers may present directories of all registered sites. To get all your site information listed, go to the <a href=\"%site-settings\">settings page</a> and set the site name, the e-mail address, the slogan, and the mission statement.</p>"
+msgstr ""
+
+#: modules/drupal.module:52
+msgid ""
+"<p><a href=\"%Drupal\">Drupal</a> is the name of the software that powers %this-site. There are Drupal web sites all over the world, and many of them share their registration databases so that users may freely log in to any Drupal site using a single <strong>Drupal ID</strong>.</p>\n"
+"<p>So please feel free to log in to your account here at %this-site with a username from another Drupal site. The format of a Drupal ID is similar to an e-mail address: <strong>username</strong>@<em>server</em>. An example of a valid Drupal ID is <strong>mwlily</strong>@<em>drupal.org</em>.</p>"
+msgstr ""
+
+#: modules/drupal.module:63
+msgid "You must set the name of your site on the <a href=\"%url\">administer &raquo; settings</a> page."
+msgstr ""
+
+#: modules/drupal.module:66
+msgid "You must set an e-mail address for your site on the <a href=\"%url\">administer &raquo; settings</a> page."
+msgstr ""
+
+#: modules/drupal.module:69
+msgid "You must set your site slogan on the <a href=\"%url\">administer &raquo; settings</a> page."
+msgstr ""
+
+#: modules/drupal.module:72
+msgid "You must set your site mission on the <a href=\"%url\">administer &raquo; settings</a> page."
+msgstr ""
+
+#: modules/drupal.module:78
+msgid "Post data to another site"
+msgstr ""
+
+#: modules/drupal.module:84
+msgid "Register with a Drupal server"
+msgstr ""
+
+#: modules/drupal.module:87
+msgid "If enabled, your Drupal site will register itself with the specified Drupal XML-RPC server. For this to work properly, you must set your site's name, e-mail address, slogan and mission statement. When the \"Drupal XML-RPC server\" field is set to \"%drupal-xml-rpc\", your web site will register itself with drupal.org. Requires the cron feature to be enabled."
+msgstr ""
+
+#: modules/drupal.module:92
+msgid "Drupal XML-RPC server"
+msgstr ""
+
+#: modules/drupal.module:94
+msgid "The URL of the Drupal XML-RPC server you wish to register with."
+msgstr ""
+
+#: modules/drupal.module:99
+msgid "Send system information"
+msgstr ""
+
+#: modules/drupal.module:102
+msgid "If enabled, your site will send information on its installed components (modules, themes, and theme engines). This information can help in compiling statistics on usage of Drupal projects."
+msgstr ""
+
+#: modules/drupal.module:107
+msgid "Send statistics"
+msgstr ""
+
+#: modules/drupal.module:110
+msgid "If enabled, your site will send summary statistics on the number of registered users and the total number of posts. No private information will be sent. These data help to improve the ranking statistics of Drupal projects."
+msgstr ""
+
+#: modules/drupal.module:115
+msgid "Receive data from other sites"
+msgstr ""
+
+#: modules/drupal.module:121
+msgid "Allow other Drupal sites to register"
+msgstr ""
+
+#: modules/drupal.module:124
+msgid "If enabled, your Drupal site will allow other sites to register with your site and send information to this site. This functionality can be used to maintain a list of related sites."
+msgstr ""
+
+#: modules/drupal.module:129
+msgid "Authentication service"
+msgstr ""
+
+#: modules/drupal.module:132
+msgid "If enabled, your Drupal site will accept logins with the user names of other Drupal sites, and likewise provide authentication for users logging into other Drupal sites, based on their user accounts here."
+msgstr ""
+
+#: modules/drupal.module:196
+msgid "Ping from %name (%link)."
+msgstr ""
+
+#: modules/drupal.module:248
+msgid "Handling ping request"
+msgstr ""
+
+#: modules/drupal.module:256
+msgid "Logging into a Drupal site"
+msgstr ""
+
+#: modules/drupal.module:291
+msgid "Failed to notify %server; error code: %errno; error message: %error_msg."
+msgstr ""
+
+#: modules/drupal.module:317
+msgid "Error %code : %message"
+msgstr ""
+
+#: modules/drupal.module:196
+msgid "client ping"
+msgstr ""
+
+#: modules/drupal.module:291
+msgid "server ping"
+msgstr ""
+
+#: modules/drupal.module:0
+msgid "drupal"
+msgstr "drupal"
+

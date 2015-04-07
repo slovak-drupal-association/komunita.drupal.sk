@@ -1,0 +1,120 @@
+# Slovak translation of SEM Dolný Kubín
+# Copyright (c) 2006 mirek <mirek.binas@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal CMS 4.7\n"
+"POT-Creation-Date: 2005-06-30 11:06+0200\n"
+"PO-Revision-Date: 2006-09-06 21:19+0100\n"
+"Last-Translator: mirek <mirek@host.sk>\n"
+"Language-Team: Slovak <mirek.binas@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n>=2 && n<=4 ? 1 : 2;\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: includes/common.inc:279
+msgid "Site off-line"
+msgstr "Stránka je mimo prevádzky."
+
+#: includes/common.inc:289
+msgid "%page not found."
+msgstr "%page nebola nájdená."
+
+#: includes/common.inc:307
+msgid "Page not found"
+msgstr "Stránka nebola nájdená"
+
+#: includes/common.inc:317
+msgid "%page denied access."
+msgstr "%page zamietnutý prístup."
+
+#: includes/common.inc:335
+msgid "Access denied"
+msgstr "Prístup zamietnutý"
+
+#: includes/common.inc:336
+msgid "You are not authorized to access this page."
+msgstr "Nemáte oprávnenie na prístup k tejto stránke."
+
+#: includes/common.inc:503
+msgid "%message in %file on line %line."
+msgstr "%message v súbore %file na riadku %line."
+
+#: includes/common.inc:541
+msgid "n/a"
+msgstr ""
+
+#: includes/common.inc:811
+msgid "bytes"
+msgstr "bytov"
+
+#: includes/common.inc:814
+msgid "KB"
+msgstr "kB"
+
+#: includes/common.inc:818
+msgid "MB"
+msgstr "MB"
+
+#: includes/common.inc:820
+msgid "%size %suffix"
+msgstr "%size %suffix"
+
+#: includes/common.inc:848
+msgid "0 sec"
+msgstr "0 sek"
+
+#: includes/common.inc:289
+msgid "page not found"
+msgstr "stránka nebola nájdená"
+
+#: includes/common.inc:317
+msgid "access denied"
+msgstr "prístup zamietnutý"
+
+#: includes/common.inc:0
+msgid "1 year"
+msgid_plural "%count years"
+msgstr[0] "1 rok"
+msgstr[1] "%count roky"
+msgstr[2] "%count rokov"
+
+#: includes/common.inc:0
+msgid "1 week"
+msgid_plural "%count weeks"
+msgstr[0] "1 týždeň"
+msgstr[1] "%count týždne"
+msgstr[2] "%count týždňov"
+
+#: includes/common.inc:0
+msgid "1 day"
+msgid_plural "%count days"
+msgstr[0] "1 deň"
+msgstr[1] "%count dni"
+msgstr[2] "%count dní"
+
+#: includes/common.inc:0
+msgid "1 hour"
+msgid_plural "%count hours"
+msgstr[0] "1 hod"
+msgstr[1] "%count hod"
+msgstr[2] "%count hod"
+
+#: includes/common.inc:0
+msgid "1 min"
+msgid_plural "%count min"
+msgstr[0] "1 min"
+msgstr[1] "%count min"
+msgstr[2] "%count min"
+
+#: includes/common.inc:0
+msgid "1 sec"
+msgid_plural "%count sec"
+msgstr[0] "1 sek"
+msgstr[1] "%count sek"
+msgstr[2] "%count sek"
+

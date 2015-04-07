@@ -1,0 +1,114 @@
+# Slovak translation of SEM Dolný Kubín
+# Copyright (c) 2006 mirek <mirek.binas@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal CMS 4.7\n"
+"POT-Creation-Date: 2005-06-30 11:06+0200\n"
+"PO-Revision-Date: 2006-09-06 21:09+0100\n"
+"Last-Translator: mirek <mirek@host.sk>\n"
+"Language-Team: Slovak <mirek.binas@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n>=2 && n<=4 ? 1 : 2;\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: Slovakia\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: modules/blog.module:13;267
+msgid "blog entry"
+msgstr ""
+
+#: modules/blog.module:45
+msgid "Blog"
+msgstr "Blog"
+
+#: modules/blog.module:46
+msgid "view recent blog entries"
+msgstr ""
+
+#: modules/blog.module:46;252
+msgid "Read %username's latest blog entries."
+msgstr ""
+
+#: modules/blog.module:59
+msgid "The blog module allows registered users to maintain an online weblog (commonly known as a blog), often referred to as an online journal or diary.  Blogs are made up of individual posts that are time stamped and are typically viewed by date as you would a diary. Blogs often contain links to webpages users have read and/or agree/disagree with."
+msgstr ""
+
+#: modules/blog.module:60
+msgid "The blog module adds a <em>user blogs</em> navigation link to the site, which takes any visitor to a page that displays the most recent blog entries from all the users on the site. The navigation menu has a <em>create a blog entry</em> link (which takes you to a submission form) and a <em>view personal blog</em> link (which displays your blog entries as other people will see them).  The blog module also creates a <em>recent blog posts</em> block that can be enabled."
+msgstr ""
+
+#: modules/blog.module:61
+msgid "If a user has the ability to post blogs, then the import module (news aggregator) will display a blog-it link next to each news item in its lists. Clicking on this takes the user to the blog submission form, with the title, a link to the item, and a link to the source into the body text already in the text box, ready for the user to add a comment or explanation. This actively encourages people to add blog entries about things they see and hear elsewhere in the website and from your syndicated partner sites."
+msgstr ""
+
+#: modules/blog.module:62
+msgid ""
+"<p>You can</p>\n"
+"<ul>\n"
+"<li>read your blog via your user profile at <a href=\"%user\">my account</a>.</li>\n"
+"<li>post a blog at <a href=\"%node-add-blog\">create content &gt;&gt; personal blog entry</a>.</li>\n"
+"<li>administer blog at <a href=\"%admin-node-configure-types-blog\">administer &gt;&gt; settings &gt;&gt; content types &gt;&gt; configure blog entry</a>.</li>\n"
+"<li>administer blog api at <a href=\"%admin-settings-blogapi\">administer &gt;&gt; settings &gt;&gt; blogapi</a>.</li>\n"
+"<li>enable the \"recent blog posts\" block at <a href=\"%admin-block\">administer &gt;&gt; blocks</a> to show the 10 most recent blog posts.</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: modules/blog.module:71
+msgid "For more information please read the configuration and customization handbook <a href=\"%blog\">Blog page</a>."
+msgstr ""
+
+#: modules/blog.module:74
+msgid "Enables keeping an easily and regularly updated web page or a blog."
+msgstr ""
+
+#: modules/blog.module:76
+msgid "A blog is a regularly updated journal or diary made up of individual posts shown in reversed chronological order.  A blog is tightly coupled to the author so each user will have his 'own' blog."
+msgstr ""
+
+#: modules/blog.module:141;237
+msgid "%name's blog"
+msgstr ""
+
+#: modules/blog.module:144
+msgid "Post new blog entry."
+msgstr "Pridať nový blog."
+
+#: modules/blog.module:147
+msgid "You are not allowed to post a new blog entry."
+msgstr "Nemáte oprávnenie pridať nový blog."
+
+#: modules/blog.module:166
+msgid "RSS - %title"
+msgstr "RSS - %title"
+
+#: modules/blog.module:193
+msgid "RSS - blogs"
+msgstr "RSS - blogy"
+
+#: modules/blog.module:236;269
+msgid "blogs"
+msgstr "blogy"
+
+#: modules/blog.module:252
+msgid "%username's blog"
+msgstr ""
+
+#: modules/blog.module:273
+msgid "my blog"
+msgstr "môj blog"
+
+#: modules/blog.module:289;298
+msgid "Recent blog posts"
+msgstr ""
+
+#: modules/blog.module:297
+msgid "Read the latest blog entries."
+msgstr "Čítať najnovšie blogy."
+
+#: modules/blog.module:20
+msgid "edit own blog"
+msgstr "upraviť vlastný blog"
+

@@ -1,0 +1,458 @@
+# Slovak translation of SEM Dolný Kubín
+# Copyright (c) 2006 mirek <mirek.binas@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal CMS 4.7\n"
+"POT-Creation-Date: 2005-06-30 11:06+0200\n"
+"PO-Revision-Date: 2006-09-06 21:14+0100\n"
+"Last-Translator: mirek <mirek@host.sk>\n"
+"Language-Team: Slovak <mirek.binas@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n>=2 && n<=4 ? 1 : 2;\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: modules/comment.module:73
+msgid "The comment module creates a discussion board for each post. Users can post comments to discuss a forum topic, weblog post, story, collaborative book page, etc. The ability to comment is an important part of involving members in a community dialogue."
+msgstr ""
+
+#: modules/comment.module:74
+msgid "An administrator can give comment permissions to user groups, and users can (optionally) edit their last comment, assuming no others have been posted since.  Attached to each comment board is a control panel for customizing the way that comments are displayed. Users can control the chronological ordering of posts (newest or oldest first) and the number of posts to display on each page.  Comments behave like other user submissions. Filters, smileys and HTML that work in nodes will also work with comments. The comment module provides specific features to inform site members when new comments have been posted."
+msgstr ""
+
+#: modules/comment.module:75
+msgid ""
+"<p>You can</p>\n"
+"<ul>\n"
+"<li>control access for various comment module functions through access permissions <a href=\"%admin-access\">administer &gt;&gt; access control</a>.</li>\n"
+"<li>administer comments <a href=\"%admin-comment-configure\"> administer &gt;&gt; comments &gt;&gt; configure</a>.</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: modules/comment.module:81
+msgid "For more information please read the configuration and customization handbook <a href=\"%comment\">Comment page</a>."
+msgstr ""
+
+#: modules/comment.module:84
+msgid "Allows users to comment on and discuss published content."
+msgstr "Umožňuje používateľov komentovať a diskutovať o publikovanom obsahu."
+
+#: modules/comment.module:87
+msgid "<p>Below is a list of the latest comments posted to your site. Click on a subject to see the comment, the author's name to edit the author's user information , \"edit\" to modify the text, and \"delete\" to remove their submission.</p>"
+msgstr "<p>Poniže sa nachádza zoznam najnovších komentárov, ktoré boli napísané. Kliknutím na predmet sa zobrazí obsah komentára, kliknutím na meno autora je možné zmeniť používateľove nastavenia. Operácia \"zmeniť\" umožní zmeniť text a \"zmazať\" zmaže daný príspevok.</p>"
+
+#: modules/comment.module:89
+msgid "<p>Below is a list of the comments posted to your site that need approval. To approve a comment, click on \"edit\" and then change its \"moderation status\" to Approved. Click on a subject to see the comment, the author's name to edit the author's user information, \"edit\" to modify the text, and \"delete\" to remove their submission.</p>"
+msgstr ""
+
+#: modules/comment.module:92
+msgid "<p>Comments can be attached to any node, and their settings are below. The display comes in two types: a \"flat list\" where everything is flush to the left side, and comments come in chronological order, and a \"threaded list\" where replies to other comments are placed immediately below and slightly indented, forming an outline. They also come in two styles: \"expanded\", where you see both the title and the contents, and \"collapsed\" where you only see the title. Preview comment forces a user to look at their comment by clicking on a \"Preview\" button before they can actually add the comment.</p>"
+msgstr ""
+
+#: modules/comment.module:104
+msgid "comments"
+msgstr "komentáre"
+
+#: modules/comment.module:114
+msgid "published comments"
+msgstr "publikované komentáre"
+
+#: modules/comment.module:116
+msgid "approval queue"
+msgstr ""
+
+#: modules/comment.module:124
+msgid "delete comment"
+msgstr "zmazať komentár"
+
+#: modules/comment.module:128
+msgid "edit comment"
+msgstr "upraviť komentár"
+
+#: modules/comment.module:135
+msgid "reply to comment"
+msgstr "odpovedať"
+
+#: modules/comment.module:163;167
+msgid "Recent comments"
+msgstr "Najnovšie komentáre"
+
+#: modules/comment.module:198
+msgid "Jump to the first comment of this posting."
+msgstr "Skok na prvý komentár ku tomuto príspevku"
+
+#: modules/comment.module:201
+msgid "Jump to the first new comment of this posting."
+msgstr "Skok na prvý nový komentár k tomuto príspevku"
+
+#: modules/comment.module:207;223
+msgid "add new comment"
+msgstr "pridať komentár"
+
+#: modules/comment.module:207
+msgid "Add a new comment to this page."
+msgstr "Pridať nový komentár ku tomuto príspevku."
+
+#: modules/comment.module:223
+msgid "Share your thoughts and opinions related to this posting."
+msgstr "Vyjadri svoje myšlienky a názory k tomuto príspevku."
+
+#: modules/comment.module:243
+msgid "Default comment setting"
+msgstr ""
+
+#: modules/comment.module:243;259
+msgid "Read only"
+msgstr "Iba čítať"
+
+#: modules/comment.module:243;259
+msgid "Read/Write"
+msgstr "Čítať/Zapisovať"
+
+#: modules/comment.module:243
+msgid "Users with the <em>administer comments</em> permission will be able to override this setting."
+msgstr ""
+
+#: modules/comment.module:250;324
+msgid "Comment settings"
+msgstr "Nastavenie komentárov"
+
+#: modules/comment.module:329
+msgid "Signature"
+msgstr "Podpis"
+
+#: modules/comment.module:331
+msgid "Your signature will be publicly displayed at the end of your comments."
+msgstr "Tvoj podpis bude zobrazovaný na konci tvojich komentárov."
+
+#: modules/comment.module:347
+msgid "Viewing options"
+msgstr ""
+
+#: modules/comment.module:354
+msgid "Default display mode"
+msgstr ""
+
+#: modules/comment.module:357
+msgid "The default view for comments. Expanded views display the body of the comment. Threaded views keep replies together."
+msgstr ""
+
+#: modules/comment.module:362
+msgid "Default display order"
+msgstr ""
+
+#: modules/comment.module:365
+msgid "The default sorting for new users and anonymous users while viewing comments. These users may change their view using the comment control panel. For registered users, this change is remembered as a persistent user preference."
+msgstr ""
+
+#: modules/comment.module:370
+msgid "Default comments per page"
+msgstr "Predvolený počet komentárov na stránku"
+
+#: modules/comment.module:373
+msgid "Default number of comments for each page: more comments are distributed in several pages."
+msgstr ""
+
+#: modules/comment.module:378
+msgid "Comment controls"
+msgstr ""
+
+#: modules/comment.module:381
+msgid "Display above the comments"
+msgstr "Zobrazovať nad komentármi"
+
+#: modules/comment.module:382
+msgid "Display below the comments"
+msgstr "Zobrazovať pod komentármi"
+
+#: modules/comment.module:383
+msgid "Display above and below the comments"
+msgstr "Zobrazovať nad aj pod komentármi"
+
+#: modules/comment.module:384
+msgid "Do not display"
+msgstr "Nezobrazovať"
+
+#: modules/comment.module:385
+msgid "Position of the comment controls box.  The comment controls let the user change the default display mode and display order of comments."
+msgstr ""
+
+#: modules/comment.module:390
+msgid "Posting settings"
+msgstr ""
+
+#: modules/comment.module:397
+msgid "Anonymous commenting"
+msgstr "Anonymné komentovanie"
+
+#: modules/comment.module:400
+msgid "Anonymous posters may not enter their contact information"
+msgstr ""
+
+#: modules/comment.module:401
+msgid "Anonymous posters may leave their contact information"
+msgstr ""
+
+#: modules/comment.module:402
+msgid "Anonymous posters must leave their contact information"
+msgstr ""
+
+#: modules/comment.module:403
+msgid "This option is enabled when anonymous users have permission to post comments on the <a href=\"%url\">permissions page</a>."
+msgstr ""
+
+#: modules/comment.module:411
+msgid "Comment subject field"
+msgstr ""
+
+#: modules/comment.module:414
+msgid "Can users provide a unique subject for their comments?"
+msgstr ""
+
+#: modules/comment.module:419;480;1325;1331;1335;1356
+msgid "Preview comment"
+msgstr "Zobraziť náhľad"
+
+#: modules/comment.module:426
+msgid "Location of comment submission form"
+msgstr ""
+
+#: modules/comment.module:428
+msgid "Display on separate page"
+msgstr "Zobraziť na samostatnej stránke"
+
+#: modules/comment.module:428
+msgid "Display below post or comments"
+msgstr "Zobraziť pod príspevkom alebo komentárom"
+
+#: modules/comment.module:485;521
+msgid "You are not authorized to post comments."
+msgstr "Nemáte oprávnenie na posielanie komentárov."
+
+#: modules/comment.module:496;504
+msgid "The comment you are replying to does not exist."
+msgstr ""
+
+#: modules/comment.module:514
+msgid "This discussion is closed: you can't post new comments."
+msgstr "Táto diskusia je uzavretá: nemôžete posielať nové komentáre."
+
+#: modules/comment.module:518
+msgid "Reply"
+msgstr "Odpoveď"
+
+#: modules/comment.module:527
+msgid "You are not authorized to view comments."
+msgstr "Nemáte oprávnenie na prezeranie komentárov."
+
+#: modules/comment.module:552
+msgid "Comment: duplicate %subject."
+msgstr "Komentár: kópia %subject."
+
+#: modules/comment.module:566;1014
+msgid "Comment: updated %subject."
+msgstr "Komentár: aktualizovaný %subject."
+
+#: modules/comment.module:639
+msgid "Comment: added %subject."
+msgstr "Komentár: nový %subject."
+
+#: modules/comment.module:648
+msgid "Your comment has been queued for moderation by site administrators and will be published after approval."
+msgstr ""
+
+#: modules/comment.module:657
+msgid "Comment: unauthorized comment submitted or comment submitted to a closed node %subject."
+msgstr ""
+
+#: modules/comment.module:671
+msgid "parent"
+msgstr ""
+
+#: modules/comment.module:678;684
+msgid "reply"
+msgstr "odpovedať"
+
+#: modules/comment.module:863
+msgid "Post new comment"
+msgstr "Poslať nový komentár"
+
+#: modules/comment.module:882
+msgid "The comment and all its replies have been deleted."
+msgstr "Komentár a všetky odpovede k nemu boli zmazané."
+
+#: modules/comment.module:897
+msgid "Are you sure you want to delete the comment %title?"
+msgstr "Naozaj chcete zmazať komentár %title?"
+
+#: modules/comment.module:899
+msgid "Any replies to this comment will be lost. This action cannot be undone."
+msgstr "Všetky odpovede k tomuto komentáru budú stratené. Táto operácia sa nedá vrátiť."
+
+#: modules/comment.module:904
+msgid "The comment no longer exists."
+msgstr "Komentár už neexistuje."
+
+#: modules/comment.module:917;929
+msgid "Publish the selected comments"
+msgstr "Publikovať označené komentáre"
+
+#: modules/comment.module:918;924;931
+msgid "Delete the selected comments"
+msgstr "Zmazať označené komentáre"
+
+#: modules/comment.module:923;930
+msgid "Unpublish the selected comments"
+msgstr ""
+
+#: modules/comment.module:991
+msgid "Please select one or more comments to perform the update on."
+msgstr ""
+
+#: modules/comment.module:1037
+msgid "No comments available."
+msgstr "Źiadny komentár nie je k dispozícii."
+
+#: modules/comment.module:1066
+msgid "Are you sure you want to delete these comments and all their children?"
+msgstr "Naozaj chcete zmazať tieto komentáre a všetkých ich potomkov?"
+
+#: modules/comment.module:1068
+msgid "Delete comments"
+msgstr "Zmazať komentáre"
+
+#: modules/comment.module:1082
+msgid "The comments have been deleted."
+msgstr "Komentáre boli zmazané."
+
+#: modules/comment.module:1159
+msgid "You have to specify a valid author."
+msgstr ""
+
+#: modules/comment.module:1169
+msgid "The name you used belongs to a registered user."
+msgstr "Meno, ktoré chceš použiť, patrí už zaregistrovanému používateľovi."
+
+#: modules/comment.module:1174
+msgid "You have to leave your name."
+msgstr "Musíš sa podpísať."
+
+#: modules/comment.module:1179
+msgid "The e-mail address you specified is not valid."
+msgstr "Emailová adresa, ktorú si napísal, nie je platná."
+
+#: modules/comment.module:1183
+msgid "You have to leave an e-mail address."
+msgstr "Zadajte prosím e-mailovu adresu."
+
+#: modules/comment.module:1188
+msgid "The URL of your homepage is not valid.  Remember that it must be fully qualified, i.e. of the form <code>http://example.com/directory</code>."
+msgstr ""
+
+#: modules/comment.module:1235
+msgid "Administration"
+msgstr ""
+
+#: modules/comment.module:1278;1303;1310
+msgid "Homepage"
+msgstr "Domovská stránka"
+
+#: modules/comment.module:1287
+msgid "Not published"
+msgstr "Nepublikované"
+
+#: modules/comment.module:1317
+msgid "Comment"
+msgstr "Komentár"
+
+#: modules/comment.module:1331;1332
+msgid "Post comment"
+msgstr "Poslať príspevok"
+
+#: modules/comment.module:1490
+msgid "%a comments per page"
+msgstr "%s komentárov na stránke"
+
+#: modules/comment.module:1499
+msgid "Save settings"
+msgstr "Uložiť nastavenie"
+
+#: modules/comment.module:1510
+msgid "Select your preferred way to display the comments and click \"Save settings\" to activate your changes."
+msgstr ""
+
+#: modules/comment.module:1511
+msgid "Comment viewing options"
+msgstr ""
+
+#: modules/comment.module:1534
+msgid "by %a on %b"
+msgstr ""
+
+#: modules/comment.module:1544
+msgid "by"
+msgstr "od"
+
+#: modules/comment.module:1582
+msgid "you can't post comments"
+msgstr "nemôžeš posielať komentáre"
+
+#: modules/comment.module:1594
+msgid "<a href=\"%login\">login</a> or <a href=\"%register\">register</a> to post comments"
+msgstr "musíte sa <a href=\"%login\">prihlásiť</a> alebo <a href=\"%register\">zaregistrovať</a>, aby ste mohli pridávať komentáre"
+
+#: modules/comment.module:1597
+msgid "<a href=\"%login\">login</a> to post comments"
+msgstr "<a href=\"%login\">prihláste salogin</a>, aby ste mohli komentovať"
+
+#: modules/comment.module:1605
+msgid "Comment: deleted %subject."
+msgstr "Komentár: zmazaný %subject."
+
+#: modules/comment.module:1625
+msgid "Flat list - collapsed"
+msgstr ""
+
+#: modules/comment.module:1626
+msgid "Flat list - expanded"
+msgstr ""
+
+#: modules/comment.module:1627
+msgid "Threaded list - collapsed"
+msgstr ""
+
+#: modules/comment.module:1628
+msgid "Threaded list - expanded"
+msgstr ""
+
+#: modules/comment.module:201
+msgid "1 new comment"
+msgid_plural "%count new comments"
+msgstr[0] "1 nový komentár"
+msgstr[1] "%count nové komentáre"
+msgstr[2] "%count nových komentárov"
+
+#: modules/comment.module:153
+msgid "access comments"
+msgstr ""
+
+#: modules/comment.module:153
+msgid "post comments"
+msgstr ""
+
+#: modules/comment.module:153
+msgid "administer comments"
+msgstr ""
+
+#: modules/comment.module:153
+msgid "post comments without approval"
+msgstr ""
+
+#: modules/comment.module:0
+msgid "comment"
+msgstr "komentár"
+

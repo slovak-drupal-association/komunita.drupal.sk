@@ -1,39 +1,39 @@
 <?php
+// $Id: index.php,v 1.94 2007/12/26 08:46:48 dries Exp $
 
 /**
  * @file
  * The PHP page that serves all page requests on a Drupal installation.
  *
+ * The routines here dispatch control to the appropriate handler, which then
+ * prints the appropriate page.
+ *
  * All Drupal code is released under the GNU General Public License.
- * See COPYRIGHT.txt and LICENSE.txt files in the "core" directory.
+ * See COPYRIGHT.txt and LICENSE.txt.
  */
 
-use Drupal\Core\DrupalKernel;
-use Drupal\Core\Site\Settings;
-use Symfony\Component\HttpFoundation\Request;
+require_once './includes/bootstrap.inc';
+drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
 
-$autoloader = require_once __DIR__ . '/core/vendor/autoload.php';
+$return = menu_execute_active_handler();
 
-try {
-
-  $request = Request::createFromGlobals();
-  $kernel = DrupalKernel::createFromRequest($request, $autoloader, 'prod');
-  $response = $kernel
-      ->handle($request)
-      // Handle the response object.
-      ->prepare($request)->send();
-  $kernel->terminate($request, $response);
-}
-catch (Exception $e) {
-  $message = 'If you have just changed code (for example deployed a new module or moved an existing one) read <a href="http://drupal.org/documentation/rebuild">http://drupal.org/documentation/rebuild</a>';
-  if (Settings::get('rebuild_access', FALSE)) {
-    $rebuild_path = $GLOBALS['base_url'] . '/rebuild.php';
-    $message .= " or run the <a href=\"$rebuild_path\">rebuild script</a>";
+// Menu status constants are integers; page content is a string.
+if (is_int($return)) {
+  switch ($return) {
+    case MENU_NOT_FOUND:
+      drupal_not_found();
+      break;
+    case MENU_ACCESS_DENIED:
+      drupal_access_denied();
+      break;
+    case MENU_SITE_OFFLINE:
+      drupal_site_offline();
+      break;
   }
-
-  // Set the response code manually. Otherwise, this response will default to a
-  // 200.
-  http_response_code(500);
-  print $message;
-  throw $e;
 }
+elseif (isset($return)) {
+  // Print any value (including an empty string) except NULL or undefined:
+  print theme('page', $return);
+}
+
+drupal_page_footer();

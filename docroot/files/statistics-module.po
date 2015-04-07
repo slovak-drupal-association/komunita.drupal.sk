@@ -1,0 +1,248 @@
+# Slovak translation of SEM Dolný Kubín
+# Copyright (c) 2006 mirek <mirek.binas@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal CMS 4.7\n"
+"POT-Creation-Date: 2005-06-30 11:06+0200\n"
+"PO-Revision-Date: 2006-09-07 03:43+0100\n"
+"Last-Translator: mirek <mirek@host.sk>\n"
+"Language-Team: www.drupal.sk <mirek.binas@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n>=2 && n<=4 ? 1 : 2\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: modules/statistics.module:15
+msgid "The statistics module keeps track of numerous statistics of site usage. It counts how many times, and from where each of your posts is viewed. The statistics module can be used to learn many useful things about how users are interacting with each other and with your site."
+msgstr ""
+
+#: modules/statistics.module:16
+msgid ""
+"<p>Statistics module features</p>\n"
+"<ul>\n"
+"<li>Logs show statistics for how many times your site and specific content on your site has been accessed.</li>\n"
+"<li>Referrers tells you from where visitors came from (referrer URL).</li>\n"
+"<li>Top pages shows you what's hot, what is the most popular content on your site.</li>\n"
+"<li>Top users shows you the most active users for your site.</li>\n"
+"<li>Recent hits displays information about the latest activity on your site.</li>\n"
+"<li>Node count displays the number of times a node has been accessed in the node's link section next to <em># comments</em>.</li>\n"
+"<li>Popular content block creates a block that can display the day's top viewed content, the all time top viewed content, and the last content viewed.</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: modules/statistics.module:27
+msgid ""
+"<p>Configuring the statistics module</p>\n"
+"<ul>\n"
+"<li>Enable access log allows you to turn the access log on and off. This log is used to store data about every page accessed, such as the remote host's IP address, where they came from (referrer), what node they've viewed, and their user name. Enabling the log adds one database call per page displayed by Drupal.</li>\n"
+"<li>Discard access logs older than allows you to configure how long an access log entry is saved, after which time it is deleted from the database table. To use this you need to run <em>cron.php</em></li>\n"
+"<li>Enable node view counter allows you to turn on and off the node-counting functionality of this module. If it is turned on, an extra database query is added for each node displayed, which increments a counter.</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: modules/statistics.module:34
+msgid ""
+"<p>You can</p>\n"
+"<ul>\n"
+"<li>administer statistics <a href=\"%admin-settings-statistics\">administer &gt;&gt; settings &gt;&gt; statistics</a>.</li>\n"
+"<li>access statistics logs <a href=\"%admin-logs\">administer &gt;&gt; logs</a>.</li>\n"
+"<li>view recent hits <a href=\"%admin-logs-hits\">administer &gt;&gt; logs &gt;&gt; recent hits</a>.</li>\n"
+"<li>enable 'popular content' block in block administration <a href=\"%admin-block\">administer &gt;&gt; blocks </a> but only after you have enabled 'Count content views' in settings.</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: modules/statistics.module:42
+msgid "For more information please read the configuration and customization handbook <a href=\"%statistics\">Statistics page</a>."
+msgstr ""
+
+#: modules/statistics.module:45
+msgid "Logs access statistics for your site."
+msgstr "Loguje prístupové štatistiky vašej stránky."
+
+#: modules/statistics.module:47
+msgid "<p>Settings for the statistical information that Drupal will keep about the site. See <a href=\"%statistics\">site statistics</a> for the actual information.</p>"
+msgstr ""
+
+#: modules/statistics.module:49
+msgid "<p>This page shows you the most recent hits.</p>"
+msgstr ""
+
+#: modules/statistics.module:51
+msgid "<p>This page shows you all external referrers. These are links pointing to your web site from outside your web site.</p>"
+msgstr "<p>Na tejto stránke sa nachádzajú linky na webové stránky, ktoré odkazujú na vašu stránku (mimo vášho webu).</p>"
+
+#: modules/statistics.module:53
+msgid "<p>When you ban a visitor, you prevent his IP address from accessing your site. Unlike blocking a user, banning a visitor works even for anonymous users. The most common use for this is to block bots/web crawlers that are consuming too many resources.</p>"
+msgstr ""
+
+#: modules/statistics.module:117
+msgid "recent hits"
+msgstr ""
+
+#: modules/statistics.module:120
+msgid "top pages"
+msgstr "naj stránky"
+
+#: modules/statistics.module:123
+msgid "top visitors"
+msgstr "naj návštevníci"
+
+#: modules/statistics.module:126
+msgid "referrers"
+msgstr ""
+
+#: modules/statistics.module:134
+msgid "track page visits"
+msgstr "sledovať návštevy stránok"
+
+#: modules/statistics.module:207;234
+msgid "Timestamp"
+msgstr "Čas"
+
+#: modules/statistics.module:208;235;265
+msgid "Page"
+msgstr "Stránka"
+
+#: modules/statistics.module:264;288;319
+msgid "Hits"
+msgstr "Zobrazení"
+
+#: modules/statistics.module:266
+msgid "Average page generation time"
+msgstr ""
+
+#: modules/statistics.module:267;290
+msgid "Total page generation time"
+msgstr ""
+
+#: modules/statistics.module:273
+msgid "%time ms"
+msgstr ""
+
+#: modules/statistics.module:276
+msgid "Top pages in the past %interval"
+msgstr "Naj stránky za posledných %interval"
+
+#: modules/statistics.module:289
+msgid "Visitor"
+msgstr "Návštevník"
+
+#: modules/statistics.module:300
+msgid "unban"
+msgstr ""
+
+#: modules/statistics.module:300
+msgid "ban"
+msgstr ""
+
+#: modules/statistics.module:304
+msgid "Top visitors in the past %interval"
+msgstr "Naj návštevníci za posledných %interval"
+
+#: modules/statistics.module:316
+msgid "Top referrers in the past %interval"
+msgstr ""
+
+#: modules/statistics.module:320
+msgid "Url"
+msgstr "Url"
+
+#: modules/statistics.module:321
+msgid "Last visit"
+msgstr "Naposledy"
+
+#: modules/statistics.module:342
+msgid "Access log settings"
+msgstr ""
+
+#: modules/statistics.module:343
+msgid "Enable access log"
+msgstr ""
+
+#: modules/statistics.module:343
+msgid "Log each page access.  Required for referrer statistics."
+msgstr ""
+
+#: modules/statistics.module:345
+msgid "Discard access logs older than"
+msgstr ""
+
+#: modules/statistics.module:345
+msgid "Older access log entries (including referrer statistics) will be automatically discarded.  Requires crontab."
+msgstr ""
+
+#: modules/statistics.module:348
+msgid "Content viewing counter settings"
+msgstr "Nastavenie počítadla zobrazovania obsahu"
+
+#: modules/statistics.module:349
+msgid "Count content views"
+msgstr "Počítať zobrazenie príspevkov"
+
+#: modules/statistics.module:349
+msgid "Increment a counter each time content is viewed."
+msgstr "Vždy sa zvýši stav počítadla, keď sa zobrazí obsah."
+
+#: modules/statistics.module:421;460
+msgid "Popular content"
+msgstr "Obľúbený obsah"
+
+#: modules/statistics.module:428
+msgid "Number of day's top views to display"
+msgstr ""
+
+#: modules/statistics.module:428
+msgid "How many content items to display in \"day\" list."
+msgstr ""
+
+#: modules/statistics.module:429
+msgid "Number of all time views to display"
+msgstr ""
+
+#: modules/statistics.module:429
+msgid "How many content items to display in \"all time\" list."
+msgstr ""
+
+#: modules/statistics.module:430
+msgid "Number of most recent views to display"
+msgstr ""
+
+#: modules/statistics.module:430
+msgid "How many content items to display in \"recently viewed\" list."
+msgstr ""
+
+#: modules/statistics.module:445
+msgid "Today's:"
+msgstr ""
+
+#: modules/statistics.module:450
+msgid "All time:"
+msgstr "Spolu:"
+
+#: modules/statistics.module:455
+msgid "Last viewed:"
+msgstr "Naposledy:"
+
+#: modules/statistics.module:102
+msgid "1 read"
+msgid_plural "%count reads"
+msgstr[0] "1 krát čítané"
+msgstr[1] "%count krát čítané"
+msgstr[2] "%count krát čítané"
+
+#: modules/statistics.module:89
+msgid "access statistics"
+msgstr "prístup ku štatistike"
+
+#: modules/statistics.module:89
+msgid "view post access counter"
+msgstr ""
+
+#: modules/statistics.module:0
+msgid "statistics"
+msgstr "štatistiky"
+

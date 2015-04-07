@@ -1,0 +1,440 @@
+# Slovak translation of Drupal (6.8)
+# Copyright (c) 2009 by the Slovak translation team
+# Generated from files:
+#  contact.module,v 1.103.2.1 2008/04/09 21:11:46 goba
+#  contact.admin.inc,v 1.3 2007/11/09 07:55:13 dries
+#  contact.pages.inc,v 1.6.2.1 2008/02/12 14:42:50 goba
+#  contact.install,v 1.10 2007/12/18 12:59:21 dries
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal (6.8)\n"
+"POT-Creation-Date: 2009-01-04 11:20+0100\n"
+"PO-Revision-Date: 2008-04-21 23:36+0200\n"
+"Language-Team: Slovak\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((n==1)?(0):(((n>=2)&&(n<=4))?(1):2));\n"
+
+#: modules/contact/contact.module:25
+msgid ""
+"The menu item can be customized and configured only once the menu module has "
+"been <a href=\"@modules-page\">enabled</a>."
+msgstr ""
+"Nastavovať a prispôsobovať položku menu je možné iba ak <a href=\"@modules-"
+"page\">povolíte modul Menu</a>."
+
+#: modules/contact/contact.module:30
+msgid ""
+"The contact module also adds a <a href=\"@menu-settings\">menu item</a> "
+"(disabled by default) to the navigation block."
+msgstr ""
+"Modul contact tiež pridá <a href=\"@menu-settings\">položku menu</a> "
+"(implicitne vypnutá) do navigačného bloku."
+
+#: modules/contact/contact.module:46
+msgid "Contact form"
+msgstr "Kontaktný formulár"
+
+#: modules/contact/contact.module:47
+msgid "Create a system contact form and set up categories for the form to use."
+msgstr "Nastavenie systémového kontaktného formulára a tvorba kategórie správ."
+
+#: modules/contact/contact.module:68
+msgid "Edit contact category"
+msgstr "Upraviť predmet správ"
+
+#: modules/contact/contact.module:76
+msgid "Delete contact"
+msgstr "Odstrániť kontakt"
+
+#: modules/contact/contact.module:144
+msgid "Contact settings"
+msgstr "Nastavenia kontaktu"
+
+#: modules/contact/contact.module:149
+msgid "Personal contact form"
+msgstr "Súkromný kontaktný formulár"
+
+#: modules/contact/contact.module:151
+msgid ""
+"Allow other users to contact you by e-mail via <a href=\"@url\">your "
+"personal contact form</a>. Note that while your e-mail address is not made "
+"public to other members of the community, privileged users such as site "
+"administrators are able to contact you even if you choose not to enable this "
+"feature."
+msgstr ""
+"Umožňuje ostatným používateľom kontaktovať vás e-mailom pomocou <a href="
+"\"@url\">osobného kontaktného formulára</a>. Poznámka: Vaša e-mailová adresa "
+"sa nezverejní a privilegovaní používatelia (napr. administrátori) vás môžu "
+"kontaktovať, i keď túto možnosť zakážete."
+
+#: modules/contact/contact.admin.inc:47,18
+msgid "Recipients"
+msgstr "Príjemcovia"
+
+#: modules/contact/contact.admin.inc:43
+msgid "Example: 'website feedback' or 'product information'."
+msgstr "Príklad: 'informácie o produkte' alebo 'kritika webu'"
+
+#: modules/contact/contact.admin.inc:49
+msgid ""
+"Example: 'webmaster@example.com' or 'sales@example.com,support@example.com'. "
+"To specify multiple recipients, separate each e-mail address with a comma."
+msgstr ""
+"Príklad: 'webmaster@priklad.sk' alebo 'obchod@priklad.sk'. Ak chcete určiť "
+"viac príjemcov, oddelte e-mailové adresy čiarkou."
+
+#: modules/contact/contact.admin.inc:53
+msgid "Auto-reply"
+msgstr "Automatická odpoveď"
+
+#: modules/contact/contact.admin.inc:55
+msgid ""
+"Optional auto-reply. Leave empty if you do not want to send the user an auto-"
+"reply message."
+msgstr ""
+"Voliteľná automatická odpoveď. Pokiaľ nechcete používateľovi zaslať "
+"automatickú odpoveď, ponechajte prázdne."
+
+#: modules/contact/contact.admin.inc:60
+msgid ""
+"When listing categories, those with lighter (smaller) weights get listed "
+"before categories with heavier (larger) weights. Categories with equal "
+"weights are sorted alphabetically."
+msgstr ""
+"Vo výpise kategórií sa tie ľahšie (nižšia váha) zobrazia pred ťažšími "
+"(väčšia váha). Kategórie s rovnakou váhou sa zoradia abecedne."
+
+#: modules/contact/contact.admin.inc:66
+msgid ""
+"Set this to <em>Yes</em> if you would like this category to be selected by "
+"default."
+msgstr ""
+"Nastavte na <em>Áno</em>, pokiaľ chcete túto kategóriu implicitne vybrať."
+
+#: modules/contact/contact.admin.inc:86
+msgid "You must enter one or more recipients."
+msgstr "Musíte zadať jedného alebo viacerých príjemcov."
+
+#: modules/contact/contact.admin.inc:92
+msgid "%recipient is an invalid e-mail address."
+msgstr "Zadaná adresa %recipient nie je platná."
+
+#: modules/contact/contact.admin.inc:114
+msgid "Category %category has been added."
+msgstr "Kategória %category bola pridaná."
+
+#: modules/contact/contact.admin.inc:115
+msgid "Contact form: category %category added."
+msgstr "Kontaktný formulár: kategória %category pridaná."
+
+#: modules/contact/contact.admin.inc:120
+msgid "Category %category has been updated."
+msgstr "Kategória %category bola aktualizovaná."
+
+#: modules/contact/contact.admin.inc:121
+msgid "Contact form: category %category updated."
+msgstr "Kontaktný formulár: kategória %category aktualizovaná."
+
+#: modules/contact/contact.admin.inc:138
+msgid "Are you sure you want to delete %category?"
+msgstr "Určite chcete odstrániť %category?"
+
+#: modules/contact/contact.admin.inc:147
+msgid "Category %category has been deleted."
+msgstr "Kategória %category bola odstránená."
+
+#: modules/contact/contact.admin.inc:148
+msgid "Contact form: category %category deleted."
+msgstr "Kontaktný formulár: kategória %category odstránená."
+
+#: modules/contact/contact.admin.inc:156
+msgid "Additional information"
+msgstr "Doplňujúce informácie"
+
+#: modules/contact/contact.admin.inc:158
+msgid ""
+"Information to show on the <a href=\"@form\">contact page</a>. Can be "
+"anything from submission guidelines to your postal address or telephone "
+"number."
+msgstr ""
+"Informácie, ktoré sa zobrazujú na <a href=\"@form\">kontaktnej stránke</a>. "
+"Môžu obsahovať čokoľvek od rád pre odosielanie až po poštovú adresu či "
+"telefónne číslo."
+
+#: modules/contact/contact.admin.inc:161
+msgid "Hourly threshold"
+msgstr "Hodinový limit"
+
+#: modules/contact/contact.admin.inc:164
+msgid ""
+"The maximum number of contact form submissions a user can perform per hour."
+msgstr "Maximálny počet správ, ktoré môže používateľ odoslať za hodinu."
+
+#: modules/contact/contact.admin.inc:168
+msgid "Enable personal contact form by default"
+msgstr "Implicitne zapnúť súkromný kontaktný formulár"
+
+#: modules/contact/contact.admin.inc:170
+msgid "Default status of the personal contact form for new users."
+msgstr ""
+"Predvolené nastavenia zobrazovania kontaktného formulára pre nových "
+"používateľov."
+
+#: modules/contact/contact.pages.inc:161
+msgid ""
+"You need to provide a valid e-mail address to contact other users. Please "
+"update your <a href=\"@url\">user information</a> and try again."
+msgstr ""
+"Pokiaľ chcete kontaktovať ostatných používateľov, musíte zadať platnú e-"
+"mailovú adresu. Upravte prosím svoje <a href=\"@url\">používateľské "
+"informácie</a>."
+
+#: modules/contact/contact.pages.inc:164
+msgid ""
+"You cannot contact more than %number users per hour. Please try again later."
+msgstr ""
+"Nemôžete kontaktovať viac ako %number používateľov za hodinu. Skúste to "
+"prosím neskôr."
+
+#: modules/contact/contact.pages.inc:179
+msgid "From"
+msgstr "Od koho"
+
+#: modules/contact/contact.pages.inc:183
+msgid "To"
+msgstr "Komu"
+
+#: modules/contact/contact.pages.inc:197,88
+msgid "Send yourself a copy."
+msgstr "Pošli mi kópiu."
+
+#: modules/contact/contact.module:187
+msgid ""
+"!name (!name-url) has sent you a message via your contact form (!form-url) "
+"at !site."
+msgstr ""
+"!name (!name-url) vám poslal správu pomocou kontaktného formulára (!form-"
+"url)  na !site."
+
+#: modules/contact/contact.module:188
+msgid ""
+"If you don't want to receive such e-mails, you can change your settings at !"
+"url."
+msgstr ""
+"Pokiaľ nechcete tieto e-maily dostávať, môžete zmeniť vaše nastavenia na !"
+"url."
+
+#: modules/contact/contact.module:189
+msgid "Message:"
+msgstr "Správa:"
+
+#: modules/contact/contact.pages.inc:231
+msgid "%name-from sent %name-to an e-mail."
+msgstr "%name-from poslal e-mail pre %name-to."
+
+#: modules/contact/contact.pages.inc:232
+msgid "The message has been sent."
+msgstr "Správa bola odoslaná."
+
+#: modules/contact/contact.pages.inc:17
+msgid ""
+"You cannot send more than %number messages per hour. Please try again later."
+msgstr "Nemôžete poslať viac ako %number správ za hodinu. Skúste to neskôr."
+
+#: modules/contact/contact.pages.inc:49
+msgid "Your e-mail address"
+msgstr "Vaša e-mailová adresa"
+
+#: modules/contact/contact.pages.inc:109
+msgid "You must select a valid category."
+msgstr "Musíte vybrať platnú kategóriu."
+
+#: modules/contact/contact.pages.inc:112
+msgid "You must enter a valid e-mail address."
+msgstr "Musíte zadať platnú e-mailovú adresu."
+
+#: modules/contact/contact.module:173
+msgid "!name sent a message using the contact form at !form."
+msgstr "!name poslal(a) správu pomocou kontaktného formulára na !form."
+
+#: modules/contact/contact.module:178,172
+msgid "[!category] !subject"
+msgstr "[!category] !subject"
+
+#: modules/contact/contact.pages.inc:146
+msgid "%name-from sent an e-mail regarding %category."
+msgstr "%name-from poslal e-mail ohľadom %category."
+
+#: modules/contact/contact.pages.inc:147
+msgid "Your message has been sent."
+msgstr "Vaša správa bola odoslaná."
+
+#: modules/contact/contact.module:39
+msgid "access site-wide contact form"
+msgstr "pristupovať ku kontaktnej stránke webu"
+
+#: modules/contact/contact.module:0
+msgid "contact"
+msgstr "kontakt"
+
+#: modules/contact/contact.pages.inc:99
+msgid ""
+"The contact form has not been configured. <a href=\"@add\">Add one or more "
+"categories</a> to the form."
+msgstr ""
+"Kontaktný formulár nebol vytvorený. <a href=\"@add\">Pridaj jednu alebo viac "
+"kategórií</a> do formulára."
+
+#: modules/contact/contact.module:15
+msgid ""
+"The contact module facilitates communication via e-mail, by allowing your "
+"site's visitors to contact one another (personal contact forms), and by "
+"providing a simple way to direct messages to a set of administrator-defined "
+"recipients (the <a href=\"@contact\">contact page</a>). With either form, "
+"users specify a subject, write their message, and (optionally) have a copy "
+"of their message sent to their own e-mail address."
+msgstr ""
+"Modul Contact uľahčuje komunikáciu e-mailom. Dovoľuje návštevníkom "
+"kontaktovať sa s používateľmi webu (osobné kontaktné formuláre), a tiež "
+"priamu komunikáciu s administrátorom definovanou skupinou príjemcov (<a href="
+"\"@contact\">stránka Kontakt</a>). Na každom formulári používateľ "
+"špecifikuje predmet, napíše text správy, a môže si tiež poslať kópiu "
+"odoslanej správy na vlastný e-mail."
+
+#: modules/contact/contact.module:16
+msgid ""
+"Personal contact forms allow users to be contacted via e-mail, while keeping "
+"recipient e-mail addresses private. Users may enable or disable their "
+"personal contact forms by editing their <em>My account</em> page. If "
+"enabled, a <em>Contact</em> tab leading to their personal contact form is "
+"available on their user profile. Site administrators have access to all "
+"personal contact forms (even if they have been disabled). The <em>Contact</"
+"em> tab is only visible when viewing another user's profile (users do not "
+"see their own <em>Contact</em> tab)."
+msgstr ""
+"Používatelia môžu byť kontaktovaní e-mailom pomocou osobného kontaktného "
+"formulára, bez toho, aby bola zverejnená ich e-mailová adresa. Môžu na "
+"stránke <em>Môj účet</em> povoliť alebo vypnúť použitie svojich osobných "
+"kontaktných formulárov. Ak je osobný kontaktný formulár povolený, zobrazí sa "
+"v používateľskom profile záložka <em>Kontakt</em> vedúca na osobný kontaktný "
+"formulár. Administrátori webu môžu použiť všetky kontaktné formuláre vrátane "
+"vypnutých. Záložka <em>Kontakt</em> je viditeľná len v používateľskom "
+"profile iného používateľa - používateľ nevidí vlastnú záložku <em>Kontakt</"
+"em>."
+
+#: modules/contact/contact.module:17
+msgid ""
+"The <a href=\"@contact\">contact page</a> provides a simple form for "
+"visitors to leave comments, feedback, or other requests. Messages are routed "
+"by selecting a category from a list of administrator-defined options; each "
+"category has its own set of e-mail recipients. Common categories for a "
+"business site include, for example, \"Website feedback\" (messages are "
+"forwarded to web site administrators) and \"Product information\" (messages "
+"are forwarded to members of the sales department). The actual e-mail "
+"addresses defined within a category are not displayed. Only users in roles "
+"with the <em>access site-wide contact form</em> permission may access the <a "
+"href=\"@contact\">contact page</a>."
+msgstr ""
+"<a href=\"@contact\">Kontaktná stránka</a> ponúka návštevníkom webu možnosť "
+"zanechať komentáre, spätnú väzbu alebo iné žiadosti, priania a sťažnosti. "
+"Správy sú odosielané rôznym príjemcom podľa vybranej kategórie. Tieto "
+"kategórie vytvára administrátor webu; každá kategória môže mať svoju množinu "
+"príjemcov e-mailu. Je možné nastaviť napríklad bežné kategórie ako „Spätná "
+"väzba“ (správy sú preposielané administrátorom), a tiež „Informácie o "
+"produktoch“ (správy sú posielané do obchodného oddelenia). E-mailové adresy "
+"priradené ku kategóriám nie sú zobrazované. Len používatelia s oprávnením "
+"<em>prístup ku kontaktnému formuláru webu</em> môžu pristupovať k <a href="
+"\"@contact\">stránke kontakt</a>."
+
+#: modules/contact/contact.module:18
+msgid ""
+"A link to your site's <a href=\"@contact\">contact page</a> from the main "
+"<em>Navigation</em> menu is created, but is disabled by default. Create a "
+"similar link on another menu by adding a menu item pointing to the path "
+"\"contact\""
+msgstr ""
+"Odkaz na <a href=\"@contact\">stránku Kontakt</a> v <em>hlavnej navigácii</"
+"em> je vytvorený, ale je v predvolenom nastavení vypnutý. Vytvorte podobný "
+"odkaz ukazujúci na cestu „contact“."
+
+#: modules/contact/contact.module:19
+msgid ""
+"Customize the <a href=\"@contact\">contact page</a> with additional "
+"information (like physical location, mailing address, and telephone number) "
+"using the <a href=\"@contact-settings\">contact form settings page</a>. The "
+"<a href=\"@contact-settings\">settings page</a> also provides configuration "
+"options for the maximum number of contact form submissions a user may "
+"perform per hour, and the default status of users' personal contact forms."
+msgstr ""
+"Pridajte na <a href=\"@contact\">stránku Kontakt</a> ďalšie informácie "
+"(napr. bydlisko, poštovú adresu alebo telefónne číslo) pomocou formulára <a "
+"href=\"@contact-settings\">nastavenie stránky Kontakt</a>. Na tejto stránke "
+"môžete tiež nastaviť nastaviť maximálny počet odoslaní formulára "
+"používateľom za hodinu a predvolený stav používateľských kontaktných "
+"formulárov."
+
+#: modules/contact/contact.module:20
+msgid ""
+"For more information, see the online handbook entry for <a href=\"@contact"
+"\">Contact module</a>."
+msgstr ""
+"Ďalšie informácie sa dozviete v online príručke v kapitole <a href=\"@contact"
+"\">modul Contact</a>."
+
+#: modules/contact/contact.module:23
+msgid ""
+"This page lets you set up <a href=\"@form\">your site-wide contact form</a>. "
+"To do so, add one or more categories. You can associate different recipients "
+"with each category to route e-mails to different people. For example, you "
+"can route website feedback to the webmaster and direct product information "
+"requests to the sales department. On the <a href=\"@settings\">settings "
+"page</a>, you can customize the information shown above the contact form. "
+"This can be useful to provide additional contact information such as your "
+"postal address and telephone number."
+msgstr ""
+"Na tejto stránke môžete nastaviť <a href=\"@form\">kontaktný formulár webu</"
+"a>. Zadajte jednu alebo viac kategórií. Ku každej kategórii môžete priradiť "
+"iné adresy. Napr. pripomienky k webu môžete poslať webmasterovi a žiadosti o "
+"informácie o produkte na obchodné oddelenie. Na stránke <a href=\"@settings"
+"\">nastavení</a> môžete upraviť informáciu, ktorá sa zobrazí nad kontaktným "
+"formulárom. Môžete tak poskytnúť ďalší kontaktné informácie, napr. poštovú "
+"adresu alebo telefónne číslo."
+
+#: modules/contact/contact.module:39
+msgid "administer site-wide contact form"
+msgstr "administrácia kontaktného formulára"
+
+#: modules/contact/contact.install:29
+msgid "Contact form category settings."
+msgstr "Nastavenia kategórie kontaktného formulára."
+
+#: modules/contact/contact.install:35
+msgid "Primary Key: Unique category ID."
+msgstr "Primárny kľúč: Jedinečné ID kategórie."
+
+#: modules/contact/contact.install:42
+msgid "Category name."
+msgstr "Meno kategórie."
+
+#: modules/contact/contact.install:48
+msgid "Comma-separated list of recipient e-mail addresses."
+msgstr "Čiarkami delený zoznam e-mailových adries príjemcov."
+
+#: modules/contact/contact.install:54
+msgid "Text of the auto-reply message."
+msgstr "Text automatickej odpovede."
+
+#: modules/contact/contact.install:61
+msgid "The category's weight."
+msgstr "Váha kategórie."
+
+#: modules/contact/contact.install:68
+msgid ""
+"Flag to indicate whether or not category is selected by default. (1 = Yes, 0 "
+"= No)"
+msgstr ""
+"Príznak určujúci či má alebo nemá byť kategória automaticky označená (1 = "
+"áno, 0 = nie)."

@@ -1,0 +1,401 @@
+# Slovak translation of Drupal (6.8)
+# Copyright (c) 2009 by the Slovak translation team
+# Generated from files:
+#  book.install,v 1.20 2008/01/10 18:13:42 goba
+#  book.module,v 1.454.2.5 2008/07/03 06:38:46 dries
+#  book.pages.inc,v 1.5.2.1 2008/08/13 23:59:13 drumm
+#  book-navigation.tpl.php,v 1.1 2007/11/04 14:29:09 goba
+#  book.admin.inc,v 1.8.2.3 2008/10/22 19:26:01 goba
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal (6.8)\n"
+"POT-Creation-Date: 2009-01-04 11:20+0100\n"
+"PO-Revision-Date: 2008-08-15 22:14+0200\n"
+"Language-Team: Slovak\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((n==1)?(0):(((n>=2)&&(n<=4))?(1):2));\n"
+
+#: modules/book/book.install:29
+msgid "Book page"
+msgstr "Strana knihy"
+
+#: modules/book/book.module:64
+msgid "Printer-friendly version"
+msgstr "Verzia pre tlač"
+
+#: modules/book/book.module:66
+msgid "Show a printer-friendly version of this book page and its sub-pages."
+msgstr "Zobraziť túto stranu a jej podstrany vo verzii pre tlač."
+
+#: modules/book/book.module:108,79
+msgid "Books"
+msgstr "Knihy"
+
+#: modules/book/book.module:122
+msgid "Outline"
+msgstr "Začleniť"
+
+#: modules/book/book.module:189,180
+msgid "Book navigation"
+msgstr "Obsah knihy"
+
+#: modules/book/book.module:391
+msgid "Pages at a given level are ordered first by weight and then by title."
+msgstr ""
+"Stránky na určenej úrovni sa zoradia najprv podľa váhy a potom podľa názvu."
+
+#: modules/book/book.pages.inc:126
+msgid "Update book outline"
+msgstr "Aktualizovať osnovu"
+
+#: modules/book/book.pages.inc:132
+msgid "Remove from book outline"
+msgstr "Odstrániť z osnovy"
+
+#: modules/book/book.pages.inc:126
+msgid "Add to book outline"
+msgstr "Pridať do osnovy"
+
+#: modules/book/book.pages.inc:173
+msgid "The book outline has been updated."
+msgstr "Osnova knihy bola aktualizovaná."
+
+#: modules/book/book.pages.inc:213
+msgid "The post has been removed from the book."
+msgstr "Príspevok bol z knihy odstránený."
+
+#: modules/book/book-navigation.tpl.php:40
+msgid "‹ "
+msgstr "‹ "
+
+#: modules/book/book-navigation.tpl.php:43
+msgid "up"
+msgstr "o úroveň vyššie"
+
+#: modules/book/book-navigation.tpl.php:43
+msgid "Go to parent page"
+msgstr "Prejsť na nadradenú stranu"
+
+#: modules/book/book-navigation.tpl.php:46
+msgid " ›"
+msgstr " ›"
+
+#: modules/book/book.pages.inc:52
+msgid "Unknown export format."
+msgstr "Neznámy typ formátu pre export."
+
+#: modules/book/book.admin.inc:78
+msgid "Save book pages"
+msgstr "Uložiť strany knihy"
+
+#: modules/book/book.module:0
+msgid "book"
+msgstr "kniha"
+
+#: modules/book/book.admin.inc:135
+msgid "Updated book %title."
+msgstr "Kniha %title bola aktualizovaná."
+
+#: modules/book/book.module:1008
+msgid ""
+"Users can select the <em>printer-friendly version</em> link visible at the "
+"bottom of a book page to generate a printer-friendly display of the page and "
+"all of its subsections. "
+msgstr ""
+"Používatelia môžu kliknutím na odkaz <em>verzia pre tlač</em> v spodnej "
+"časti strany zobraziť verziu vhodnú pre tlač, ktorá obsahuje stranu a všetky "
+"jej podsekcie. "
+
+#: modules/book/book.module:43
+msgid "create new books"
+msgstr "vytvoriť nové knihy"
+
+#: modules/book/book.admin.inc:15
+msgid "edit order and titles"
+msgstr "upraviť poradie a názvy"
+
+#: modules/book/book.admin.inc:33
+msgid "Allowed book outline types"
+msgstr "Povolené typy obsahu knihy"
+
+#: modules/book/book.admin.inc:36
+msgid ""
+"Select content types which users with the %add-perm permission will be "
+"allowed to add to the book hierarchy. Users with the %outline-perm "
+"permission can add all content types."
+msgstr ""
+"Vyberte typy obsahu, ktoré budú môcť používatelia s právami %add-perm pridať "
+"do hierarchie knihy. Používatelia s právami %outline-perm môžu pridávať "
+"všetky typy obsahov."
+
+#: modules/book/book.admin.inc:41
+msgid "Default child page type"
+msgstr "Prednastavený typ zviazanej strany"
+
+#: modules/book/book.admin.inc:60,44
+msgid ""
+"The content type for the %add-child link must be one of those selected as an "
+"allowed book outline type."
+msgstr ""
+"Typ obsahu pre odkaz %add-child musí byť jedným z typov obsahov povolených v "
+"osnove."
+
+#: modules/book/book.admin.inc:128
+msgid "Title changed from %original to %current."
+msgstr "Nadpis bol zmenený z %original na %current."
+
+#: modules/book/book.admin.inc:130
+msgid "book: updated %title."
+msgstr "kniha: aktualizované %title."
+
+#: modules/book/book.pages.inc:160
+msgid "No changes were made"
+msgstr "Nevykonali sa žiadne zmeny"
+
+#: modules/book/book.pages.inc:169
+msgid ""
+"The post has been added to the selected book. You may now position it "
+"relative to other pages."
+msgstr ""
+"Príspevok bol zaradený do vybranej knihy. Teraz ho môžete zaradiť relatívne "
+"vzhľadom k iným stránkam."
+
+#: modules/book/book.pages.inc:177
+msgid "There was an error adding the post to the book."
+msgstr "Pri odosielaní príspevku do knihy nastala chyba."
+
+#: modules/book/book.pages.inc:193
+msgid ""
+"%title has associated child pages, which will be relocated automatically to "
+"maintain their connection to the book. To recreate the hierarchy (as it was "
+"before removing this page), %title may be added again using the Outline tab, "
+"and each of its former child pages will need to be relocated manually."
+msgstr ""
+"%title má pridružené zviazané strany, ktoré budú automaticky prenesené aby "
+"sa zachovalo spojenie s knihou. Pre opätovné vytvorenie hierarchie (tak ako "
+"to bolo pred odstránením tejto stránky) je potrebné znovu %title pridať "
+"pomocou záložky Osnova a ručne preniesť zviazané strany."
+
+#: modules/book/book.pages.inc:196
+msgid "%title may be added to hierarchy again using the Outline tab."
+msgstr "%title môže byť opäť pridaný do hierarchie pomocou záložky Osnova."
+
+#: modules/book/book.pages.inc:199
+msgid "Are you sure you want to remove %title from the book hierarchy?"
+msgstr "Určite chcete odstrániť %title z hierarchie knihy?"
+
+#: modules/book/book.pages.inc:199
+msgid "Remove"
+msgstr "Odstrániť"
+
+#: modules/book/book.module:223
+msgid "Show block on all pages"
+msgstr "Zobraziť blok na všetkých stránkach"
+
+#: modules/book/book.module:224
+msgid "Show block only on book pages"
+msgstr "Zobraziť blok iba na stránkach knihy"
+
+#: modules/book/book.module:228
+msgid "Book navigation block display"
+msgstr "Zobraziť navigáciu knihy"
+
+#: modules/book/book.module:231
+msgid ""
+"If <em>Show block on all pages</em> is selected, the block will contain the "
+"automatically generated menus for all of the site's books. If <em>Show block "
+"only on book pages</em> is selected, the block will contain only the one "
+"menu corresponding to the current page's book. In this case, if the current "
+"page is not in a book, no block will be displayed. The <em>Page specific "
+"visibility settings</em> or other visibility settings can be used in "
+"addition to selectively display this block."
+msgstr ""
+"Ak je vybraná voľba <em>Zobraziť blok na všetkých stránkach</em>, blok bude "
+"obsahovať automaticky generované menu pre všetky knihy webu. Ak je vybrané "
+"<em>Zobrazit bloky iba na stránkach knihy</em>, blok bude obsahovať iba menu "
+"aktuálnej knihy. V tomto prípade, ak práve zobrazovaná stránka nie je "
+"súčasťou knihy, blok sa nezobrazí. Ďalšie možnosti kontroly zobrazenia bloku "
+"sú na stránke <em>Špecifické nastavenie viditeľnosti pre stránku</em>."
+
+#: modules/book/book.module:302
+msgid "Change book (update list of parents)"
+msgstr "Zmeniť knihu (aktualizovať zoznam rodičov)"
+
+#: modules/book/book.module:337
+msgid "This is the top-level page in this book."
+msgstr "Toto je hlavá stránka (stránka najvyššej úrovne) v knihe."
+
+#: modules/book/book.module:340
+msgid "This will be the top-level page in this book."
+msgstr "Toto bude hlavná stránka knihy."
+
+#: modules/book/book.module:344
+msgid "No book selected."
+msgstr "Nebola vybraná žiadna kniha."
+
+#: modules/book/book.module:351
+msgid ""
+"The parent page in the book. The maximum depth for a book and all child "
+"pages is !maxdepth. Some pages in the selected book may not be available as "
+"parents if selecting them would exceed this limit."
+msgstr ""
+"Rodičovská stránka v knihe. Maximálna hĺbka knihy a všetkých zviazaných "
+"strán je !maxdepth. Niektoré stránky vybranej knihy nemôžu byť vybrané ako "
+"rodičovské, v prípade, že by to znamenalo prekročenie tejto hodnoty."
+
+#: modules/book/book.module:369
+msgid "Book outline"
+msgstr "Obsah knihy"
+
+#: modules/book/book.module:408
+msgid "create a new book"
+msgstr "vytvoriť novú knihu"
+
+#: modules/book/book.module:422
+msgid "Your page will be a part of the selected book."
+msgstr "Vaša stránka bude súčasťou vybranej knihy."
+
+#: modules/book/book.module:763
+msgid ""
+"%title is part of a book outline, and has associated child pages. If you "
+"proceed with deletion, the child pages will be relocated automatically."
+msgstr ""
+"%title je súčasťou osnovy knihy, a má pridružené zviazané strany. V prípade "
+"zmazania %title budú zviazané strany automaticky prenesené."
+
+#: modules/book/book.module:1006
+msgid ""
+"The book module is suited for creating structured, multi-page hypertexts "
+"such as site resource guides, manuals, and Frequently Asked Questions "
+"(FAQs). It permits a document to have chapters, sections, subsections, etc. "
+"Authors with suitable permissions can add pages to a collaborative book, "
+"placing them into the existing document by adding them to a table of "
+"contents menu."
+msgstr ""
+"Modul kniha je vhodný pre vytváranie štruktúrovaných, viacstránkových "
+"hypertextov, napr. návodov, príručiek či FAQ. Umožňuje rozdeliť dokumenty do "
+"kapitol, sekcií, podsekcií atď. Autori s príslušnými právami môžu pridávať "
+"stránky do spoločnej knihy a zaradiť ich do obsahu knihy."
+
+#: modules/book/book.module:1007
+msgid ""
+"Pages in the book hierarchy have navigation elements at the bottom of the "
+"page for moving through the text. These links lead to the previous and next "
+"pages in the book, and to the level above the current page in the book's "
+"structure. More comprehensive navigation may be provided by enabling the "
+"<em>book navigation block</em> on the <a href=\"@admin-block\">blocks "
+"administration page</a>."
+msgstr ""
+"Stránky v hierarchii knihy majú navigačné elementy pre navigáciu v knihe na "
+"konci stránky. Tieto odkazy vedú na predchádzajúcu a nasledujúcu stránku v "
+"knihe a na nadradenú stránku v štruktúre knihy. Vylepšená navigácia môže byť "
+"zobrazená zapnutím <em>navigačného bloku knihy</em> na stránke <a href="
+"\"@admin-block\">administrácie blokov</a>."
+
+#: modules/book/book.module:1009
+msgid ""
+"Users with the <em>administer book outlines</em> permission can add a post "
+"of any content type to a book, by selecting the appropriate book while "
+"editing the post or by using the interface available on the post's "
+"<em>outline</em> tab."
+msgstr ""
+"Používatelia s oprávnením <em>administrovať osnovu knihy</em> môžu do knihy "
+"pridať príspevok akéhokoľvek <em>typu obsahu</em>, či už vybraním knihy pri "
+"úprave príspevku alebo pomocou záložky <em>Osnova</em>."
+
+#: modules/book/book.module:1010
+msgid ""
+"Administrators can view a list of all books on the <a href=\"@admin-node-book"
+"\">book administration page</a>. The <em>Outline</em> page for each book "
+"allows section titles to be edited or rearranged."
+msgstr ""
+"Administrátori môžu prezerať zoznam všetkých kníh na stránke <a href="
+"\"@admin-node-book\">administrácie knihy</a>. V záložke <em>Osnova</em> pri "
+"každej knihe je možné upravovať nadpisy sekcií a meniť ich poradie."
+
+#: modules/book/book.module:1011
+msgid ""
+"For more information, see the online handbook entry for <a href=\"@book"
+"\">Book module</a>."
+msgstr ""
+"Ďalšie informácie sa dozviete v online príručke v kapitole <a href=\"@book"
+"\">modul Book</a>."
+
+#: modules/book/book.module:1014
+msgid ""
+"The book module offers a means to organize a collection of related posts, "
+"collectively known as a book. When viewed, these posts automatically display "
+"links to adjacent book pages, providing a simple navigation system for "
+"creating and reviewing structured content."
+msgstr ""
+"Modul kniha (book) ponúka organizovanie súvisiacich príspevkov, ktoré "
+"všeobecne označujeme termínom book/kniha. Pri zobrazení príspevkov sú "
+"automaticky zobrazené odkazy na susedné stránky knihy, čo je vlastne "
+"jednoduchý navigačný systém pre tvorbu a prezeranie štruktúrovaného obsahu."
+
+#: modules/book/book.module:1016
+msgid ""
+"The outline feature allows you to include posts in the <a href=\"@book"
+"\">book hierarchy</a>, as well as move them within the hierarchy or to <a "
+"href=\"@book-admin\">reorder an entire book</a>."
+msgstr ""
+"Funkcia Osnova umožňuje pridať príspevky do <a href=\"@book\">hierarchie "
+"knihy</a>, presúvať ich v hierarchii knihy alebo <a href=\"@book-admin"
+"\">preskupiť celú knihu</a>."
+
+#: modules/book/book.module:43
+msgid "access printer-friendly version"
+msgstr "prístup k verzii vhodnej pre tlač"
+
+#: modules/book/book.module:80
+msgid "Manage your site's book outlines."
+msgstr "Správa osnovy webu."
+
+#: modules/book/book.module:99
+msgid "Re-order book pages and change titles"
+msgstr "Preusporiadať stránky knihy a zmeniť nadpisy"
+
+#: modules/book/book.module:132
+msgid "Remove from outline"
+msgstr "Odstrániť z osnovy"
+
+#: modules/book/book.install:31
+msgid ""
+"A <em>book page</em> is a page of content, organized into a collection of "
+"related entries collectively known as a <em>book</em>. A <em>book page</em> "
+"automatically displays links to adjacent pages, providing a simple "
+"navigation system for organizing and reviewing structured content."
+msgstr ""
+"<em>Stránka knihy</em> je stránka s obsahom organizovaným do súboru "
+"súvisiacich príspevkov, ktoré všeobecne nazývame <em>Kniha</em>. Pri "
+"zobrazení príspevkov sú automaticky zobrazené odkazy na susedné stránky "
+"knihy, teda jednoduchý navigačný systém pre tvorbu a prezeranie "
+"štruktúrovaného obsahu."
+
+#: modules/book/book.install:254
+msgid ""
+"Stores book outline information. Uniquely connects each node in the outline "
+"to a link in {menu_links}"
+msgstr ""
+"Úložiská knižných osnovách. Jednoznačne spája každý uzol osnovy s odkazom v "
+"{menu_links}"
+
+#: modules/book/book.install:261
+msgid "The book page's {menu_links}.mlid."
+msgstr "{menu_links}.mlid stránky knihy."
+
+#: modules/book/book.install:268
+msgid "The book page's {node}.nid."
+msgstr "Strany knihy {node}.nid."
+
+#: modules/book/book.install:275
+msgid "The book ID is the {book}.nid of the top-level page."
+msgstr "ID knihy je {book}nid koreňovej stránky."
+
+#: modules/book/book.admin.inc:90
+msgid ""
+"This book has been modified by another user, the changes could not be saved."
+msgstr "Táto kniha bola upravená iným používateľom, zmeny nemôžu byť uložené."

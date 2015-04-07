@@ -1,0 +1,237 @@
+# Slovak translation of Drupal (6.8)
+# Copyright (c) 2009 by the Slovak translation team
+# Generated from files:
+#  translation.pages.inc,v 1.2.2.1 2008/09/30 10:50:43 goba
+#  translation.module,v 1.23.2.3 2008/12/10 20:35:06 goba
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal (6.8)\n"
+"POT-Creation-Date: 2009-01-04 11:20+0100\n"
+"PO-Revision-Date: 2008-04-22 15:42+0200\n"
+"Language-Team: Slovak\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((n==1)?(0):(((n>=2)&&(n<=4))?(1):2));\n"
+
+#: modules/translation/translation.pages.inc:41
+msgid "outdated"
+msgstr "zastaraný"
+
+#: modules/translation/translation.pages.inc:50
+msgid "add translation"
+msgstr "pridať preklad"
+
+#: modules/translation/translation.pages.inc:52
+msgid "Not translated"
+msgstr "Nepreložené"
+
+#: modules/translation/translation.pages.inc:57
+msgid "Translations of %title"
+msgstr "Preklad %title"
+
+#: modules/translation/translation.module:34
+msgid ""
+"The content translation module allows content to be translated into "
+"different languages. Working with the <a href=\"@locale\">locale module</a> "
+"(which manages enabled languages and provides translation for the site "
+"interface), the content translation module is key to creating and "
+"maintaining translated site content."
+msgstr ""
+"Prekladový modul umožňuje preklad obsahu do rôznych jazykov. V spolupráci s "
+"modulom <a href=\"@locale\">locale</a> (ktorý riadi povolené jazyky a "
+"umožňuje preklad rozhrania webu) je kľúčom k vytváraniu a údržbe "
+"viacjazyčných obsahov webu."
+
+#: modules/translation/translation.module:35
+msgid "Configuring content translation and translation-enabled content types:"
+msgstr "Nastavenie prekladu obsahu a typov obsahu, ktoré je možné prekladať:"
+
+#: modules/translation/translation.module:36
+msgid ""
+"Assign the <em>translate content</em> permission to the appropriate user "
+"roles at the <a href=\"@permissions\">Permissions configuration page</a>."
+msgstr ""
+"Prideľte právo <em>translate content</em> príslušným kategóriám používateľov "
+"na stránke pre <a href=\"@permissions\">nastavenie oprávnení</a>."
+
+#: modules/translation/translation.module:37
+msgid ""
+"Add and enable desired languages at the <a href=\"@languages\">Languages "
+"configuration page</a>."
+msgstr ""
+"Pridať a povoliť želané jazyky na <a href=\"@languages\">stránku "
+"konfigurácie jazykov</a>."
+
+#: modules/translation/translation.module:38
+msgid ""
+"Determine which <a href=\"@content-types\">content types</a> should support "
+"translation features. To enable translation support for a content type, edit "
+"the type and at the <em>Multilingual support</em> drop down, select "
+"<em>Enabled, with translation</em>. (<em>Multilingual support</em> is "
+"located within <em>Workflow settings</em>.) Be sure to save each content "
+"type after enabling multilingual support."
+msgstr ""
+"Určite, ktoré <a href=\"@content-types\">typy obsahu</a> by mali podporovať "
+"preklad. Po zapnutí podpory prekladu pre typ obsahu je trerba upraviť typ a "
+"vo výbere <em>Viacjazyčná podpora</em> zvolit <em>Zapnuté, s prekladom</em>. "
+"(<em>Viacjazyčná podpora</em> sa nachádza v  <em>Nastavení postupu práce</"
+"em>) Nezabudnite každý typ obsahu po zapnutí viacjazyčnej podpory uložiť."
+
+#: modules/translation/translation.module:39
+msgid "Working with translation-enabled content types:"
+msgstr "Práca s typmi obsahu, ktoré je možné prekladať:"
+
+#: modules/translation/translation.module:40
+msgid ""
+"Use the <em>Language</em> drop down to select the appropriate language when "
+"creating or editing posts."
+msgstr ""
+"Pri vytváraní alebo úprave obsahu zvoľte príslušný jazyk v menu <em>Jazyk</"
+"em>."
+
+#: modules/translation/translation.module:41
+msgid ""
+"Provide new or edit current translations for existing posts via the "
+"<em>Translation</em> tab. Only visible while viewing a post as a user with "
+"the <em>translate content</em> permission, this tab allows translations to "
+"be added or edited using a specialized editing form that also displays the "
+"content being translated."
+msgstr ""
+"Na záložke <em>Preklad</em> je možné urobiť nový alebo upraviť aktuálny "
+"preklad pre existujúci obsah. Je viditeľná len v prípade, že si príspevok "
+"pozerá používateľ s právami <em>prekladať obsah</em> a dovoľuje, aby bolo "
+"možné preklady pridať alebo upraviť za pomoci špecializovaného formulára na "
+"úpravy zobrazujúceho aj obsah, ktorý sa začal prekladať."
+
+#: modules/translation/translation.module:42
+msgid ""
+"Update translations as needed, so that they accurately reflect changes in "
+"the content of the original post. The translation status flag provides a "
+"simple method for tracking outdated translations. After editing a post, for "
+"example, select the <em>Flag translations as outdated</em> check box to mark "
+"all of its translations as outdated and in need of revision. Individual "
+"translations may be marked for revision by selecting the <em>This "
+"translation needs to be updated</em> check box on the translation editing "
+"form."
+msgstr ""
+"Upravujte preklady podľa potreby, aby presne odrážali zmeny v obsahu "
+"originálneho príspevku. Značka stavu prekladu umožňuje jednoduchú metódu pre "
+"sledovanie zastaralých prekladov. Pri úprave príspevku napr. zaškrtnite "
+"zaškrtávacie políčko<em>Označiť preklad ako zastaralý</em> na označenie "
+"všetkých jeho prekladov ako zastaralých a potrebujúcich opravu. Jednotlivé "
+"preklady môžu byť označené pre opravu zaškrtnutím políčka <em>Tento preklad "
+"potrebuje úpravu</em> vo formulári na úpravy prekladu."
+
+#: modules/translation/translation.module:43
+msgid ""
+"The <a href=\"@content-node\">Content management administration page</a> "
+"displays the language of each post, and also allows filtering by language or "
+"translation status."
+msgstr ""
+"<a href=\"@content-node\">Stránka administrácie obsahu</a> zobrazuje jazyk "
+"každého príspevku a tiež umožňuje filtrovať príspevky podľa jazyka alebo "
+"statusu prekladu."
+
+#: modules/translation/translation.module:44
+msgid ""
+"Use the <a href=\"@blocks\">language switcher block</a> provided by locale "
+"module to allow users to select a language. If available, both the site "
+"interface and site content are presented in the language selected."
+msgstr ""
+"Používateľ môže zmeniť jazyk v bloku <a href=\"@blocks\">Prepínač jazyka</"
+"a>, ktorý je vytvorený modulom Locale. Ak je k dispozici, tak je týmto "
+"prepínačom zmenený obsah webu aj jeho rozhranie."
+
+#: modules/translation/translation.module:45
+msgid ""
+"For more information, see the online handbook entry for <a href="
+"\"@translation\">Translation module</a>."
+msgstr ""
+"Ďalšie informácie sa dozviete v online príručke v kapitole <a href="
+"\"@translation\">modul Translation</a>."
+
+#: modules/translation/translation.module:48
+msgid ""
+"Translations of a piece of content are managed with translation sets. Each "
+"translation set has one source post and any number of translations in any of "
+"the <a href=\"!languages\">enabled languages</a>. All translations are "
+"tracked to be up to date or outdated based on whether the source post was "
+"modified significantly."
+msgstr ""
+"Preklady časti obsahu sú spravované prekladateľskou množinou. Každá "
+"prekladateľská množina má svoj zdrojový príspevok a niekľko prekladov v "
+"niektorom z <a href=\"!languages\">povolených jazykov</a>. Všetky preklady "
+"sú sledované, čí sú aktuálne alebo zastaralé podľa toho, ako výrazne sa "
+"zdrojový príspevok zmenil."
+
+#: modules/translation/translation.module:102
+msgid "Enabled, with translation"
+msgstr "Povolené, s prekladom"
+
+#: modules/translation/translation.module:104
+msgid ""
+"Enable multilingual support for this content type. If enabled, a language "
+"selection field will be added to the editing form, allowing you to select "
+"from one of the <a href=\"!languages\">enabled languages</a>. You can also "
+"turn on translation for this content type, which lets you have content "
+"translated to any of the enabled languages. If disabled, new posts are saved "
+"with the default language. Existing content will not be affected by changing "
+"this option."
+msgstr ""
+"Povolenie viacjazyčnej podpory pre tento typ obsahu. Ak je povolené, bude do "
+"formulára pridané pole na výber jazyka, ktoré umožní výber jedného z <a href="
+"\"!languages\">povolených jazykov</a>. Tiež môžete zapnúť preklad pre tento "
+"typ obsahu, ktorý umožní preloženie do niektorého z povolených jazykov. Ak "
+"je vypnuté, budú nové príspevky automaticky uložené v predvolenom jazyku. Na "
+"existujúci už uložený obsah nemá táto zmena vplyv."
+
+#: modules/translation/translation.module:127
+msgid "Translation settings"
+msgstr "Nastavenia prekladu"
+
+#: modules/translation/translation.module:138
+msgid "Flag translations as outdated"
+msgstr "Označiť preklady za neaktuálne"
+
+#: modules/translation/translation.module:140
+msgid ""
+"If you made a significant change, which means translations should be "
+"updated, you can flag all translations of this post as outdated. This will "
+"not change any other property of those posts, like whether they are "
+"published or not."
+msgstr ""
+"Ak vykonáte významnú zmenu, ktorá znamená, že by mal byť preklad "
+"aktualizovaný, môžete označiť všetky preklady tohto príspevku za neaktuálne. "
+"Toto nezmení žiadne ďalšie vlastnosti tohto príspevku, ako napríklad či bude "
+"publikovaný alebo nie."
+
+#: modules/translation/translation.module:147
+msgid "This translation needs to be updated"
+msgstr "Tento preklad je potrebné aktualizovať"
+
+#: modules/translation/translation.module:149
+msgid ""
+"When this option is checked, this translation needs to be updated because "
+"the source post has changed. Uncheck when the translation is up to date "
+"again."
+msgstr ""
+"Ak je zaškrtnuté toto políčko, je potrebné preklad upraviť, lebo sa zmenil "
+"zdrojový príspevok. Keď bude preklad opäť aktuálny, toto políčko odškrtnite."
+
+#: modules/translation/translation.module:89
+msgid "translate content"
+msgstr "preložiť obsah"
+
+#: modules/translation/translation.module:59
+msgid "Translate"
+msgstr "Preložiť"
+
+#: modules/translation/translation.module:0
+msgid "translation"
+msgstr "preklad"
+
+#: modules/translation/translation.pages.inc:43
+msgid "<strong>@language_name</strong> (source)"
+msgstr "<strong>@language_name</strong> (zdroj)"

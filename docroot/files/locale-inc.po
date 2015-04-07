@@ -1,0 +1,990 @@
+# Slovak translation of SEM Dolný Kubín
+# Copyright (c) 2006 mirek <mirek.binas@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal CMS 4.7\n"
+"POT-Creation-Date: 2005-06-30 11:06+0200\n"
+"PO-Revision-Date: 2006-09-07 02:23+0100\n"
+"Last-Translator: mirek <mirek@host.sk>\n"
+"Language-Team: www.drupal.sk <mirek.binas@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n>=2 && n<=4 ? 1 : 2\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: includes/locale.inc:26
+msgid "The language %locale has been created, and can now be used to import a translation. More information is available in the <a href=\"%locale-help\">help screen</a>."
+msgstr ""
+
+#: includes/locale.inc:29
+msgid "The language %locale has been created."
+msgstr "Jazyk %locale bol vytvorený."
+
+#: includes/locale.inc:32
+msgid "The %language language (%locale) has been created."
+msgstr "Jazyk %language (%locale) bol vytvorený."
+
+#: includes/locale.inc:92
+msgid "Code"
+msgstr "Kód"
+
+#: includes/locale.inc:92
+msgid "English name"
+msgstr "Anglický názov"
+
+#: includes/locale.inc:92
+msgid "Translated"
+msgstr "Preložených"
+
+#: includes/locale.inc:118
+msgid "Configuration saved."
+msgstr ""
+
+#: includes/locale.inc:134
+msgid "Language list"
+msgstr "Zoznam jazykov"
+
+#: includes/locale.inc:138;286
+msgid "Language name"
+msgstr "Názov jazyka"
+
+#: includes/locale.inc:141
+msgid "Select your language here, or add it below, if you are unable to find it."
+msgstr ""
+
+#: includes/locale.inc:143
+msgid "Add language"
+msgstr "Pridať jazyk"
+
+#: includes/locale.inc:149
+msgid "Custom language"
+msgstr "Vlastný jazyk"
+
+#: includes/locale.inc:153
+msgid "Language code"
+msgstr "Kód jazyka"
+
+#: includes/locale.inc:157
+msgid "Commonly this is an <a href=\"%iso-codes\">ISO 639 language code</a> with an optional country code for regional variants. Examples include 'en', 'en-US' and 'zh-cn'."
+msgstr ""
+
+#: includes/locale.inc:160
+msgid "Language name in English"
+msgstr "Názov jazyka po anglicky"
+
+#: includes/locale.inc:163
+msgid "Name of the language. Will be available for translation in all languages."
+msgstr ""
+
+#: includes/locale.inc:165
+msgid "Add custom language"
+msgstr "Pridať vlastný jazyk"
+
+#: includes/locale.inc:178
+msgid "The language %language (%code) already exists."
+msgstr "Jazyk %language (%code) už existuje."
+
+#: includes/locale.inc:184
+msgid "Invalid language code."
+msgstr "Nesprávny kód jazyka."
+
+#: includes/locale.inc:218
+msgid "Already added languages"
+msgstr ""
+
+#: includes/locale.inc:219
+msgid "Languages not yet added"
+msgstr ""
+
+#: includes/locale.inc:225
+msgid "Import translation"
+msgstr "Importovať preklad"
+
+#: includes/locale.inc:228
+msgid "Language file"
+msgstr "Súbor s jazykom"
+
+#: includes/locale.inc:230
+msgid "A gettext Portable Object (.po) file."
+msgstr ""
+
+#: includes/locale.inc:233
+msgid "Import into"
+msgstr "Importovať do"
+
+#: includes/locale.inc:235
+msgid "Choose the language you want to add strings into. If you choose a language which is not yet set up, then it will be added."
+msgstr ""
+
+#: includes/locale.inc:238
+msgid "Mode"
+msgstr "Mód"
+
+#: includes/locale.inc:240
+msgid "Strings in the uploaded file replace existing ones, new ones are added"
+msgstr "Reťazce v nahrávanom súbore prepíšu existujúce, nové budú pridané"
+
+#: includes/locale.inc:240
+msgid "Existing strings are kept, only new strings are added"
+msgstr "Existujúce reťazce budú zachovaná, iba nové budú pridané"
+
+#: includes/locale.inc:242
+msgid "Import"
+msgstr "Importovať"
+
+#: includes/locale.inc:262
+msgid "The translation import of %filename failed."
+msgstr "Import prekladu zo súboru %filename bol neúspešný."
+
+#: includes/locale.inc:282
+msgid "Export translation"
+msgstr "Exportovať preklad"
+
+#: includes/locale.inc:288
+msgid "Select the language you would like to export in gettext Portable Object (.po) format."
+msgstr "Vyberte si jazyk, ktorý chcete exportovať vo formáte Portable Object (.po) pre gettext."
+
+#: includes/locale.inc:290;301
+msgid "Export"
+msgstr "Exportovať"
+
+#: includes/locale.inc:297
+msgid "Export template"
+msgstr "Exportovať šablónu"
+
+#: includes/locale.inc:299
+msgid "Generate a gettext Portable Object Template (.pot) file with all the interface strings from the Drupal locale database."
+msgstr ""
+
+#: includes/locale.inc:330
+msgid "Strings to search for"
+msgstr "Hľadať reťazce"
+
+#: includes/locale.inc:334
+msgid "Leave blank to show all strings. The search is case sensitive."
+msgstr "Ponechajte prázdne, ak chcete zobraziť všetky reťazce. Pri vyhľadávaní záleží na veľkosti písma (case sensitive)."
+
+#: includes/locale.inc:339
+msgid "All languages"
+msgstr "Všetky jazyky"
+
+#: includes/locale.inc:339
+msgid "English (provided by Drupal)"
+msgstr ""
+
+#: includes/locale.inc:342
+msgid "Search in"
+msgstr "Hľadať"
+
+#: includes/locale.inc:344
+msgid "All strings in that language"
+msgstr "vo všetkých reťazcoch v danom jazyku"
+
+#: includes/locale.inc:344
+msgid "Only translated strings"
+msgstr "iba v preložených reťazcoch"
+
+#: includes/locale.inc:344
+msgid "Only untranslated strings"
+msgstr "iba v nepreložených reťazcoch"
+
+#: includes/locale.inc:379
+msgid "String not found."
+msgstr "Reťazec nebol nájdený."
+
+#: includes/locale.inc:385
+msgid "Original text"
+msgstr "Originálny text"
+
+#: includes/locale.inc:399
+msgid "Save translations"
+msgstr "Uložiť preklady"
+
+#: includes/locale.inc:420
+msgid "The string has been saved."
+msgstr ""
+
+#: includes/locale.inc:437
+msgid "The string has been removed."
+msgstr ""
+
+#: includes/locale.inc:457
+msgid "The language selected for import is not supported."
+msgstr ""
+
+#: includes/locale.inc:468
+msgid "The translation file %filename appears to have a missing or malformed header."
+msgstr ""
+
+#: includes/locale.inc:477
+msgid "The translation was successfully imported. There are %number newly created translated strings and %update strings were updated."
+msgstr "Preklad bol úspešne importovaný. Bolo pridaných %number novo preložených reťazcov a %update reťazcov bolo aktualizovaných."
+
+#: includes/locale.inc:478
+msgid "Imported %file into %locale: %number new strings added and %update updated."
+msgstr "Súbor %file importovaný do %locale: pridané %number nových reťazcov a %update aktualizovaných."
+
+#: includes/locale.inc:493
+msgid "The translation import failed, because the file %filename could not be read."
+msgstr ""
+
+#: includes/locale.inc:518
+msgid "The translation file %filename contains an error: \"msgstr\" was expected but not found on line %line."
+msgstr ""
+
+#: includes/locale.inc:524
+msgid "The translation file %filename contains an error: \"msgid_plural\" was expected but not found on line %line."
+msgstr ""
+
+#: includes/locale.inc:530;548;560;568;582;591
+msgid "The translation file %filename contains a syntax error on line %line."
+msgstr ""
+
+#: includes/locale.inc:542
+msgid "The translation file %filename contains an error: \"msgid\" is unexpected on line %line."
+msgstr ""
+
+#: includes/locale.inc:556
+msgid "The translation file %filename contains an error: \"msgstr[]\" is unexpected on line %line."
+msgstr ""
+
+#: includes/locale.inc:576
+msgid "The translation file %filename contains an error: \"msgstr\" is unexpected on line %line."
+msgstr ""
+
+#: includes/locale.inc:604
+msgid "The translation file %filename contains an error: there is an unexpected string on line %line."
+msgstr ""
+
+#: includes/locale.inc:615
+msgid "The translation file %filename ended unexpectedly at line %line."
+msgstr ""
+
+#: includes/locale.inc:799
+msgid "The translation file %filename contains an error: the plural formula could not be parsed."
+msgstr ""
+
+#: includes/locale.inc:1082
+msgid "Exported %locale translation file: %filename."
+msgstr "Exportovaný preklad jazyka %locale do súboru: %filename."
+
+#: includes/locale.inc:1103
+msgid "Exported translation file: %filename."
+msgstr "Exportovaný preklad do súboru: %filename."
+
+#: includes/locale.inc:1305
+msgid "String"
+msgstr "Reťazec"
+
+#: includes/locale.inc:1305
+msgid "Locales"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Afar"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Abkhazian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Avestan"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Afrikaans"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Akan"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Amharic"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Arabic"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Assamese"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Avar"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Aymara"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Azerbaijani"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Bashkir"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Belarusian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Bulgarian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Bihari"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Bislama"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Bambara"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Bengali"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Tibetan"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Breton"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Bosnian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Catalan"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Chechen"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Chamorro"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Corsican"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Cree"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Czech"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Old Slavonic"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Welsh"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Welch"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Danish"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "German"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Maldivian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Bhutani"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Ewe"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Greek"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "English"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Esperanto"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Spanish"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Estonian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Basque"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Persian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Fulah"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Finnish"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Fiji"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Faeroese"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "French"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Frisian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Irish"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Scots Gaelic"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Galician"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Guarani"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Gujarati"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Manx"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Hausa"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Hebrew"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Hindi"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Hiri Motu"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Croatian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Hungarian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Armenian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Herero"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Interlingua"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Indonesian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Interlingue"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Igbo"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Inupiak"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Icelandic"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Italian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Inuktitut"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Japanese"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Javanese"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Georgian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Kongo"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Kikuyu"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Kwanyama"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Kazakh"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Greenlandic"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Cambodian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Kannada"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Korean"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Kanuri"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Kashmiri"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Kurdish"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Komi"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Cornish"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Kirghiz"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Latin"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Luxembourgish"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Luganda"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Lingala"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Laothian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Lithuanian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Latvian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Malagasy"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Marshallese"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Maori"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Macedonian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Malayalam"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Mongolian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Moldavian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Marathi"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Malay"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Maltese"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Burmese"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Nauru"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "North Ndebele"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Nepali"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Ndonga"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Dutch"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Norwegian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "South Ndebele"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Navajo"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Chichewa"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Occitan"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Oromo"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Oriya"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Ossetian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Punjabi"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Pali"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Polish"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Pashto"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Portuguese"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Quechua"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Rhaeto-Romance"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Kirundi"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Romanian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Russian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Kinyarwanda"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Sanskrit"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Sardinian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Sindhi"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Northern Sami"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Sango"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Serbo-Croatian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Singhalese"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Slovak"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Slovenian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Samoan"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Shona"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Somali"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Albanian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Serbian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Siswati"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Sesotho"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Sudanese"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Swedish"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Swahili"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Tamil"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Telugu"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Tajik"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Thai"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Tigrinya"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Turkmen"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Tagalog"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Setswana"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Tonga"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Turkish"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Tsonga"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Tatar"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Twi"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Tahitian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Uighur"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Ukrainian"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Urdu"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Uzbek"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Venda"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Vietnamese"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Wolof"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Xhosa"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Yiddish"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Yoruba"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Zhuang"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Chinese, Simplified"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Chinese, Traditional"
+msgstr ""
+
+#: includes/locale.inc:1365
+msgid "Zulu"
+msgstr ""
+

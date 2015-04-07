@@ -1,0 +1,283 @@
+# Slovak translation of Drupal (6.8)
+# Copyright (c) 2009 by the Slovak translation team
+# Generated from files:
+#  upload.module,v 1.197.2.3 2008/10/08 20:12:18 goba
+#  upload.admin.inc,v 1.7 2008/01/10 20:22:57 goba
+#  upload.install,v 1.6.2.1 2008/02/08 18:01:14 goba
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal (6.8)\n"
+"POT-Creation-Date: 2009-01-04 11:20+0100\n"
+"PO-Revision-Date: 2008-04-20 17:26+0200\n"
+"Language-Team: Slovak\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((n==1)?(0):(((n>=2)&&(n<=4))?(1):2));\n"
+
+#: modules/upload/upload.module:21
+msgid ""
+"Users with the <a href=\"@permissions\">upload files permission</a> can "
+"upload attachments. Users with the <a href=\"@permissions\">view uploaded "
+"files permission</a> can view uploaded attachments. You can choose which "
+"post types can take attachments on the <a href=\"@types\">content types "
+"settings</a> page."
+msgstr ""
+"Používatelia s oprávnením <a href=\"@permissions\">nahrávať súbory</a> môžu "
+"nahrávať prílohy. Používatelia s oprávnením <a href=\"@permissions"
+"\">zobrazovať nahraté súbory</a> si môžu prehliadať prílohy. Ktoré typy "
+"obsahu je možné doplniť o prílohy, môžete určiť na stránke <a href=\"@types"
+"\">nastavenia typu obsahu</a>."
+
+#: modules/upload/upload.module:67
+msgid "Read full article to view attachments."
+msgstr "Prečítajte si celý článok pre zobrazenie príloh."
+
+#: modules/upload/upload.module:86
+msgid "File uploads"
+msgstr "Nahrávanie súborov"
+
+#: modules/upload/upload.module:87
+msgid "Control how files may be attached to content."
+msgstr "Umožňuje používateľom nahrávať a pripájať súbory k obsahu."
+
+#: modules/upload/upload.admin.inc:10
+msgid ""
+"The maximum allowed image size expressed as WIDTHxHEIGHT (e.g. 640x480). Set "
+"to 0 for no restriction."
+msgstr ""
+"Maximálne povolené rozlíšenie obrázkov vyjadrené ako ŠÍRKAxVÝŠKA (napr. "
+"640x480). Zadajte 0 pre neobmedzené rozlíšenie."
+
+#: modules/upload/upload.admin.inc:42,39,24,21
+msgid "The %role file size limit must be a number and greater than zero."
+msgstr ""
+"Obmedzenie veľkosti súboru, pre kategóriu používateľov %role, musí byť "
+"väčšie ako nula."
+
+#: modules/upload/upload.admin.inc:31,24,21
+msgid "default"
+msgstr "štandardné"
+
+#: modules/upload/upload.admin.inc:49,31
+msgid ""
+"The %role maximum file size per upload is greater than the total file size "
+"allowed per user"
+msgstr ""
+"Obmedzenie veľkosti súboru pre jedno nahratie, pre kategóriu používateľov %"
+"role, je väčšie než kvóta pre používateľa."
+
+#: modules/upload/upload.admin.inc:64
+msgid "General settings"
+msgstr "Hlavné nastavenia"
+
+#: modules/upload/upload.admin.inc:69
+msgid "Maximum resolution for uploaded images"
+msgstr "Maximálne rozlšenie nahrávaných obrázkov"
+
+#: modules/upload/upload.admin.inc:74
+msgid "WIDTHxHEIGHT"
+msgstr "VÝŠKAxŠÍRKA"
+
+#: modules/upload/upload.admin.inc:78
+msgid "List files by default"
+msgstr "Implicitne zobrazovať súbory"
+
+#: modules/upload/upload.module:213
+msgid "Attachments"
+msgstr "Prílohy"
+
+#: modules/upload/upload.module:226
+msgid "File attachments"
+msgstr "Priložené súbory"
+
+#: modules/upload/upload.module:229
+msgid ""
+"Changes made to the attachments are not permanent until you save this post. "
+"The first \"listed\" file will be included in RSS feeds."
+msgstr ""
+"Zmeny prevedené v prílohách nie sú trvalé, pokiaľ neuložíte príspevok. Prvý "
+"vypísaný súbor bude zahrnutý v kanáloch správ RSS."
+
+#: modules/upload/upload.module:247
+msgid ""
+"File attachments are disabled. The file directories have not been properly "
+"configured."
+msgstr ""
+"Prílohy uzlov sú vypnuté. Priečinok pre nahrávanie súborov nie je správne "
+"nakonfigurovaný."
+
+#: modules/upload/upload.module:249
+msgid ""
+"Please visit the <a href=\"@admin-file-system\">file system configuration "
+"page</a>."
+msgstr ""
+"Prosím navštívte <a href=\"@admin-file-system\">stránku nastavení súborového "
+"systému</a>."
+
+#: modules/upload/upload.module:252
+msgid "Please contact the site administrator."
+msgstr "Kontaktujte prosím administrátora webu."
+
+#: modules/upload/upload.module:344
+msgid "Attachment"
+msgstr "Príloha"
+
+#: modules/upload/upload.module:517,344
+msgid "Size"
+msgstr "Veľkosť"
+
+#: modules/upload/upload.module:491
+msgid "Attach new file"
+msgstr "Pripojiť nový súbor"
+
+#: modules/upload/upload.module:497
+msgid "Attach"
+msgstr "Pripojiť"
+
+#: modules/upload/upload.module:309,65
+msgid "1 attachment"
+msgid_plural "@count attachments"
+msgstr[0] "@count príloha"
+msgstr[1] "@count prílohy"
+msgstr[2] "@count príloh"
+
+#: modules/upload/upload.module:46
+msgid "upload files"
+msgstr "nahrať súbory"
+
+#: modules/upload/upload.module:46
+msgid "view uploaded files"
+msgstr "zobraziť nahrané súbory"
+
+#: modules/upload/upload.module:0
+msgid "upload"
+msgstr "nahrať"
+
+#: modules/upload/upload.admin.inc:18
+msgid ""
+"Depending on your server environment, these settings may be changed in the "
+"system-wide php.ini file, a php.ini file in your Drupal root directory, in "
+"your Drupal site's settings.php file, or in the .htaccess file in your "
+"Drupal root directory."
+msgstr ""
+"Záleží na vašom serverovom prostredí, tieto nastavenia môžu byť zmenené v "
+"systémovom súbore php.ini súbore, v php.ini súbore vo vašom koreňovom "
+"adresári Drupalu,  v súbore settings.php na vašej stránke Drupalu alebo v "
+"súbore .htaccess vo vašom koreňovom priečinku Drupalu."
+
+#: modules/upload/upload.admin.inc:73
+msgid ""
+"The maximum allowed image size (e.g. 640x480). Set to 0 for no restriction. "
+"If an <a href=\"!image-toolkit-link\">image toolkit</a> is installed, files "
+"exceeding this value will be scaled down to fit."
+msgstr ""
+"Maximálne povolené rozlíšenie obrázka (napr. 640x480). Ak ho nechcete "
+"obmedzovať, nastavte 0. Ak je nainštalovaný <a href=\"!image-toolkit-link"
+"\">image toolkit</a>, budú obrázky, ktoré prekročia zadanú veľkosť zmenšené."
+
+#: modules/upload/upload.admin.inc:81
+msgid "Display attached files when viewing a post."
+msgstr "Zobraziť pripojené súbory pri prezeraní príspevku."
+
+#: modules/upload/upload.admin.inc:97
+msgid ""
+"The default maximum file size a user can upload. If an image is uploaded and "
+"a maximum resolution is set, the size will be checked after the file has "
+"been resized."
+msgstr ""
+"Môže byť nastavená maximálna dovolená veľkosť nahraného súboru. Ak bude "
+"obrázok nahraný a je nastavená max. veľkosť súboru, tento bude skontrolovaný "
+"a ak je väčší, bude zmenšený."
+
+#: modules/upload/upload.admin.inc:135
+msgid ""
+"The maximum size of a file a user can upload. If an image is uploaded and a "
+"maximum resolution is set, the size will be checked after the file has been "
+"resized."
+msgstr ""
+"Maximálna veľkosť súboru, ktorý môže používateľ narať. Ak nahráte obrázok a "
+"bude nastavené maximálne rozlíšenie, bude skontrolované a ak bude väčšie ako "
+"je prípustné, bude zmenené."
+
+#: modules/upload/upload.admin.inc:144
+msgid "The maximum size of all files a user can have on the site."
+msgstr ""
+"Maximálna veľkosť všetkých súborov, ktoré môže mať používateľ na stránke."
+
+#: modules/upload/upload.module:16
+msgid ""
+"The upload module allows users to upload files to the site. The ability to "
+"upload files is important for members of a community who want to share work. "
+"It is also useful to administrators who want to keep uploaded files "
+"connected to posts."
+msgstr ""
+"Modul upload umožňuje používateľom nahrávať a pripájať súbory k obsahu. "
+"Možnosť nahrávať súbory je dôležitá pre členov komunity, ktorí chcú zdieľať "
+"svoju prácu. Tiež je užitočná pre administrátorov, ktorí chcú pripájať "
+"súbory k uzlom či stránkam."
+
+#: modules/upload/upload.module:17
+msgid ""
+"Users with the upload files permission can upload attachments to posts. "
+"Uploads may be enabled for specific content types on the content types "
+"settings page. Each user role can be customized to limit or control the file "
+"size of uploads, or the maximum dimension of image files."
+msgstr ""
+"Niektorí používatelia majú právo nahrávať a pripájať súbory k obsahu. Na "
+"stránke nastavenia typu obsahov môžete povoliť nahrávať len určité typy "
+"súborov. Každá kategória používateľov môže mať nastavené rôzne parametre "
+"(napr. veľkosť súboru, rozmery obrázka...)"
+
+#: modules/upload/upload.module:18
+msgid ""
+"For more information, see the online handbook entry for <a href=\"@upload"
+"\">Upload module</a>."
+msgstr ""
+"Ďalšie informácie sa dozviete v online príručke v kapitole <a href=\"@upload"
+"\">modul Upload</a>."
+
+#: modules/upload/upload.module:493
+msgid "Images are larger than %resolution will be resized. "
+msgstr "Obrázky, ktoré majú väčšie rozmery ako %resolution budú zmenšené. "
+
+#: modules/upload/upload.module:493
+msgid ""
+"The maximum upload size is %filesize. Only files with the following "
+"extensions may be uploaded: %extensions. "
+msgstr ""
+"Maximálna veľkosť nahraného súboru je %filesize. Nahrať môžete iba tieto "
+"typy súborov: %extensions "
+
+#: modules/upload/upload.module:502
+msgid "Please wait..."
+msgstr "Prosím čakajte..."
+
+#: modules/upload/upload.install:29
+msgid "Stores uploaded file information and table associations."
+msgstr "Ukladá nahrané informácie o súboroch a združených tabuľkách."
+
+#: modules/upload/upload.install:36
+msgid "Primary Key: The {files}.fid."
+msgstr "Primárny kľúč: {files}.fid."
+
+#: modules/upload/upload.install:43
+msgid "The {node}.nid associated with the uploaded file."
+msgstr "{node}.nid spojený s nahraným súborom."
+
+#: modules/upload/upload.install:50
+msgid "Primary Key: The {node}.vid associated with the uploaded file."
+msgstr "Primárny kľúč: {node}.vid asociované s nahrávaným súborom."
+
+#: modules/upload/upload.install:57
+msgid "Description of the uploaded file."
+msgstr "Popis nahraného súboru."
+
+#: modules/upload/upload.install:65
+msgid "Whether the file should be visibly listed on the node: yes(1) or no(0)."
+msgstr "Či má byť súbor viditeľne zobrazený v uzle: áno(1) alebo nie(0)."
+
+#: modules/upload/upload.install:72
+msgid "Weight of this upload in relation to other uploads in this node."
+msgstr "Váha nahraného súboru vzhľadom k ostatným nahraným súborom uzla."

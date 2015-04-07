@@ -1,0 +1,75 @@
+# Slovak translation of Drupal (6.8)
+# Copyright (c) 2009 by the Slovak translation team
+# Generated from files:
+#  help.admin.inc,v 1.5 2007/11/25 11:11:17 goba
+#  help.module,v 1.78.2.1 2008/04/09 21:11:48 goba
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal (6.8)\n"
+"POT-Creation-Date: 2009-01-04 11:20+0100\n"
+"PO-Revision-Date: 2008-04-22 15:42+0200\n"
+"Language-Team: Slovak\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((n==1)?(0):(((n>=2)&&(n<=4))?(1):2));\n"
+
+#: modules/help/help.admin.inc:30
+msgid "No help is available for module %module."
+msgstr "Pre modul %module nie je k dispozícii pomocník."
+
+#: modules/help/help.admin.inc:41
+msgid "@module administration pages"
+msgstr "Stránky pre administráciu modulu @module"
+
+#: modules/help/help.module:0
+msgid "help"
+msgstr "pomocník"
+
+#: modules/help/help.admin.inc:15
+msgid "Help topics"
+msgstr "Témy pomocníka"
+
+#: modules/help/help.admin.inc:15
+msgid "Help is available on the following items:"
+msgstr "Pomocník je dostupný pre nasledujúce položky:"
+
+#: modules/help/help.module:41
+msgid ""
+"This guide provides context sensitive help on the use and configuration of "
+"<a href=\"@drupal\">Drupal</a> and its modules, and is a supplement to the "
+"more extensive online <a href=\"@handbook\">Drupal handbook</a>. The online "
+"handbook may contain more up-to-date information, is annotated with helpful "
+"user-contributed comments, and serves as the definitive reference point for "
+"all Drupal documentation."
+msgstr ""
+"Tento sprievodca poskytuje kontextového pomocníka pri používaní a "
+"konfigurovaní <a href=\"@drupal\">Drupalu</a> a jeho modulov, a je doplnkom "
+"obsiahlejšej online príručky <a href=\"@handbook\">Drupal handbook</a>. "
+"Online príručka môže obsahovať aktuálnejšie informácie, je doplňovaná "
+"poznámkami používateľov, a slúži ako definitívny odkaz pre všetky "
+"dokumentácie Drupalu."
+
+#: modules/help/help.module:44
+msgid ""
+"The help module provides context sensitive help on the use and configuration "
+"of <a href=\"@drupal\">Drupal</a> and its modules, and is a supplement to "
+"the more extensive online <a href=\"@handbook\">Drupal handbook</a>. The "
+"online handbook may contain more up-to-date information, is annotated with "
+"helpful user-contributed comments, and serves as the definitive reference "
+"point for all Drupal documentation."
+msgstr ""
+"Modul Help zobrazuje kontextového pomocníka k používaniu a nastaveniu <a "
+"href=\"@drupal\">Drupalu</a> a jeho modulov. Slúži ako náhrada za "
+"rozsiahlejšiu online <a href=\"@handbook\">Príručku Drupal</a>. Online "
+"príručka môže obsahovať novšie informácie a je doplnená o používateľské "
+"komentáre a slúži ako zdroj pre každú dokumentáciu Drupalu."
+
+#: modules/help/help.module:45
+msgid ""
+"For more information, see the online handbook entry for <a href=\"@help"
+"\">Help module</a>."
+msgstr ""
+"Ďalšie informácie sa dozviete v online príručke v kapitole <a href=\"@filter"
+"\">modul Help</a>."

@@ -1,0 +1,602 @@
+# Slovak translation of SEM Dolný Kubín
+# Copyright (c) 2006 mirek <mirek.binas@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal CMS 4.7\n"
+"POT-Creation-Date: 2005-06-30 11:06+0200\n"
+"PO-Revision-Date: 2006-09-07 03:59+0100\n"
+"Last-Translator: mirek <mirek@host.sk>\n"
+"Language-Team: www.drupal.org <mirek.binas@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n>=2 && n<=4 ? 1 : 2;\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: modules/system.module:19
+msgid "The system module provides system-wide defaults such as running jobs at a particular time, and storing web pages to improve efficiency.   The ability to run scheduled jobs makes administering the web site more usable, as administrators do not have to manually start jobs.   The storing of web pages, or caching, allows the site to efficiently re-use web pages and improve web site performance.  The settings module provides control over preferences, behaviours including visual and operational settings."
+msgstr ""
+
+#: modules/system.module:20
+msgid "Some modules require regularly scheduled actions, such as cleaning up logfiles. Cron, which stands for chronograph, is a periodic command scheduler executing commands at intervals specified in seconds. It can be used to control the execution of daily, weekly and monthly jobs (or anything with a period measured in seconds). The aggregator module periodically updates feeds using cron.  Ping periodically notifies services of new content on your site.  Search periodically indexes the content on your site.   Automating tasks is one of the best ways to keep a system running smoothly, and if most of your administration does not require your direct involvement, cron is an ideal solution."
+msgstr ""
+
+#: modules/system.module:21
+msgid "There is a caching mechanism which stores dynamically generated web pages in a database. By caching a web page, the system module does not have to create the page each time someone wants to view it, instead it takes only one SQL query to display it, reducing response time and the server's load. Only pages requested by <em>anonymous</em> users are cached. In order to reduce server load and save bandwidth, the system module stores and sends cached pages compressed."
+msgstr ""
+
+#: modules/system.module:22
+msgid ""
+"<p>You can</p>\n"
+"<ul>\n"
+"<li>activate your cron job on the cron page <a href=\"%file-cron\">cron.php</a>.</li>\n"
+"<li>read how to <a href=\"%external-http-drupal-org-cron\">configure cron jobs</a>.</li>\n"
+"<li>administer cache settings in <a href=\"%admin-settings\">administer &gt;&gt; settings</a>.</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: modules/system.module:29
+msgid "For more information please read the configuration and customization handbook <a href=\"%system\">System page</a>."
+msgstr ""
+
+#: modules/system.module:32
+msgid "Handles general site configuration for administrators."
+msgstr ""
+
+#: modules/system.module:34
+msgid "<p>Welcome to the administration section. Below are the most recent system events.</p>"
+msgstr "<p>Vitajte v administrátorskej časti. Nižšie sa nachádzajú posledné systémové udalosti.</p>"
+
+#: modules/system.module:36
+msgid "<p>General configuration options for your site. Set up the name of the site, e-mail address used in mail-outs, clean URL options, caching, etc.</p>"
+msgstr "<p>Hlavná konfigurácia vašej stránky. Môžete si nastaviť názov vašej stránky, e-mailovú adresu pre odosielanie automatických e-mailov zo stránky, cache-ovanie a pod.</p>"
+
+#: modules/system.module:38
+msgid "<p>Select which themes are available to your users and specify the default theme. To configure site-wide display settings, click the \"configure\" task above. Alternately, to override these settings in a specific theme, click the \"configure\" link for the corresponding theme.  Note that different themes may have different regions available for rendering content like blocks.  If you want consistency in what your users see, you may wish to enable only one theme.</p>"
+msgstr ""
+
+#: modules/system.module:40
+msgid "<p>These options control the default display settings for your entire site, across all themes. Unless they have been overridden by a specific theme, these settings will be used.</p>"
+msgstr ""
+
+#: modules/system.module:44
+msgid "<p>These options control the display settings for the <code>%template</code> theme. When your site is displayed using this theme, these settings will be used. By clicking \"Reset to defaults,\" you can choose to use the <a href=\"%global\">global settings</a> for this theme.</p>"
+msgstr ""
+
+#: modules/system.module:46
+msgid ""
+"<p>Modules are plugins for Drupal that extend its core functionality. Here you can select which modules are enabled. Click on the name of the module in the navigation menu for their individual configuration pages. Once a module is enabled, new <a href=\"%permissions\">permissions</a> might be made available. Modules can automatically be temporarily disabled to reduce server load when your site becomes extremely busy by enabling the throttle.module and checking throttle. The auto-throttle functionality must be enabled on the <a href=\"%throttle\">throttle configuration page</a> after having enabled the throttle module.</p>\n"
+"<p>It is important that <a href=\"%update-php\">update.php</a> is run every time a module is updated to a newer version.</p>"
+msgstr ""
+
+#: modules/system.module:104
+msgid "administer"
+msgstr "administrácia"
+
+#: modules/system.module:110
+msgid "themes"
+msgstr "témy"
+
+#: modules/system.module:122
+msgid "global settings"
+msgstr "globálne nastavenia"
+
+#: modules/system.module:142
+msgid "modules"
+msgstr "moduly"
+
+#: modules/system.module:156
+msgid "Selecting a different theme will change the look and feel of the site."
+msgstr "Zvolením novej témy dôjde ku zmene vzhľadu celej stránky."
+
+#: modules/system.module:160
+msgid "Locale settings"
+msgstr "Miestne nastavenie"
+
+#: modules/system.module:162
+msgid "Time zone"
+msgstr "Časová zóna"
+
+#: modules/system.module:163
+msgid "Select your current local time. Dates and times throughout this site will be displayed using this time zone."
+msgstr "Vyberte si svoj miestny čas. Dátumy a časy na tejto stránke sa budú zobrazovať podľa vašej časovej zóny."
+
+#: modules/system.module:196
+msgid "Theme configuration"
+msgstr "Nastavenie témy"
+
+#: modules/system.module:207;814
+msgid "Screenshot for %theme theme"
+msgstr ""
+
+#: modules/system.module:207;814
+msgid "no screenshot"
+msgstr ""
+
+#: modules/system.module:210
+msgid "<br /> <em>(site default theme)</em>"
+msgstr ""
+
+#: modules/system.module:232;854
+msgid "Screenshot"
+msgstr ""
+
+#: modules/system.module:256
+msgid "The name of this web site."
+msgstr "Názov tejto webovej stránky."
+
+#: modules/system.module:260
+msgid "A valid e-mail address for this website, used by the auto-mailer during registration, new password requests, notifications, etc."
+msgstr ""
+
+#: modules/system.module:263
+msgid "Slogan"
+msgstr ""
+
+#: modules/system.module:264
+msgid "The slogan of this website. Some themes display a slogan when available."
+msgstr "Slogan vašej stránky. Niektoré témy ho môžu zobrazovať, ak je uvedený."
+
+#: modules/system.module:268
+msgid "Mission"
+msgstr ""
+
+#: modules/system.module:269
+msgid "Your site's mission statement or focus."
+msgstr ""
+
+#: modules/system.module:272
+msgid "Footer message"
+msgstr ""
+
+#: modules/system.module:273
+msgid "This text will be displayed at the bottom of each page.  Useful for adding a copyright notice to your pages."
+msgstr ""
+
+#: modules/system.module:276
+msgid "Anonymous user"
+msgstr "Anonymný používateľ"
+
+#: modules/system.module:277
+msgid "The name used to indicate anonymous users."
+msgstr "Meno, ktoré bude identifikovať anonymného používateľa."
+
+#: modules/system.module:280
+msgid "Default front page"
+msgstr "Predvolená titulná stránka"
+
+#: modules/system.module:281
+msgid "The home page displays content from this relative URL.  If you are not using clean URLs, specify the part after \"?q=\".  If unsure, specify \"node\"."
+msgstr ""
+
+#: modules/system.module:287
+msgid "Clean URLs"
+msgstr ""
+
+#: modules/system.module:290
+msgid "This option makes Drupal emit \"clean\" URLs (i.e. without <code>?q=</code> in the URL.)"
+msgstr ""
+
+#: modules/system.module:295
+msgid " Before enabling clean URLs, you must perform a test to determine if your server is properly configured. If you are able to see this page again after clicking the \"Run the clean URL test\" link, the test has succeeded and the radio buttons above will be available. If instead you are directed to a \"Page not found\" error, you will need to change the configuration of your server. The <a href=\"%handbook\">handbook page on Clean URLs</a> has additional troubleshooting information. %run-test"
+msgstr ""
+
+#: modules/system.module:295
+msgid "Run the clean URL test"
+msgstr ""
+
+#: modules/system.module:299
+msgid " You have successfully demonstrated that clean URLs work on your server. You are welcome to enable/disable them as you wish."
+msgstr ""
+
+#: modules/system.module:306
+msgid "Error handling"
+msgstr ""
+
+#: modules/system.module:308
+msgid "Default 403 (access denied) page"
+msgstr "Predvolená stránka 403 (prístup zamietnutý)"
+
+#: modules/system.module:309
+msgid "This page is displayed when the requested document is denied to the current user.  If you are not using clean URLs, specify the part after \"?q=\". If unsure, specify nothing."
+msgstr ""
+
+#: modules/system.module:313
+msgid "Default 404 (not found) page"
+msgstr "Predvolená stránka 404 (stránka nenájdená)"
+
+#: modules/system.module:314
+msgid "This page is displayed when no other content matches the requested document.  If you are not using clean URLs, specify the part after \"?q=\". If unsure, specify nothing."
+msgstr ""
+
+#: modules/system.module:318
+msgid "Error reporting"
+msgstr ""
+
+#: modules/system.module:319
+msgid "Write errors to the log"
+msgstr ""
+
+#: modules/system.module:319
+msgid "Write errors to the log and to the screen"
+msgstr ""
+
+#: modules/system.module:320
+msgid "Where Drupal, PHP and SQL errors are logged. On a production server it is recommended that errors are only written to the error log. On a test server it can be helpful to write logs to the screen."
+msgstr ""
+
+#: modules/system.module:324
+msgid "Never"
+msgstr "Nikdy"
+
+#: modules/system.module:326
+msgid "Discard log entries older than"
+msgstr "Zrušiť logovacie záznamy staršie ako"
+
+#: modules/system.module:327
+msgid "The time log entries should be kept.  Older entries will be automatically discarded.  Requires crontab."
+msgstr ""
+
+#: modules/system.module:332
+msgid "Cache settings"
+msgstr "Nastavenie cache"
+
+#: modules/system.module:335
+msgid "Page cache"
+msgstr ""
+
+#: modules/system.module:337
+msgid "Drupal has a caching mechanism which stores dynamically generated web pages in a database.  By caching a web page, Drupal does not have to create the page each time someone wants to view it, instead it takes only one SQL query to display it, reducing response time and the server's load.  Only pages requested by \"anonymous\" users are cached.  In order to reduce server load and save bandwidth, Drupal stores and sends compressed cached pages."
+msgstr ""
+
+#: modules/system.module:343
+msgid "Minimum cache lifetime"
+msgstr ""
+
+#: modules/system.module:344
+msgid "Enabling the cache will offer a sufficient performance boost for most low-traffic and medium-traffic sites.  On high-traffic sites it can become necessary to enforce a minimum cache lifetime.  The minimum cache lifetime is the minimum amount of time that will go by before the cache is emptied and recreated.  A larger minimum cache lifetime offers better performance, but users will not see new content for a longer period of time."
+msgstr ""
+
+#: modules/system.module:349
+msgid "File system settings"
+msgstr "Nastavenie súborového systému"
+
+#: modules/system.module:353
+msgid "File system path"
+msgstr ""
+
+#: modules/system.module:356
+msgid "A file system path where the files will be stored. This directory has to exist and be writable by Drupal. If the download method is set to public this directory has to be relative to Drupal installation directory, and be accessible over the web. When download method is set to private this directory should not be accessible over the web. Changing this location after the site has been in use will cause problems so only change this setting on an existing site if you know what you are doing."
+msgstr ""
+
+#: modules/system.module:362
+msgid "Temporary directory"
+msgstr ""
+
+#: modules/system.module:365
+msgid "Location where uploaded files will be kept during previews. Relative paths will be resolved relative to the Drupal installation directory."
+msgstr ""
+
+#: modules/system.module:370
+msgid "Download method"
+msgstr ""
+
+#: modules/system.module:371
+msgid "Public - files are available using http directly."
+msgstr ""
+
+#: modules/system.module:371
+msgid "Private - files are transferred by Drupal."
+msgstr ""
+
+#: modules/system.module:372
+msgid "If you want any sort of access control on the downloading of files, this needs to be set to <em>private</em>. You can change this at any time, however all download URLs will change and there may be unexpected problems so it is not recommended."
+msgstr ""
+
+#: modules/system.module:378
+msgid "Image handling"
+msgstr ""
+
+#: modules/system.module:380
+msgid "Select an image processing toolkit"
+msgstr ""
+
+#: modules/system.module:386
+msgid "RSS feed settings"
+msgstr ""
+
+#: modules/system.module:388
+msgid "Number of items per feed"
+msgstr ""
+
+#: modules/system.module:390
+msgid "The default number of items to include in a feed."
+msgstr ""
+
+#: modules/system.module:393
+msgid "Display of XML feed items"
+msgstr ""
+
+#: modules/system.module:394
+msgid "Titles only"
+msgstr ""
+
+#: modules/system.module:394
+msgid "Titles plus teaser"
+msgstr ""
+
+#: modules/system.module:394
+msgid "Full text"
+msgstr ""
+
+#: modules/system.module:395
+msgid "Global setting for the length of XML feed items that are output by default."
+msgstr ""
+
+#: modules/system.module:424
+msgid "Date settings"
+msgstr "Nastavenie dátumu"
+
+#: modules/system.module:426
+msgid "Default time zone"
+msgstr "Predvolená časová zóna"
+
+#: modules/system.module:427
+msgid "Select the default site time zone."
+msgstr "Zvoľte si predvolenú časovú zónu."
+
+#: modules/system.module:431
+msgid "Configurable time zones"
+msgstr ""
+
+#: modules/system.module:432
+msgid "Enable or disable user-configurable time zones.  When enabled, users can set their own time zone and dates will be updated accordingly."
+msgstr ""
+
+#: modules/system.module:436
+msgid "Short date format"
+msgstr "Krátky formát dátumu"
+
+#: modules/system.module:437
+msgid "The short format of date display."
+msgstr "Krátky formát dátumu."
+
+#: modules/system.module:441
+msgid "Medium date format"
+msgstr "Stredná veľkosť formátu dátumu"
+
+#: modules/system.module:442
+msgid "The medium sized date display."
+msgstr "Stredne dlhý formát dátumu."
+
+#: modules/system.module:446
+msgid "Long date format"
+msgstr "Dlhý formát dátumu"
+
+#: modules/system.module:447
+msgid "Longer date format used for detailed display."
+msgstr "Dlhý (detailný) formát dátumu."
+
+#: modules/system.module:451
+msgid "First day of week"
+msgstr "Prvý deň v týždni"
+
+#: modules/system.module:453
+msgid "The first day of the week for calendar views."
+msgstr "Prvý deň v týždni pre zobrazenie v kalendári."
+
+#: modules/system.module:460
+msgid "Site maintenance"
+msgstr "Údržba stránky"
+
+#: modules/system.module:466
+msgid "Site status"
+msgstr "Stav stránky"
+
+#: modules/system.module:468
+msgid "Online"
+msgstr ""
+
+#: modules/system.module:468
+msgid "Off-line"
+msgstr ""
+
+#: modules/system.module:469
+msgid "When set to \"Online\", all visitors will be able to browse your site normally. When set to \"Off-line\", only users with the \"administer site configuration\" permission will be able to access your site to perform maintenance; all other visitors will see the site off-line message configured below. Authorized users can log in during \"Off-line\" mode directly via the <a href=\"%user-login\">user login</a> page."
+msgstr ""
+
+#: modules/system.module:474
+msgid "Site off-line message"
+msgstr ""
+
+#: modules/system.module:476
+msgid "Message to show visitors when the site is in off-line mode."
+msgstr ""
+
+#: modules/system.module:480
+msgid "String handling"
+msgstr ""
+
+#: modules/system.module:484
+msgid "Cron jobs"
+msgstr ""
+
+#: modules/system.module:516
+msgid "Cron is running. The last cron job ran %time ago."
+msgstr ""
+
+#: modules/system.module:519
+msgid "Cron has not run. It appears cron jobs have not been setup on your system. Please check the help pages for <a href=\"%url\">configuring cron jobs</a>."
+msgstr ""
+
+#: modules/system.module:749
+msgid "The settings have not been saved because of the errors."
+msgstr ""
+
+#: modules/system.module:764;797
+msgid "The configuration options have been reset to their default values."
+msgstr ""
+
+#: modules/system.module:768;800;886;1021
+msgid "The configuration options have been saved."
+msgstr "Konfigurácia bola uložená."
+
+#: modules/system.module:943;953
+msgid "required"
+msgstr "požadovaný"
+
+#: modules/system.module:1076
+msgid "Only JPEG, PNG and GIF images are allowed to be used as logos."
+msgstr ""
+
+#: modules/system.module:1094
+msgid "Logo"
+msgstr "Logo"
+
+#: modules/system.module:1095
+msgid "Site name"
+msgstr "Názov stránky"
+
+#: modules/system.module:1096
+msgid "Site slogan"
+msgstr "Heslo stránky"
+
+#: modules/system.module:1097
+msgid "Mission statement"
+msgstr ""
+
+#: modules/system.module:1098
+msgid "User pictures in posts"
+msgstr "Obrázky používateľov v príspevkoch"
+
+#: modules/system.module:1099
+msgid "User pictures in comments"
+msgstr "Obrázky používateľov v komentároch"
+
+#: modules/system.module:1100
+msgid "Search box"
+msgstr ""
+
+#: modules/system.module:1101
+msgid "Shortcut icon"
+msgstr ""
+
+#: modules/system.module:1116
+msgid "Toggle display"
+msgstr ""
+
+#: modules/system.module:1117
+msgid "Enable or disable the display of certain page elements."
+msgstr "Povoliť alebo zakázať zobrazovanie niektorých prvkov stránky."
+
+#: modules/system.module:1142
+msgid "Display post information on"
+msgstr ""
+
+#: modules/system.module:1143
+msgid "Enable or disable the <em>submitted by Username on date</em> text when displaying posts of the following type."
+msgstr ""
+
+#: modules/system.module:1157
+msgid "Logo image settings"
+msgstr "Nastavenie obrázku loga"
+
+#: modules/system.module:1158
+msgid "If toggled on, the following logo will be displayed."
+msgstr ""
+
+#: modules/system.module:1163
+msgid "Use the default logo"
+msgstr "Použiť predvolené logo"
+
+#: modules/system.module:1166
+msgid "Check here if you want the theme to use the logo supplied with it."
+msgstr "Pokiaľ chcete, aby téma používala logo dodané s ňou, zaškrtnite túto voľbu."
+
+#: modules/system.module:1170
+msgid "Path to custom logo"
+msgstr "Cesta k vlastnému logu"
+
+#: modules/system.module:1172
+msgid "The path to the file you would like to use as your logo file instead of the default logo."
+msgstr "Cesta k súboru, ktorý chcete používať ako vaše logo namiesto predvoleného loga."
+
+#: modules/system.module:1176
+msgid "Upload logo image"
+msgstr "Nahrať obrázok s logom"
+
+#: modules/system.module:1178
+msgid "If you don't have direct file access to the server, use this field to upload your logo."
+msgstr "Použite toto pole k uloženiu vášho loga, pokiaľ nemáte priamy prístup k súborovému systému na servri."
+
+#: modules/system.module:1184
+msgid "Shortcut icon settings"
+msgstr ""
+
+#: modules/system.module:1185
+msgid "Your shortcut icon or 'favicon' is displayed in the address bar and bookmarks of most browsers."
+msgstr ""
+
+#: modules/system.module:1188
+msgid "Use the default shortcut icon."
+msgstr "Použiť predvolenú ikonu."
+
+#: modules/system.module:1190
+msgid "Check here if you want the theme to use the default shortcut icon."
+msgstr "Pokiaľ chcete, aby téma používala ikonu dodanú s ňou, zaškrtnite túto voľbu."
+
+#: modules/system.module:1194
+msgid "Path to custom icon"
+msgstr "Cesta k vlastnej ikone."
+
+#: modules/system.module:1196
+msgid "The path to the image file you would like to use as your custom shortcut icon."
+msgstr "Cesta k súboru, ktorý chcete používať ako vašu ikonu stránky."
+
+#: modules/system.module:1201
+msgid "Upload icon image"
+msgstr "Nahrať obrázok s ikonou"
+
+#: modules/system.module:1202
+msgid "If you don't have direct file access to the server, use this field to upload your shortcut icon."
+msgstr "Použite toto pole k uloženiu vašej ikony, pokiaľ nemáte priamy prístup k súborovému systému na serveri."
+
+#: modules/system.module:1212
+msgid "Engine-specific settings"
+msgstr ""
+
+#: modules/system.module:1212
+msgid "These settings only exist for all the templates and styles based on the %engine theme engine."
+msgstr ""
+
+#: modules/system.module:1216
+msgid "Theme-specific settings"
+msgstr ""
+
+#: modules/system.module:1216
+msgid "These settings only exist for the %theme theme and all the styles based on it."
+msgstr ""
+
+#: modules/system.module:1269
+msgid "Confirm"
+msgstr "Potvrdiť"
+
+#: modules/system.module:55
+msgid "administer site configuration"
+msgstr "správa konfigurácie www stránky"
+
+#: modules/system.module:55
+msgid "access administration pages"
+msgstr ""
+
+#: modules/system.module:55
+msgid "select different theme"
+msgstr ""
+
+#: modules/system.module:0
+msgid "system"
+msgstr "systém"
+

@@ -1,0 +1,32 @@
+Initialized Drupal 6.17 root directory at /home/user/webdir/sub/drupal                      [notice]
+Initialized Drupal site drupal.korymont.eu at sites/default                                          [notice]
+SQLSTATE[HY000] [2005] Unknown MySQL server host 'localhost%3A3306%3A%2Ftmp%2Fmysql50.sock' (1)   [warning]
+Drush was not able to start (bootstrap) the Drupal database.                                      [error]
+Hint: This error often occurs when Drush is trying to bootstrap a site that has not been
+installed or does not have a configured database.
+
+Drush was attempting to connect to :
+  Drupal version    : 6.17
+  Site URI          : drupal.web.eu
+  Database driver   : mysql
+  Database hostname : localhost%3A3306%3A%2Ftmp%2Fmysql50.sock
+  Database username : admin
+  Database name     : drupal_db
+  Default theme     : minnelli
+  Administration theme: minnelli
+  PHP configuration : /etc/php5/cli/php.ini
+  Drush version     : 3.1
+  Drush configuration: /data/home/user/.drush/drushrc.php
+  Drupal root       : /home/user/webdir/sub/drupal
+  Site path         : sites/default
+  Modules path      : sites/all/modules
+  Themes path       : sites/all/themes
+  %paths            : Array
+
+You can select another site with a working database setup by specifying the URI to use with the
+--uri parameter on the command line or $options['uri'] in your drushrc.php file.
+
+Command pm-releases needs a higher bootstrap level to run - you will need invoke drush from a more[error]
+functional Drupal environment to run this command.
+Command pm-releases needs the following modules installed/enabled to run: update.                 [error]
+The drush command 'info' could not be executed.                                                   [error]

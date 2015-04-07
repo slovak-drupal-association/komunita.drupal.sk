@@ -1,0 +1,2840 @@
+Ábelová|Lučenec|Banskobystrický kraj
+Abovce|Rimavská Sobota|Banskobystrický kraj
+Abrahám|Galanta|Trnavský kraj
+Abrahámovce|Bardejov|Prešovský kraj
+Abrahámovce|Kežmarok|Prešovský kraj
+Abramová|Turčianske Teplice|Žilinský kraj
+Abranovce|Prešov|Prešovský kraj
+Adidovce|Humenné|Prešovský kraj
+Alekšince|Nitra|Nitriansky kraj
+Andovce|Nové Zámky|Nitriansky kraj
+Andrejová|Bardejov|Prešovský kraj
+Ardanovce|Topoľčany|Nitriansky kraj
+Ardovo|Rožňava|Košický kraj
+Arnutovce|Spišská Nová Ves|Košický kraj
+Báb|Nitra|Nitriansky kraj
+Babie|Vranov nad Topľou|Prešovský kraj
+Babín|Námestovo|Žilinský kraj
+Babiná|Zvolen|Banskobystrický kraj
+Babindol|Nitra|Nitriansky kraj
+Babinec|Rimavská Sobota|Banskobystrický kraj
+Bacúch|Brezno|Banskobystrický kraj
+Bacúrov|Zvolen|Banskobystrický kraj
+Báč|Dunajská Streda|Trnavský kraj
+Bačka|Trebišov|Košický kraj
+Bačkov|Trebišov|Košický kraj
+Bačkovík|Košice-okolie|Košický kraj
+Badín|Banská Bystrica|Banskobystrický kraj
+Baďan|Banská Štiavnica|Banskobystrický kraj
+Báhoň|Pezinok|Bratislavský kraj
+Bajany|Michalovce|Košický kraj
+Bajč|Komárno|Nitriansky kraj
+Bajerov|Prešov|Prešovský kraj
+Bajerovce|Sabinov|Prešovský kraj
+Bajka|Levice|Nitriansky kraj
+Bajtava|Nové Zámky|Nitriansky kraj
+Baka|Dunajská Streda|Trnavský kraj
+Baláže|Banská Bystrica|Banskobystrický kraj
+Baldovce|Levoča|Prešovský kraj
+Balog nad Ipľom|Veľký Krtíš|Banskobystrický kraj
+Baloň|Dunajská Streda|Trnavský kraj
+Banka|Piešťany|Trnavský kraj
+Bánov|Nové Zámky|Nitriansky kraj
+Bánovce nad Bebravou|Bánovce nad Bebravou|Trenčiansky kraj
+Bánovce nad Ondavou|Michalovce|Košický kraj
+Banská Belá|Banská Štiavnica|Banskobystrický kraj
+Banská Štiavnica|Banská Štiavnica|Banskobystrický kraj
+Banská Bystrica|Banská Bystrica|Banskobystrický kraj
+Banské|Stropkov|Prešovský kraj
+Banský Studenec|Banská Štiavnica|Banskobystrický kraj
+Baňa|Stropkov|Prešovský kraj
+Bara|Trebišov|Košický kraj
+Barca|Rimavská Sobota|Banskobystrický kraj
+Bartošovce|Bardejov|Prešovský kraj
+Bardoňovo|Nové Zámky|Nitriansky kraj
+Bartošova Lehôtka|Žiar nad Hronom|Banskobystrický kraj
+Bardejov|Bardejov|Prešovský kraj
+Baška|Košice-okolie|Košický kraj
+Baškovce|Humenné|Prešovský kraj
+Baškovce|Sobrance|Košický kraj
+Bašovce|Piešťany|Trnavský kraj
+Batizovce|Poprad|Prešovský kraj
+Bátorová|Veľký Krtíš|Banskobystrický kraj
+Bátka|Rimavská Sobota|Banskobystrický kraj
+Bátorove Kosihy|Komárno|Nitriansky kraj
+Bátovce|Levice|Nitriansky kraj
+Beharovce|Levoča|Prešovský kraj
+Beckov|Nové Mesto nad Váhom|Trenčiansky kraj
+Becherov|Bardejov|Prešovský kraj
+Belá|Nové Zámky|Nitriansky kraj
+Belá|Žilina|Žilinský kraj
+Belá- Dulice|Martin|Žilinský kraj
+Belá nad Cirochou|Snina|Prešovský kraj
+Beladice|Zlaté Moravce|Nitriansky kraj
+Belejovce|Svidník|Prešovský kraj
+Belín|Rimavská Sobota|Banskobystrický kraj
+Belina|Lučenec|Banskobystrický kraj
+Belince|Topoľčany|Nitriansky kraj
+Bellova Ves|Dunajská Streda|Trnavský kraj
+Beloveža|Bardejov|Prešovský kraj
+Beluj|Banská Štiavnica|Banskobystrický kraj
+Beluša|Púchov|Trenčiansky kraj
+Belža|Košice-okolie|Košický kraj
+Beniakovce|Košice-okolie|Košický kraj
+Benice|Martin|Žilinský kraj
+Benkovce|Vranov nad Topľou|Prešovský kraj
+Beňadiková|Liptovský Mikuláš|Žilinský kraj
+Beňadikovce|Svidník|Prešovský kraj
+Beňadovo|Námestovo|Žilinský kraj
+Beňatina|Sobrance|Košický kraj
+Beňuš|Brezno|Banskobystrický kraj
+Bernolákovo|Senec|Bratislavský kraj
+Bertotovce|Prešov|Prešovský kraj
+Beša|Levice|Nitriansky kraj
+Beša|Michalovce|Košický kraj
+Bešeňov|Nové Zámky|Nitriansky kraj
+Bešeňová|Ružomberok|Žilinský kraj
+Betlanovce|Spišská Nová Ves|Košický kraj
+Betliar|Rožňava|Košický kraj
+Bežovce|Sobrance|Košický kraj
+Bidovce|Košice-okolie|Košický kraj
+Biel|Trebišov|Košický kraj
+Bielovce|Levice|Nitriansky kraj
+Biely Kostol|Trnava|Trnavský kraj
+Bijacovce|Levoča|Prešovský kraj
+Bílkove Humence|Senica|Trnavský kraj
+Bíňa|Nové Zámky|Nitriansky kraj
+Bíňovce|Trnava|Trnavský kraj
+Biskupice|Lučenec|Banskobystrický kraj
+Biskupová|Topoľčany|Nitriansky kraj
+Bitarová|Žilina|Žilinský kraj
+Blahová|Dunajská Streda|Trnavský kraj
+Blatná na Ostrove|Dunajská Streda|Trnavský kraj
+Blatná Polianka|Sobrance|Košický kraj
+Blatné|Senec|Bratislavský kraj
+Blatné Remety|Sobrance|Košický kraj
+Blatné Revištia|Sobrance|Košický kraj
+Blatnica|Martin|Žilinský kraj
+Blažice|Košice-okolie|Košický kraj
+Blažovce|Turčianske Teplice|Žilinský kraj
+Blesovce|Topoľčany|Nitriansky kraj
+Blhovce|Rimavská Sobota|Banskobystrický kraj
+Bobot|Trenčín|Trenčiansky kraj
+Bobrov|Námestovo|Žilinský kraj
+Bobrovček|Liptovský Mikuláš|Žilinský kraj
+Bobrovec|Liptovský Mikuláš|Žilinský kraj
+Bobrovník|Liptovský Mikuláš|Žilinský kraj
+Bočiar|Košice-okolie|Košický kraj
+Bodíky|Dunajská Streda|Trnavský kraj
+Bodiná|Považská Bystrica|Trenčiansky kraj
+Bodorová|Turčianske Teplice|Žilinský kraj
+Bodovce|Sabinov|Prešovský kraj
+Bodružal|Svidník|Prešovský kraj
+Bodza|Komárno|Nitriansky kraj
+Bodzianske Lúky|Komárno|Nitriansky kraj
+Bogliarka|Bardejov|Prešovský kraj
+Bohdanovce|Košice-okolie|Košický kraj
+Bohdanovce nad Trnavou|Trnava|Trnavský kraj
+Boheľov|Dunajská Streda|Trnavský kraj
+Bohunice|Ilava|Trenčiansky kraj
+Bohunice|Levice|Nitriansky kraj
+Bohúňovo|Rožňava|Košický kraj
+Bojná|Topoľčany|Nitriansky kraj
+Bojnice|Prievidza|Trenčiansky kraj
+Bojničky|Hlohovec|Trnavský kraj
+Boldog|Senec|Bratislavský kraj
+Boleráz|Trnava|Trnavský kraj
+Bolešov|Ilava|Trenčiansky kraj
+Boliarov|Košice-okolie|Košický kraj
+Boľ|Trebišov|Košický kraj
+Boľkovce|Lučenec|Banskobystrický kraj
+Borcová|Turčianske Teplice|Žilinský kraj
+Borčany|Bánovce nad Bebravou|Trenčiansky kraj
+Borčice|Ilava|Trenčiansky kraj
+Borinka|Malacky|Bratislavský kraj
+Borová|Trnava|Trnavský kraj
+Borovce|Piešťany|Trnavský kraj
+Borský Mikuláš|Senica|Trnavský kraj
+Borský Svätý Jur|Senica|Trnavský kraj
+Borša|Trebišov|Košický kraj
+Bory|Levice|Nitriansky kraj
+Bošáca|Nové Mesto nad Váhom|Trenčiansky kraj
+Bošany|Partizánske|Trenčiansky kraj
+Bottovo|Rimavská Sobota|Banskobystrický kraj
+Boťany|Trebišov|Košický kraj
+Bôrka|Rožňava|Košický kraj
+Bracovce|Michalovce|Košický kraj
+Branč|Nitra|Nitriansky kraj
+Branovo|Nové Zámky|Nitriansky kraj
+Bratislava I|Okres Bratislava|Bratislavský kraj
+Bratislava II|Okres Bratislava|Bratislavský kraj
+Bratislava III|Okres Bratislava|Bratislavský kraj
+Bratislava IV|Okres Bratislava|Bratislavský kraj
+Bratislava V|Okres Bratislava|Bratislavský kraj
+Braväcovo|Brezno|Banskobystrický kraj
+Brdárka|Rožňava|Košický kraj
+Brehov|Trebišov|Košický kraj
+Brehy|Žarnovica|Banskobystrický kraj
+Brekov|Humenné|Prešovský kraj
+Brestov|Humenné|Prešovský kraj
+Brestov|Prešov|Prešovský kraj
+Brestov nad Laborcom|Medzilaborce|Prešovský kraj
+Brestovany|Trnava|Trnavský kraj
+Brestovec|Myjava|Trenčiansky kraj
+Brestovec|Komárno|Nitriansky kraj
+Bretejovce|Prešov|Prešovský kraj
+Bretka|Rožňava|Košický kraj
+Breza|Námestovo|Žilinský kraj
+Brezany|Žilina|Žilinský kraj
+Brezina|Trebišov|Košický kraj
+Breziny|Zvolen|Banskobystrický kraj
+Breznica|Stropkov|Prešovský kraj
+Breznička|Poltár|Banskobystrický kraj
+Breznička|Stropkov|Prešovský kraj
+Brezno|Brezno|Banskobystrický kraj
+Brezolupy|Bánovce nad Bebravou|Trenčiansky kraj
+Brezov|Bardejov|Prešovský kraj
+Brezová pod Bradlom|Myjava|Trenčiansky kraj
+Brezovec|Snina|Prešovský kraj
+Brezovica|Tvrdošín|Žilinský kraj
+Brezovica|Sabinov|Prešovský kraj
+Brezovička|Sabinov|Prešovský kraj
+Brezovka|Bardejov|Prešovský kraj
+Brežany|Prešov|Prešovský kraj
+Brhlovce|Levice|Nitriansky kraj
+Brieštie|Turčianske Teplice|Žilinský kraj
+Brodské|Skalica|Trnavský kraj
+Brodzany|Partizánske|Trenčiansky kraj
+Brunovce|Nové Mesto nad Váhom|Trenčiansky kraj
+Brusnica|Stropkov|Prešovský kraj
+Brusník|Veľký Krtíš|Banskobystrický kraj
+Brusno|Banská Bystrica|Banskobystrický kraj
+Brutovce|Levoča|Prešovský kraj
+Bruty|Nové Zámky|Nitriansky kraj
+Brvnište|Považská Bystrica|Trenčiansky kraj
+Brzotín|Rožňava|Košický kraj
+Buclovany|Bardejov|Prešovský kraj
+Búč|Komárno|Nitriansky kraj
+Bučany|Trnava|Trnavský kraj
+Budča|Zvolen|Banskobystrický kraj
+Budikovany|Rimavská Sobota|Banskobystrický kraj
+Budimír|Košice-okolie|Košický kraj
+Budiná|Lučenec|Banskobystrický kraj
+Budince|Michalovce|Košický kraj
+Budiš|Turčianske Teplice|Žilinský kraj
+Budkovce|Michalovce|Košický kraj
+Budmerice|Pezinok|Bratislavský kraj
+Buglovce|Levoča|Prešovský kraj
+Buková|Trnava|Trnavský kraj
+Bukovce|Stropkov|Prešovský kraj
+Bukovec|Myjava|Trenčiansky kraj
+Bukovec|Košice-okolie|Košický kraj
+Bukovina|Liptovský Mikuláš|Žilinský kraj
+Bulhary|Lučenec|Banskobystrický kraj
+Bunetice|Košice-okolie|Košický kraj
+Bunkovce|Sobrance|Košický kraj
+Bušince|Veľký Krtíš|Banskobystrický kraj
+Bušovce|Kežmarok|Prešovský kraj
+Buzica|Košice-okolie|Košický kraj
+Buzitka|Lučenec|Banskobystrický kraj
+Bystrá|Brezno|Banskobystrický kraj
+Bystrá|Stropkov|Prešovský kraj
+Bystrany|Spišská Nová Ves|Košický kraj
+Bystré|Vranov nad Topľou|Prešovský kraj
+Bystričany|Prievidza|Trenčiansky kraj
+Bystrička|Martin|Žilinský kraj
+Byšta|Trebišov|Košický kraj
+Bytča|Bytča|Žilinský kraj
+Bzenica|Žiar nad Hronom|Banskobystrický kraj
+Bzenov|Prešov|Prešovský kraj
+Bzince pod Javorinou|Nové Mesto nad Váhom|Trenčiansky kraj
+Bziny|Dolný Kubín|Žilinský kraj
+Bzovík|Krupina|Banskobystrický kraj
+Bzovská Lehôtka|Zvolen|Banskobystrický kraj
+Bžany|Stropkov|Prešovský kraj
+Cabaj- Čápor|Nitra|Nitriansky kraj
+Cabov|Vranov nad Topľou|Prešovský kraj
+Cakov|Rimavská Sobota|Banskobystrický kraj
+Cejkov|Trebišov|Košický kraj
+Cernina|Svidník|Prešovský kraj
+Cerová|Senica|Trnavský kraj
+Cerovo|Krupina|Banskobystrický kraj
+Cestice|Košice-okolie|Košický kraj
+Cífer|Trnava|Trnavský kraj
+Cigeľ|Prievidza|Trenčiansky kraj
+Cigeľka|Bardejov|Prešovský kraj
+Cigla|Svidník|Prešovský kraj
+Cimenná|Bánovce nad Bebravou|Trenčiansky kraj
+Cinobaňa|Poltár|Banskobystrický kraj
+Čabalovce|Medzilaborce|Prešovský kraj
+Čabiny|Medzilaborce|Prešovský kraj
+Čabradský Vrbovok|Krupina|Banskobystrický kraj
+Čadca|Čadca|Žilinský kraj
+Čachtice|Nové Mesto nad Váhom|Trenčiansky kraj
+Čajkov|Levice|Nitriansky kraj
+Čaka|Levice|Nitriansky kraj
+Čakajovce|Nitra|Nitriansky kraj
+Čakanovce|Lučenec|Banskobystrický kraj
+Čakanovce|Košice-okolie|Košický kraj
+Čakany|Dunajská Streda|Trnavský kraj
+Čaklov|Vranov nad Topľou|Prešovský kraj
+Čalovec|Komárno|Nitriansky kraj
+Čamovce|Lučenec|Banskobystrický kraj
+Čaňa|Košice-okolie|Košický kraj
+Čaradice|Zlaté Moravce|Nitriansky kraj
+Čáry|Senica|Trnavský kraj
+Častá|Pezinok|Bratislavský kraj
+Častkov|Senica|Trnavský kraj
+Častkovce|Nové Mesto nad Váhom|Trenčiansky kraj
+Čata|Levice|Nitriansky kraj
+Čataj|Senec|Bratislavský kraj
+Čavoj|Prievidza|Trenčiansky kraj
+Čebovce|Veľký Krtíš|Banskobystrický kraj
+Čečehov|Michalovce|Košický kraj
+Čečejovce|Košice-okolie|Košický kraj
+Čechy|Nové Zámky|Nitriansky kraj
+Čechynce|Nitra|Nitriansky kraj
+Čekovce|Krupina|Banskobystrický kraj
+Čeláre|Veľký Krtíš|Banskobystrický kraj
+Čelkova Lehota|Považská Bystrica|Trenčiansky kraj
+Čelovce|Veľký Krtíš|Banskobystrický kraj
+Čelovce|Prešov|Prešovský kraj
+Čeľadice|Nitra|Nitriansky kraj
+Čeľadince|Topoľčany|Nitriansky kraj
+Čeľovce|Trebišov|Košický kraj
+Čenkovce|Dunajská Streda|Trnavský kraj
+Čerenčany|Rimavská Sobota|Banskobystrický kraj
+Čereňany|Prievidza|Trenčiansky kraj
+Čerhov|Trebišov|Košický kraj
+Čerín|Banská Bystrica|Banskobystrický kraj
+Čermany|Topoľčany|Nitriansky kraj
+Černík|Nové Zámky|Nitriansky kraj
+Černina|Humenné|Prešovský kraj
+Černochov|Trebišov|Košický kraj
+Čertižné|Medzilaborce|Prešovský kraj
+Červená Voda|Sabinov|Prešovský kraj
+Červenica|Prešov|Prešovský kraj
+Červenica pri Sabinove|Sabinov|Prešovský kraj
+Červeník|Hlohovec|Trnavský kraj
+Červený Hrádok|Zlaté Moravce|Nitriansky kraj
+Červený Kameň|Ilava|Trenčiansky kraj
+Červený Kláštor|Kežmarok|Prešovský kraj
+Červeňany|Veľký Krtíš|Banskobystrický kraj
+České Brezovo|Poltár|Banskobystrický kraj
+Čičarovce|Michalovce|Košický kraj
+Čičava|Vranov nad Topľou|Prešovský kraj
+Čičmany|Žilina|Žilinský kraj
+Číčov|Komárno|Nitriansky kraj
+Čierna|Trebišov|Košický kraj
+Čierna Lehota|Bánovce nad Bebravou|Trenčiansky kraj
+Čierna Lehota|Rožňava|Košický kraj
+Čierna nad Tisou|Trebišov|Košický kraj
+Čierna Voda|Galanta|Trnavský kraj
+Čierne|Čadca|Žilinský kraj
+Čierne Kľačany|Zlaté Moravce|Nitriansky kraj
+Čierne nad Topľou|Vranov nad Topľou|Prešovský kraj
+Čierne Pole|Michalovce|Košický kraj
+Čierny Balog|Brezno|Banskobystrický kraj
+Čierny Brod|Galanta|Trnavský kraj
+Čierny Potok|Rimavská Sobota|Banskobystrický kraj
+Čifáre|Nitra|Nitriansky kraj
+Čiližská Radvaň|Dunajská Streda|Trnavský kraj
+Čimhová|Tvrdošín|Žilinský kraj
+Čirč|Stará Ľubovňa|Prešovský kraj
+Číž|Rimavská Sobota|Banskobystrický kraj
+Čižatice|Košice-okolie|Košický kraj
+Čoltovo|Rožňava|Košický kraj
+Čremošné|Turčianske Teplice|Žilinský kraj
+Čučma|Rožňava|Košický kraj
+Čukalovce|Snina|Prešovský kraj
+Dačov Lom|Veľký Krtíš|Banskobystrický kraj
+Daletice|Sabinov|Prešovský kraj
+Danišovce|Spišská Nová Ves|Košický kraj
+Dargov|Trebišov|Košický kraj
+Davidov|Vranov nad Topľou|Prešovský kraj
+Debraď|Košice-okolie|Košický kraj
+Dedačov|Humenné|Prešovský kraj
+Dedina Mládeže|Komárno|Nitriansky kraj
+Dedinka|Nové Zámky|Nitriansky kraj
+Dedinky|Rožňava|Košický kraj
+Dechtice|Trnava|Trnavský kraj
+Dekýš|Banská Štiavnica|Banskobystrický kraj
+Demandice|Levice|Nitriansky kraj
+Demänovská Dolina|Liptovský Mikuláš|Žilinský kraj
+Demjata|Prešov|Prešovský kraj
+Detrík|Vranov nad Topľou|Prešovský kraj
+Detva|Detva|Banskobystrický kraj
+Detvianska Huta|Detva|Banskobystrický kraj
+Devičany|Levice|Nitriansky kraj
+Devičie|Krupina|Banskobystrický kraj
+Dežerice|Bánovce nad Bebravou|Trenčiansky kraj
+Diaková|Martin|Žilinský kraj
+Diakovce|Šaľa|Nitriansky kraj
+Diviacka Nová Ves|Prievidza|Trenčiansky kraj
+Diviaky nad Nitricou|Prievidza|Trenčiansky kraj
+Divín|Lučenec|Banskobystrický kraj
+Divina|Žilina|Žilinský kraj
+Divinka|Žilina|Žilinský kraj
+Dlhá|Trnava|Trnavský kraj
+Dlhá nad Kysucou|Čadca|Žilinský kraj
+Dlhá nad Oravou|Dolný Kubín|Žilinský kraj
+Dlhá nad Váhom|Šaľa|Nitriansky kraj
+Dlhá Ves|Rožňava|Košický kraj
+Dlhé Klčovo|Vranov nad Topľou|Prešovský kraj
+Dlhé nad Cirochou|Snina|Prešovský kraj
+Dlhé Pole|Žilina|Žilinský kraj
+Dlhé Stráže|Levoča|Prešovský kraj
+Dlhoňa|Svidník|Prešovský kraj
+Dlžín|Prievidza|Trenčiansky kraj
+Dobrá|Trebišov|Košický kraj
+Dobrá Niva|Zvolen|Banskobystrický kraj
+Dobrá Voda|Trnava|Trnavský kraj
+Dobroč|Lučenec|Banskobystrický kraj
+Dobrohošť|Dunajská Streda|Trnavský kraj
+Dobroslava|Svidník|Prešovský kraj
+Dobšiná|Rožňava|Košický kraj
+Dohňany|Púchov|Trenčiansky kraj
+Dojč|Senica|Trnavský kraj
+Dolinka|Veľký Krtíš|Banskobystrický kraj
+Dolná Breznica|Púchov|Trenčiansky kraj
+Dolná Krupá|Trnava|Trnavský kraj
+Dolná Lehota|Brezno|Banskobystrický kraj
+Dolná Mariková|Považská Bystrica|Trenčiansky kraj
+Dolná Mičiná|Banská Bystrica|Banskobystrický kraj
+Dolná Poruba|Trenčín|Trenčiansky kraj
+Dolná Seč|Levice|Nitriansky kraj
+Dolná Streda|Galanta|Trnavský kraj
+Dolná Strehová|Veľký Krtíš|Banskobystrický kraj
+Dolná Súča|Trenčín|Trenčiansky kraj
+Dolná Tižina|Žilina|Žilinský kraj
+Dolná Trnávka|Žiar nad Hronom|Banskobystrický kraj
+Dolná Ves|Žiar nad Hronom|Banskobystrický kraj
+Dolná Ždaňa|Žiar nad Hronom|Banskobystrický kraj
+Dolné Dubové|Trnava|Trnavský kraj
+Dolné Kočkovce|Púchov|Trenčiansky kraj
+Dolné Lefantovce|Nitra|Nitriansky kraj
+Dolné Lovčice|Trnava|Trnavský kraj
+Dolné Mladonice|Krupina|Banskobystrický kraj
+Dolné Naštice|Bánovce nad Bebravou|Trenčiansky kraj
+Dolné Obdokovce|Nitra|Nitriansky kraj
+Dolné Orešany|Trnava|Trnavský kraj
+Dolné Otrokovce|Hlohovec|Trnavský kraj
+Dolné Plachtince|Veľký Krtíš|Banskobystrický kraj
+Dolné Saliby|Galanta|Trnavský kraj
+Dolné Semerovce|Levice|Nitriansky kraj
+Dolné Srnie|Nové Mesto nad Váhom|Trenčiansky kraj
+Dolné Strháre|Veľký Krtíš|Banskobystrický kraj
+Dolné Trhovište|Hlohovec|Trnavský kraj
+Dolné Vestenice|Prievidza|Trenčiansky kraj
+Dolné Zahorany|Rimavská Sobota|Banskobystrický kraj
+Dolné Zelenice|Hlohovec|Trnavský kraj
+Dolný Badín|Krupina|Banskobystrický kraj
+Dolný Bar|Dunajská Streda|Trnavský kraj
+Dolný Harmanec|Banská Bystrica|Banskobystrický kraj
+Dolný Hričov|Žilina|Žilinský kraj
+Dolný Chotár|Galanta|Trnavský kraj
+Dolný Kalník|Martin|Žilinský kraj
+Dolný Kubín|Dolný Kubín|Žilinský kraj
+Dolný Lieskov|Považská Bystrica|Trenčiansky kraj
+Dolný Lopašov|Piešťany|Trnavský kraj
+Dolný Ohaj|Nové Zámky|Nitriansky kraj
+Dolný Pial|Levice|Nitriansky kraj
+Dolný Štál|Dunajská Streda|Trnavský kraj
+Dolný Vadičov|Kysucké Nové Mesto|Žilinský kraj
+Doľany|Pezinok|Bratislavský kraj
+Doľany|Levoča|Prešovský kraj
+Domadice|Levice|Nitriansky kraj
+Domaníky|Krupina|Banskobystrický kraj
+Domaniža|Považská Bystrica|Trenčiansky kraj
+Domaňovce|Levoča|Prešovský kraj
+Donovaly|Banská Bystrica|Banskobystrický kraj
+Drábsko|Brezno|Banskobystrický kraj
+Drahňov|Michalovce|Košický kraj
+Drahovce|Piešťany|Trnavský kraj
+Dravce|Levoča|Prešovský kraj
+Dražice|Rimavská Sobota|Banskobystrický kraj
+Dražkovce|Martin|Žilinský kraj
+Drážovce|Krupina|Banskobystrický kraj
+Drienčany|Rimavská Sobota|Banskobystrický kraj
+Drienica|Sabinov|Prešovský kraj
+Drienov|Prešov|Prešovský kraj
+Drienovec|Košice-okolie|Košický kraj
+Drienovo|Krupina|Banskobystrický kraj
+Drienovská Nová Ves|Prešov|Prešovský kraj
+Drietoma|Trenčín|Trenčiansky kraj
+Drnava|Rožňava|Košický kraj
+Drňa|Rimavská Sobota|Banskobystrický kraj
+Družstevná pri Hornáde|Košice-okolie|Košický kraj
+Drženice|Levice|Nitriansky kraj
+Držkovce|Revúca|Banskobystrický kraj
+Dubinné|Bardejov|Prešovský kraj
+Dubnica nad Váhom|Ilava|Trenčiansky kraj
+Dubnička|Bánovce nad Bebravou|Trenčiansky kraj
+Dubník|Nové Zámky|Nitriansky kraj
+Dubno|Rimavská Sobota|Banskobystrický kraj
+Dubodiel|Trenčín|Trenčiansky kraj
+Dubová|Pezinok|Bratislavský kraj
+Dubová|Svidník|Prešovský kraj
+Dubovany|Piešťany|Trnavský kraj
+Dubovce|Skalica|Trnavský kraj
+Dubové|Turčianske Teplice|Žilinský kraj
+Dubové|Zvolen|Banskobystrický kraj
+Dubovec|Rimavská Sobota|Banskobystrický kraj
+Dubovica|Sabinov|Prešovský kraj
+Dúbrava|Liptovský Mikuláš|Žilinský kraj
+Dúbrava|Levoča|Prešovský kraj
+Dúbrava|Snina|Prešovský kraj
+Dúbravica|Banská Bystrica|Banskobystrický kraj
+Dúbravka|Michalovce|Košický kraj
+Dúbravy|Detva|Banskobystrický kraj
+Ducové|Piešťany|Trnavský kraj
+Dudince|Krupina|Banskobystrický kraj
+Dukovce|Svidník|Prešovský kraj
+Dulov|Ilava|Trenčiansky kraj
+Dulova Ves|Prešov|Prešovský kraj
+Dulovce|Komárno|Nitriansky kraj
+Dulovo|Rimavská Sobota|Banskobystrický kraj
+Dunajská Lužná|Senec|Bratislavský kraj
+Dunajov|Čadca|Žilinský kraj
+Dunajská Streda|Dunajská Streda|Trnavský kraj
+Dunajský Klátov|Dunajská Streda|Trnavský kraj
+Duplín|Stropkov|Prešovský kraj
+Dvorany nad Nitrou|Topoľčany|Nitriansky kraj
+Dvorec|Bánovce nad Bebravou|Trenčiansky kraj
+Dvorianky|Trebišov|Košický kraj
+Dvorníky|Hlohovec|Trnavský kraj
+Dvorníky- Včeláre|Košice-okolie|Košický kraj
+Dvory nad Žitavou|Nové Zámky|Nitriansky kraj
+Ďačov|Sabinov|Prešovský kraj
+Ďanová|Martin|Žilinský kraj
+Ďapalovce|Vranov nad Topľou|Prešovský kraj
+Ďubákovo|Poltár|Banskobystrický kraj
+Ďurčiná|Žilina|Žilinský kraj
+Ďurďoš|Vranov nad Topľou|Prešovský kraj
+Ďurďošík|Košice-okolie|Košický kraj
+Ďurďové|Považská Bystrica|Trenčiansky kraj
+Ďurkov|Košice-okolie|Košický kraj
+Ďurková|Stará Ľubovňa|Prešovský kraj
+Ďurkovce|Veľký Krtíš|Banskobystrický kraj
+Egreš|Trebišov|Košický kraj
+Fačkov|Žilina|Žilinský kraj
+Falkušovce|Michalovce|Košický kraj
+Farná|Levice|Nitriansky kraj
+Fekišovce|Sobrance|Košický kraj
+Figa|Rimavská Sobota|Banskobystrický kraj
+Fijaš|Svidník|Prešovský kraj
+Fiľakovo|Lučenec|Banskobystrický kraj
+Fiľakovské Kováče|Lučenec|Banskobystrický kraj
+Fintice|Prešov|Prešovský kraj
+Folkušová|Martin|Žilinský kraj
+Forbasy|Stará Ľubovňa|Prešovský kraj
+Frička|Bardejov|Prešovský kraj
+Fričkovce|Bardejov|Prešovský kraj
+Fričovce|Prešov|Prešovský kraj
+Fulianka|Prešov|Prešovský kraj
+Gabčíkovo|Dunajská Streda|Trnavský kraj
+Gaboltov|Bardejov|Prešovský kraj
+Gajary|Malacky|Bratislavský kraj
+Galanta|Galanta|Trnavský kraj
+Galovany|Liptovský Mikuláš|Žilinský kraj
+Gánovce|Poprad|Prešovský kraj
+Gáň|Galanta|Trnavský kraj
+Gbelce|Nové Zámky|Nitriansky kraj
+Gbely|Skalica|Trnavský kraj
+Gbeľany|Žilina|Žilinský kraj
+Geča|Košice-okolie|Košický kraj
+Gelnica|Gelnica|Košický kraj
+Gemer|Revúca|Banskobystrický kraj
+Gemerček|Rimavská Sobota|Banskobystrický kraj
+Gemerská Hôrka|Rožňava|Košický kraj
+Gemerská Panica|Rožňava|Košický kraj
+Gemerská Poloma|Rožňava|Košický kraj
+Gemerská Ves|Revúca|Banskobystrický kraj
+Gemerské Dechtáre|Rimavská Sobota|Banskobystrický kraj
+Gemerské Michalovce|Rimavská Sobota|Banskobystrický kraj
+Gemerské Teplice|Revúca|Banskobystrický kraj
+Gemerský Jablonec|Rimavská Sobota|Banskobystrický kraj
+Gemerský Sad|Revúca|Banskobystrický kraj
+Geraltov|Prešov|Prešovský kraj
+Gerlachov|Bardejov|Prešovský kraj
+Gerlachov|Poprad|Prešovský kraj
+Giglovce|Vranov nad Topľou|Prešovský kraj
+Giraltovce|Svidník|Prešovský kraj
+Girovce|Vranov nad Topľou|Prešovský kraj
+Glabušovce|Veľký Krtíš|Banskobystrický kraj
+Gočaltovo|Rožňava|Košický kraj
+Gočovo|Rožňava|Košický kraj
+Golianovo|Nitra|Nitriansky kraj
+Gortva|Rimavská Sobota|Banskobystrický kraj
+Gôtovany|Liptovský Mikuláš|Žilinský kraj
+Granč- Petrovce|Levoča|Prešovský kraj
+Gregorova Vieska|Lučenec|Banskobystrický kraj
+Gregorovce|Prešov|Prešovský kraj
+Gribov|Stropkov|Prešovský kraj
+Gruzovce|Humenné|Prešovský kraj
+Gyňov|Košice-okolie|Košický kraj
+Habovka|Tvrdošín|Žilinský kraj
+Habura|Medzilaborce|Prešovský kraj
+Hačava|Košice-okolie|Košický kraj
+Háj|Turčianske Teplice|Žilinský kraj
+Háj|Košice-okolie|Košický kraj
+Hajná Nová Ves|Topoľčany|Nitriansky kraj
+Hajnáčka|Rimavská Sobota|Banskobystrický kraj
+Hájske|Šaľa|Nitriansky kraj
+Hajtovka|Stará Ľubovňa|Prešovský kraj
+Haláčovce|Bánovce nad Bebravou|Trenčiansky kraj
+Halič|Lučenec|Banskobystrický kraj
+Haligovce|Stará Ľubovňa|Prešovský kraj
+Haluzice|Nové Mesto nad Váhom|Trenčiansky kraj
+Hamuliakovo|Senec|Bratislavský kraj
+Handlová|Prievidza|Trenčiansky kraj
+Hanigovce|Sabinov|Prešovský kraj
+Haniska|Prešov|Prešovský kraj
+Haniska|Košice-okolie|Košický kraj
+Hanková|Rožňava|Košický kraj
+Hankovce|Bardejov|Prešovský kraj
+Hankovce|Humenné|Prešovský kraj
+Hanušovce nad Topľou|Vranov nad Topľou|Prešovský kraj
+Harakovce|Levoča|Prešovský kraj
+Harhaj|Bardejov|Prešovský kraj
+Harichovce|Spišská Nová Ves|Košický kraj
+Harmanec|Banská Bystrica|Banskobystrický kraj
+Hatalov|Michalovce|Košický kraj
+Hatné|Považská Bystrica|Trenčiansky kraj
+Havaj|Stropkov|Prešovský kraj
+Havka|Kežmarok|Prešovský kraj
+Havranec|Svidník|Prešovský kraj
+Hažín|Michalovce|Košický kraj
+Hažín nad Cirochou|Humenné|Prešovský kraj
+Hažlín|Bardejov|Prešovský kraj
+Helcmanovce|Gelnica|Košický kraj
+Heľpa|Brezno|Banskobystrický kraj
+Henckovce|Rožňava|Košický kraj
+Henclová|Gelnica|Košický kraj
+Hencovce|Vranov nad Topľou|Prešovský kraj
+Hendrichovce|Prešov|Prešovský kraj
+Herľany|Košice-okolie|Košický kraj
+Hermanovce|Prešov|Prešovský kraj
+Hermanovce nad Topľou|Vranov nad Topľou|Prešovský kraj
+Hertník|Bardejov|Prešovský kraj
+Hervartov|Bardejov|Prešovský kraj
+Hiadeľ|Banská Bystrica|Banskobystrický kraj
+Hincovce|Spišská Nová Ves|Košický kraj
+Hladovka|Tvrdošín|Žilinský kraj
+Hlboké|Senica|Trnavský kraj
+Hliník nad Hronom|Žiar nad Hronom|Banskobystrický kraj
+Hlinné|Vranov nad Topľou|Prešovský kraj
+Hlivištia|Sobrance|Košický kraj
+Hlohovec|Hlohovec|Trnavský kraj
+Hniezdne|Stará Ľubovňa|Prešovský kraj
+Hnilčík|Spišská Nová Ves|Košický kraj
+Hnilec|Spišská Nová Ves|Košický kraj
+Hnojné|Michalovce|Košický kraj
+Hnúšťa|Rimavská Sobota|Banskobystrický kraj
+Hodejov|Rimavská Sobota|Banskobystrický kraj
+Hodejovec|Rimavská Sobota|Banskobystrický kraj
+Hodkovce|Košice-okolie|Košický kraj
+Hodruša- Hámre|Žarnovica|Banskobystrický kraj
+Hokovce|Levice|Nitriansky kraj
+Holčíkovce|Vranov nad Topľou|Prešovský kraj
+Holiare|Komárno|Nitriansky kraj
+Holice|Dunajská Streda|Trnavský kraj
+Holíč|Skalica|Trnavský kraj
+Holiša|Lučenec|Banskobystrický kraj
+Holumnica|Kežmarok|Prešovský kraj
+Honce|Rožňava|Košický kraj
+Hontianska Vrbica|Levice|Nitriansky kraj
+Hontianske Moravce|Krupina|Banskobystrický kraj
+Hontianske Nemce|Krupina|Banskobystrický kraj
+Hontianske Tesáre|Krupina|Banskobystrický kraj
+Hontianske Trsťany|Levice|Nitriansky kraj
+Horná Breznica|Púchov|Trenčiansky kraj
+Horná Kráľová|Šaľa|Nitriansky kraj
+Horná Krupá|Trnava|Trnavský kraj
+Horná Lehota|Dolný Kubín|Žilinský kraj
+Horná Lehota|Brezno|Banskobystrický kraj
+Horná Mariková|Považská Bystrica|Trenčiansky kraj
+Horná Mičiná|Banská Bystrica|Banskobystrický kraj
+Horná Poruba|Ilava|Trenčiansky kraj
+Horná Potôň|Dunajská Streda|Trnavský kraj
+Horná Seč|Levice|Nitriansky kraj
+Horná Streda|Nové Mesto nad Váhom|Trenčiansky kraj
+Horná Strehová|Veľký Krtíš|Banskobystrický kraj
+Horná Súča|Trenčín|Trenčiansky kraj
+Horná Štubňa|Turčianske Teplice|Žilinský kraj
+Horná Ves|Prievidza|Trenčiansky kraj
+Horná Ves|Žiar nad Hronom|Banskobystrický kraj
+Horná Ždaňa|Žiar nad Hronom|Banskobystrický kraj
+Horné Dubové|Trnava|Trnavský kraj
+Horné Hámre|Žarnovica|Banskobystrický kraj
+Horné Chlebany|Topoľčany|Nitriansky kraj
+Horné Lefantovce|Nitra|Nitriansky kraj
+Horné Mladonice|Krupina|Banskobystrický kraj
+Horné Mýto|Dunajská Streda|Trnavský kraj
+Horné Naštice|Bánovce nad Bebravou|Trenčiansky kraj
+Horné Obdokovce|Topoľčany|Nitriansky kraj
+Horné Orešany|Trnava|Trnavský kraj
+Horné Otrokovce|Hlohovec|Trnavský kraj
+Horné Plachtince|Veľký Krtíš|Banskobystrický kraj
+Horné Pršany|Banská Bystrica|Banskobystrický kraj
+Horné Saliby|Galanta|Trnavský kraj
+Horné Semerovce|Levice|Nitriansky kraj
+Horné Srnie|Trenčín|Trenčiansky kraj
+Horné Strháre|Veľký Krtíš|Banskobystrický kraj
+Horné Štitáre|Topoľčany|Nitriansky kraj
+Horné Trhovište|Hlohovec|Trnavský kraj
+Horné Turovce|Levice|Nitriansky kraj
+Horné Vestenice|Prievidza|Trenčiansky kraj
+Horné Zahorany|Rimavská Sobota|Banskobystrický kraj
+Horné Zelenice|Hlohovec|Trnavský kraj
+Horný Badín|Krupina|Banskobystrický kraj
+Horný Bar|Dunajská Streda|Trnavský kraj
+Horný Hričov|Žilina|Žilinský kraj
+Horný Kalník|Martin|Žilinský kraj
+Horný Lieskov|Považská Bystrica|Trenčiansky kraj
+Horný Pial|Levice|Nitriansky kraj
+Horný Tisovník|Detva|Banskobystrický kraj
+Horný Vadičov|Kysucké Nové Mesto|Žilinský kraj
+Horňa|Sobrance|Košický kraj
+Horňany|Trenčín|Trenčiansky kraj
+Horovce|Púchov|Trenčiansky kraj
+Horovce|Michalovce|Košický kraj
+Hoste|Galanta|Trnavský kraj
+Hostice|Rimavská Sobota|Banskobystrický kraj
+Hostie|Zlaté Moravce|Nitriansky kraj
+Hostišovce|Rimavská Sobota|Banskobystrický kraj
+Hostovice|Snina|Prešovský kraj
+Hosťová|Nitra|Nitriansky kraj
+Hosťovce|Zlaté Moravce|Nitriansky kraj
+Hosťovce|Košice-okolie|Košický kraj
+Hozelec|Poprad|Prešovský kraj
+Hôrka|Poprad|Prešovský kraj
+Hôrka nad Váhom|Nové Mesto nad Váhom|Trenčiansky kraj
+Hôrky|Žilina|Žilinský kraj
+Hrabičov|Žarnovica|Banskobystrický kraj
+Hrabkov|Prešov|Prešovský kraj
+Hrabová Roztoka|Snina|Prešovský kraj
+Hrabovčík|Svidník|Prešovský kraj
+Hrabovec|Bardejov|Prešovský kraj
+Hrabovec nad Laborcom|Humenné|Prešovský kraj
+Hrabské|Bardejov|Prešovský kraj
+Hrabušice|Spišská Nová Ves|Košický kraj
+Hradisko|Kežmarok|Prešovský kraj
+Hradište|Partizánske|Trenčiansky kraj
+Hradište|Poltár|Banskobystrický kraj
+Hradište pod Vrátnom|Senica|Trnavský kraj
+Hrádok|Nové Mesto nad Váhom|Trenčiansky kraj
+Hrachovište|Nové Mesto nad Váhom|Trenčiansky kraj
+Hrachovo|Rimavská Sobota|Banskobystrický kraj
+Hraničné|Stará Ľubovňa|Prešovský kraj
+Hranovnica|Poprad|Prešovský kraj
+Hraň|Trebišov|Košický kraj
+Hrašné|Myjava|Trenčiansky kraj
+Hrašovík|Košice-okolie|Košický kraj
+Hrčeľ|Trebišov|Košický kraj
+Hrhov|Rožňava|Košický kraj
+Hriadky|Trebišov|Košický kraj
+Hričovské Podhradie|Žilina|Žilinský kraj
+Hriňová|Detva|Banskobystrický kraj
+Hrišovce|Gelnica|Košický kraj
+Hrkovce|Levice|Nitriansky kraj
+Hrlica|Revúca|Banskobystrický kraj
+Hrnčiarovce nad Parnou|Trnava|Trnavský kraj
+Hrnčiarska Ves|Poltár|Banskobystrický kraj
+Hrnčiarske Zalužany|Poltár|Banskobystrický kraj
+Hrochoť|Banská Bystrica|Banskobystrický kraj
+Hromoš|Stará Ľubovňa|Prešovský kraj
+Hronec|Brezno|Banskobystrický kraj
+Hronovce|Levice|Nitriansky kraj
+Hronsek|Banská Bystrica|Banskobystrický kraj
+Hronská Breznica|Zvolen|Banskobystrický kraj
+Hronská Dúbrava|Žiar nad Hronom|Banskobystrický kraj
+Hronské Kľačany|Levice|Nitriansky kraj
+Hronské Kosihy|Levice|Nitriansky kraj
+Hronský Beňadik|Žarnovica|Banskobystrický kraj
+Hrubá Borša|Senec|Bratislavský kraj
+Hruboňovo|Nitra|Nitriansky kraj
+Hrubov|Humenné|Prešovský kraj
+Hrubý Šúr|Senec|Bratislavský kraj
+Hrušov|Veľký Krtíš|Banskobystrický kraj
+Hrušov|Rožňava|Košický kraj
+Hrušovany|Topoľčany|Nitriansky kraj
+Hrušovo|Rimavská Sobota|Banskobystrický kraj
+Hruštín|Námestovo|Žilinský kraj
+Hubice|Dunajská Streda|Trnavský kraj
+Hubina|Piešťany|Trnavský kraj
+Hubošovce|Sabinov|Prešovský kraj
+Hubová|Ružomberok|Žilinský kraj
+Hubovo|Rimavská Sobota|Banskobystrický kraj
+Hucín|Revúca|Banskobystrický kraj
+Hudcovce|Humenné|Prešovský kraj
+Hul|Nové Zámky|Nitriansky kraj
+Humenné|Humenné|Prešovský kraj
+Huncovce|Kežmarok|Prešovský kraj
+Hunkovce|Svidník|Prešovský kraj
+Hurbanova Ves|Senec|Bratislavský kraj
+Hurbanovo|Komárno|Nitriansky kraj
+Husák|Sobrance|Košický kraj
+Husiná|Rimavská Sobota|Banskobystrický kraj
+Hutka|Bardejov|Prešovský kraj
+Huty|Liptovský Mikuláš|Žilinský kraj
+Hviezdoslavov|Dunajská Streda|Trnavský kraj
+Hvozdnica|Bytča|Žilinský kraj
+Hybe|Liptovský Mikuláš|Žilinský kraj
+Hýľov|Košice-okolie|Košický kraj
+Chanava|Rimavská Sobota|Banskobystrický kraj
+Chlebnice|Dolný Kubín|Žilinský kraj
+Chlmec|Humenné|Prešovský kraj
+Chľaba|Nové Zámky|Nitriansky kraj
+Chmeľnica|Stará Ľubovňa|Prešovský kraj
+Chmeľov|Prešov|Prešovský kraj
+Chmeľová|Bardejov|Prešovský kraj
+Chmeľovec|Prešov|Prešovský kraj
+Chminianska Nová Ves|Prešov|Prešovský kraj
+Chminianske Jakubovany|Prešov|Prešovský kraj
+Chmiňany|Prešov|Prešovský kraj
+Choča|Zlaté Moravce|Nitriansky kraj
+Chocholná- Velčice|Trenčín|Trenčiansky kraj
+Choňkovce|Sobrance|Košický kraj
+Chorvátsky Grob|Senec|Bratislavský kraj
+Chorváty|Košice-okolie|Košický kraj
+Chotča|Stropkov|Prešovský kraj
+Chotín|Komárno|Nitriansky kraj
+Chrabrany|Topoľčany|Nitriansky kraj
+Chrámec|Rimavská Sobota|Banskobystrický kraj
+Chrastince|Veľký Krtíš|Banskobystrický kraj
+Chrastné|Košice-okolie|Košický kraj
+Chrasť nad Hornádom|Spišská Nová Ves|Košický kraj
+Chrenovec- Brusno|Prievidza|Trenčiansky kraj
+Chropov|Skalica|Trnavský kraj
+Chrťany|Veľký Krtíš|Banskobystrický kraj
+Chtelnica|Piešťany|Trnavský kraj
+Chudá Lehota|Bánovce nad Bebravou|Trenčiansky kraj
+Chvalová|Revúca|Banskobystrický kraj
+Chvojnica|Myjava|Trenčiansky kraj
+Chvojnica|Prievidza|Trenčiansky kraj
+Chynorany|Partizánske|Trenčiansky kraj
+Chyžné|Revúca|Banskobystrický kraj
+Igram|Senec|Bratislavský kraj
+Ihľany|Kežmarok|Prešovský kraj
+Ihráč|Žiar nad Hronom|Banskobystrický kraj
+Ilava|Ilava|Trenčiansky kraj
+Iliašovce|Spišská Nová Ves|Košický kraj
+Ilija|Banská Štiavnica|Banskobystrický kraj
+Imeľ|Komárno|Nitriansky kraj
+Inovce|Sobrance|Košický kraj
+Iňa|Levice|Nitriansky kraj
+Iňačovce|Michalovce|Košický kraj
+Ipeľské Predmostie|Veľký Krtíš|Banskobystrický kraj
+Ipeľské Úľany|Levice|Nitriansky kraj
+Ipeľský Sokolec|Levice|Nitriansky kraj
+Istebné|Dolný Kubín|Žilinský kraj
+Ivachnová|Ružomberok|Žilinský kraj
+Ivančiná|Turčianske Teplice|Žilinský kraj
+Ivanice|Rimavská Sobota|Banskobystrický kraj
+Ivanka pri Dunaji|Senec|Bratislavský kraj
+Ivanka pri Nitre|Nitra|Nitriansky kraj
+Ivanovce|Trenčín|Trenčiansky kraj
+Iža|Komárno|Nitriansky kraj
+Ižipovce|Liptovský Mikuláš|Žilinský kraj
+Ižkovce|Michalovce|Košický kraj
+Jablonec|Pezinok|Bratislavský kraj
+Jablonica|Senica|Trnavský kraj
+Jablonka|Myjava|Trenčiansky kraj
+Jablonov|Levoča|Prešovský kraj
+Jablonov nad Turňou|Rožňava|Košický kraj
+Jablonové|Malacky|Bratislavský kraj
+Jablonové|Bytča|Žilinský kraj
+Jabloň|Humenné|Prešovský kraj
+Jabloňovce|Levice|Nitriansky kraj
+Jacovce|Topoľčany|Nitriansky kraj
+Jahodná|Dunajská Streda|Trnavský kraj
+Jaklovce|Gelnica|Košický kraj
+Jakovany|Sabinov|Prešovský kraj
+Jakubany|Stará Ľubovňa|Prešovský kraj
+Jakubov|Malacky|Bratislavský kraj
+Jakubova Voľa|Sabinov|Prešovský kraj
+Jakubovany|Liptovský Mikuláš|Žilinský kraj
+Jakubovany|Sabinov|Prešovský kraj
+Jakušovce|Stropkov|Prešovský kraj
+Jalová|Snina|Prešovský kraj
+Jalovec|Prievidza|Trenčiansky kraj
+Jalovec|Liptovský Mikuláš|Žilinský kraj
+Jalšové|Hlohovec|Trnavský kraj
+Jalšovík|Krupina|Banskobystrický kraj
+Jamník|Liptovský Mikuláš|Žilinský kraj
+Jamník|Spišská Nová Ves|Košický kraj
+Janice|Rimavská Sobota|Banskobystrický kraj
+Janík|Košice-okolie|Košický kraj
+Janíky|Dunajská Streda|Trnavský kraj
+Jankovce|Humenné|Prešovský kraj
+Janov|Prešov|Prešovský kraj
+Janova Lehota|Žiar nad Hronom|Banskobystrický kraj
+Janovce|Bardejov|Prešovský kraj
+Jánovce|Galanta|Trnavský kraj
+Jánovce|Poprad|Prešovský kraj
+Janovík|Prešov|Prešovský kraj
+Jarabá|Brezno|Banskobystrický kraj
+Jarabina|Stará Ľubovňa|Prešovský kraj
+Jarok|Nitra|Nitriansky kraj
+Jarovnice|Sabinov|Prešovský kraj
+Jasenica|Považská Bystrica|Trenčiansky kraj
+Jasenie|Brezno|Banskobystrický kraj
+Jasenov|Humenné|Prešovský kraj
+Jasenov|Sobrance|Košický kraj
+Jasenová|Dolný Kubín|Žilinský kraj
+Jasenovce|Vranov nad Topľou|Prešovský kraj
+Jasenové|Žilina|Žilinský kraj
+Jasenovo|Turčianske Teplice|Žilinský kraj
+Jaslovské Bohunice|Trnava|Trnavský kraj
+Jasov|Košice-okolie|Košický kraj
+Jasová|Nové Zámky|Nitriansky kraj
+Jastrabá|Žiar nad Hronom|Banskobystrický kraj
+Jastrabie nad Topľou|Vranov nad Topľou|Prešovský kraj
+Jastrabie pri Michalovciach|Michalovce|Košický kraj
+Jatov|Nové Zámky|Nitriansky kraj
+Javorina (vojenský obvod)|Kežmarok|Prešovský kraj
+Jazernica|Turčianske Teplice|Žilinský kraj
+Jedlinka|Bardejov|Prešovský kraj
+Jedľové Kostoľany|Zlaté Moravce|Nitriansky kraj
+Jelenec|Nitra|Nitriansky kraj
+Jelka|Galanta|Trnavský kraj
+Jelšava|Revúca|Banskobystrický kraj
+Jelšovce|Nitra|Nitriansky kraj
+Jelšovec|Lučenec|Banskobystrický kraj
+Jenkovce|Sobrance|Košický kraj
+Jesenské|Levice|Nitriansky kraj
+Jesenské|Rimavská Sobota|Banskobystrický kraj
+Jestice|Rimavská Sobota|Banskobystrický kraj
+Ješkova Ves|Partizánske|Trenčiansky kraj
+Jezersko|Kežmarok|Prešovský kraj
+Jovice|Rožňava|Košický kraj
+Jovsa|Michalovce|Košický kraj
+Jur nad Hronom|Levice|Nitriansky kraj
+Jurkova Voľa|Svidník|Prešovský kraj
+Jurová|Dunajská Streda|Trnavský kraj
+Jurské|Kežmarok|Prešovský kraj
+Juskova Voľa|Vranov nad Topľou|Prešovský kraj
+Kačanov|Michalovce|Košický kraj
+Kajal|Galanta|Trnavský kraj
+Kalameny|Ružomberok|Žilinský kraj
+Kalinkovo|Senec|Bratislavský kraj
+Kalinov|Medzilaborce|Prešovský kraj
+Kalinovo|Poltár|Banskobystrický kraj
+Kalná nad Hronom|Levice|Nitriansky kraj
+Kalná Roztoka|Snina|Prešovský kraj
+Kálnica|Nové Mesto nad Váhom|Trenčiansky kraj
+Kalnište|Svidník|Prešovský kraj
+Kalonda|Lučenec|Banskobystrický kraj
+Kalša|Košice-okolie|Košický kraj
+Kaloša|Rimavská Sobota|Banskobystrický kraj
+Kaluža|Michalovce|Košický kraj
+Kaľamenová|Turčianske Teplice|Žilinský kraj
+Kaľava|Spišská Nová Ves|Košický kraj
+Kamanová|Topoľčany|Nitriansky kraj
+Kamenec pod Vtáčnikom|Prievidza|Trenčiansky kraj
+Kamenica|Sabinov|Prešovský kraj
+Kamenica nad Cirochou|Humenné|Prešovský kraj
+Kamenica nad Hronom|Nové Zámky|Nitriansky kraj
+Kameničany|Ilava|Trenčiansky kraj
+Kameničná|Komárno|Nitriansky kraj
+Kamenín|Nové Zámky|Nitriansky kraj
+Kamenná Poruba|Žilina|Žilinský kraj
+Kamenná Poruba|Vranov nad Topľou|Prešovský kraj
+Kamenné Kosihy|Veľký Krtíš|Banskobystrický kraj
+Kamenný Most|Nové Zámky|Nitriansky kraj
+Kameňany|Revúca|Banskobystrický kraj
+Kamienka|Humenné|Prešovský kraj
+Kamienka|Stará Ľubovňa|Prešovský kraj
+Kanianka|Prievidza|Trenčiansky kraj
+Kapišová|Svidník|Prešovský kraj
+Kaplna|Senec|Bratislavský kraj
+Kapušany|Prešov|Prešovský kraj
+Kapušianske Kľačany|Michalovce|Košický kraj
+Karlová|Martin|Žilinský kraj
+Karná|Humenné|Prešovský kraj
+Kašov|Trebišov|Košický kraj
+Kátlovce|Trnava|Trnavský kraj
+Kátov|Skalica|Trnavský kraj
+Kazimír|Trebišov|Košický kraj
+Kecerovce|Košice-okolie|Košický kraj
+Kecerovský Lipovec|Košice-okolie|Košický kraj
+Kečkovce|Svidník|Prešovský kraj
+Kečovo|Rožňava|Košický kraj
+Kechnec|Košice-okolie|Košický kraj
+Kendice|Prešov|Prešovský kraj
+Kesovce|Rimavská Sobota|Banskobystrický kraj
+Keť|Levice|Nitriansky kraj
+Kežmarok|Kežmarok|Prešovský kraj
+Kiarov|Veľký Krtíš|Banskobystrický kraj
+Kladzany|Vranov nad Topľou|Prešovský kraj
+Klasov|Nitra|Nitriansky kraj
+Kláštor pod Znievom|Martin|Žilinský kraj
+Klátova Nová Ves|Partizánske|Trenčiansky kraj
+Klčov|Levoča|Prešovský kraj
+Klenov|Prešov|Prešovský kraj
+Klenová|Snina|Prešovský kraj
+Klenovec|Rimavská Sobota|Banskobystrický kraj
+Kleňany|Veľký Krtíš|Banskobystrický kraj
+Klieština|Považská Bystrica|Trenčiansky kraj
+Klin|Námestovo|Žilinský kraj
+Klin nad Bodrogom|Trebišov|Košický kraj
+Klížska Nemá|Komárno|Nitriansky kraj
+Klokoč|Detva|Banskobystrický kraj
+Klokočov|Čadca|Žilinský kraj
+Klokočov|Michalovce|Košický kraj
+Klubina|Čadca|Žilinský kraj
+Kluknava|Gelnica|Košický kraj
+Kľačany|Hlohovec|Trnavský kraj
+Kľače|Žilina|Žilinský kraj
+Kľačno|Prievidza|Trenčiansky kraj
+Kľak|Žarnovica|Banskobystrický kraj
+Kľúčovec|Dunajská Streda|Trnavský kraj
+Kľušov|Bardejov|Prešovský kraj
+Kmeťovo|Nové Zámky|Nitriansky kraj
+Kobeliarovo|Rožňava|Košický kraj
+Kobylnice|Svidník|Prešovský kraj
+Kobyly|Bardejov|Prešovský kraj
+Koceľovce|Rožňava|Košický kraj
+Kociha|Rimavská Sobota|Banskobystrický kraj
+Kocurany|Prievidza|Trenčiansky kraj
+Kočín- Lančár|Piešťany|Trnavský kraj
+Kočovce|Nové Mesto nad Váhom|Trenčiansky kraj
+Kochanovce|Bardejov|Prešovský kraj
+Kochanovce|Humenné|Prešovský kraj
+Kojatice|Prešov|Prešovský kraj
+Kojšov|Gelnica|Košický kraj
+Kokava nad Rimavicou|Poltár|Banskobystrický kraj
+Kokošovce|Prešov|Prešovský kraj
+Kokšov- Bakša|Košice-okolie|Košický kraj
+Kolačkov|Stará Ľubovňa|Prešovský kraj
+Kolačno|Partizánske|Trenčiansky kraj
+Koláre|Veľký Krtíš|Banskobystrický kraj
+Kolárovice|Bytča|Žilinský kraj
+Kolárovo|Komárno|Nitriansky kraj
+Kolbasov|Snina|Prešovský kraj
+Kolbovce|Stropkov|Prešovský kraj
+Kolibabovce|Sobrance|Košický kraj
+Kolinovce|Spišská Nová Ves|Košický kraj
+Kolíňany|Nitra|Nitriansky kraj
+Kolonica|Snina|Prešovský kraj
+Kolta|Nové Zámky|Nitriansky kraj
+Komárany|Vranov nad Topľou|Prešovský kraj
+Komárno|Komárno|Nitriansky kraj
+Komárov|Bardejov|Prešovský kraj
+Komárovce|Košice-okolie|Košický kraj
+Komjatice|Nové Zámky|Nitriansky kraj
+Komjatná|Ružomberok|Žilinský kraj
+Komoča|Nové Zámky|Nitriansky kraj
+Koniarovce|Topoľčany|Nitriansky kraj
+Konrádovce|Rimavská Sobota|Banskobystrický kraj
+Konská|Liptovský Mikuláš|Žilinský kraj
+Konská|Žilina|Žilinský kraj
+Koňuš|Sobrance|Košický kraj
+Kopčany|Skalica|Trnavský kraj
+Kopernica|Žiar nad Hronom|Banskobystrický kraj
+Koplotovce|Hlohovec|Trnavský kraj
+Koprivnica|Bardejov|Prešovský kraj
+Kordíky|Banská Bystrica|Banskobystrický kraj
+Korejovce|Svidník|Prešovský kraj
+Korňa|Čadca|Žilinský kraj
+Koromľa|Sobrance|Košický kraj
+Korunková|Stropkov|Prešovský kraj
+Korytárky|Detva|Banskobystrický kraj
+Korytné|Levoča|Prešovský kraj
+Kosihovce|Veľký Krtíš|Banskobystrický kraj
+Kosihy nad Ipľom|Veľký Krtíš|Banskobystrický kraj
+Kosorín|Žiar nad Hronom|Banskobystrický kraj
+Kostolec|Považská Bystrica|Trenčiansky kraj
+Kostolište|Malacky|Bratislavský kraj
+Kostolná pri Dunaji|Senec|Bratislavský kraj
+Kostolná Ves|Prievidza|Trenčiansky kraj
+Kostolná- Záriečie|Trenčín|Trenčiansky kraj
+Kostolné|Myjava|Trenčiansky kraj
+Kostolné Kračany|Dunajská Streda|Trnavský kraj
+Kostoľany pod Tribečom|Zlaté Moravce|Nitriansky kraj
+Koš|Prievidza|Trenčiansky kraj
+Košariská|Myjava|Trenčiansky kraj
+Košarovce|Humenné|Prešovský kraj
+Košeca|Ilava|Trenčiansky kraj
+Košecké Podhradie|Ilava|Trenčiansky kraj
+Košice I|Okres Košice|Košický kraj
+Košice II|Okres Košice|Košický kraj
+Košice III|Okres Košice|Košický kraj
+Košice IV|Okres Košice|Košický kraj
+Košická Belá|Košice-okolie|Košický kraj
+Košická Polianka|Košice-okolie|Košický kraj
+Košické Oľšany|Košice-okolie|Košický kraj
+Košický Klečenov|Košice-okolie|Košický kraj
+Koškovce|Humenné|Prešovský kraj
+Košolná|Trnava|Trnavský kraj
+Košúty|Galanta|Trnavský kraj
+Košťany nad Turcom|Martin|Žilinský kraj
+Kotešová|Bytča|Žilinský kraj
+Kotmanová|Lučenec|Banskobystrický kraj
+Kotrčiná Lúčka|Žilina|Žilinský kraj
+Kováčová|Zvolen|Banskobystrický kraj
+Kováčová|Rožňava|Košický kraj
+Kováčovce|Veľký Krtíš|Banskobystrický kraj
+Koválov|Senica|Trnavský kraj
+Koválovec|Skalica|Trnavský kraj
+Kovarce|Topoľčany|Nitriansky kraj
+Kozárovce|Levice|Nitriansky kraj
+Kozelník|Banská Štiavnica|Banskobystrický kraj
+Kozí Vrbovok|Krupina|Banskobystrický kraj
+Kožany|Bardejov|Prešovský kraj
+Kožuchov|Trebišov|Košický kraj
+Kožuchovce|Stropkov|Prešovský kraj
+Kračúnovce|Svidník|Prešovský kraj
+Krahule|Žiar nad Hronom|Banskobystrický kraj
+Krajná Bystrá|Svidník|Prešovský kraj
+Krajná Poľana|Svidník|Prešovský kraj
+Krajná Porúbka|Svidník|Prešovský kraj
+Krajné|Myjava|Trenčiansky kraj
+Krajné Čierno|Svidník|Prešovský kraj
+Krakovany|Piešťany|Trnavský kraj
+Králiky|Banská Bystrica|Banskobystrický kraj
+Kráľ|Rimavská Sobota|Banskobystrický kraj
+Kráľov Brod|Galanta|Trnavský kraj
+Kráľova Lehota|Liptovský Mikuláš|Žilinský kraj
+Kráľová nad Váhom|Šaľa|Nitriansky kraj
+Kráľová pri Senci|Senec|Bratislavský kraj
+Kraľovany|Dolný Kubín|Žilinský kraj
+Kráľovce|Košice-okolie|Košický kraj
+Kráľovce- Krnišov|Krupina|Banskobystrický kraj
+Kráľovičove Kračany|Dunajská Streda|Trnavský kraj
+Kráľovský Chlmec|Trebišov|Košický kraj
+Kraskovo|Rimavská Sobota|Banskobystrický kraj
+Krásna Lúka|Sabinov|Prešovský kraj
+Krásna Ves|Bánovce nad Bebravou|Trenčiansky kraj
+Krásno|Partizánske|Trenčiansky kraj
+Krásno nad Kysucou|Čadca|Žilinský kraj
+Krásnohorská Dlhá Lúka|Rožňava|Košický kraj
+Krásnohorské Podhradie|Rožňava|Košický kraj
+Krásnovce|Michalovce|Košický kraj
+Krásny Brod|Medzilaborce|Prešovský kraj
+Krasňany|Žilina|Žilinský kraj
+Kravany|Poprad|Prešovský kraj
+Kravany|Trebišov|Košický kraj
+Kravany nad Dunajom|Komárno|Nitriansky kraj
+Krčava|Sobrance|Košický kraj
+Kremná|Stará Ľubovňa|Prešovský kraj
+Kremnica|Žiar nad Hronom|Banskobystrický kraj
+Kremnické Bane|Žiar nad Hronom|Banskobystrický kraj
+Kristy|Sobrance|Košický kraj
+Krišľovce|Stropkov|Prešovský kraj
+Krišovská Liesková|Michalovce|Košický kraj
+Krivá|Dolný Kubín|Žilinský kraj
+Krivany|Sabinov|Prešovský kraj
+Kriváň|Detva|Banskobystrický kraj
+Krivé|Bardejov|Prešovský kraj
+Krivoklát|Ilava|Trenčiansky kraj
+Krivosúd- Bodovka|Trenčín|Trenčiansky kraj
+Kríže|Bardejov|Prešovský kraj
+Krížová Ves|Kežmarok|Prešovský kraj
+Krížovany|Prešov|Prešovský kraj
+Križovany nad Dudváhom|Trnava|Trnavský kraj
+Krná|Poltár|Banskobystrický kraj
+Krnča|Topoľčany|Nitriansky kraj
+Krokava|Rimavská Sobota|Banskobystrický kraj
+Krompachy|Spišská Nová Ves|Košický kraj
+Krpeľany|Martin|Žilinský kraj
+Krškany|Levice|Nitriansky kraj
+Krtovce|Topoľčany|Nitriansky kraj
+Kručov|Stropkov|Prešovský kraj
+Krupina|Krupina|Banskobystrický kraj
+Krušetnica|Námestovo|Žilinský kraj
+Krušinec|Stropkov|Prešovský kraj
+Krušovce|Topoľčany|Nitriansky kraj
+Kružlov|Bardejov|Prešovský kraj
+Kružlová|Svidník|Prešovský kraj
+Kružná|Rožňava|Košický kraj
+Kružno|Rimavská Sobota|Banskobystrický kraj
+Kšinná|Bánovce nad Bebravou|Trenčiansky kraj
+Kubáňovo|Levice|Nitriansky kraj
+Kučín|Bardejov|Prešovský kraj
+Kučín|Vranov nad Topľou|Prešovský kraj
+Kuchyňa|Malacky|Bratislavský kraj
+Kuklov|Senica|Trnavský kraj
+Kuková|Svidník|Prešovský kraj
+Kukučínov|Levice|Nitriansky kraj
+Kunerad|Žilina|Žilinský kraj
+Kunešov|Žiar nad Hronom|Banskobystrický kraj
+Kunova Teplica|Rožňava|Košický kraj
+Kuraľany|Levice|Nitriansky kraj
+Kurima|Bardejov|Prešovský kraj
+Kurimany|Levoča|Prešovský kraj
+Kurimka|Svidník|Prešovský kraj
+Kurov|Bardejov|Prešovský kraj
+Kusín|Michalovce|Košický kraj
+Kútniky|Dunajská Streda|Trnavský kraj
+Kúty|Senica|Trnavský kraj
+Kuzmice|Topoľčany|Nitriansky kraj
+Kuzmice|Trebišov|Košický kraj
+Kvačany|Liptovský Mikuláš|Žilinský kraj
+Kvačany|Prešov|Prešovský kraj
+Kvakovce|Vranov nad Topľou|Prešovský kraj
+Kvašov|Púchov|Trenčiansky kraj
+Kvetoslavov|Dunajská Streda|Trnavský kraj
+Kyjatice|Rimavská Sobota|Banskobystrický kraj
+Kyjov|Stará Ľubovňa|Prešovský kraj
+Kynceľová|Banská Bystrica|Banskobystrický kraj
+Kysak|Košice-okolie|Košický kraj
+Kyselica|Dunajská Streda|Trnavský kraj
+Kysta|Trebišov|Košický kraj
+Kysucké Nové Mesto|Kysucké Nové Mesto|Žilinský kraj
+Kysucký Lieskovec|Kysucké Nové Mesto|Žilinský kraj
+Láb|Malacky|Bratislavský kraj
+Lackov|Krupina|Banskobystrický kraj
+Lacková|Stará Ľubovňa|Prešovský kraj
+Lada|Prešov|Prešovský kraj
+Ladce|Ilava|Trenčiansky kraj
+Ladice|Zlaté Moravce|Nitriansky kraj
+Ladmovce|Trebišov|Košický kraj
+Ladomerská Vieska|Žiar nad Hronom|Banskobystrický kraj
+Ladomirov|Snina|Prešovský kraj
+Ladomirová|Svidník|Prešovský kraj
+Ladzany|Krupina|Banskobystrický kraj
+Lakšárska Nová Ves|Senica|Trnavský kraj
+Lascov|Bardejov|Prešovský kraj
+Laskár|Martin|Žilinský kraj
+Lastomír|Michalovce|Košický kraj
+Lastovce|Trebišov|Košický kraj
+Laškovce|Michalovce|Košický kraj
+Látky|Detva|Banskobystrický kraj
+Lazany|Prievidza|Trenčiansky kraj
+Lazisko|Liptovský Mikuláš|Žilinský kraj
+Lazy pod Makytou|Púchov|Trenčiansky kraj
+Lažany|Prešov|Prešovský kraj
+Lednica|Púchov|Trenčiansky kraj
+Lednické Rovne|Púchov|Trenčiansky kraj
+Legnava|Stará Ľubovňa|Prešovský kraj
+Lehnice|Dunajská Streda|Trnavský kraj
+Lehota|Nitra|Nitriansky kraj
+Lehota nad Rimavicou|Rimavská Sobota|Banskobystrický kraj
+Lehota pod Vtáčnikom|Prievidza|Trenčiansky kraj
+Lehôtka|Lučenec|Banskobystrický kraj
+Lehôtka pod Brehmi|Žiar nad Hronom|Banskobystrický kraj
+Lechnica|Kežmarok|Prešovský kraj
+Lekárovce|Sobrance|Košický kraj
+Leles|Trebišov|Košický kraj
+Leľa|Nové Zámky|Nitriansky kraj
+Lemešany|Prešov|Prešovský kraj
+Lenartov|Bardejov|Prešovský kraj
+Lenartovce|Rimavská Sobota|Banskobystrický kraj
+Lendak|Kežmarok|Prešovský kraj
+Lenka|Rimavská Sobota|Banskobystrický kraj
+Lentvora|Lučenec|Banskobystrický kraj
+Leopoldov|Hlohovec|Trnavský kraj
+Lesenice|Veľký Krtíš|Banskobystrický kraj
+Lesíček|Prešov|Prešovský kraj
+Lesné|Michalovce|Košický kraj
+Lesnica|Stará Ľubovňa|Prešovský kraj
+Leštiny|Dolný Kubín|Žilinský kraj
+Lešť (vojenský obvod)|Zvolen|Banskobystrický kraj
+Letanovce|Spišská Nová Ves|Košický kraj
+Letničie|Skalica|Trnavský kraj
+Leváre|Revúca|Banskobystrický kraj
+Levice|Levice|Nitriansky kraj
+Levkuška|Revúca|Banskobystrický kraj
+Levoča|Levoča|Prešovský kraj
+Ležiachov|Martin|Žilinský kraj
+Libichava|Bánovce nad Bebravou|Trenčiansky kraj
+Licince|Revúca|Banskobystrický kraj
+Ličartovce|Prešov|Prešovský kraj
+Liesek|Tvrdošín|Žilinský kraj
+Lieskovany|Spišská Nová Ves|Košický kraj
+Lieskovec|Zvolen|Banskobystrický kraj
+Lieskovec|Humenné|Prešovský kraj
+Liešno|Turčianske Teplice|Žilinský kraj
+Liešťany|Prievidza|Trenčiansky kraj
+Lietava|Žilina|Žilinský kraj
+Lietavská Lúčka|Žilina|Žilinský kraj
+Lietavská Svinná- Babkov|Žilina|Žilinský kraj
+Likavka|Ružomberok|Žilinský kraj
+Limbach|Pezinok|Bratislavský kraj
+Lipany|Sabinov|Prešovský kraj
+Lipník|Prievidza|Trenčiansky kraj
+Lipníky|Prešov|Prešovský kraj
+Lipová|Nové Zámky|Nitriansky kraj
+Lipová|Bardejov|Prešovský kraj
+Lipovany|Lučenec|Banskobystrický kraj
+Lipovce|Prešov|Prešovský kraj
+Lipové|Komárno|Nitriansky kraj
+Lipovec|Martin|Žilinský kraj
+Lipovec|Rimavská Sobota|Banskobystrický kraj
+Lipovník|Topoľčany|Nitriansky kraj
+Lipovník|Rožňava|Košický kraj
+Liptovská Anna|Liptovský Mikuláš|Žilinský kraj
+Liptovská Kokava|Liptovský Mikuláš|Žilinský kraj
+Liptovská Lúžna|Ružomberok|Žilinský kraj
+Liptovská Osada|Ružomberok|Žilinský kraj
+Liptovská Porúbka|Liptovský Mikuláš|Žilinský kraj
+Liptovská Sielnica|Liptovský Mikuláš|Žilinský kraj
+Liptovská Štiavnica|Ružomberok|Žilinský kraj
+Liptovská Teplá|Ružomberok|Žilinský kraj
+Liptovská Teplička|Poprad|Prešovský kraj
+Liptovské Beharovce|Liptovský Mikuláš|Žilinský kraj
+Liptovské Kľačany|Liptovský Mikuláš|Žilinský kraj
+Liptovské Matiašovce|Liptovský Mikuláš|Žilinský kraj
+Liptovské Revúce|Ružomberok|Žilinský kraj
+Liptovské Sliače|Ružomberok|Žilinský kraj
+Liptovský Hrádok|Liptovský Mikuláš|Žilinský kraj
+Liptovský Ján|Liptovský Mikuláš|Žilinský kraj
+Liptovský Michal|Ružomberok|Žilinský kraj
+Liptovský Mikuláš|Liptovský Mikuláš|Žilinský kraj
+Liptovský Ondrej|Liptovský Mikuláš|Žilinský kraj
+Liptovský Peter|Liptovský Mikuláš|Žilinský kraj
+Liptovský Trnovec|Liptovský Mikuláš|Žilinský kraj
+Lisková|Ružomberok|Žilinský kraj
+Lišov|Krupina|Banskobystrický kraj
+Litava|Krupina|Banskobystrický kraj
+Litmanová|Stará Ľubovňa|Prešovský kraj
+Livina|Partizánske|Trenčiansky kraj
+Livinské Opatovce|Partizánske|Trenčiansky kraj
+Livov|Bardejov|Prešovský kraj
+Livovská Huta|Bardejov|Prešovský kraj
+Lodno|Kysucké Nové Mesto|Žilinský kraj
+Lok|Levice|Nitriansky kraj
+Lokca|Námestovo|Žilinský kraj
+Lom nad Rimavicou|Brezno|Banskobystrický kraj
+Lomná|Námestovo|Žilinský kraj
+Lomné|Stropkov|Prešovský kraj
+Lomnička|Stará Ľubovňa|Prešovský kraj
+Lontov|Levice|Nitriansky kraj
+Lopašov|Skalica|Trnavský kraj
+Lopúchov|Bardejov|Prešovský kraj
+Lopušné Pažite|Kysucké Nové Mesto|Žilinský kraj
+Lošonec|Trnava|Trnavský kraj
+Lovce|Zlaté Moravce|Nitriansky kraj
+Lovča|Žiar nad Hronom|Banskobystrický kraj
+Lovčica- Trubín|Žiar nad Hronom|Banskobystrický kraj
+Lovinobaňa|Lučenec|Banskobystrický kraj
+Lozorno|Malacky|Bratislavský kraj
+Ložín|Michalovce|Košický kraj
+Lubeník|Revúca|Banskobystrický kraj
+Lubina|Nové Mesto nad Váhom|Trenčiansky kraj
+Lúč na Ostrove|Dunajská Streda|Trnavský kraj
+Lučatín|Banská Bystrica|Banskobystrický kraj
+Lučenec|Lučenec|Banskobystrický kraj
+Lúčina|Prešov|Prešovský kraj
+Lučivná|Poprad|Prešovský kraj
+Lúčka|Levoča|Prešovský kraj
+Lúčka|Sabinov|Prešovský kraj
+Lúčka|Svidník|Prešovský kraj
+Lúčka|Rožňava|Košický kraj
+Lúčky|Ružomberok|Žilinský kraj
+Lúčky|Žiar nad Hronom|Banskobystrický kraj
+Lúčky|Michalovce|Košický kraj
+Lúčnica nad Žitavou|Nitra|Nitriansky kraj
+Ludanice|Topoľčany|Nitriansky kraj
+Ludrová|Ružomberok|Žilinský kraj
+Luhyňa|Trebišov|Košický kraj
+Lúka|Nové Mesto nad Váhom|Trenčiansky kraj
+Lukačovce|Humenné|Prešovský kraj
+Lukáčovce|Nitra|Nitriansky kraj
+Lukavica|Zvolen|Banskobystrický kraj
+Lukavica|Bardejov|Prešovský kraj
+Lukov|Bardejov|Prešovský kraj
+Lukovištia|Rimavská Sobota|Banskobystrický kraj
+Lúky|Púchov|Trenčiansky kraj
+Lula|Levice|Nitriansky kraj
+Lupoč|Lučenec|Banskobystrický kraj
+Lutila|Žiar nad Hronom|Banskobystrický kraj
+Lutiše|Žilina|Žilinský kraj
+Lužany|Topoľčany|Nitriansky kraj
+Lužany pri Topli|Svidník|Prešovský kraj
+Lužianky|Nitra|Nitriansky kraj
+Lysá pod Makytou|Púchov|Trenčiansky kraj
+Lysica|Žilina|Žilinský kraj
+Ľubá|Nové Zámky|Nitriansky kraj
+Ľubela|Liptovský Mikuláš|Žilinský kraj
+Ľubica|Kežmarok|Prešovský kraj
+Ľubietová|Banská Bystrica|Banskobystrický kraj
+Ľubiša|Humenné|Prešovský kraj
+Ľubochňa|Ružomberok|Žilinský kraj
+Ľuboreč|Lučenec|Banskobystrický kraj
+Ľuboriečka|Veľký Krtíš|Banskobystrický kraj
+Ľubotice|Prešov|Prešovský kraj
+Ľubotín|Stará Ľubovňa|Prešovský kraj
+Ľubovec|Prešov|Prešovský kraj
+Ľudovítová|Nitra|Nitriansky kraj
+Ľutina|Sabinov|Prešovský kraj
+Ľutov|Bánovce nad Bebravou|Trenčiansky kraj
+Macov|Dunajská Streda|Trnavský kraj
+Mad|Dunajská Streda|Trnavský kraj
+Madunice|Hlohovec|Trnavský kraj
+Magnezitovce|Revúca|Banskobystrický kraj
+Machulince|Zlaté Moravce|Nitriansky kraj
+Majcichov|Trnava|Trnavský kraj
+Majere|Kežmarok|Prešovský kraj
+Majerovce|Vranov nad Topľou|Prešovský kraj
+Makov|Čadca|Žilinský kraj
+Makovce|Stropkov|Prešovský kraj
+Malacky|Malacky|Bratislavský kraj
+Malachov|Banská Bystrica|Banskobystrický kraj
+Malá Čalomija|Veľký Krtíš|Banskobystrický kraj
+Malá Čausa|Prievidza|Trenčiansky kraj
+Malá Čierna|Žilina|Žilinský kraj
+Malá Domaša|Vranov nad Topľou|Prešovský kraj
+Malá Franková|Kežmarok|Prešovský kraj
+Malá Hradná|Bánovce nad Bebravou|Trenčiansky kraj
+Malá Ida|Košice-okolie|Košický kraj
+Malá Lehota|Žarnovica|Banskobystrický kraj
+Malá Lodina|Košice-okolie|Košický kraj
+Malá nad Hronom|Nové Zámky|Nitriansky kraj
+Malá Poľana|Stropkov|Prešovský kraj
+Malá Tŕňa|Trebišov|Košický kraj
+Málaš|Levice|Nitriansky kraj
+Malatiná|Dolný Kubín|Žilinský kraj
+Malatíny|Liptovský Mikuláš|Žilinský kraj
+Malcov|Bardejov|Prešovský kraj
+Malčice|Michalovce|Košický kraj
+Malé Borové|Liptovský Mikuláš|Žilinský kraj
+Malé Dvorníky|Dunajská Streda|Trnavský kraj
+Malé Chyndice|Nitra|Nitriansky kraj
+Malé Hoste|Bánovce nad Bebravou|Trenčiansky kraj
+Malé Kosihy|Nové Zámky|Nitriansky kraj
+Malé Kozmálovce|Levice|Nitriansky kraj
+Malé Kršteňany|Partizánske|Trenčiansky kraj
+Malé Lednice|Považská Bystrica|Trenčiansky kraj
+Malé Leváre|Malacky|Bratislavský kraj
+Malé Ludince|Levice|Nitriansky kraj
+Malé Ozorovce|Trebišov|Košický kraj
+Malé Raškovce|Michalovce|Košický kraj
+Malé Ripňany|Topoľčany|Nitriansky kraj
+Malé Straciny|Veľký Krtíš|Banskobystrický kraj
+Malé Trakany|Trebišov|Košický kraj
+Malé Uherce|Partizánske|Trenčiansky kraj
+Malé Vozokany|Zlaté Moravce|Nitriansky kraj
+Malé Zálužie|Nitra|Nitriansky kraj
+Malé Zlievce|Veľký Krtíš|Banskobystrický kraj
+Málinec|Poltár|Banskobystrický kraj
+Malinová|Prievidza|Trenčiansky kraj
+Malinovo|Senec|Bratislavský kraj
+Malužiná|Liptovský Mikuláš|Žilinský kraj
+Malý Cetín|Nitra|Nitriansky kraj
+Malý Čepčín|Turčianske Teplice|Žilinský kraj
+Malý Horeš|Trebišov|Košický kraj
+Malý Kamenec|Trebišov|Košický kraj
+Malý Krtíš|Veľký Krtíš|Banskobystrický kraj
+Malý Lapáš|Nitra|Nitriansky kraj
+Malý Lipník|Stará Ľubovňa|Prešovský kraj
+Malý Slavkov|Kežmarok|Prešovský kraj
+Malý Slivník|Prešov|Prešovský kraj
+Malý Šariš|Prešov|Prešovský kraj
+Malženice|Trnava|Trnavský kraj
+Mankovce|Zlaté Moravce|Nitriansky kraj
+Maňa|Nové Zámky|Nitriansky kraj
+Marcelová|Komárno|Nitriansky kraj
+Margecany|Gelnica|Košický kraj
+Marhaň|Bardejov|Prešovský kraj
+Marianka|Malacky|Bratislavský kraj
+Markovce|Michalovce|Košický kraj
+Markuška|Rožňava|Košický kraj
+Markušovce|Spišská Nová Ves|Košický kraj
+Maršová- Rašov|Bytča|Žilinský kraj
+Martin|Martin|Žilinský kraj
+Martin nad Žitavou|Zlaté Moravce|Nitriansky kraj
+Martinček|Ružomberok|Žilinský kraj
+Martinová|Rimavská Sobota|Banskobystrický kraj
+Martovce|Komárno|Nitriansky kraj
+Mašková|Lučenec|Banskobystrický kraj
+Maškovce|Humenné|Prešovský kraj
+Matejovce nad Hornádom|Spišská Nová Ves|Košický kraj
+Matiaška|Vranov nad Topľou|Prešovský kraj
+Matiašovce|Kežmarok|Prešovský kraj
+Matovce|Svidník|Prešovský kraj
+Matúškovo|Galanta|Trnavský kraj
+Matysová|Stará Ľubovňa|Prešovský kraj
+Maťovské Vojkovce|Michalovce|Košický kraj
+Medovarce|Krupina|Banskobystrický kraj
+Medvedie|Svidník|Prešovský kraj
+Medveďov|Dunajská Streda|Trnavský kraj
+Medzany|Prešov|Prešovský kraj
+Medzev|Košice-okolie|Košický kraj
+Medzianky|Vranov nad Topľou|Prešovský kraj
+Medzibrod|Banská Bystrica|Banskobystrický kraj
+Medzibrodie nad Oravou|Dolný Kubín|Žilinský kraj
+Medzilaborce|Medzilaborce|Prešovský kraj
+Melčice- Lieskové|Trenčín|Trenčiansky kraj
+Melek|Nitra|Nitriansky kraj
+Meliata|Rožňava|Košický kraj
+Mengusovce|Poprad|Prešovský kraj
+Merašice|Hlohovec|Trnavský kraj
+Merník|Vranov nad Topľou|Prešovský kraj
+Mestečko|Púchov|Trenčiansky kraj
+Mestisko|Svidník|Prešovský kraj
+Mičakovce|Svidník|Prešovský kraj
+Mierovo|Dunajská Streda|Trnavský kraj
+Miezgovce|Bánovce nad Bebravou|Trenčiansky kraj
+Michajlov|Snina|Prešovský kraj
+Michal na Ostrove|Dunajská Streda|Trnavský kraj
+Michal nad Žitavou|Nové Zámky|Nitriansky kraj
+Michalková|Zvolen|Banskobystrický kraj
+Michalok|Vranov nad Topľou|Prešovský kraj
+Michalová|Brezno|Banskobystrický kraj
+Michalovce|Michalovce|Košický kraj
+Michaľany|Trebišov|Košický kraj
+Miklušovce|Prešov|Prešovský kraj
+Miková|Stropkov|Prešovský kraj
+Mikulášová|Bardejov|Prešovský kraj
+Mikušovce|Ilava|Trenčiansky kraj
+Mikušovce|Lučenec|Banskobystrický kraj
+Milhosť|Košice-okolie|Košický kraj
+Miloslavov|Senec|Bratislavský kraj
+Milpoš|Sabinov|Prešovský kraj
+Miňovce|Stropkov|Prešovský kraj
+Mirkovce|Prešov|Prešovský kraj
+Miroľa|Svidník|Prešovský kraj
+Mládzovo|Poltár|Banskobystrický kraj
+Mlynárovce|Svidník|Prešovský kraj
+Mlynčeky|Kežmarok|Prešovský kraj
+Mlynica|Poprad|Prešovský kraj
+Mlynky|Spišská Nová Ves|Košický kraj
+Mníchova Lehota|Trenčín|Trenčiansky kraj
+Mníšek nad Hnilcom|Gelnica|Košický kraj
+Mníšek nad Popradom|Stará Ľubovňa|Prešovský kraj
+Moča|Komárno|Nitriansky kraj
+Močenok|Šaľa|Nitriansky kraj
+Močiar|Banská Štiavnica|Banskobystrický kraj
+Modra|Pezinok|Bratislavský kraj
+Modra nad Cirochou|Humenné|Prešovský kraj
+Modrany|Komárno|Nitriansky kraj
+Modrová|Nové Mesto nad Váhom|Trenčiansky kraj
+Modrovka|Nové Mesto nad Váhom|Trenčiansky kraj
+Modrý Kameň|Veľký Krtíš|Banskobystrický kraj
+Mojmírovce|Nitra|Nitriansky kraj
+Mojš|Žilina|Žilinský kraj
+Mojtín|Púchov|Trenčiansky kraj
+Mojzesovo|Nové Zámky|Nitriansky kraj
+Mokrá Lúka|Revúca|Banskobystrický kraj
+Mokrance|Košice-okolie|Košický kraj
+Mokroluh|Bardejov|Prešovský kraj
+Mokrý Háj|Skalica|Trnavský kraj
+Moldava nad Bodvou|Košice-okolie|Košický kraj
+Moravany|Michalovce|Košický kraj
+Moravany nad Váhom|Piešťany|Trnavský kraj
+Moravské Lieskové|Nové Mesto nad Váhom|Trenčiansky kraj
+Moravský Svätý Ján|Senica|Trnavský kraj
+Most pri Bratislave|Senec|Bratislavský kraj
+Mostová|Galanta|Trnavský kraj
+Moškovec|Turčianske Teplice|Žilinský kraj
+Mošovce|Turčianske Teplice|Žilinský kraj
+Moštenica|Banská Bystrica|Banskobystrický kraj
+Mošurov|Prešov|Prešovský kraj
+Motešice|Trenčín|Trenčiansky kraj
+Motyčky|Banská Bystrica|Banskobystrický kraj
+Môlča|Banská Bystrica|Banskobystrický kraj
+Mrázovce|Stropkov|Prešovský kraj
+Mučín|Lučenec|Banskobystrický kraj
+Mudroňovo|Komárno|Nitriansky kraj
+Mudrovce|Košice-okolie|Košický kraj
+Muľa|Veľký Krtíš|Banskobystrický kraj
+Muráň|Revúca|Banskobystrický kraj
+Muránska Dlhá Lúka|Revúca|Banskobystrický kraj
+Muránska Huta|Revúca|Banskobystrický kraj
+Muránska Lehota|Revúca|Banskobystrický kraj
+Muránska Zdychava|Revúca|Banskobystrický kraj
+Mútne|Námestovo|Žilinský kraj
+Mužla|Nové Zámky|Nitriansky kraj
+Myjava|Myjava|Trenčiansky kraj
+Myslina|Humenné|Prešovský kraj
+Mýtna|Lučenec|Banskobystrický kraj
+Mýtne Ludany|Levice|Nitriansky kraj
+Mýto pod Ďumbierom|Brezno|Banskobystrický kraj
+Nacina Ves|Michalovce|Košický kraj
+Nadlice|Partizánske|Trenčiansky kraj
+Naháč|Trnava|Trnavský kraj
+Nálepkovo|Gelnica|Košický kraj
+Námestovo|Námestovo|Žilinský kraj
+Nána|Nové Zámky|Nitriansky kraj
+Nandraž|Revúca|Banskobystrický kraj
+Necpaly|Martin|Žilinský kraj
+Nedanovce|Partizánske|Trenčiansky kraj
+Nedašovce|Bánovce nad Bebravou|Trenčiansky kraj
+Neded|Šaľa|Nitriansky kraj
+Nededza|Žilina|Žilinský kraj
+Nedožery- Brezany|Prievidza|Trenčiansky kraj
+Nechválova Polianka|Humenné|Prešovský kraj
+Nemce|Banská Bystrica|Banskobystrický kraj
+Nemcovce|Bardejov|Prešovský kraj
+Nemcovce|Prešov|Prešovský kraj
+Nemčice|Topoľčany|Nitriansky kraj
+Nemčiňany|Zlaté Moravce|Nitriansky kraj
+Nemecká|Brezno|Banskobystrický kraj
+Nemečky|Topoľčany|Nitriansky kraj
+Nemešany|Levoča|Prešovský kraj
+Nemšová|Trenčín|Trenčiansky kraj
+Nenince|Veľký Krtíš|Banskobystrický kraj
+Neporadza|Trenčín|Trenčiansky kraj
+Neporadza|Rimavská Sobota|Banskobystrický kraj
+Nesvady|Komárno|Nitriansky kraj
+Nesluša|Kysucké Nové Mesto|Žilinský kraj
+Neverice|Zlaté Moravce|Nitriansky kraj
+Nevidzany|Prievidza|Trenčiansky kraj
+Nevidzany|Zlaté Moravce|Nitriansky kraj
+Nevoľné|Žiar nad Hronom|Banskobystrický kraj
+Nezbudská Lúčka|Žilina|Žilinský kraj
+Nimnica|Púchov|Trenčiansky kraj
+Nitra|Nitra|Nitriansky kraj
+Nitra nad Ipľom|Lučenec|Banskobystrický kraj
+Nitrianska Blatnica|Topoľčany|Nitriansky kraj
+Nitrianska Streda|Topoľčany|Nitriansky kraj
+Nitrianske Hrnčiarovce|Nitra|Nitriansky kraj
+Nitrianske Pravno|Prievidza|Trenčiansky kraj
+Nitrianske Rudno|Prievidza|Trenčiansky kraj
+Nitrianske Sučany|Prievidza|Trenčiansky kraj
+Nitrica|Prievidza|Trenčiansky kraj
+Nižná |Piešťany|Trnavský kraj
+Nižná|Tvrdošín|Žilinský kraj
+Nižná Boca|Liptovský Mikuláš|Žilinský kraj
+Nižná Hutka|Košice-okolie|Košický kraj
+Nižná Jablonka|Humenné|Prešovský kraj
+Nižná Jedľová|Svidník|Prešovský kraj
+Nižná Kamenica|Košice-okolie|Košický kraj
+Nižná Myšľa|Košice-okolie|Košický kraj
+Nižná Olšava|Stropkov|Prešovský kraj
+Nižná Pisaná|Svidník|Prešovský kraj
+Nižná Polianka|Bardejov|Prešovský kraj
+Nižná Rybnica|Sobrance|Košický kraj
+Nižná Sitnica|Humenné|Prešovský kraj
+Nižná Slaná|Rožňava|Košický kraj
+Nižná Voľa|Bardejov|Prešovský kraj
+Nižné Ladičkovce|Humenné|Prešovský kraj
+Nižné Nemecké|Sobrance|Košický kraj
+Nižné Repaše|Levoča|Prešovský kraj
+Nižné Ružbachy|Stará Ľubovňa|Prešovský kraj
+Nižný Čaj|Košice-okolie|Košický kraj
+Nižný Hrabovec|Vranov nad Topľou|Prešovský kraj
+Nižný Hrušov|Vranov nad Topľou|Prešovský kraj
+Nižný Klátov|Košice-okolie|Košický kraj
+Nižný Komárnik|Svidník|Prešovský kraj
+Nižný Kručov|Vranov nad Topľou|Prešovský kraj
+Nižný Lánec|Košice-okolie|Košický kraj
+Nižný Mirošov|Svidník|Prešovský kraj
+Nižný Orlík|Svidník|Prešovský kraj
+Nižný Skálnik|Rimavská Sobota|Banskobystrický kraj
+Nižný Slavkov|Sabinov|Prešovský kraj
+Nižný Tvarožec|Bardejov|Prešovský kraj
+Nižný Žipov|Trebišov|Košický kraj
+Nolčovo|Martin|Žilinský kraj
+Norovce|Topoľčany|Nitriansky kraj
+Nová Baňa|Žarnovica|Banskobystrický kraj
+Nová Bašta|Rimavská Sobota|Banskobystrický kraj
+Nová Bošáca|Nové Mesto nad Váhom|Trenčiansky kraj
+Nová Bystrica|Čadca|Žilinský kraj
+Nová Dedina|Levice|Nitriansky kraj
+Nová Dedinka|Senec|Bratislavský kraj
+Nová Dubnica|Ilava|Trenčiansky kraj
+Nová Kelča|Vranov nad Topľou|Prešovský kraj
+Nová Lehota|Nové Mesto nad Váhom|Trenčiansky kraj
+Nová Lesná|Poprad|Prešovský kraj
+Nová Ľubovňa|Stará Ľubovňa|Prešovský kraj
+Nová Polhora|Košice-okolie|Košický kraj
+Nová Polianka|Svidník|Prešovský kraj
+Nová Sedlica|Snina|Prešovský kraj
+Nová Ves|Veľký Krtíš|Banskobystrický kraj
+Nová Ves nad Váhom|Nové Mesto nad Váhom|Trenčiansky kraj
+Nová Ves nad Žitavou|Nitra|Nitriansky kraj
+Nová Vieska|Nové Zámky|Nitriansky kraj
+Nováčany|Košice-okolie|Košický kraj
+Nováky|Prievidza|Trenčiansky kraj
+Nové Hony|Lučenec|Banskobystrický kraj
+Nové Mesto nad Váhom|Nové Mesto nad Váhom|Trenčiansky kraj
+Nové Sady|Nitra|Nitriansky kraj
+Nové Zámky|Nové Zámky|Nitriansky kraj
+Novosad|Trebišov|Košický kraj
+Novoť|Námestovo|Žilinský kraj
+Nový Ruskov|Trebišov|Košický kraj
+Nový Salaš|Košice-okolie|Košický kraj
+Nový Tekov|Levice|Nitriansky kraj
+Nový Život|Dunajská Streda|Trnavský kraj
+Nýrovce|Levice|Nitriansky kraj
+Ňagov|Medzilaborce|Prešovský kraj
+Ňárad|Dunajská Streda|Trnavský kraj
+Obeckov|Veľký Krtíš|Banskobystrický kraj
+Obišovce|Košice-okolie|Košický kraj
+Oborín|Michalovce|Košický kraj
+Obručné|Stará Ľubovňa|Prešovský kraj
+Obyce|Zlaté Moravce|Nitriansky kraj
+Očkov|Nové Mesto nad Váhom|Trenčiansky kraj
+Očová|Zvolen|Banskobystrický kraj
+Odorín|Spišská Nová Ves|Košický kraj
+Ohrady|Dunajská Streda|Trnavský kraj
+Ohradzany|Humenné|Prešovský kraj
+Ochodnica|Kysucké Nové Mesto|Žilinský kraj
+Ochtiná|Rožňava|Košický kraj
+Okoč|Dunajská Streda|Trnavský kraj
+Okoličná na Ostrove|Komárno|Nitriansky kraj
+Okrúhle|Svidník|Prešovský kraj
+Okružná|Prešov|Prešovský kraj
+Olcnava|Spišská Nová Ves|Košický kraj
+Olejníkov|Sabinov|Prešovský kraj
+Olešná|Čadca|Žilinský kraj
+Olováry|Veľký Krtíš|Banskobystrický kraj
+Olšovany|Košice-okolie|Košický kraj
+Oľdza|Dunajská Streda|Trnavský kraj
+Oľka|Medzilaborce|Prešovský kraj
+Oľšavce|Bardejov|Prešovský kraj
+Oľšavica|Levoča|Prešovský kraj
+Oľšavka|Stropkov|Prešovský kraj
+Oľšavka|Spišská Nová Ves|Košický kraj
+Oľšinkov|Medzilaborce|Prešovský kraj
+Oľšov|Sabinov|Prešovský kraj
+Omastiná|Bánovce nad Bebravou|Trenčiansky kraj
+Omšenie|Trenčín|Trenčiansky kraj
+Ondavka|Bardejov|Prešovský kraj
+Ondavské Matiašovce|Vranov nad Topľou|Prešovský kraj
+Ondrašovce|Prešov|Prešovský kraj
+Ondrašová|Turčianske Teplice|Žilinský kraj
+Ondrejovce|Levice|Nitriansky kraj
+Opátka|Košice-okolie|Košický kraj
+Opatovce|Trenčín|Trenčiansky kraj
+Opatovce nad Nitrou|Prievidza|Trenčiansky kraj
+Opatovská Nová Ves|Veľký Krtíš|Banskobystrický kraj
+Opava|Veľký Krtíš|Banskobystrický kraj
+Opiná|Košice-okolie|Košický kraj
+Opoj|Trnava|Trnavský kraj
+Oponice|Topoľčany|Nitriansky kraj
+Oravce|Banská Bystrica|Banskobystrický kraj
+Orávka|Rimavská Sobota|Banskobystrický kraj
+Oravská Jasenica|Námestovo|Žilinský kraj
+Oravská Lesná|Námestovo|Žilinský kraj
+Oravská Polhora|Námestovo|Žilinský kraj
+Oravská Poruba|Dolný Kubín|Žilinský kraj
+Oravský Biely Potok|Tvrdošín|Žilinský kraj
+Oravský Podzámok|Dolný Kubín|Žilinský kraj
+Ordzovany|Levoča|Prešovský kraj
+Orechová|Sobrance|Košický kraj
+Orechová Potôň|Dunajská Streda|Trnavský kraj
+Oravské Veselé|Námestovo|Žilinský kraj
+Oreské|Skalica|Trnavský kraj
+Oreské|Michalovce|Košický kraj
+Orešany|Topoľčany|Nitriansky kraj
+Orlov|Stará Ľubovňa|Prešovský kraj
+Orovnica|Žarnovica|Banskobystrický kraj
+Ortuťová|Bardejov|Prešovský kraj
+Osádka|Dolný Kubín|Žilinský kraj
+Osadné|Snina|Prešovský kraj
+Osikov|Bardejov|Prešovský kraj
+Oslany|Prievidza|Trenčiansky kraj
+Osrblie|Brezno|Banskobystrický kraj
+Ostrá Lúka|Zvolen|Banskobystrický kraj
+Ostratice|Partizánske|Trenčiansky kraj
+Ostrov|Piešťany|Trnavský kraj
+Ostrov|Sobrance|Košický kraj
+Ostrovany|Sabinov|Prešovský kraj
+Ostrý Grúň|Žarnovica|Banskobystrický kraj
+Osturňa|Kežmarok|Prešovský kraj
+Osuské|Senica|Trnavský kraj
+Oščadnica|Čadca|Žilinský kraj
+Otrhánky|Bánovce nad Bebravou|Trenčiansky kraj
+Otročok|Revúca|Banskobystrický kraj
+Ovčiarsko|Žilina|Žilinský kraj
+Ovčie|Prešov|Prešovský kraj
+Ozdín|Poltár|Banskobystrický kraj
+Ožďany|Rimavská Sobota|Banskobystrický kraj
+Pača|Rožňava|Košický kraj
+Padáň|Dunajská Streda|Trnavský kraj
+Padarovce|Rimavská Sobota|Banskobystrický kraj
+Pakostov|Humenné|Prešovský kraj
+Palárikovo|Nové Zámky|Nitriansky kraj
+Palín|Michalovce|Košický kraj
+Palota|Medzilaborce|Prešovský kraj
+Panické Dravce|Lučenec|Banskobystrický kraj
+Paňa|Nitra|Nitriansky kraj
+Paňovce|Košice-okolie|Košický kraj
+Papín|Humenné|Prešovský kraj
+Papradno|Považská Bystrica|Trenčiansky kraj
+Parchovany|Trebišov|Košický kraj
+Parihuzovce|Snina|Prešovský kraj
+Párnica|Dolný Kubín|Žilinský kraj
+Partizánska Ľupča|Liptovský Mikuláš|Žilinský kraj
+Partizánske|Partizánske|Trenčiansky kraj
+Pastovce|Levice|Nitriansky kraj
+Pastuchov|Hlohovec|Trnavský kraj
+Pašková|Rožňava|Košický kraj
+Paština Závada|Žilina|Žilinský kraj
+Pata|Galanta|Trnavský kraj
+Pataš|Dunajská Streda|Trnavský kraj
+Pavčina Lehota|Liptovský Mikuláš|Žilinský kraj
+Pavlice|Trnava|Trnavský kraj
+Pavlová|Nové Zámky|Nitriansky kraj
+Pavlova Ves|Liptovský Mikuláš|Žilinský kraj
+Pavlovce|Rimavská Sobota|Banskobystrický kraj
+Pavlovce|Vranov nad Topľou|Prešovský kraj
+Pavlovce nad Uhom|Michalovce|Košický kraj
+Pavľany|Levoča|Prešovský kraj
+Pažiť|Partizánske|Trenčiansky kraj
+Pčoliné|Snina|Prešovský kraj
+Pečenice|Levice|Nitriansky kraj
+Pečeňady|Piešťany|Trnavský kraj
+Pečeňany|Bánovce nad Bebravou|Trenčiansky kraj
+Pečovská Nová Ves|Sabinov|Prešovský kraj
+Peder|Košice-okolie|Košický kraj
+Perín- Chym|Košice-okolie|Košický kraj
+Pernek|Malacky|Bratislavský kraj
+Petkovce|Vranov nad Topľou|Prešovský kraj
+Petrikovce|Michalovce|Košický kraj
+Petrová|Bardejov|Prešovský kraj
+Petrova Lehota|Trenčín|Trenčiansky kraj
+Petrova Ves|Skalica|Trnavský kraj
+Petrovany|Prešov|Prešovský kraj
+Petrovce|Rimavská Sobota|Banskobystrický kraj
+Petrovce|Vranov nad Topľou|Prešovský kraj
+Petrovce|Sobrance|Košický kraj
+Petrovce nad Laborcom|Michalovce|Košický kraj
+Petrovice|Bytča|Žilinský kraj
+Petrovo|Rožňava|Košický kraj
+Pezinok|Pezinok|Bratislavský kraj
+Piešťany|Piešťany|Trnavský kraj
+Pichne|Snina|Prešovský kraj
+Píla|Pezinok|Bratislavský kraj
+Píla|Lučenec|Banskobystrický kraj
+Píla|Žarnovica|Banskobystrický kraj
+Pinciná|Lučenec|Banskobystrický kraj
+Pinkovce|Sobrance|Košický kraj
+Piskorovce|Vranov nad Topľou|Prešovský kraj
+Pitelová|Žiar nad Hronom|Banskobystrický kraj
+Plášťovce|Levice|Nitriansky kraj
+Plavé Vozokany|Levice|Nitriansky kraj
+Plavecké Podhradie|Malacky|Bratislavský kraj
+Plavecký Mikuláš|Malacky|Bratislavský kraj
+Plavecký Peter|Senica|Trnavský kraj
+Plavecký Štvrtok|Malacky|Bratislavský kraj
+Plaveč|Stará Ľubovňa|Prešovský kraj
+Plavnica|Stará Ľubovňa|Prešovský kraj
+Plechotice|Trebišov|Košický kraj
+Pleš|Lučenec|Banskobystrický kraj
+Plešivec|Rožňava|Košický kraj
+Plevník- Drienové|Považská Bystrica|Trenčiansky kraj
+Pliešovce|Zvolen|Banskobystrický kraj
+Ploské|Revúca|Banskobystrický kraj
+Ploské|Košice-okolie|Košický kraj
+Pobedim|Nové Mesto nad Váhom|Trenčiansky kraj
+Počarová|Považská Bystrica|Trenčiansky kraj
+Počúvadlo|Banská Štiavnica|Banskobystrický kraj
+Podbiel|Tvrdošín|Žilinský kraj
+Podbranč|Senica|Trnavský kraj
+Podbrezová|Brezno|Banskobystrický kraj
+Podhájska|Nové Zámky|Nitriansky kraj
+Podhorany|Nitra|Nitriansky kraj
+Podhorany|Kežmarok|Prešovský kraj
+Podhorany|Prešov|Prešovský kraj
+Podhorie|Žilina|Žilinský kraj
+Podhorie|Banská Štiavnica|Banskobystrický kraj
+Podhoroď|Sobrance|Košický kraj
+Podhradie|Prievidza|Trenčiansky kraj
+Podhradie|Topoľčany|Nitriansky kraj
+Podhradie|Martin|Žilinský kraj
+Podhradík|Prešov|Prešovský kraj
+Podkonice|Banská Bystrica|Banskobystrický kraj
+Podkriváň|Detva|Banskobystrický kraj
+Podkylava|Myjava|Trenčiansky kraj
+Podlužany|Bánovce nad Bebravou|Trenčiansky kraj
+Podlužany|Levice|Nitriansky kraj
+Podolie|Nové Mesto nad Váhom|Trenčiansky kraj
+Podolínec|Stará Ľubovňa|Prešovský kraj
+Podrečany|Lučenec|Banskobystrický kraj
+Podskalie|Považská Bystrica|Trenčiansky kraj
+Podtureň|Liptovský Mikuláš|Žilinský kraj
+Podvysoká|Čadca|Žilinský kraj
+Podzámčok|Zvolen|Banskobystrický kraj
+Pohorelá|Brezno|Banskobystrický kraj
+Pohranice|Nitra|Nitriansky kraj
+Pohronská Polhora|Brezno|Banskobystrický kraj
+Pohronský Bukovec|Banská Bystrica|Banskobystrický kraj
+Pohronský Ruskov|Levice|Nitriansky kraj
+Pochabany|Bánovce nad Bebravou|Trenčiansky kraj
+Pokryváč|Dolný Kubín|Žilinský kraj
+Poliakovce|Bardejov|Prešovský kraj
+Polianka|Myjava|Trenčiansky kraj
+Polichno|Lučenec|Banskobystrický kraj
+Polina|Revúca|Banskobystrický kraj
+Poloma|Sabinov|Prešovský kraj
+Polomka|Brezno|Banskobystrický kraj
+Poltár|Poltár|Banskobystrický kraj
+Poluvsie|Prievidza|Trenčiansky kraj
+Poľanovce|Levoča|Prešovský kraj
+Poľany|Trebišov|Košický kraj
+Poľný Kesov|Nitra|Nitriansky kraj
+Pongrácovce|Levoča|Prešovský kraj
+Poniky|Banská Bystrica|Banskobystrický kraj
+Poprad|Poprad|Prešovský kraj
+Poproč|Rimavská Sobota|Banskobystrický kraj
+Poproč|Košice-okolie|Košický kraj
+Popudinské Močidľany|Skalica|Trnavský kraj
+Poráč|Spišská Nová Ves|Košický kraj
+Poriadie|Myjava|Trenčiansky kraj
+Porostov|Sobrance|Košický kraj
+Poruba|Prievidza|Trenčiansky kraj
+Poruba pod Vihorlatom|Michalovce|Košický kraj
+Porúbka|Žilina|Žilinský kraj
+Porúbka|Bardejov|Prešovský kraj
+Porúbka|Humenné|Prešovský kraj
+Porúbka|Sobrance|Košický kraj
+Poša|Vranov nad Topľou|Prešovský kraj
+Potok|Ružomberok|Žilinský kraj
+Potok|Rimavská Sobota|Banskobystrický kraj
+Potoky|Stropkov|Prešovský kraj
+Potôčky|Stropkov|Prešovský kraj
+Potvorice|Nové Mesto nad Váhom|Trenčiansky kraj
+Považany|Nové Mesto nad Váhom|Trenčiansky kraj
+Považská Bystrica|Považská Bystrica|Trenčiansky kraj
+Povina|Kysucké Nové Mesto|Žilinský kraj
+Povoda|Dunajská Streda|Trnavský kraj
+Povrazník|Banská Bystrica|Banskobystrický kraj
+Pozba|Nové Zámky|Nitriansky kraj
+Pozdišovce|Michalovce|Košický kraj
+Pôtor|Veľký Krtíš|Banskobystrický kraj
+Praha|Lučenec|Banskobystrický kraj
+Prakovce|Gelnica|Košický kraj
+Prašice|Topoľčany|Nitriansky kraj
+Prašník|Piešťany|Trnavský kraj
+Pravenec|Prievidza|Trenčiansky kraj
+Pravica|Veľký Krtíš|Banskobystrický kraj
+Pravotice|Bánovce nad Bebravou|Trenčiansky kraj
+Práznovce|Topoľčany|Nitriansky kraj
+Prečín|Považská Bystrica|Trenčiansky kraj
+Predajná|Brezno|Banskobystrický kraj
+Predmier|Bytča|Žilinský kraj
+Prenčov|Banská Štiavnica|Banskobystrický kraj
+Preseľany|Topoľčany|Nitriansky kraj
+Prestavlky|Žiar nad Hronom|Banskobystrický kraj
+Prešov|Prešov|Prešovský kraj
+Príbelce|Veľký Krtíš|Banskobystrický kraj
+Pribeník|Trebišov|Košický kraj
+Pribeta|Komárno|Nitriansky kraj
+Pribiš|Dolný Kubín|Žilinský kraj
+Príbovce|Martin|Žilinský kraj
+Pribylina|Liptovský Mikuláš|Žilinský kraj
+Priechod|Banská Bystrica|Banskobystrický kraj
+Priekopa|Sobrance|Košický kraj
+Priepasné|Myjava|Trenčiansky kraj
+Prietrž|Senica|Trnavský kraj
+Prietržka|Skalica|Trnavský kraj
+Prievaly|Senica|Trnavský kraj
+Prievidza|Prievidza|Trenčiansky kraj
+Prihradzany|Revúca|Banskobystrický kraj
+Príkra|Svidník|Prešovský kraj
+Príslop|Snina|Prešovský kraj
+Prituľany|Humenné|Prešovský kraj
+Proč|Prešov|Prešovský kraj
+Prochot|Žiar nad Hronom|Banskobystrický kraj
+Prosačov|Vranov nad Topľou|Prešovský kraj
+Prosiek|Liptovský Mikuláš|Žilinský kraj
+Prša|Lučenec|Banskobystrický kraj
+Pruské|Ilava|Trenčiansky kraj
+Prusy|Bánovce nad Bebravou|Trenčiansky kraj
+Pružina|Považská Bystrica|Trenčiansky kraj
+Pstriná|Svidník|Prešovský kraj
+Ptičie|Humenné|Prešovský kraj
+Ptrukša|Michalovce|Košický kraj
+Pucov|Dolný Kubín|Žilinský kraj
+Púchov|Púchov|Trenčiansky kraj
+Pukanec|Levice|Nitriansky kraj
+Pusté Čemerné|Michalovce|Košický kraj
+Pusté Pole|Stará Ľubovňa|Prešovský kraj
+Pusté Sady|Galanta|Trnavský kraj
+Pusté Úľany|Galanta|Trnavský kraj
+Pušovce|Prešov|Prešovský kraj
+Rabča|Námestovo|Žilinský kraj
+Rabčice|Námestovo|Žilinský kraj
+Rad|Trebišov|Košický kraj
+Radatice|Prešov|Prešovský kraj
+Radava|Nové Zámky|Nitriansky kraj
+Radimov|Skalica|Trnavský kraj
+Radnovce|Rimavská Sobota|Banskobystrický kraj
+Radobica|Prievidza|Trenčiansky kraj
+Radoľa|Kysucké Nové Mesto|Žilinský kraj
+Radoma|Svidník|Prešovský kraj
+Radošina|Topoľčany|Nitriansky kraj
+Radošovce|Skalica|Trnavský kraj
+Radošovce|Trnava|Trnavský kraj
+Radôstka|Čadca|Žilinský kraj
+Radvanovce|Vranov nad Topľou|Prešovský kraj
+Radvaň nad Dunajom|Komárno|Nitriansky kraj
+Radvaň nad Laborcom|Medzilaborce|Prešovský kraj
+Radzovce|Lučenec|Banskobystrický kraj
+Rafajovce|Vranov nad Topľou|Prešovský kraj
+Rajčany|Topoľčany|Nitriansky kraj
+Rajec|Žilina|Žilinský kraj
+Rajecká Lesná|Žilina|Žilinský kraj
+Rajecké Teplice|Žilina|Žilinský kraj
+Rákoš|Revúca|Banskobystrický kraj
+Rákoš|Košice-okolie|Košický kraj
+Raková|Čadca|Žilinský kraj
+Rakovčík|Svidník|Prešovský kraj
+Rakovec nad Ondavou|Michalovce|Košický kraj
+Rakovice|Piešťany|Trnavský kraj
+Rakovnica|Rožňava|Košický kraj
+Rakovo|Martin|Žilinský kraj
+Rakša|Turčianske Teplice|Žilinský kraj
+Rakúsy|Kežmarok|Prešovský kraj
+Rakytník|Rimavská Sobota|Banskobystrický kraj
+Rankovce|Košice-okolie|Košický kraj
+Rapovce|Lučenec|Banskobystrický kraj
+Raslavice|Bardejov|Prešovský kraj
+Rastislavice|Nové Zámky|Nitriansky kraj
+Rašice|Revúca|Banskobystrický kraj
+Ratka|Lučenec|Banskobystrický kraj
+Ratková|Revúca|Banskobystrický kraj
+Ratkovce|Hlohovec|Trnavský kraj
+Ratkovo|Martin|Žilinský kraj
+Ratkovská Lehota|Rimavská Sobota|Banskobystrický kraj
+Ratkovská Suchá|Rimavská Sobota|Banskobystrický kraj
+Ratkovské Bystré|Revúca|Banskobystrický kraj
+Ratnovce|Piešťany|Trnavský kraj
+Ratvaj|Sabinov|Prešovský kraj
+Ráztočno|Prievidza|Trenčiansky kraj
+Ráztoka|Brezno|Banskobystrický kraj
+Ražňany|Sabinov|Prešovský kraj
+Reca|Senec|Bratislavský kraj
+Regetovka|Bardejov|Prešovský kraj
+Rejdová|Rožňava|Košický kraj
+Reľov|Kežmarok|Prešovský kraj
+Remeniny|Vranov nad Topľou|Prešovský kraj
+Remetské Hámre|Sobrance|Košický kraj
+Renčišov|Sabinov|Prešovský kraj
+Repejov|Medzilaborce|Prešovský kraj
+Repište|Žiar nad Hronom|Banskobystrický kraj
+Rešica|Košice-okolie|Košický kraj
+Rešov|Bardejov|Prešovský kraj
+Revúca|Revúca|Banskobystrický kraj
+Revúcka Lehota|Revúca|Banskobystrický kraj
+Riečka|Banská Bystrica|Banskobystrický kraj
+Riečka|Rimavská Sobota|Banskobystrický kraj
+Richnava|Gelnica|Košický kraj
+Richvald|Bardejov|Prešovský kraj
+Rimavská Baňa|Rimavská Sobota|Banskobystrický kraj
+Rimavská Seč|Rimavská Sobota|Banskobystrický kraj
+Rimavská Sobota|Rimavská Sobota|Banskobystrický kraj
+Rimavské Brezovo|Rimavská Sobota|Banskobystrický kraj
+Rimavské Janovce|Rimavská Sobota|Banskobystrický kraj
+Rimavské Zalužany|Rimavská Sobota|Banskobystrický kraj
+Rohov|Senica|Trnavský kraj
+Rohovce|Dunajská Streda|Trnavský kraj
+Rohožník|Malacky|Bratislavský kraj
+Rohožník|Humenné|Prešovský kraj
+Rochovce|Rožňava|Košický kraj
+Rokycany|Prešov|Prešovský kraj
+Rokytov|Bardejov|Prešovský kraj
+Rokytov pri Humennom|Humenné|Prešovský kraj
+Rokytovce|Medzilaborce|Prešovský kraj
+Rosina|Žilina|Žilinský kraj
+Roškovce|Medzilaborce|Prešovský kraj
+Roštár|Rožňava|Košický kraj
+Rovensko|Senica|Trnavský kraj
+Rovinka|Senec|Bratislavský kraj
+Rovné|Rimavská Sobota|Banskobystrický kraj
+Rovné|Humenné|Prešovský kraj
+Rovné|Svidník|Prešovský kraj
+Rovňany|Poltár|Banskobystrický kraj
+Rozhanovce|Košice-okolie|Košický kraj
+Rozložná|Rožňava|Košický kraj
+Roztoky|Svidník|Prešovský kraj
+Rožkovany|Sabinov|Prešovský kraj
+Rožňava|Rožňava|Košický kraj
+Rožňavské Bystré|Rožňava|Košický kraj
+Rúbaň|Nové Zámky|Nitriansky kraj
+Rudina|Kysucké Nové Mesto|Žilinský kraj
+Rudinka|Kysucké Nové Mesto|Žilinský kraj
+Rudinská|Kysucké Nové Mesto|Žilinský kraj
+Rudlov|Vranov nad Topľou|Prešovský kraj
+Rudná|Rožňava|Košický kraj
+Rudnianska Lehota|Prievidza|Trenčiansky kraj
+Rudník|Myjava|Trenčiansky kraj
+Rudník|Košice-okolie|Košický kraj
+Rudno|Turčianske Teplice|Žilinský kraj
+Rudno nad Hronom|Žarnovica|Banskobystrický kraj
+Rudňany|Spišská Nová Ves|Košický kraj
+Rumanová|Nitra|Nitriansky kraj
+Rumince|Rimavská Sobota|Banskobystrický kraj
+Runina|Snina|Prešovský kraj
+Ruská|Michalovce|Košický kraj
+Ruská Bystrá|Sobrance|Košický kraj
+Ruská Kajňa|Humenné|Prešovský kraj
+Ruská Nová Ves|Prešov|Prešovský kraj
+Ruská Poruba|Humenné|Prešovský kraj
+Ruská Volová|Snina|Prešovský kraj
+Ruská Voľa|Vranov nad Topľou|Prešovský kraj
+Ruská Voľa nad Popradom|Stará Ľubovňa|Prešovský kraj
+Ruskov|Košice-okolie|Košický kraj
+Ruskovce|Bánovce nad Bebravou|Trenčiansky kraj
+Ruskovce|Sobrance|Košický kraj
+Ruský Hrabovec|Sobrance|Košický kraj
+Ruský Potok|Snina|Prešovský kraj
+Ružiná|Lučenec|Banskobystrický kraj
+Ružindol|Trnava|Trnavský kraj
+Ružomberok|Ružomberok|Žilinský kraj
+Rybany|Bánovce nad Bebravou|Trenčiansky kraj
+Rybky|Senica|Trnavský kraj
+Rybník|Levice|Nitriansky kraj
+Rybník|Revúca|Banskobystrický kraj
+Rykynčice|Krupina|Banskobystrický kraj
+Sabinov|Sabinov|Prešovský kraj
+Sačurov|Vranov nad Topľou|Prešovský kraj
+Sádočné|Považská Bystrica|Trenčiansky kraj
+Sady nad Torysou|Košice-okolie|Košický kraj
+Salka|Nové Zámky|Nitriansky kraj
+Santovka|Levice|Nitriansky kraj
+Sap|Dunajská Streda|Trnavský kraj
+Sása|Revúca|Banskobystrický kraj
+Sása|Zvolen|Banskobystrický kraj
+Sasinkovo|Hlohovec|Trnavský kraj
+Sazdice|Levice|Nitriansky kraj
+Sebedín- Bečov|Banská Bystrica|Banskobystrický kraj
+Sebedražie|Prievidza|Trenčiansky kraj
+Sebechleby|Krupina|Banskobystrický kraj
+Seč|Prievidza|Trenčiansky kraj
+Sečianky|Veľký Krtíš|Banskobystrický kraj
+Sečovce|Trebišov|Košický kraj
+Sečovská Polianka|Prešov|Prešovský kraj
+Sedliacka Dubová|Dolný Kubín|Žilinský kraj
+Sedliská|Vranov nad Topľou|Prešovský kraj
+Sedmerovec|Ilava|Trenčiansky kraj
+Sejkov|Sobrance|Košický kraj
+Sekule|Senica|Trnavský kraj
+Selce|Banská Bystrica|Banskobystrický kraj
+Selce|Krupina|Banskobystrický kraj
+Selce|Poltár|Banskobystrický kraj
+Selec|Trenčín|Trenčiansky kraj
+Selice|Šaľa|Nitriansky kraj
+Seľany|Veľký Krtíš|Banskobystrický kraj
+Semerovo|Nové Zámky|Nitriansky kraj
+Senec|Senec|Bratislavský kraj
+Seniakovce|Prešov|Prešovský kraj
+Senica|Senica|Trnavský kraj
+Senné|Veľký Krtíš|Banskobystrický kraj
+Senné|Michalovce|Košický kraj
+Senohrad|Krupina|Banskobystrický kraj
+Seňa|Košice-okolie|Košický kraj
+Sereď|Galanta|Trnavský kraj
+Sielnica|Zvolen|Banskobystrický kraj
+Sihelné|Námestovo|Žilinský kraj
+Sihla|Brezno|Banskobystrický kraj
+Sikenica|Levice|Nitriansky kraj
+Sikenička|Nové Zámky|Nitriansky kraj
+Siladice|Hlohovec|Trnavský kraj
+Silica|Rožňava|Košický kraj
+Silická Brezová|Rožňava|Košický kraj
+Silická Jablonica|Rožňava|Košický kraj
+Sirk|Revúca|Banskobystrický kraj
+Sirník|Trebišov|Košický kraj
+Skačany|Partizánske|Trenčiansky kraj
+Skalica|Skalica|Trnavský kraj
+Skalité|Čadca|Žilinský kraj
+Skalka nad Váhom|Trenčín|Trenčiansky kraj
+Skároš|Košice-okolie|Košický kraj
+Skerešovo|Revúca|Banskobystrický kraj
+Sklabiná|Veľký Krtíš|Banskobystrický kraj
+Sklabinský Podzámok|Martin|Žilinský kraj
+Sklabiňa|Martin|Žilinský kraj
+Sklené|Turčianske Teplice|Žilinský kraj
+Sklené Teplice|Žiar nad Hronom|Banskobystrický kraj
+Skrabské|Vranov nad Topľou|Prešovský kraj
+Skýcov|Zlaté Moravce|Nitriansky kraj
+Sládkovičovo|Galanta|Trnavský kraj
+Slančík|Košice-okolie|Košický kraj
+Slanec|Košice-okolie|Košický kraj
+Slanská Huta|Košice-okolie|Košický kraj
+Slanské Nové Mesto|Košice-okolie|Košický kraj
+Slaská|Žiar nad Hronom|Banskobystrický kraj
+Slatina|Levice|Nitriansky kraj
+Slatina nad Bebravou|Bánovce nad Bebravou|Trenčiansky kraj
+Slatinka nad Bebravou|Bánovce nad Bebravou|Trenčiansky kraj
+Slatinské Lazy|Detva|Banskobystrický kraj
+Slatvina|Spišská Nová Ves|Košický kraj
+Slavec|Rožňava|Košický kraj
+Slavkovce|Michalovce|Košický kraj
+Slavnica|Ilava|Trenčiansky kraj
+Slavoška|Rožňava|Košický kraj
+Slavošovce|Rožňava|Košický kraj
+Slepčany|Zlaté Moravce|Nitriansky kraj
+Sliač|Zvolen|Banskobystrický kraj
+Sliepkovce|Michalovce|Košický kraj
+Slizké|Rimavská Sobota|Banskobystrický kraj
+Slivník|Trebišov|Košický kraj
+Slopná|Považská Bystrica|Trenčiansky kraj
+Slovany|Martin|Žilinský kraj
+Slovenská Kajňa|Vranov nad Topľou|Prešovský kraj
+Slovenská Ľupča|Banská Bystrica|Banskobystrický kraj
+Slovenská Nová Ves|Trnava|Trnavský kraj
+Slovenská Ves|Kežmarok|Prešovský kraj
+Slovenská Volová|Humenné|Prešovský kraj
+Slovenské Ďarmoty|Veľký Krtíš|Banskobystrický kraj
+Slovenské Kľačany|Veľký Krtíš|Banskobystrický kraj
+Slovenské Krivé|Humenné|Prešovský kraj
+Slovenské Nové Mesto|Trebišov|Košický kraj
+Slovenské Pravno|Turčianske Teplice|Žilinský kraj
+Slovenský Grob|Pezinok|Bratislavský kraj
+Slovinky|Spišská Nová Ves|Košický kraj
+Sľažany|Zlaté Moravce|Nitriansky kraj
+Smilno|Bardejov|Prešovský kraj
+Smižany|Spišská Nová Ves|Košický kraj
+Smolenice|Trnava|Trnavský kraj
+Smolinské|Senica|Trnavský kraj
+Smolnícka Huta|Gelnica|Košický kraj
+Smolník|Gelnica|Košický kraj
+Smrdáky|Senica|Trnavský kraj
+Smrečany|Liptovský Mikuláš|Žilinský kraj
+Snakov|Bardejov|Prešovský kraj
+Snežnica|Kysucké Nové Mesto|Žilinský kraj
+Snina|Snina|Prešovský kraj
+Socovce|Martin|Žilinský kraj
+Soblahov|Trenčín|Trenčiansky kraj
+Soboš|Svidník|Prešovský kraj
+Sobotište|Senica|Trnavský kraj
+Sobrance|Sobrance|Košický kraj
+Sokolce|Komárno|Nitriansky kraj
+Sokolovce|Piešťany|Trnavský kraj
+Sokoľ|Košice-okolie|Košický kraj
+Sokoľany|Košice-okolie|Košický kraj
+Solčany|Topoľčany|Nitriansky kraj
+Solčianky|Topoľčany|Nitriansky kraj
+Sološnica|Malacky|Bratislavský kraj
+Soľ|Vranov nad Topľou|Prešovský kraj
+Soľnička|Trebišov|Košický kraj
+Soľník|Stropkov|Prešovský kraj
+Somotor|Trebišov|Košický kraj
+Sopkovce|Humenné|Prešovský kraj
+Spišská Belá|Kežmarok|Prešovský kraj
+Spišská Nová Ves|Spišská Nová Ves|Košický kraj
+Spišská Stará Ves|Kežmarok|Prešovský kraj
+Spišská Teplica|Poprad|Prešovský kraj
+Spišské Bystré|Poprad|Prešovský kraj
+Spišské Hanušovce|Kežmarok|Prešovský kraj
+Spišské Podhradie|Levoča|Prešovský kraj
+Spišské Tomášovce|Spišská Nová Ves|Košický kraj
+Spišské Vlachy|Spišská Nová Ves|Košický kraj
+Spišský Hrhov|Levoča|Prešovský kraj
+Spišský Hrušov|Spišská Nová Ves|Košický kraj
+Spišský Štiavnik|Poprad|Prešovský kraj
+Spišský Štvrtok|Levoča|Prešovský kraj
+Stakčín|Snina|Prešovský kraj
+Stakčínska Roztoka|Snina|Prešovský kraj
+Stanča|Trebišov|Košický kraj
+Stankovany|Ružomberok|Žilinský kraj
+Stankovce|Trebišov|Košický kraj
+Stará Bašta|Rimavská Sobota|Banskobystrický kraj
+Stará Bystrica|Čadca|Žilinský kraj
+Stará Halič|Lučenec|Banskobystrický kraj
+Stará Huta|Detva|Banskobystrický kraj
+Stará Kremnička|Žiar nad Hronom|Banskobystrický kraj
+Stará Lehota|Nové Mesto nad Váhom|Trenčiansky kraj
+Stará Lesná|Kežmarok|Prešovský kraj
+Stará Ľubovňa|Stará Ľubovňa|Prešovský kraj
+Stará Myjava|Myjava|Trenčiansky kraj
+Stará Turá|Nové Mesto nad Váhom|Trenčiansky kraj
+Stará Voda|Gelnica|Košický kraj
+Staré|Michalovce|Košický kraj
+Staré Hory|Banská Bystrica|Banskobystrický kraj
+Starina|Stará Ľubovňa|Prešovský kraj
+Starý Hrádok|Levice|Nitriansky kraj
+Starý Tekov|Levice|Nitriansky kraj
+Staškov|Čadca|Žilinský kraj
+Staškovce|Stropkov|Prešovský kraj
+Stebnícka Huta|Bardejov|Prešovský kraj
+Stebník|Bardejov|Prešovský kraj
+Stožok|Detva|Banskobystrický kraj
+Stráne pod Tatrami|Kežmarok|Prešovský kraj
+Stránska|Rimavská Sobota|Banskobystrický kraj
+Stránske|Žilina|Žilinský kraj
+Stráňany|Stará Ľubovňa|Prešovský kraj
+Stráňavy|Žilina|Žilinský kraj
+Stratená|Rožňava|Košický kraj
+Stráža|Žilina|Žilinský kraj
+Strážne|Trebišov|Košický kraj
+Strážske|Michalovce|Košický kraj
+Strečno|Žilina|Žilinský kraj
+Streda nad Bodrogom|Trebišov|Košický kraj
+Stredné Plachtince|Veľký Krtíš|Banskobystrický kraj
+Strekov|Nové Zámky|Nitriansky kraj
+Strelníky|Banská Bystrica|Banskobystrický kraj
+Stretava|Michalovce|Košický kraj
+Stretavka|Michalovce|Košický kraj
+Streženice|Púchov|Trenčiansky kraj
+Strihovce|Snina|Prešovský kraj
+Stročín|Svidník|Prešovský kraj
+Stropkov|Stropkov|Prešovský kraj
+Studená|Rimavská Sobota|Banskobystrický kraj
+Studenec|Levoča|Prešovský kraj
+Studienka|Malacky|Bratislavský kraj
+Stuľany|Bardejov|Prešovský kraj
+Stupava|Malacky|Bratislavský kraj
+Stupné|Považská Bystrica|Trenčiansky kraj
+Sučany|Martin|Žilinský kraj
+Sudince|Krupina|Banskobystrický kraj
+Súdovce|Krupina|Banskobystrický kraj
+Suchá Dolina|Prešov|Prešovský kraj
+Suchá Hora|Tvrdošín|Žilinský kraj
+Suchá nad Parnou|Trnava|Trnavský kraj
+Sucháň|Veľký Krtíš|Banskobystrický kraj
+Suché|Michalovce|Košický kraj
+Suché Brezovo|Veľký Krtíš|Banskobystrický kraj
+Suchohrad|Malacky|Bratislavský kraj
+Sukov|Medzilaborce|Prešovský kraj
+Sulín|Stará Ľubovňa|Prešovský kraj
+Súlovce|Topoľčany|Nitriansky kraj
+Súľov- Hradná|Bytča|Žilinský kraj
+Sušany|Poltár|Banskobystrický kraj
+Sútor|Rimavská Sobota|Banskobystrický kraj
+Svätá Mária|Trebišov|Košický kraj
+Svätoplukovo|Nitra|Nitriansky kraj
+Svätuš|Sobrance|Košický kraj
+Svätuše|Trebišov|Košický kraj
+Svätý Anton|Banská Štiavnica|Banskobystrický kraj
+Svätý Jur|Pezinok|Bratislavský kraj
+Svätý Kríž|Liptovský Mikuláš|Žilinský kraj
+Svätý Peter|Komárno|Nitriansky kraj
+Svederník|Žilina|Žilinský kraj
+Sverepec|Považská Bystrica|Trenčiansky kraj
+Sveržov|Bardejov|Prešovský kraj
+Svetlice|Medzilaborce|Prešovský kraj
+Svidnička|Svidník|Prešovský kraj
+Svidník|Svidník|Prešovský kraj
+Svinia|Prešov|Prešovský kraj
+Svinica|Košice-okolie|Košický kraj
+Svinice|Trebišov|Košický kraj
+Svinná|Trenčín|Trenčiansky kraj
+Svit|Poprad|Prešovský kraj
+Svodín|Nové Zámky|Nitriansky kraj
+Svrbice|Topoľčany|Nitriansky kraj
+Svrčinovec|Čadca|Žilinský kraj
+Šahy|Levice|Nitriansky kraj
+Šajdíkove Humence|Senica|Trnavský kraj
+Šalgovce|Topoľčany|Nitriansky kraj
+Šalgočka|Galanta|Trnavský kraj
+Šalov|Levice|Nitriansky kraj
+Šaľa|Šaľa|Nitriansky kraj
+Šambron|Stará Ľubovňa|Prešovský kraj
+Šamorín|Dunajská Streda|Trnavský kraj
+Šamudovce|Michalovce|Košický kraj
+Šandal|Stropkov|Prešovský kraj
+Šarbov|Svidník|Prešovský kraj
+Šarišská Poruba|Prešov|Prešovský kraj
+Šarišská Trstená|Prešov|Prešovský kraj
+Šarišské Bohdanovce|Prešov|Prešovský kraj
+Šarišské Čierne|Bardejov|Prešovský kraj
+Šarišské Dravce|Sabinov|Prešovský kraj
+Šarišské Jastrabie|Stará Ľubovňa|Prešovský kraj
+Šarišské Michaľany|Sabinov|Prešovský kraj
+Šarišské Sokolovce|Sabinov|Prešovský kraj
+Šarišský Štiavnik|Svidník|Prešovský kraj
+Šarkan|Nové Zámky|Nitriansky kraj
+Šarovce|Levice|Nitriansky kraj
+Šašová|Bardejov|Prešovský kraj
+Šaštín- Stráže|Senica|Trnavský kraj
+Šávoľ|Lučenec|Banskobystrický kraj
+Šelpice|Trnava|Trnavský kraj
+Šemetkovce|Svidník|Prešovský kraj
+Šemša|Košice-okolie|Košický kraj
+Šenkvice|Pezinok|Bratislavský kraj
+Šiatorská Bukovinka|Lučenec|Banskobystrický kraj
+Šiba|Bardejov|Prešovský kraj
+Šíd|Lučenec|Banskobystrický kraj
+Šimonovce|Rimavská Sobota|Banskobystrický kraj
+Šindliar|Prešov|Prešovský kraj
+Šintava|Galanta|Trnavský kraj
+Šípkov|Bánovce nad Bebravou|Trenčiansky kraj
+Šípkové|Piešťany|Trnavský kraj
+Širákov|Veľký Krtíš|Banskobystrický kraj
+Širkovce|Rimavská Sobota|Banskobystrický kraj
+Široké|Prešov|Prešovský kraj
+Šišov|Bánovce nad Bebravou|Trenčiansky kraj
+Šivetice|Revúca|Banskobystrický kraj
+Šmigovec|Snina|Prešovský kraj
+Šoltýska|Poltár|Banskobystrický kraj
+Šoporňa|Galanta|Trnavský kraj
+Špačince|Trnava|Trnavský kraj
+Špania Dolina|Banská Bystrica|Banskobystrický kraj
+Španie Pole|Rimavská Sobota|Banskobystrický kraj
+Šrobárová|Komárno|Nitriansky kraj
+Štefanov|Senica|Trnavský kraj
+Štefanov nad Oravou|Tvrdošín|Žilinský kraj
+Štefanová|Pezinok|Bratislavský kraj
+Štefanovce|Prešov|Prešovský kraj
+Štefanovce|Vranov nad Topľou|Prešovský kraj
+Štefanovičová|Nitra|Nitriansky kraj
+Štefurov|Svidník|Prešovský kraj
+Šterusy|Piešťany|Trnavský kraj
+Štiavnické Bane|Banská Štiavnica|Banskobystrický kraj
+Štiavnička|Ružomberok|Žilinský kraj
+Štiavnik|Bytča|Žilinský kraj
+Štítnik|Rožňava|Košický kraj
+Štós|Košice-okolie|Košický kraj
+Štôla|Poprad|Prešovský kraj
+Štrba|Poprad|Prešovský kraj
+Štrkovec|Rimavská Sobota|Banskobystrický kraj
+Štúrovo|Nové Zámky|Nitriansky kraj
+Štvrtok|Trenčín|Trenčiansky kraj
+Štvrtok na Ostrove|Dunajská Streda|Trnavský kraj
+Šuľa|Veľký Krtíš|Banskobystrický kraj
+Šumiac|Brezno|Banskobystrický kraj
+Šuňava|Poprad|Prešovský kraj
+Šurany|Nové Zámky|Nitriansky kraj
+Šurianky|Nitra|Nitriansky kraj
+Šurice|Lučenec|Banskobystrický kraj
+Šúrovce|Trnava|Trnavský kraj
+Šútovo|Martin|Žilinský kraj
+Šútovce|Prievidza|Trenčiansky kraj
+Švábovce|Poprad|Prešovský kraj
+Švedlár|Gelnica|Košický kraj
+Švošov|Ružomberok|Žilinský kraj
+Tachty|Rimavská Sobota|Banskobystrický kraj
+Tajná|Nitra|Nitriansky kraj
+Tajov|Banská Bystrica|Banskobystrický kraj
+Tarnov|Bardejov|Prešovský kraj
+Tatranská Javorina|Poprad|Prešovský kraj
+Tašuľa|Sobrance|Košický kraj
+Tehla|Levice|Nitriansky kraj
+Tekolďany|Hlohovec|Trnavský kraj
+Tekovská Breznica|Žarnovica|Banskobystrický kraj
+Tekovské Lužany|Levice|Nitriansky kraj
+Tekovské Nemce|Zlaté Moravce|Nitriansky kraj
+Tekovský Hrádok|Levice|Nitriansky kraj
+Telgárt|Brezno|Banskobystrický kraj
+Telince|Nitra|Nitriansky kraj
+Temeš|Prievidza|Trenčiansky kraj
+Teplička|Spišská Nová Ves|Košický kraj
+Teplička nad Váhom|Žilina|Žilinský kraj
+Tepličky|Hlohovec|Trnavský kraj
+Teplý Vrch|Rimavská Sobota|Banskobystrický kraj
+Terany|Krupina|Banskobystrický kraj
+Terchová|Žilina|Žilinský kraj
+Teriakovce|Prešov|Prešovský kraj
+Terňa|Prešov|Prešovský kraj
+Tesáre|Topoľčany|Nitriansky kraj
+Tesárske Mlyňany|Zlaté Moravce|Nitriansky kraj
+Tešedíkovo|Šaľa|Nitriansky kraj
+Tibava|Sobrance|Košický kraj
+Tichý Potok|Sabinov|Prešovský kraj
+Timoradza|Bánovce nad Bebravou|Trenčiansky kraj
+Tisinec|Stropkov|Prešovský kraj
+Tisovec|Rimavská Sobota|Banskobystrický kraj
+Tlmače|Levice|Nitriansky kraj
+Točnica|Lučenec|Banskobystrický kraj
+Tokajík|Stropkov|Prešovský kraj
+Tomášikovo|Galanta|Trnavský kraj
+Tomášov|Senec|Bratislavský kraj
+Tomášovce|Lučenec|Banskobystrický kraj
+Tomášovce|Rimavská Sobota|Banskobystrický kraj
+Topoľa|Snina|Prešovský kraj
+Topoľčany|Topoľčany|Nitriansky kraj
+Topoľčianky|Zlaté Moravce|Nitriansky kraj
+Topoľnica|Galanta|Trnavský kraj
+Topoľníky|Dunajská Streda|Trnavský kraj
+Topoľovka|Humenné|Prešovský kraj
+Toporec|Kežmarok|Prešovský kraj
+Tornaľa|Revúca|Banskobystrický kraj
+Torysa|Sabinov|Prešovský kraj
+Torysky|Levoča|Prešovský kraj
+Tovarné|Vranov nad Topľou|Prešovský kraj
+Tovarnianska Polianka|Vranov nad Topľou|Prešovský kraj
+Tovarníky|Topoľčany|Nitriansky kraj
+Tôň|Komárno|Nitriansky kraj
+Trakovice|Hlohovec|Trnavský kraj
+Trávnica|Nové Zámky|Nitriansky kraj
+Trávnik|Komárno|Nitriansky kraj
+Trebatice|Piešťany|Trnavský kraj
+Trebejov|Košice-okolie|Košický kraj
+Trebeľovce|Lučenec|Banskobystrický kraj
+Trebichava|Bánovce nad Bebravou|Trenčiansky kraj
+Trebišov|Trebišov|Košický kraj
+Trebostovo|Martin|Žilinský kraj
+Trebušovce|Veľký Krtíš|Banskobystrický kraj
+Trenč|Lučenec|Banskobystrický kraj
+Trenčianska Teplá|Trenčín|Trenčiansky kraj
+Trenčianska Turná|Trenčín|Trenčiansky kraj
+Trenčianske Bohuslavice|Nové Mesto nad Váhom|Trenčiansky kraj
+Trenčianske Jastrabie|Trenčín|Trenčiansky kraj
+Trenčianske Mitice|Trenčín|Trenčiansky kraj
+Trenčianske Stankovce|Trenčín|Trenčiansky kraj
+Trenčianske Teplice|Trenčín|Trenčiansky kraj
+Trenčín|Trenčín|Trenčiansky kraj
+Trhová Hradská|Dunajská Streda|Trnavský kraj
+Trhovište|Michalovce|Košický kraj
+Trnava|Trnava|Trnavský kraj
+Trnavá Hora|Žiar nad Hronom|Banskobystrický kraj
+Trnava pri Laborci|Michalovce|Košický kraj
+Trnávka|Dunajská Streda|Trnavský kraj
+Trnávka|Trebišov|Košický kraj
+Trnkov|Prešov|Prešovský kraj
+Trnovec|Skalica|Trnavský kraj
+Trnovec nad Váhom|Šaľa|Nitriansky kraj
+Trnovo|Martin|Žilinský kraj
+Tročany|Bardejov|Prešovský kraj
+Trpín|Krupina|Banskobystrický kraj
+Trstená|Tvrdošín|Žilinský kraj
+Trstená na Ostrove|Dunajská Streda|Trnavský kraj
+Trstené|Liptovský Mikuláš|Žilinský kraj
+Trstené pri Hornáde|Košice-okolie|Košický kraj
+Trstice|Galanta|Trnavský kraj
+Trstín|Trnava|Trnavský kraj
+Trsťany|Košice-okolie|Košický kraj
+Tŕnie|Zvolen|Banskobystrický kraj
+Tuhár|Lučenec|Banskobystrický kraj
+Tuhrina|Prešov|Prešovský kraj
+Tuchyňa|Ilava|Trenčiansky kraj
+Tulčík|Prešov|Prešovský kraj
+Tupá|Levice|Nitriansky kraj
+Turá|Levice|Nitriansky kraj
+Turany|Martin|Žilinský kraj
+Turany nad Ondavou|Stropkov|Prešovský kraj
+Turcovce|Humenné|Prešovský kraj
+Turček|Turčianske Teplice|Žilinský kraj
+Turčianky|Partizánske|Trenčiansky kraj
+Turčianska Štiavnička|Martin|Žilinský kraj
+Turčianske Jaseno|Martin|Žilinský kraj
+Turčianske Kľačany|Martin|Žilinský kraj
+Turčianske Teplice|Turčianske Teplice|Žilinský kraj
+Turčiansky Ďur|Martin|Žilinský kraj
+Turčiansky Peter|Martin|Žilinský kraj
+Turčok|Revúca|Banskobystrický kraj
+Turecká|Banská Bystrica|Banskobystrický kraj
+Tureň|Senec|Bratislavský kraj
+Turie|Žilina|Žilinský kraj
+Turík|Ružomberok|Žilinský kraj
+Turnianska Nová Ves|Košice-okolie|Košický kraj
+Turňa nad Bodvou|Košice-okolie|Košický kraj
+Turová|Zvolen|Banskobystrický kraj
+Turzovka|Čadca|Žilinský kraj
+Tušice|Michalovce|Košický kraj
+Tušická Nová Ves|Michalovce|Košický kraj
+Tužina|Prievidza|Trenčiansky kraj
+Tvarožná|Kežmarok|Prešovský kraj
+Tvrdomestice|Topoľčany|Nitriansky kraj
+Tvrdošín|Tvrdošín|Žilinský kraj
+Tvrdošovce|Nové Zámky|Nitriansky kraj
+Ťapešovo|Námestovo|Žilinský kraj
+Ubľa|Snina|Prešovský kraj
+Úbrež|Sobrance|Košický kraj
+Udavské|Humenné|Prešovský kraj
+Udiča|Považská Bystrica|Trenčiansky kraj
+Údol|Stará Ľubovňa|Prešovský kraj
+Uhliská|Levice|Nitriansky kraj
+Úhorná|Gelnica|Košický kraj
+Uhorská Ves|Liptovský Mikuláš|Žilinský kraj
+Uhorské|Poltár|Banskobystrický kraj
+Uhrovec|Bánovce nad Bebravou|Trenčiansky kraj
+Uhrovské Podhradie|Bánovce nad Bebravou|Trenčiansky kraj
+Ulič|Snina|Prešovský kraj
+Uličské Krivé|Snina|Prešovský kraj
+Uloža|Levoča|Prešovský kraj
+Úľany nad Žitavou|Nové Zámky|Nitriansky kraj
+Unín|Skalica|Trnavský kraj
+Uňatín|Krupina|Banskobystrický kraj
+Urmince|Topoľčany|Nitriansky kraj
+Utekáč|Poltár|Banskobystrický kraj
+Uzovce|Sabinov|Prešovský kraj
+Uzovská Panica|Rimavská Sobota|Banskobystrický kraj
+Uzovské Pekľany|Sabinov|Prešovský kraj
+Uzovský Šalgov|Sabinov|Prešovský kraj
+Vaďovce|Nové Mesto nad Váhom|Trenčiansky kraj
+Vagrinec|Svidník|Prešovský kraj
+Váhovce|Galanta|Trnavský kraj|Vága
+Vajkovce|Košice-okolie|Košický kraj
+Valaliky|Košice-okolie|Košický kraj
+Valaská|Brezno|Banskobystrický kraj
+Valaská Belá|Prievidza|Trenčiansky kraj
+Valaská Dubová|Ružomberok|Žilinský kraj
+Valaškovce (vojenský obvod)|Humenné|Prešovský kraj
+Valča|Martin|Žilinský kraj
+Valentovce|Medzilaborce|Prešovský kraj
+Valice|Rimavská Sobota|Banskobystrický kraj
+Valkovce|Svidník|Prešovský kraj
+Vaľkovňa|Brezno|Banskobystrický kraj
+Vaniškovce|Bardejov|Prešovský kraj
+Vápeník|Svidník|Prešovský kraj
+Varadka|Bardejov|Prešovský kraj
+Varechovce|Stropkov|Prešovský kraj
+Varhaňovce|Prešov|Prešovský kraj
+Varín|Žilina|Žilinský kraj
+Vasiľov|Námestovo|Žilinský kraj
+Vavrečka|Námestovo|Žilinský kraj
+Vavrinec|Vranov nad Topľou|Prešovský kraj
+Vavrišovo|Liptovský Mikuláš|Žilinský kraj
+Važec|Liptovský Mikuláš|Žilinský kraj
+Vechec|Vranov nad Topľou|Prešovský kraj
+Velčice|Zlaté Moravce|Nitriansky kraj
+Veličná|Dolný Kubín|Žilinský kraj
+Velušovce|Topoľčany|Nitriansky kraj
+Veľaty|Trebišov|Košický kraj
+Veľká Čausa|Prievidza|Trenčiansky kraj
+Veľká Čierna|Žilina|Žilinský kraj
+Veľká Dolina|Nitra|Nitriansky kraj
+Veľká Franková|Kežmarok|Prešovský kraj
+Veľká Hradná|Trenčín|Trenčiansky kraj
+Veľká Ida|Košice-okolie|Košický kraj
+Veľká Lesná|Stará Ľubovňa|Prešovský kraj
+Veľká Lodina|Košice-okolie|Košický kraj
+Veľká Lomnica|Kežmarok|Prešovský kraj
+Veľká Mača|Galanta|Trnavský kraj
+Veľká Paka|Dunajská Streda|Trnavský kraj
+Veľká Tŕňa|Trebišov|Košický kraj
+Veľké Bierovce|Trenčín|Trenčiansky kraj
+Veľké Blahovo|Dunajská Streda|Trnavský kraj
+Veľké Borové|Liptovský Mikuláš|Žilinský kraj
+Veľké Držkovce|Bánovce nad Bebravou|Trenčiansky kraj
+Veľké Dvorany|Topoľčany|Nitriansky kraj
+Veľké Dvorníky|Dunajská Streda|Trnavský kraj
+Veľké Hoste|Bánovce nad Bebravou|Trenčiansky kraj
+Veľké Chlievany|Bánovce nad Bebravou|Trenčiansky kraj
+Veľké Chyndice|Nitra|Nitriansky kraj
+Veľké Kapušany|Michalovce|Košický kraj
+Veľké Kosihy|Komárno|Nitriansky kraj
+Veľké Kostoľany|Piešťany|Trnavský kraj
+Veľké Kozmálovce|Levice|Nitriansky kraj
+Veľké Kršteňany|Partizánske|Trenčiansky kraj
+Veľké Leváre|Malacky|Bratislavský kraj
+Veľké Lovce|Nové Zámky|Nitriansky kraj
+Veľké Ludince|Levice|Nitriansky kraj
+Veľké Orvište|Piešťany|Trnavský kraj
+Veľké Ozorovce|Trebišov|Košický kraj
+Veľké Raškovce|Michalovce|Košický kraj
+Veľké Revištia|Sobrance|Košický kraj
+Veľké Ripňany|Topoľčany|Nitriansky kraj
+Veľké Rovné|Bytča|Žilinský kraj
+Veľké Slemence|Michalovce|Košický kraj
+Veľké Trakany|Trebišov|Košický kraj
+Veľké Turovce|Levice|Nitriansky kraj
+Veľké Uherce|Partizánske|Trenčiansky kraj
+Veľké Úľany|Galanta|Trnavský kraj
+Veľké Vozokany|Zlaté Moravce|Nitriansky kraj
+Veľké Zálužie|Nitra|Nitriansky kraj
+Veľkrop|Stropkov|Prešovský kraj
+Veľký Biel|Senec|Bratislavský kraj
+Veľký Cetín|Nitra|Nitriansky kraj
+Veľký Čepčín|Turčianske Teplice|Žilinský kraj
+Veľký Ďur|Levice|Nitriansky kraj
+Veľký Folkmar|Gelnica|Košický kraj
+Veľký Grob|Galanta|Trnavský kraj
+Veľký Horeš|Trebišov|Košický kraj
+Veľký Kamenec|Trebišov|Košický kraj
+Veľký Klíž|Partizánske|Trenčiansky kraj
+Veľký Krtíš|Veľký Krtíš|Banskobystrický kraj
+Veľký Kýr|Nové Zámky|Nitriansky kraj
+Veľký Lapáš|Nitra|Nitriansky kraj
+Veľký Lipník|Stará Ľubovňa|Prešovský kraj
+Veľký Meder|Dunajská Streda|Trnavský kraj
+Veľký Slavkov|Poprad|Prešovský kraj
+Veľký Slivník|Prešov|Prešovský kraj
+Veľký Šariš|Prešov|Prešovský kraj
+Veľopolie|Humenné|Prešovský kraj
+Vernár|Poprad|Prešovský kraj
+Veselé|Piešťany|Trnavský kraj
+Veterná Poruba|Liptovský Mikuláš|Žilinský kraj
+Vieska|Dunajská Streda|Trnavský kraj
+Vieska|Veľký Krtíš|Banskobystrický kraj
+Vieska nad Žitavou|Zlaté Moravce|Nitriansky kraj
+Vikartovce|Poprad|Prešovský kraj
+Vinica|Veľký Krtíš|Banskobystrický kraj
+Viničky|Trebišov|Košický kraj
+Viničné|Pezinok|Bratislavský kraj
+Vinné|Michalovce|Košický kraj
+Vinodol|Nitra|Nitriansky kraj
+Vinohrady nad Váhom|Galanta|Trnavský kraj
+Vinosady|Pezinok|Bratislavský kraj
+Virt|Komárno|Nitriansky kraj
+Vislanka|Stará Ľubovňa|Prešovský kraj
+Vislava|Stropkov|Prešovský kraj
+Visolaje|Púchov|Trenčiansky kraj
+Višňov|Trebišov|Košický kraj
+Višňové|Nové Mesto nad Váhom|Trenčiansky kraj
+Višňové|Žilina|Žilinský kraj
+Vištuk|Pezinok|Bratislavský kraj
+Vitanová|Tvrdošín|Žilinský kraj
+Vítkovce|Spišská Nová Ves|Košický kraj
+Víťaz|Prešov|Prešovský kraj
+Víťazovce|Humenné|Prešovský kraj
+Vlača|Vranov nad Topľou|Prešovský kraj
+Vladiča|Stropkov|Prešovský kraj
+Vlachovo|Rožňava|Košický kraj
+Vlachy|Liptovský Mikuláš|Žilinský kraj
+Vlčany|Šaľa|Nitriansky kraj
+Vlčkovce|Trnava|Trnavský kraj
+Vlkas|Nové Zámky|Nitriansky kraj
+Vlková|Kežmarok|Prešovský kraj
+Vlkovce|Kežmarok|Prešovský kraj
+Vlky|Senec|Bratislavský kraj
+Voderady|Trnava|Trnavský kraj
+Vojany|Michalovce|Košický kraj
+Vojčice|Trebišov|Košický kraj
+Vojka|Trebišov|Košický kraj
+Vojka nad Dunajom|Dunajská Streda|Trnavský kraj
+Vojkovce|Spišská Nová Ves|Košický kraj
+Vojnatina|Sobrance|Košický kraj
+Vojňany|Kežmarok|Prešovský kraj
+Vojtovce|Stropkov|Prešovský kraj
+Volica|Medzilaborce|Prešovský kraj
+Volkovce|Zlaté Moravce|Nitriansky kraj
+Voľa|Michalovce|Košický kraj
+Vozokany|Galanta|Trnavský kraj
+Vozokany|Topoľčany|Nitriansky kraj
+Vráble|Nitra|Nitriansky kraj
+Vrádište|Skalica|Trnavský kraj
+Vrakúň|Dunajská Streda|Trnavský kraj
+Vranov nad Topľou|Vranov nad Topľou|Prešovský kraj
+Vrbnica|Michalovce|Košický kraj
+Vrbov|Kežmarok|Prešovský kraj
+Vrbovce|Myjava|Trenčiansky kraj
+Vrbová nad Váhom|Komárno|Nitriansky kraj
+Vrbové|Piešťany|Trnavský kraj
+Vrchteplá|Považská Bystrica|Trenčiansky kraj
+Vrícko|Martin|Žilinský kraj
+Vršatské Podhradie|Ilava|Trenčiansky kraj
+Vrútky|Martin|Žilinský kraj
+Vtáčkovce|Košice-okolie|Košický kraj
+Výborná|Kežmarok|Prešovský kraj
+Výčapy- Opatovce|Nitra|Nitriansky kraj
+Vydrany|Dunajská Streda|Trnavský kraj
+Vydrná|Púchov|Trenčiansky kraj
+Vydrník|Poprad|Prešovský kraj
+Východná|Liptovský Mikuláš|Žilinský kraj
+Výrava|Medzilaborce|Prešovský kraj
+Vysočany|Bánovce nad Bebravou|Trenčiansky kraj
+Vysoká|Banská Štiavnica|Banskobystrický kraj
+Vysoká|Sabinov|Prešovský kraj
+Vysoká nad Kysucou|Čadca|Žilinský kraj
+Vysoká nad Uhom|Michalovce|Košický kraj
+Vysoká pri Morave|Malacky|Bratislavský kraj
+Vysoké Tatry|Poprad|Prešovský kraj
+Vyškovce|Stropkov|Prešovský kraj
+Vyškovce nad Ipľom|Levice|Nitriansky kraj
+Vyšná Boca|Liptovský Mikuláš|Žilinský kraj
+Vyšná Hutka|Košice-okolie|Košický kraj
+Vyšná Jablonka|Humenné|Prešovský kraj
+Vyšná Jedľová|Svidník|Prešovský kraj
+Vyšná Kamenica|Košice-okolie|Košický kraj
+Vyšná Myšľa|Košice-okolie|Košický kraj
+Vyšná Olšava|Stropkov|Prešovský kraj
+Vyšná Pisaná|Svidník|Prešovský kraj
+Vyšná Polianka|Bardejov|Prešovský kraj
+Vyšná Rybnica|Sobrance|Košický kraj
+Vyšná Sitnica|Humenné|Prešovský kraj
+Vyšná Slaná|Rožňava|Košický kraj
+Vyšná Šebastová|Prešov|Prešovský kraj
+Vyšná Voľa|Bardejov|Prešovský kraj
+Vyšné Ladičkovce|Humenné|Prešovský kraj
+Vyšné nad Hronom|Levice|Nitriansky kraj
+Vyšné Nemecké|Sobrance|Košický kraj
+Vyšné Remety|Sobrance|Košický kraj
+Vyšné Repaše|Levoča|Prešovský kraj
+Vyšné Ružbachy|Stará Ľubovňa|Prešovský kraj
+Vyšný Čaj|Košice-okolie|Košický kraj
+Vyšný Hrabovec|Stropkov|Prešovský kraj
+Vyšný Hrušov|Humenné|Prešovský kraj
+Vyšný Kazimír|Vranov nad Topľou|Prešovský kraj
+Vyšný Klátov|Košice-okolie|Košický kraj
+Vyšný Komárnik|Svidník|Prešovský kraj
+Vyšný Kručov|Bardejov|Prešovský kraj
+Vyšný Kubín|Dolný Kubín|Žilinský kraj
+Vyšný Mirošov|Svidník|Prešovský kraj
+Vyšný Orlík|Svidník|Prešovský kraj
+Vyšný Slavkov|Levoča|Prešovský kraj
+Vyšný Tvarožec|Bardejov|Prešovský kraj
+Vyšný Žipov|Vranov nad Topľou|Prešovský kraj
+Zábiedovo|Tvrdošín|Žilinský kraj
+Záborie|Martin|Žilinský kraj
+Záborské|Prešov|Prešovský kraj
+Zádiel|Košice-okolie|Košický kraj
+Záhor|Sobrance|Košický kraj
+Záhorie (vojenský obvod)|Malacky|Bratislavský kraj
+Záhorská Ves|Malacky|Bratislavský kraj
+Záhradné|Prešov|Prešovský kraj
+Zákamenné|Námestovo|Žilinský kraj
+Zákopčie|Čadca|Žilinský kraj
+Zalaba|Levice|Nitriansky kraj
+Zálesie|Senec|Bratislavský kraj
+Zálesie|Kežmarok|Prešovský kraj
+Zalužice|Michalovce|Košický kraj
+Zamarovce|Trenčín|Trenčiansky kraj
+Zámutov|Vranov nad Topľou|Prešovský kraj
+Záriečie|Púchov|Trenčiansky kraj
+Záskalie|Považská Bystrica|Trenčiansky kraj
+Zatín|Trebišov|Košický kraj
+Závada|Topoľčany|Nitriansky kraj
+Závada|Humenné|Prešovský kraj
+Závadka|Humenné|Prešovský kraj
+Závadka|Gelnica|Košický kraj
+Závadka|Michalovce|Košický kraj
+Zavar|Trnava|Trnavský kraj
+Závažná Poruba|Liptovský Mikuláš|Žilinský kraj
+Závod|Malacky|Bratislavský kraj
+Zázrivá|Dolný Kubín|Žilinský kraj
+Zbehňov|Trebišov|Košický kraj
+Zbehy|Nitra|Nitriansky kraj
+Zboj|Snina|Prešovský kraj
+Zbojné|Medzilaborce|Prešovský kraj
+Zborov|Bardejov|Prešovský kraj
+Zborov nad Bystricou|Čadca|Žilinský kraj
+Zbrojníky|Levice|Nitriansky kraj
+Zbudská Belá|Medzilaborce|Prešovský kraj
+Zbudské Dlhé|Humenné|Prešovský kraj
+Zbudza|Michalovce|Košický kraj
+Zbyňov|Žilina|Žilinský kraj
+Zeleneč|Trnava|Trnavský kraj
+Zemianska Olča|Komárno|Nitriansky kraj
+Zemianske Kostoľany|Prievidza|Trenčiansky kraj
+Zemianske Podhradie|Nové Mesto nad Váhom|Trenčiansky kraj
+Zemianske Sady|Galanta|Trnavský kraj
+Zemné|Nové Zámky|Nitriansky kraj
+Zemplín|Trebišov|Košický kraj
+Zemplínska Nová Ves|Trebišov|Košický kraj
+Zemplínska Široká|Michalovce|Košický kraj
+Zemplínska Teplica|Trebišov|Košický kraj
+Zemplínske Hámre|Snina|Prešovský kraj
+Zemplínske Hradište|Trebišov|Košický kraj
+Zemplínske Jastrabie|Trebišov|Košický kraj
+Zemplínske Kopčany|Michalovce|Košický kraj
+Zemplínsky Branč|Trebišov|Košický kraj
+Zlatá Baňa|Prešov|Prešovský kraj
+Zlatá Idka|Košice-okolie|Košický kraj
+Zlaté|Bardejov|Prešovský kraj
+Zlaté Klasy|Dunajská Streda|Trnavský kraj
+Zlaté Moravce|Zlaté Moravce|Nitriansky kraj
+Zlatná na Ostrove|Komárno|Nitriansky kraj
+Zlatník|Vranov nad Topľou|Prešovský kraj
+Zlatníky|Bánovce nad Bebravou|Trenčiansky kraj
+Zlatno|Poltár|Banskobystrický kraj
+Zlatno|Zlaté Moravce|Nitriansky kraj
+Zliechov|Ilava|Trenčiansky kraj
+Zohor|Malacky|Bratislavský kraj
+Zubák|Púchov|Trenčiansky kraj
+Zuberec|Tvrdošín|Žilinský kraj
+Zubné|Humenné|Prešovský kraj
+Zubrohlava|Námestovo|Žilinský kraj
+Zvolen|Zvolen|Banskobystrický kraj
+Zvončín|Trnava|Trnavský kraj
+Žabokreky|Martin|Žilinský kraj
+Žabokreky nad Nitrou|Partizánske|Trenčiansky kraj
+Žakarovce|Gelnica|Košický kraj
+Žakovce|Kežmarok|Prešovský kraj
+Žalobín|Vranov nad Topľou|Prešovský kraj
+Žarnov|Košice-okolie|Košický kraj
+Žarnovica|Žarnovica|Banskobystrický kraj
+Žaškov|Dolný Kubín|Žilinský kraj
+Žbince|Michalovce|Košický kraj
+Ždaňa|Košice-okolie|Košický kraj
+Ždiar|Poprad|Prešovský kraj
+Žehňa|Prešov|Prešovský kraj
+Žehra|Spišská Nová Ves|Košický kraj
+Železník|Svidník|Prešovský kraj
+Želiezovce|Levice|Nitriansky kraj
+Želmanovce|Svidník|Prešovský kraj
+Žemberovce|Levice|Nitriansky kraj
+Žemliare|Levice|Nitriansky kraj
+Žiar|Liptovský Mikuláš|Žilinský kraj
+Žiar|Revúca|Banskobystrický kraj
+Žiar nad Hronom|Žiar nad Hronom|Banskobystrický kraj
+Žihárec|Šaľa|Nitriansky kraj
+Žikava|Zlaté Moravce|Nitriansky kraj
+Žilina|Žilina|Žilinský kraj
+Žipov|Prešov|Prešovský kraj
+Žirany|Nitra|Nitriansky kraj
+Žitavany|Zlaté Moravce|Nitriansky kraj
+Žitavce|Nitra|Nitriansky kraj
+Žitná- Radiša|Bánovce nad Bebravou|Trenčiansky kraj
+Žlkovce|Hlohovec|Trnavský kraj
+Župčany|Prešov|Prešovský kraj

@@ -1,0 +1,58 @@
+# Slovak translation of Drupal (6.8)
+# Copyright (c) 2009 by the Slovak translation team
+# Generated from file: ping.module,v 1.52 2007/12/19 17:45:42 goba
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal (6.8)\n"
+"POT-Creation-Date: 2009-01-04 11:20+0100\n"
+"PO-Revision-Date: 2008-04-20 19:17+0200\n"
+"Language-Team: Slovak\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((n==1)?(0):(((n>=2)&&(n<=4))?(1):2));\n"
+
+#: modules/ping/ping.module:55
+msgid "Failed to notify pingomatic.com (site)."
+msgstr "Zlyhalo upozornenie pingomatic.com (web)."
+
+#: modules/ping/ping.module:55
+msgid "directory ping"
+msgstr "directory ping"
+
+#: modules/ping/ping.module:0
+msgid "ping"
+msgstr "ping"
+
+#: modules/ping/ping.module:15
+msgid ""
+"The ping module is useful for notifying interested sites that your site has "
+"changed. It automatically sends notifications, or \"pings\", to the <a href="
+"\"@external-http-pingomatic-com\">pingomatic</a> service about new or "
+"updated content. In turn, <a href=\"@external-http-pingomatic-com"
+"\">pingomatic</a> notifies other popular services, including weblogs.com, "
+"Technorati, blo.gs, BlogRolling, Feedster.com, and Moreover."
+msgstr ""
+"Modul ping je užitočný pre upozorňovanie ostatných webov na to, že sa na "
+"tomto webe niečo zmenilo. Automaticky posiela upozornenia o novom alebo "
+"aktualizovanom obsahu (tzv. „pingy“) službe <a href=\"@external-http-"
+"pingomatic-com\">pingomatic</a>. <a href=\"@external-http-pingomatic-com"
+"\">Pingomatic</a> potom upozorní ďalšie známe služby, napr. weblogs.com, "
+"Technorati, blo.gs, BlogRolling, Feedster.com a Moreover."
+
+#: modules/ping/ping.module:16
+msgid ""
+"The ping module requires a correctly configured <a href=\"@cron\">cron "
+"maintenance task</a>."
+msgstr ""
+"Modul ping vyžaduje korektne nakonfigurovanú <a href=\"@cron\">cron úlohu "
+"pre údržbu webu</a>."
+
+#: modules/ping/ping.module:17
+msgid ""
+"For more information, see the online handbook entry for <a href=\"@ping"
+"\">Ping module</a>."
+msgstr ""
+"Ďalšie informácie sa dozviete v online príručke v kapitole <a href=\"@ping"
+"\">modul Ping</a>."

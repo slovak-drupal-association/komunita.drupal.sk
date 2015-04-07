@@ -1,0 +1,195 @@
+# Slovak translation of Drupal (6.8)
+# Copyright (c) 2009 by the Slovak translation team
+# Generated from files:
+#  dblog.module,v 1.21.2.2 2008/04/09 21:11:46 goba
+#  dblog.admin.inc,v 1.6.2.1 2008/09/17 05:47:53 goba
+#  dblog.install,v 1.6 2007/11/04 14:33:06 goba
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal (6.8)\n"
+"POT-Creation-Date: 2009-01-04 11:20+0100\n"
+"PO-Revision-Date: 2008-04-22 15:42+0200\n"
+"Language-Team: Slovak\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((n==1)?(0):(((n>=2)&&(n<=4))?(1):2));\n"
+
+#: modules/dblog/dblog.module:55
+msgid "Recent log entries"
+msgstr "Posledné udalosti"
+
+#: modules/dblog/dblog.module:56
+msgid "View events that have recently been logged."
+msgstr "Zobrazenie naposledy zaznamenaných udalostí."
+
+#: modules/dblog/dblog.module:63
+msgid "Top 'page not found' errors"
+msgstr "Chyby \"stránka nenájdená\""
+
+#: modules/dblog/dblog.module:64
+msgid "View 'page not found' errors (404s)."
+msgstr "Zobrazenie zoznamu chýb \"stránka nenájdená\" (chyba 404)."
+
+#: modules/dblog/dblog.module:71
+msgid "Top 'access denied' errors"
+msgstr "Chyby \"prístup odmietnutý\""
+
+#: modules/dblog/dblog.module:72
+msgid "View 'access denied' errors (403s)."
+msgstr "Zobrazenie zoznamu chýb \"prístup odmietnutý\" (403)."
+
+#: modules/dblog/dblog.admin.inc:119,91
+msgid "No log messages available."
+msgstr "Nie sú k dispozícii žiadne správy v zázname."
+
+#: modules/dblog/dblog.admin.inc:107
+msgid "Count"
+msgstr "Počet"
+
+#: modules/dblog/dblog.admin.inc:150
+msgid "Location"
+msgstr "Umiestnenie"
+
+#: modules/dblog/dblog.admin.inc:230,162
+msgid "Severity"
+msgstr "Prísnosť"
+
+#: modules/dblog/dblog.admin.inc:18
+msgid "Discard log entries above the following row limit"
+msgstr "Odstrániť zápisy zo záznamu prekračujúce nasledujúci limit riadkov"
+
+#: modules/dblog/dblog.admin.inc:21
+msgid ""
+"The maximum number of rows to keep in the database log. Older entries will "
+"be automatically discarded. (Requires a correctly configured <a href=\"@cron"
+"\">cron maintenance task</a>.)"
+msgstr ""
+"Maximálny počet záznamov v databázovom žurnále. Staršie záznamy budú "
+"automaticky zmazané. (Vyžaduje správne nastavený <a href=\"@cron\">cron</a>.)"
+
+#: modules/dblog/dblog.admin.inc:270
+msgid "Filter log messages"
+msgstr "Filter zaznamenaných správ"
+
+#: modules/dblog/dblog.admin.inc:307
+msgid "You must select something to filter by."
+msgstr "Musíte si zvoliť niečo na filtrovanie."
+
+#: modules/dblog/dblog.module:21
+msgid ""
+"The dblog module monitors your system, capturing system events in a log to "
+"be reviewed by an authorized individual at a later time. This is useful for "
+"site administrators who want a quick overview of activities on their site. "
+"The logs also record the sequence of events, so it can be useful for "
+"debugging site errors."
+msgstr ""
+"Modul dblog monitoruje web, zapisuje systémové udalosti do logu, ktorý si "
+"môže neskôr autorizovaný používateľ prezerať. To je dobré pre "
+"administrátorov webu, ktorí chcú mať rýchly prehľad aktivít na webe. Modul "
+"do logu zapisuje aj poradie udalostí, čo môže pomôcť pri riešení problémov a "
+"chýb webu."
+
+#: modules/dblog/dblog.module:22
+msgid ""
+"The dblog log is simply a list of recorded events containing usage data, "
+"performance data, errors, warnings and operational information. "
+"Administrators should check the dblog report on a regular basis to ensure "
+"their site is working properly."
+msgstr ""
+"Záznam modulu dblog je jednoduchý zoznam zapísaných udalostí obsahujúci "
+"údaje o výkonnosti, používaní, chyby, varovania a operačné informácie. "
+"Administrátori by mali log pravidelne kontrolovať aby zistili či web beží "
+"bez problémov."
+
+#: modules/dblog/dblog.module:23
+msgid ""
+"For more information, see the online handbook entry for <a href=\"@dblog"
+"\">Dblog module</a>."
+msgstr ""
+"Ďalšie informácie sa dozviete v online príručke v kapitole <a href=\"@dblog"
+"\">modul Dblog</a>."
+
+#: modules/dblog/dblog.module:26
+msgid ""
+"The dblog module monitors your website, capturing system events in a log to "
+"be reviewed by an authorized individual at a later time. The dblog log is "
+"simply a list of recorded events containing usage data, performance data, "
+"errors, warnings and operational information. It is vital to check the dblog "
+"report on a regular basis as it is often the only way to tell what is going "
+"on."
+msgstr ""
+"Modul dblog monitoruje vašu stránku, zaznamenáva udalosti aby mohli byť "
+"neskôr prezreté oprávneným používateľom. Záznamy dblogu sú jednoduchým "
+"zoznamom udalostí obsahujúcich užitočné dáta, chyby, varovania a prevádzkové "
+"informácie. Pravidelné kontrolovanie hlásení dblogu je často jediný možný "
+"spôsob ako zistiť čo sa so systémom deje."
+
+#: modules/dblog/dblog.module:47
+msgid ""
+"Settings for logging to the Drupal database logs. This is the most common "
+"method for small to medium sites on shared hosting. The logs are viewable "
+"from the admin pages."
+msgstr ""
+"Nastavenie zaznamenávania z databázy Drupalu. Toto je najčastejšia metóda od "
+"malých po stredné zdielané hostované stránky. Záznamy sú viditeľné z admin "
+"stránky."
+
+#: modules/dblog/dblog.module:0
+msgid "dblog"
+msgstr "dblog"
+
+#: modules/dblog/dblog.install:25
+msgid "Table that contains logs of all system events."
+msgstr "Tabuľka záznamov všetkých systémových udalostí."
+
+#: modules/dblog/dblog.install:30
+msgid "Primary Key: Unique watchdog event ID."
+msgstr "Primárny kľúč: Jedinečné ID watchdog udalosti."
+
+#: modules/dblog/dblog.install:36
+msgid "The {users}.uid of the user who triggered the event."
+msgstr "{users}.uid používateľa, ktorý zapríčinil udalosť."
+
+#: modules/dblog/dblog.install:43
+msgid "Type of log message, for example \"user\" or \"page not found.\""
+msgstr ""
+"Typ zaznamenávanej správy, napríklad \"používateľ\" alebo \"stránka nenájdená"
+"\"."
+
+#: modules/dblog/dblog.install:49
+msgid "Text of log message to be passed into the t() function."
+msgstr "Text správy záznamu, ktorá má byť odovzdaná funkcii t()."
+
+#: modules/dblog/dblog.install:55
+msgid ""
+"Serialized array of variables that match the message string and that is "
+"passed into the t() function."
+msgstr ""
+"Zreťazené pole premenných, ktoré zodpovedá textu správy, a ktorý sa "
+"odovzdáva funkcii t()."
+
+#: modules/dblog/dblog.install:63
+msgid "The severity level of the event; ranges from 0 (Emergency) to 7 (Debug)"
+msgstr "Závažnosť udalosti, rozsah od 0 (havárie) do 7 (ladiace správy)"
+
+#: modules/dblog/dblog.install:70
+msgid "Link to view the result of the event."
+msgstr "Link pre zobrazenie výsledku udalosti."
+
+#: modules/dblog/dblog.install:75
+msgid "URL of the origin of the event."
+msgstr "URL, kde udalosť vznikla."
+
+#: modules/dblog/dblog.install:82
+msgid "URL of referring page."
+msgstr "URL odkazujúcej stránky."
+
+#: modules/dblog/dblog.install:89
+msgid "Hostname of the user who triggered the event."
+msgstr "Meno počítača používateľa, ktorý zapríčinil udalosť."
+
+#: modules/dblog/dblog.install:95
+msgid "Unix timestamp of when event occurred."
+msgstr "Čas, kedy udalosť nastala, udaný pomocou Unixovej časovej známky."

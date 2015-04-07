@@ -1,0 +1,114 @@
+<?php
+/**
+* Provides functionality to do search within one table based on provided criteria.
+* Moreover it localy caches the result so if called more than once
+* on one page load the database is not queried again.
+* 
+* @param string $table
+* @param array $criteria - an associative array of pairs field => value OR...
+*   array(
+*     'nid' => val,
+*     'created' = array('comparator' => '>', 'value' => val)
+*   )
+*   OR...
+*   array(
+*     'name' => array('comparator' => 'LIKE', 'value' => "'%val%'")
+*     'flag' => array('comparator' => IN, 'placeholder' => db_placeholder(array_of_vals), 'value' => array_of_vals)
+*   )
+* @param string $operator
+* @param string $order_by
+* @param boolean $reload
+* @return array of objects
+*/
+function tools_generic_search ($table, $criteria, $operator = 'AND', $order_by = NULL, $reload = FALSE) {
+  static $data;
+  
+  if (!is_array($criteria)) {
+    return NULL;
+  }
+  
+  $qhash = sha1($table.serialize($criteria).$operator.$order_by);
+  
+  if (isset($data[$qhash]) && !$reload) {
+    return $data[$qhash];
+  }
+  else {
+    $data[$qhash] = array();
+  }
+  
+  $where = "";
+  $schema = drupal_get_schema($table);
+  $i = 0;
+  $search_vals = array();
+  
+  if ($schema == NULL) {
+    return NULL;
+  }
+  
+  foreach ($schema['fields'] as $field => $definition) {
+    if (in_array($field, array_keys($criteria))) {
+      
+      $value = $criteria[$field];
+      $comparator = '=';
+      $placeholder = ($definition['type'] == 'int' || $definition['type'] == 'serial' ? '%d' : "'%s'");
+      
+      if (is_array($value)) {
+        $comparator = $value['comparator'];
+        
+        if (!empty($value['placeholder'])) {
+          $placeholder = is_array($value['value']) ? '('.$value['placeholder'].')' : $value['placeholder'];
+        }
+        $value = $value['value'];
+      }
+      
+      //if first itteration do not prepend operator, but WHERE
+      $where .= $i == 0 ? 'WHERE' : ' '.$operator;
+      //append field
+      $where .= ' '. $field;
+      //append comparator
+      $where .= ' '. $comparator;
+      //add placeholder
+      $where .= ' '. $placeholder;
+      //add search value
+      if (is_array($value)) {
+        foreach ($value as $_value) {
+          $search_vals[] = $_value;
+        }
+      }
+      else {
+        $search_vals[] = $value;
+      }
+      
+      $i++;
+    }
+  }
+  
+  $query = "SELECT * FROM {$table} ";
+  $query .= $where;
+  $query .= $order_by != NULL ? ' ORDER BY '.$order_by : '';
+
+  $res = db_query($query, $search_vals);
+  
+  while ($row = db_fetch_object($res)) {
+    $data[$qhash][] = $row;
+  }
+  
+  return $data[$qhash];
+}
+
+/**
+* Get one row from selected table based on provided criteria.
+* Moreover it localy caches the result so if called more than once
+* on one page load the database is not queried again.
+* 
+* Note that it is caller's responsibility to provide correct parameters.
+* 
+* @param string $table - name of the db table
+* @param array $criteria - associative array
+* @param boolean $reload
+* @return object
+*/
+function tools_generic_get_data ($table, $criteria, $reload = FALSE) {
+  $res = tools_generic_search($table, $criteria, 'AND', NULL, $reload);
+  return $res[0];
+}

@@ -1,0 +1,355 @@
+# translation of aggregator-module.po to Slovak
+# Slovak translation of Intranet
+# Copyright (c) 2005 pip <oscadal@gmail.com>
+# Miroslav Habara <habara@drupal.sk>, 2005.
+# Miroslav Habara <habara@drupal.sk>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal CMS 4.7\n"
+"POT-Creation-Date: 2005-04-08 18:55+0000\n"
+"PO-Revision-Date: 2006-09-06 21:00+0100\n"
+"Last-Translator: mirek <mirek@host.sk>\n"
+"Language-Team: Slovak <mirek.binas@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n>=2 && n<=4 ? 1 : 2;\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: modules/aggregator.module:15
+msgid "The news aggregator is a powerful on-site RSS syndicator/news reader that can gather fresh content from news sites and weblogs around the web."
+msgstr ""
+
+#: modules/aggregator.module:16
+msgid "Users can view the latest news chronologically in the <a href=\"%aggregator\">main news aggregator display</a> or by <a href=\"%aggregator-sources\">source</a>. Administrators can add, edit and delete feeds and choose how often to check for newly updated news for each individual feed. Administrators can also tag individual feeds with categories, offering selective grouping of some feeds into separate displays. Listings of the latest news for individual sources or categorized sources can be enabled as blocks for display in the sidebar through the <a href=\"%admin-block\">block administration page</a>. The news aggregator requires cron to check for the latest news from the sites to which you have subscribed. Drupal also provides a <a href=\"%aggregator-opml\">machine-readable OPML file</a> of all of your subscribed feeds."
+msgstr ""
+
+#: modules/aggregator.module:17
+msgid ""
+"<p>You can</p>\n"
+"<ul>\n"
+"<li>administer your list of news feeds <a href=\"%admin-aggregator\">administer &gt;&gt;  aggregator</a>.</li>\n"
+"<li>add a new feed <a href=\"%admin-aggregator-add-feed\">administer &gt;&gt; aggregator &gt;&gt; add feed</a>.</li>\n"
+"<li>add a new category <a href=\"%admin-aggregator-add-category\">administer &gt;&gt; aggregator &gt;&gt; add category</a>.</li>\n"
+"<li>configure global settings for the news aggregator <a href=\"%admin-settings-aggregator\">administer &gt;&gt; settings &gt;&gt; aggregator</a>.</li>\n"
+"<li>control access to the aggregator module through access permissions <a href=\"%admin-access\">administer &gt;&gt; access control &gt;&gt; permissions</a>.</li>\n"
+"<li>set permissions to access new feeds for user roles such as anonymous users at <a href=\"%admin-access\">administer &gt;&gt; access control</a>.</li>\n"
+"<li>view the <a href=\"%aggregator\">aggregator page</a>.</li>\n"
+"</ul>\n"
+msgstr ""
+
+#: modules/aggregator.module:28
+msgid "For more information please read the configuration and customization handbook <a href=\"%aggregator\">Aggregator page</a>."
+msgstr ""
+
+#: modules/aggregator.module:31
+msgid "Aggregates syndicated content (RSS, RDF, and Atom feeds)."
+msgstr ""
+
+#: modules/aggregator.module:33
+msgid "<p>Thousands of sites (particularly news sites and weblogs) publish their latest headlines and/or stories in a machine-readable format so that other sites can easily link to them. This content is usually in the form of an <a href=\"http://blogs.law.harvard.edu/tech/rss\">RSS</a> feed (which is an XML-based syndication standard). To display the feed or category in a block you must decide how many items to show by editing the feed or block and turning on the <a href=\"%block\">feed's block</a>.</p>"
+msgstr ""
+
+#: modules/aggregator.module:35
+msgid "<p>Add a site that has an RSS/RDF/Atom feed. The URL is the full path to the feed file. For the feed to update automatically you must run \"cron.php\" on a regular basis. If you already have a feed with the URL you are planning to use, the system will not accept another feed with the same URL.</p>"
+msgstr ""
+
+#: modules/aggregator.module:37
+msgid "<p>Categories provide a way to group items from different news feeds together. Each news category has its own feed page and block. For example, you could tag various sport-related feeds as belonging to a category called <em>Sports</em>. News items can be added to a category automatically by setting a feed to automatically place its item into that category, or by using the categorize items link in any listing of news items.</p>"
+msgstr ""
+
+#: modules/aggregator.module:51;1194;374;385;507;518;707;756;761;818;0
+msgid "aggregator"
+msgstr "agregátor"
+
+#: modules/aggregator.module:55
+msgid "add feed"
+msgstr "pridať zdroj"
+
+#: modules/aggregator.module:65;970
+msgid "remove items"
+msgstr "odstrániť položky"
+
+#: modules/aggregator.module:70;970
+msgid "update items"
+msgstr "obnovit položky"
+
+#: modules/aggregator.module:80
+msgid "news aggregator"
+msgstr "agregátor noviniek"
+
+#: modules/aggregator.module:85
+msgid "sources"
+msgstr "zdroje"
+
+#: modules/aggregator.module:94
+msgid "RSS feed"
+msgstr "RSS feed"
+
+#: modules/aggregator.module:99
+msgid "OPML feed"
+msgstr ""
+
+#: modules/aggregator.module:127;148
+msgid "categorize"
+msgstr "kategorizovat"
+
+#: modules/aggregator.module:167
+msgid "edit feed"
+msgstr "upraviť zdroj"
+
+#: modules/aggregator.module:178
+msgid "edit category"
+msgstr "upraviť kategóriu"
+
+#: modules/aggregator.module:201
+msgid "The list of tags which are allowed in feeds, i.e., which will not be removed by Drupal."
+msgstr ""
+
+#: modules/aggregator.module:205
+msgid "Items shown in sources and categories pages"
+msgstr "Položiek na stránkach zdroja a ketegórie"
+
+#: modules/aggregator.module:207
+msgid "The number of items which will be shown with each feed or category in the feed and category summary pages."
+msgstr "Pocet položiek, ktoré sa zobrazia pre každý kanál alebo kategóriu a v prehladoch kategórie."
+
+#: modules/aggregator.module:211
+msgid "Discard news items older than"
+msgstr "Zahodit položky staršie ako"
+
+#: modules/aggregator.module:213
+msgid "Older news items will be automatically discarded.  Requires crontab."
+msgstr "Staré položky budú automaticky odstránené. Vyžaduje crontab."
+
+#: modules/aggregator.module:217
+msgid "Category selection type"
+msgstr "Výber typu kategórie"
+
+#: modules/aggregator.module:218
+msgid "checkboxes"
+msgstr "zaškrtni"
+
+#: modules/aggregator.module:218
+msgid "multiple selector"
+msgstr "multiselektor"
+
+#: modules/aggregator.module:219
+msgid "The type of category selection widget which is shown on categorization pages. Checkboxes are easier to use; a multiple selector is good for working with large numbers of categories."
+msgstr "Druh prvku pre výber kategórie, ktorá sa zobrazí na stránkach kategorizácie. Checkboxy sa lahšie používajú pri práci, kde je velký pocet kategórií."
+
+#: modules/aggregator.module:253
+msgid "%title category latest items"
+msgstr "Najnovšie položky kategórie title"
+
+#: modules/aggregator.module:257
+msgid "%title feed latest items"
+msgstr "Najnovšie položky kategórie title"
+
+#: modules/aggregator.module:268
+msgid "Number of news items in block"
+msgstr "Pocet položiek v bloku"
+
+#: modules/aggregator.module:287
+msgid "View this feed's recent news."
+msgstr "Zobrazit najnovšie kanáli v clánku."
+
+#: modules/aggregator.module:295
+msgid "View this category's recent news."
+msgstr "Zobrazit najnovšie správy kategórie."
+
+#: modules/aggregator.module:346
+msgid "A category named %category already exists. Please enter a unique title."
+msgstr ""
+
+#: modules/aggregator.module:365
+msgid "The category %category has been updated."
+msgstr "Kategória %category bola aktualizovaná."
+
+#: modules/aggregator.module:374
+msgid "Category %category deleted."
+msgstr "Kategória %category bola zmazaná."
+
+#: modules/aggregator.module:375
+msgid "The category %category has been deleted."
+msgstr "Kategória %category bola zmazaná."
+
+#: modules/aggregator.module:385
+msgid "Category %category added."
+msgstr ""
+
+#: modules/aggregator.module:386
+msgid "The category %category has been added."
+msgstr "Kategória %category bola pridaná."
+
+#: modules/aggregator.module:421
+msgid "The name of the feed; typically the name of the web site you syndicate content from."
+msgstr "Meno zdroja; obvyklé meno webu, z ktorého sa syndikuje obsah."
+
+#: modules/aggregator.module:428
+msgid "The fully-qualified URL of the feed."
+msgstr "Celá URL zdroja."
+
+#: modules/aggregator.module:432
+msgid "Update interval"
+msgstr "Interval obnovy"
+
+#: modules/aggregator.module:435
+msgid "The refresh interval indicating how often you want to update this feed. Requires crontab."
+msgstr "Obnovovací interval určuje, ako často chcete tento zdroj aktualizovať. Vyžaduje crontab."
+
+#: modules/aggregator.module:448
+msgid "Categorize news items"
+msgstr "Kategorizácia položiek"
+
+#: modules/aggregator.module:451
+msgid "New items in this feed will be automatically filed in the checked categories as they are received."
+msgstr ""
+
+#: modules/aggregator.module:478
+msgid "A feed named %feed already exists. Please enter a unique title."
+msgstr ""
+
+#: modules/aggregator.module:498
+msgid "The feed %feed has been updated."
+msgstr "Zdroj %feed bol aktualizovaný."
+
+#: modules/aggregator.module:507
+msgid "Feed %feed deleted."
+msgstr "Zdroj %feed bol zmazaný."
+
+#: modules/aggregator.module:508
+msgid "The feed %feed has been deleted."
+msgstr "Zdroj %feed bol zmazaný."
+
+#: modules/aggregator.module:518
+msgid "Feed %feed added."
+msgstr ""
+
+#: modules/aggregator.module:519
+msgid "The feed %feed has been added."
+msgstr "Zdroj %feed bol pridaný."
+
+#: modules/aggregator.module:572
+msgid "The news items from %site have been removed."
+msgstr "Novinky zo stránky %site boli zmazané."
+
+#: modules/aggregator.module:703
+msgid "There is no new syndicated content from %site."
+msgstr ""
+
+#: modules/aggregator.module:707
+msgid "Updated URL for feed %title to %url."
+msgstr "Aktualizácia URL pre zdroj %title na %url."
+
+#: modules/aggregator.module:756;757
+msgid "There is new syndicated content from %site."
+msgstr ""
+
+#: modules/aggregator.module:761
+msgid "The RSS-feed from %site seems to be broken, due to \"%error\"."
+msgstr ""
+
+#: modules/aggregator.module:762
+msgid "The RSS-feed from %site seems to be broken, because of error \"%error\"."
+msgstr ""
+
+#: modules/aggregator.module:818
+msgid "The RSS-feed from %site seems to be broken, due to an error \"%error\" on line %line."
+msgstr ""
+
+#: modules/aggregator.module:819
+msgid "The RSS-feed from %site seems to be broken, because of error \"%error\" on line %line."
+msgstr ""
+
+#: modules/aggregator.module:965
+msgid "Feed overview"
+msgstr "Náhlad zdroja"
+
+#: modules/aggregator.module:967;978
+msgid "Items"
+msgstr "Položky"
+
+#: modules/aggregator.module:967
+msgid "Last update"
+msgstr "Posledná aktualizácia"
+
+#: modules/aggregator.module:967
+msgid "Next update"
+msgstr "Ďalšia aktualizácia"
+
+#: modules/aggregator.module:970
+msgid "%time left"
+msgstr ""
+
+#: modules/aggregator.module:976
+msgid "Category overview"
+msgstr "Náhlad kategórie"
+
+#: modules/aggregator.module:1077
+msgid "Save categories"
+msgstr "Uložiť kategórie"
+
+#: modules/aggregator.module:1105
+msgid "Categorize"
+msgstr "Kategorizovať"
+
+#: modules/aggregator.module:1114
+msgid "You are not allowed to categorize this feed item."
+msgstr ""
+
+#: modules/aggregator.module:1127
+msgid "The categories have been saved."
+msgstr "Kategórie boli uložené."
+
+#: modules/aggregator.module:1166
+msgid "in category"
+msgstr "v kategórii"
+
+#: modules/aggregator.module:1194
+msgid "aggregated feeds"
+msgstr ""
+
+#: modules/aggregator.module:1265
+msgid "URL:"
+msgstr "URL:"
+
+#: modules/aggregator.module:1278
+msgid "Updated:"
+msgstr "Aktualizované:"
+
+#: modules/aggregator.module:1293;1293
+msgid "blog it"
+msgstr "blog"
+
+#: modules/aggregator.module:1294
+msgid "Comment on this news item in your personal blog."
+msgstr "Okomentujte túto novinku vo vašom osobnom blogu."
+
+#: modules/aggregator.module:1314
+msgid "%age old"
+msgstr "%age staré"
+
+#: modules/aggregator.module:1334
+msgid "%ago ago"
+msgstr "pred %ago"
+
+#: modules/aggregator.module:970;981;1373
+msgid "1 item"
+msgid_plural "%count items"
+msgstr[0] "1 položka"
+msgstr[1] "%count položky"
+msgstr[2] "%count položiek"
+
+#: modules/aggregator.module:228
+msgid "administer news feeds"
+msgstr "administrácia noviniek"
+
+#: modules/aggregator.module:228
+msgid "access news feeds"
+msgstr "prístup k novinkám"
+

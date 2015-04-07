@@ -1,0 +1,2000 @@
+# Slovak translation of Drupal (6.8)
+# Copyright (c) 2009 by the Slovak translation team
+# Generated from files:
+#  common.inc,v 1.756.2.37 2008/12/11 17:39:42 goba
+#  database.pgsql.inc,v 1.68.2.3 2008/11/17 10:31:41 goba
+#  file.inc,v 1.121.2.5 2008/10/20 09:42:31 goba
+#  form.inc,v 1.265.2.16 2008/11/22 13:03:19 dries
+#  image.inc,v 1.24 2008/01/28 16:05:17 goba
+#  image.gd.inc,v 1.4 2008/01/15 10:17:42 goba
+#  locale.inc,v 1.174.2.5 2008/12/10 21:29:36 goba
+#  menu.inc,v 1.255.2.27 2008/11/10 17:30:39 goba
+#  pager.inc,v 1.63 2007/12/06 09:58:30 goba
+#  tablesort.inc,v 1.47 2008/01/04 09:31:48 goba
+#  theme.inc,v 1.415.2.17 2008/12/10 21:09:05 goba
+#  unicode.inc,v 1.29 2007/12/28 12:02:50 dries
+#  xmlrpc.inc,v 1.47.2.4 2008/10/15 14:04:06 dries
+#  xmlrpcs.inc,v 1.24.2.1 2008/04/28 10:04:52 dries
+#  actions.inc,v 1.8.2.5 2008/10/16 12:45:53 goba
+#  batch.inc,v 1.14 2007/12/20 11:57:20 goba
+#  mail.inc,v 1.8.2.4 2008/10/06 11:04:08 dries
+#  module.inc,v 1.115 2007/12/27 12:31:05 goba
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal (6.8)\n"
+"POT-Creation-Date: 2009-01-04 11:20+0100\n"
+"PO-Revision-Date: 2008-10-19 00:11+0200\n"
+"Language-Team: Slovak\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((n==1)?(0):(((n>=2)&&(n<=4))?(1):2));\n"
+
+#: includes/common.inc:333
+msgid "Site off-line"
+msgstr "Tento web je offline"
+
+#: includes/common.inc:360
+msgid "Page not found"
+msgstr "Stránka nebola nájdená"
+
+#: includes/common.inc:389
+msgid "Access denied"
+msgstr "Prístup odmietnutý"
+
+#: includes/common.inc:390
+msgid "You are not authorized to access this page."
+msgstr "Nemáte oprávnenie na pristup k tejto stránke."
+
+#: includes/common.inc:618
+msgid "%message in %file on line %line."
+msgstr "%message v súbore %file na riadku %line."
+
+#: includes/common.inc:1191
+msgid "KB"
+msgstr "KB"
+
+#: includes/common.inc:1196
+msgid "@size @suffix"
+msgstr "@size @suffix"
+
+#: includes/common.inc:1228
+msgid "0 sec"
+msgstr "0 sekúnd"
+
+#: includes/common.inc:2625
+msgid "Cron has been running for more than an hour and is most likely stuck."
+msgstr "Cron už beží dlhšie ako hodinu a je pravdepodobné, že sa zasekol."
+
+#: includes/common.inc:2632
+msgid "Attempting to re-run cron while it is already running."
+msgstr "Cron práve beží, nie je možné ho spustiť znova."
+
+#: includes/common.inc:2647
+msgid "Cron run completed."
+msgstr "Beh crona dokončený."
+
+#: includes/common.inc:2663
+msgid "Cron run exceeded the time limit and was aborted."
+msgstr "Cron prekročil časový limit a preto bol ukončený."
+
+#: includes/common.inc:2663,2647,2632,2625
+msgid "cron"
+msgstr "cron"
+
+#: includes/common.inc:1187
+msgid "1 byte"
+msgid_plural "@count bytes"
+msgstr[0] "@count bajt"
+msgstr[1] "@count bajty"
+msgstr[2] "@count bajtov"
+
+#: includes/common.inc:0
+msgid "1 year"
+msgid_plural "@count years"
+msgstr[0] "@count rok"
+msgstr[1] "@count roky"
+msgstr[2] "@count rokov"
+
+#: includes/common.inc:0
+msgid "1 week"
+msgid_plural "@count weeks"
+msgstr[0] "@count týždeň"
+msgstr[1] "@count týždne"
+msgstr[2] "@count týždňov"
+
+#: includes/common.inc:0
+msgid "1 day"
+msgid_plural "@count days"
+msgstr[0] "@count deň"
+msgstr[1] "@count dni"
+msgstr[2] "@count dní"
+
+#: includes/common.inc:0
+msgid "1 hour"
+msgid_plural "@count hours"
+msgstr[0] "@count hod"
+msgstr[1] "@count hod"
+msgstr[2] "@count hod"
+
+#: includes/common.inc:0
+msgid "1 min"
+msgid_plural "@count min"
+msgstr[0] "@count min"
+msgstr[1] "@count min"
+msgstr[2] "@count min"
+
+#: includes/common.inc:0
+msgid "1 sec"
+msgid_plural "@count sec"
+msgstr[0] "@count s"
+msgstr[1] "@count s"
+msgstr[2] "@count s"
+
+#: includes/database.pgsql.inc:23
+msgid "PostgreSQL database"
+msgstr "PostgreSQL databáza"
+
+#: includes/database.pgsql.inc:29
+msgid ""
+"Your PostgreSQL Server is too old. Drupal requires at least PostgreSQL %"
+"version."
+msgstr ""
+"Váš PostgreSQL Server je príliš starý. Drupal vyžaduje minimálne PostgreSQL %"
+"version."
+
+#: includes/database.pgsql.inc:406
+msgid ""
+"Your PostgreSQL database is set up with the wrong character encoding (%"
+"encoding). It is possible it will not work as expected. It is advised to "
+"recreate it with UTF-8/Unicode encoding. More information can be found in "
+"the <a href=\"@url\">PostgreSQL documentation</a>."
+msgstr ""
+"Vaša databáza PostgreSQL má nastavené nesprávne kódovanie znakov (%"
+"encoding). Je možné, že nebude fungovať správne. Odporúčame databázu znova "
+"vytvoriť s kódovaním UTF-8/Unicode. Viac informácií nájdete v <a href=\"@url"
+"\">dokumentácii PostgreSQL</a>."
+
+#: includes/file.inc:104
+msgid "The directory %directory has been created."
+msgstr "Priečinok %directory bol vytvorený."
+
+#: includes/file.inc:118
+msgid ""
+"The permissions of directory %directory have been changed to make it "
+"writable."
+msgstr ""
+"Prístupové práva pre priečinok %directory boli upravené na umožnenie zápisu."
+
+#: includes/file.inc:121
+msgid "The directory %directory is not writable"
+msgstr "Do priečinka %directory nie je možné zapisovať"
+
+#: includes/file.inc:122
+msgid ""
+"The directory %directory is not writable, because it does not have the "
+"correct permissions set."
+msgstr ""
+"Do priečinka %directory nie je možné zapisovať, pretože nemá nastavené "
+"správne práva prístupu."
+
+#: includes/file.inc:136,135
+msgid ""
+"Security warning: Couldn't write .htaccess file. Please create a .htaccess "
+"file in your %directory directory which contains the following lines: <code>!"
+"htaccess</code>"
+msgstr ""
+"Bezpečnostné upozornenie: Nie je možné zapisovať do súboru .htaccess. "
+"Prosím, vytvorte súbor .htaccess v priečinku %directory, ktorý bude "
+"obsahovať nasledujúce riadky: <code>!htaccess</code>"
+
+#: includes/file.inc:509
+msgid "The file %file could not be saved, because the upload did not complete."
+msgstr "Súbor %file nemohol byť uložený, pretože nebol nahraný celý."
+
+#: includes/file.inc:514
+msgid "The file %file could not be saved. An unknown error has occurred."
+msgstr "Súbor %file nie je možné uložiť. Došlo k neznámej chybe."
+
+#: includes/file.inc:573
+msgid "File upload error. Could not move uploaded file."
+msgstr "Chyba pri uploade súboru. Nie je možné presunúť uploadovaný súbor."
+
+#: includes/file.inc:225
+msgid ""
+"The selected file %file could not be uploaded, because the destination %"
+"directory is not properly configured."
+msgstr ""
+"Vybraný súbor %file nie je možné nahrať, pretože cieľový priečinok %"
+"directory nie je správne nastavený."
+
+#: includes/file.inc:226
+msgid ""
+"The selected file %file could not be uploaded, because the destination %"
+"directory could not be found, or because its permissions do not allow the "
+"file to be written."
+msgstr ""
+"Vybraný súbor %file sa nedá nahrať, pretože cieľový priečinok %directory nie "
+"je možné nájsť alebo jeho práva neumožňujú zápis do priečinka."
+
+#: includes/file.inc:241
+msgid ""
+"The selected file %file could not be copied, because no file by that name "
+"exists. Please check that you supplied the correct filename."
+msgstr ""
+"Vybraný súbor %file sa nedá skopírovať, pretože neexistuje súbor s týmto "
+"menom. Skontrolujte, či bol zadaný správny názov súboru."
+
+#: includes/file.inc:305,254
+msgid ""
+"The selected file %file could not be copied, because a file by that name "
+"already exists in the destination."
+msgstr ""
+"Vybraný súbor %file sa nedá skopírovať, pretože súbor s rovnakým názvom už v "
+"cieľovom priečinku existuje."
+
+#: includes/file.inc:259
+msgid "The selected file %file could not be copied."
+msgstr "Vybraný súbor %file sa nedá skopírovať."
+
+#: includes/file.inc:339
+msgid "The removal of the original file %file has failed."
+msgstr "Chyba pri mazaní pôvodného súboru %file."
+
+#: includes/file.inc:758
+msgid "The file could not be created."
+msgstr "Súbor nie je možné vytvoriť."
+
+#: includes/file.inc:574
+msgid "file"
+msgstr "súbor"
+
+#: includes/form.inc:679
+msgid "!name field is required."
+msgstr "Pole !name je povinné."
+
+#: includes/form.inc:684
+msgid ""
+"!name cannot be longer than %max characters but is currently %length "
+"characters long."
+msgstr ""
+"!name nemôže byť dlhší ako %max znakov, napriek tomu je dlhý %length znakov."
+
+#: includes/form.inc:699
+msgid "Illegal choice %choice in !name element."
+msgstr "Neplatná voľba %choice v elemente !name."
+
+#: includes/form.inc:1598
+msgid "Confirm password"
+msgstr "Potvrdenie hesla"
+
+#: includes/form.inc:1621
+msgid "The specified passwords do not match."
+msgstr "Zadané heslá sa nezhodujú."
+
+#: includes/form.inc:1625
+msgid "Password field is required."
+msgstr "Musíte zadať heslo."
+
+#: includes/form.inc:1706
+msgid "The specified date is invalid."
+msgstr "Zadaný dátum nie je platný."
+
+#: includes/form.inc:2193
+msgid "This field is required."
+msgstr "Toto pole je povinné."
+
+#: includes/form.inc:2201,2198
+msgid "!title: !required"
+msgstr "!title: !required"
+
+#: includes/image.inc:95
+msgid ""
+"The selected image handling toolkit %toolkit can not correctly process %"
+"function."
+msgstr ""
+"Vybraný nástroj pre prácu s obrázkami %toolkit nevie správne vykonať  %"
+"function."
+
+#: includes/image.gd.inc:33
+msgid "JPEG quality"
+msgstr "Kvalita JPEG obrázkov"
+
+#: includes/image.gd.inc:34
+msgid ""
+"Define the image quality for JPEG manipulations. Ranges from 0 to 100. "
+"Higher values mean better image quality but bigger files."
+msgstr ""
+"Nastavte kvalitu obrázkov pri ich zmenách. Kvalita je vyjadrená číslom od 0 "
+"do 100. Väčšie číslo znamená lepšiu kvalitu, ale tiež väčší súbor."
+
+#: includes/image.gd.inc:38
+msgid "%"
+msgstr "%"
+
+#: includes/locale.inc:90
+msgid "Code"
+msgstr "Kód"
+
+#: includes/locale.inc:90
+msgid "English name"
+msgstr "Anglický názov"
+
+#: includes/locale.inc:122
+msgid "Configuration saved."
+msgstr "Nastavenie bolo uložené."
+
+#: includes/locale.inc:710,161
+msgid "Language name"
+msgstr "Názov jazyka"
+
+#: includes/locale.inc:176
+msgid "Custom language"
+msgstr "Vlastný jazyk"
+
+#: includes/locale.inc:239,229
+msgid "Language code"
+msgstr "Kód jazyka"
+
+#: includes/locale.inc:249
+msgid "Language name in English"
+msgstr "Názov jazyka v angličtine"
+
+#: includes/locale.inc:183
+msgid "Add custom language"
+msgstr "Pridať vlastný jazyk"
+
+#: includes/locale.inc:291
+msgid "The language %language (%code) already exists."
+msgstr "Jazyk %language (%code) už existuje."
+
+#: includes/locale.inc:298
+msgid "Invalid language code."
+msgstr "Neplatný kód jazyka."
+
+#: includes/locale.inc:601
+msgid "Already added languages"
+msgstr "Už pridané jazyky"
+
+#: includes/locale.inc:602
+msgid "Languages not yet added"
+msgstr "Zatiaľ nepridané jazyky"
+
+#: includes/locale.inc:609
+msgid "Import translation"
+msgstr "Importovať preklad"
+
+#: includes/locale.inc:612
+msgid "Language file"
+msgstr "Súbor prekladu"
+
+#: includes/locale.inc:617
+msgid "Import into"
+msgstr "Import do jazyka"
+
+#: includes/locale.inc:629
+msgid "Mode"
+msgstr "Režim"
+
+#: includes/locale.inc:632
+msgid "Strings in the uploaded file replace existing ones, new ones are added"
+msgstr "Reťazce v súbore nahradia existujúce, nové sa pridajú"
+
+#: includes/locale.inc:633
+msgid "Existing strings are kept, only new strings are added"
+msgstr "Existujúce reťazce sa zachovajú, len nové reťazce sa pridajú"
+
+#: includes/locale.inc:662,661
+msgid "The translation import of %filename failed."
+msgstr "Import prekladu zo súboru %filename zlyhal."
+
+#: includes/locale.inc:706
+msgid "Export translation"
+msgstr "Export prekladu"
+
+#: includes/locale.inc:729
+msgid "Export template"
+msgstr "Exportovať šablónu"
+
+#: includes/locale.inc:551
+msgid "Leave blank to show all strings. The search is case sensitive."
+msgstr ""
+"Ak necháte pole prázdne, zobrazia sa všetky reťazce. Hľadanie rozlišuje "
+"veľké a malé písmená."
+
+#: includes/locale.inc:559
+msgid "English (provided by Drupal)"
+msgstr "angličtina (integrovaná v Drupale)"
+
+#: includes/locale.inc:562
+msgid "Search in"
+msgstr "Hľadať v"
+
+#: includes/locale.inc:564
+msgid "Only translated strings"
+msgstr "Iba preložené reťazce"
+
+#: includes/locale.inc:564
+msgid "Only untranslated strings"
+msgstr "Iba nepreložené reťazce"
+
+#: includes/locale.inc:773
+msgid "String not found."
+msgstr "Reťazec nenájdený."
+
+#: includes/locale.inc:781
+msgid "Original text"
+msgstr "Pôvodný text"
+
+#: includes/locale.inc:823
+msgid "Save translations"
+msgstr "Uložiť preklad"
+
+#: includes/locale.inc:884
+msgid "The string has been saved."
+msgstr "Reťazec bol uložený."
+
+#: includes/locale.inc:931
+msgid "The string has been removed."
+msgstr "Reťazec bol odstránený."
+
+#: includes/locale.inc:1025
+msgid "The language selected for import is not supported."
+msgstr "Jazyk zvolený pre import nie je podporovaný."
+
+#: includes/locale.inc:1040
+msgid ""
+"The translation file %filename appears to have a missing or malformed header."
+msgstr "Súbor s prekladom %filename zrejme nemá alebo má chybnú hlavičku."
+
+#: includes/locale.inc:1436
+msgid ""
+"The translation file %filename contains an error: the plural formula could "
+"not be parsed."
+msgstr ""
+"Súbor s prekladom %filename obsahuje chybu: vzorec množných čísel nie je "
+"možné spracovať."
+
+#: includes/locale.inc:1878
+msgid "Exported %locale translation file: %filename."
+msgstr "Export prekladového súboru %locale: %filename."
+
+#: includes/locale.inc:1882
+msgid "Exported translation file: %filename."
+msgstr "Export prekladového súboru: %filename."
+
+#: includes/locale.inc:2032
+msgid "String"
+msgstr "Reťazec"
+
+#: includes/locale.inc:1078
+msgid ""
+"The translation import failed, because the file %filename could not be read."
+msgstr "Import prekladu zlyhal, pretože súbor %filename nie je možné načítať."
+
+#: includes/locale.inc:1107
+msgid ""
+"The translation file %filename contains an error: \"msgstr\" was expected "
+"but not found on line %line."
+msgstr ""
+"Súbor s prekladom %filename obsahuje chybu: na riadku %line sa očakáva "
+"\"msgstr\", ale chýba."
+
+#: includes/locale.inc:1113
+msgid ""
+"The translation file %filename contains an error: \"msgid_plural\" was "
+"expected but not found on line %line."
+msgstr ""
+"Súbor s prekladom %filename obsahuje chybu: na riadku %line sa očakáva "
+"\"msgid_plural\", ale chýba."
+
+#: includes/locale.inc:1180,1171,1157,1149,1137,1119
+msgid "The translation file %filename contains a syntax error on line %line."
+msgstr ""
+"Súbor s prekladom %filename obsahuje syntaktickú chybu na riadku %line."
+
+#: includes/locale.inc:1131
+msgid ""
+"The translation file %filename contains an error: \"msgid\" is unexpected on "
+"line %line."
+msgstr ""
+"Súbor s prekladom %filename obsahuje chybu: na riadku %line sa neočakáva "
+"\"msgid\"."
+
+#: includes/locale.inc:1145
+msgid ""
+"The translation file %filename contains an error: \"msgstr[]\" is unexpected "
+"on line %line."
+msgstr ""
+"Súbor s prekladom %filename obsahuje chybu: na riadku %line sa neočakáva "
+"\"msgstr[]\"."
+
+#: includes/locale.inc:1165
+msgid ""
+"The translation file %filename contains an error: \"msgstr\" is unexpected "
+"on line %line."
+msgstr ""
+"Súbor s prekladom %filename obsahuje chybu: na riadku %line sa neočakáva "
+"\"msgstr\"."
+
+#: includes/locale.inc:1193
+msgid ""
+"The translation file %filename contains an error: there is an unexpected "
+"string on line %line."
+msgstr ""
+"Súbor s prekladom %filename obsahuje chybu: neočakávaný reťazec na riadku %"
+"line."
+
+#: includes/locale.inc:1204
+msgid "The translation file %filename ended unexpectedly at line %line."
+msgstr "Súbor s prekladom %filename neočakávane skončil na riadku %line."
+
+#: includes/locale.inc:2298
+msgid "Afar"
+msgstr "afarčina"
+
+#: includes/locale.inc:2299
+msgid "Abkhazian"
+msgstr "abcházčina"
+
+#: includes/locale.inc:2300
+msgid "Avestan"
+msgstr "Avestský jazyk"
+
+#: includes/locale.inc:2301
+msgid "Afrikaans"
+msgstr "afrikánčina"
+
+#: includes/locale.inc:2302
+msgid "Akan"
+msgstr "akančina"
+
+#: includes/locale.inc:2303
+msgid "Amharic"
+msgstr "amharčina"
+
+#: includes/locale.inc:2304
+msgid "Arabic"
+msgstr "arabčina"
+
+#: includes/locale.inc:2305
+msgid "Assamese"
+msgstr "ásámčina"
+
+#: includes/locale.inc:2306
+msgid "Avar"
+msgstr "avarčina"
+
+#: includes/locale.inc:2307
+msgid "Aymara"
+msgstr "Aymarčina"
+
+#: includes/locale.inc:2308
+msgid "Azerbaijani"
+msgstr "azerbajdžančina"
+
+#: includes/locale.inc:2309
+msgid "Bashkir"
+msgstr "baškirčina"
+
+#: includes/locale.inc:2310
+msgid "Belarusian"
+msgstr "bieloruština"
+
+#: includes/locale.inc:2311
+msgid "Bulgarian"
+msgstr "bulharčina"
+
+#: includes/locale.inc:2312
+msgid "Bihari"
+msgstr "bihárske jazyky"
+
+#: includes/locale.inc:2313
+msgid "Bislama"
+msgstr "bislama"
+
+#: includes/locale.inc:2314
+msgid "Bambara"
+msgstr "bambara"
+
+#: includes/locale.inc:2315
+msgid "Bengali"
+msgstr "bengálčina"
+
+#: includes/locale.inc:2316
+msgid "Tibetan"
+msgstr "tibetčina"
+
+#: includes/locale.inc:2317
+msgid "Breton"
+msgstr "bretónčina"
+
+#: includes/locale.inc:2318
+msgid "Bosnian"
+msgstr "bosniačtina"
+
+#: includes/locale.inc:2319
+msgid "Catalan"
+msgstr "katalánčina"
+
+#: includes/locale.inc:2320
+msgid "Chechen"
+msgstr "čečenčina"
+
+#: includes/locale.inc:2321
+msgid "Chamorro"
+msgstr "čamorčina"
+
+#: includes/locale.inc:2322
+msgid "Corsican"
+msgstr "korzičtina"
+
+#: includes/locale.inc:2323
+msgid "Cree"
+msgstr "krí"
+
+#: includes/locale.inc:2324
+msgid "Czech"
+msgstr "čeština"
+
+#: includes/locale.inc:2325
+msgid "Old Slavonic"
+msgstr "slovienčina"
+
+#: includes/locale.inc:2326
+msgid "Chuvash"
+msgstr "čuvaština"
+
+#: includes/locale.inc:2327
+msgid "Welsh"
+msgstr "waleština"
+
+#: includes/locale.inc:2328
+msgid "Danish"
+msgstr "dánčina"
+
+#: includes/locale.inc:2329
+msgid "German"
+msgstr "nemčina"
+
+#: includes/locale.inc:2330
+msgid "Maldivian"
+msgstr "maldivčina"
+
+#: includes/locale.inc:2331
+msgid "Bhutani"
+msgstr "Bhutani"
+
+#: includes/locale.inc:2332
+msgid "Ewe"
+msgstr "ewe"
+
+#: includes/locale.inc:2333
+msgid "Greek"
+msgstr "gréčtina"
+
+#: includes/locale.inc:2334
+msgid "English"
+msgstr "angličtina"
+
+#: includes/locale.inc:2335
+msgid "Esperanto"
+msgstr "esperanto"
+
+#: includes/locale.inc:2336
+msgid "Spanish"
+msgstr "španielčina"
+
+#: includes/locale.inc:2337
+msgid "Estonian"
+msgstr "estónčina"
+
+#: includes/locale.inc:2338
+msgid "Basque"
+msgstr "baskičtina"
+
+#: includes/locale.inc:2339
+msgid "Persian"
+msgstr "perzština"
+
+#: includes/locale.inc:2340
+msgid "Fulah"
+msgstr "fulbčina"
+
+#: includes/locale.inc:2341
+msgid "Finnish"
+msgstr "fínčina"
+
+#: includes/locale.inc:2342
+msgid "Fiji"
+msgstr "fidžijčina"
+
+#: includes/locale.inc:2343
+msgid "Faeroese"
+msgstr "faerčina"
+
+#: includes/locale.inc:2344
+msgid "French"
+msgstr "francúzština"
+
+#: includes/locale.inc:2345
+msgid "Frisian"
+msgstr "frízština"
+
+#: includes/locale.inc:2346
+msgid "Irish"
+msgstr "írčina"
+
+#: includes/locale.inc:2347
+msgid "Scots Gaelic"
+msgstr "škótska gaelčina"
+
+#: includes/locale.inc:2348
+msgid "Galician"
+msgstr "galícijčina"
+
+#: includes/locale.inc:2349
+msgid "Guarani"
+msgstr "guaraní"
+
+#: includes/locale.inc:2350
+msgid "Gujarati"
+msgstr "gudžarátčina"
+
+#: includes/locale.inc:2351
+msgid "Manx"
+msgstr "mančina"
+
+#: includes/locale.inc:2352
+msgid "Hausa"
+msgstr "hauština"
+
+#: includes/locale.inc:2353
+msgid "Hebrew"
+msgstr "hebrejčina"
+
+#: includes/locale.inc:2354
+msgid "Hindi"
+msgstr "hindčina"
+
+#: includes/locale.inc:2355
+msgid "Hiri Motu"
+msgstr "hiri motu"
+
+#: includes/locale.inc:2356
+msgid "Croatian"
+msgstr "chorvátčina"
+
+#: includes/locale.inc:2357
+msgid "Hungarian"
+msgstr "maďarčina"
+
+#: includes/locale.inc:2358
+msgid "Armenian"
+msgstr "arménčina"
+
+#: includes/locale.inc:2359
+msgid "Herero"
+msgstr "hererčina"
+
+#: includes/locale.inc:2360
+msgid "Interlingua"
+msgstr "interlingua"
+
+#: includes/locale.inc:2361
+msgid "Indonesian"
+msgstr "indonézština"
+
+#: includes/locale.inc:2362
+msgid "Interlingue"
+msgstr "interlingue"
+
+#: includes/locale.inc:2363
+msgid "Igbo"
+msgstr "igbo"
+
+#: includes/locale.inc:2364
+msgid "Inupiak"
+msgstr "inupiaq"
+
+#: includes/locale.inc:2365
+msgid "Icelandic"
+msgstr "islandčina"
+
+#: includes/locale.inc:2366
+msgid "Italian"
+msgstr "taliančina"
+
+#: includes/locale.inc:2367
+msgid "Inuktitut"
+msgstr "inuktitut"
+
+#: includes/locale.inc:2368
+msgid "Japanese"
+msgstr "japončina"
+
+#: includes/locale.inc:2369
+msgid "Javanese"
+msgstr "jávčina"
+
+#: includes/locale.inc:2370
+msgid "Georgian"
+msgstr "gruzínčina"
+
+#: includes/locale.inc:2371
+msgid "Kongo"
+msgstr "konžština"
+
+#: includes/locale.inc:2372
+msgid "Kikuyu"
+msgstr "kikuju"
+
+#: includes/locale.inc:2373
+msgid "Kwanyama"
+msgstr "kuaňama"
+
+#: includes/locale.inc:2374
+msgid "Kazakh"
+msgstr "kazaština"
+
+#: includes/locale.inc:2375
+msgid "Greenlandic"
+msgstr "grónčina"
+
+#: includes/locale.inc:2376
+msgid "Cambodian"
+msgstr "kambodžská khmérčina"
+
+#: includes/locale.inc:2377
+msgid "Kannada"
+msgstr "kannadčina"
+
+#: includes/locale.inc:2378
+msgid "Korean"
+msgstr "kórejčina"
+
+#: includes/locale.inc:2379
+msgid "Kanuri"
+msgstr "kanurijčina"
+
+#: includes/locale.inc:2380
+msgid "Kashmiri"
+msgstr "kašmírčina"
+
+#: includes/locale.inc:2381
+msgid "Kurdish"
+msgstr "kurdčina"
+
+#: includes/locale.inc:2382
+msgid "Komi"
+msgstr "komijčina"
+
+#: includes/locale.inc:2383
+msgid "Cornish"
+msgstr "kornčina"
+
+#: includes/locale.inc:2384
+msgid "Kirghiz"
+msgstr "kirgizština"
+
+#: includes/locale.inc:2385
+msgid "Latin"
+msgstr "latinčina"
+
+#: includes/locale.inc:2386
+msgid "Luxembourgish"
+msgstr "luxemburčina"
+
+#: includes/locale.inc:2387
+msgid "Luganda"
+msgstr "Ganda"
+
+#: includes/locale.inc:2388
+msgid "Lingala"
+msgstr "lingalčina"
+
+#: includes/locale.inc:2389
+msgid "Laothian"
+msgstr "laoština"
+
+#: includes/locale.inc:2390
+msgid "Lithuanian"
+msgstr "litovčina"
+
+#: includes/locale.inc:2391
+msgid "Latvian"
+msgstr "lotyština"
+
+#: includes/locale.inc:2392
+msgid "Malagasy"
+msgstr "malgaština"
+
+#: includes/locale.inc:2393
+msgid "Marshallese"
+msgstr "Maršalčina"
+
+#: includes/locale.inc:2394
+msgid "Maori"
+msgstr "maorčina"
+
+#: includes/locale.inc:2395
+msgid "Macedonian"
+msgstr "macedónčina"
+
+#: includes/locale.inc:2396
+msgid "Malayalam"
+msgstr "malajálamčina"
+
+#: includes/locale.inc:2397
+msgid "Mongolian"
+msgstr "mongolčina"
+
+#: includes/locale.inc:2398
+msgid "Moldavian"
+msgstr "moldavčina"
+
+#: includes/locale.inc:2399
+msgid "Marathi"
+msgstr "Maráthčina"
+
+#: includes/locale.inc:2400
+msgid "Malay"
+msgstr "malajčina"
+
+#: includes/locale.inc:2401
+msgid "Maltese"
+msgstr "maltčina"
+
+#: includes/locale.inc:2402
+msgid "Burmese"
+msgstr "barmčina"
+
+#: includes/locale.inc:2403
+msgid "Nauru"
+msgstr "nauruština"
+
+#: includes/locale.inc:2404
+msgid "North Ndebele"
+msgstr "severá ndebelčina"
+
+#: includes/locale.inc:2405
+msgid "Nepali"
+msgstr "nepálčina"
+
+#: includes/locale.inc:2406
+msgid "Ndonga"
+msgstr "ndonga"
+
+#: includes/locale.inc:2407
+msgid "Dutch"
+msgstr "holandčina"
+
+#: includes/locale.inc:2408
+msgid "Norwegian Bokmål"
+msgstr "nórsky bokmål"
+
+#: includes/locale.inc:2409
+msgid "Norwegian Nynorsk"
+msgstr "nórsky nynorsk"
+
+#: includes/locale.inc:2410
+msgid "South Ndebele"
+msgstr "južná ndebelčina"
+
+#: includes/locale.inc:2411
+msgid "Navajo"
+msgstr "navajo"
+
+#: includes/locale.inc:2412
+msgid "Chichewa"
+msgstr "čičewa"
+
+#: includes/locale.inc:2413
+msgid "Occitan"
+msgstr "okcitánčina"
+
+#: includes/locale.inc:2414
+msgid "Oromo"
+msgstr "oromčina"
+
+#: includes/locale.inc:2415
+msgid "Oriya"
+msgstr "uríjčina"
+
+#: includes/locale.inc:2416
+msgid "Ossetian"
+msgstr "osetčina"
+
+#: includes/locale.inc:2417
+msgid "Punjabi"
+msgstr "pandžábčina"
+
+#: includes/locale.inc:2418
+msgid "Pali"
+msgstr "pálí"
+
+#: includes/locale.inc:2419
+msgid "Polish"
+msgstr "poľština"
+
+#: includes/locale.inc:2420
+msgid "Pashto"
+msgstr "paštčina"
+
+#: includes/locale.inc:2421
+msgid "Portuguese, Portugal"
+msgstr "portugalčina (Portugalsko)"
+
+#: includes/locale.inc:2422
+msgid "Portuguese, Brazil"
+msgstr "portugalčina (Brazília)"
+
+#: includes/locale.inc:2423
+msgid "Quechua"
+msgstr "kečuánčina"
+
+#: includes/locale.inc:2424
+msgid "Rhaeto-Romance"
+msgstr "rétorománčina"
+
+#: includes/locale.inc:2425
+msgid "Kirundi"
+msgstr "Rundi"
+
+#: includes/locale.inc:2426
+msgid "Romanian"
+msgstr "rumunčina"
+
+#: includes/locale.inc:2427
+msgid "Russian"
+msgstr "ruština"
+
+#: includes/locale.inc:2428
+msgid "Kinyarwanda"
+msgstr "rwandčina"
+
+#: includes/locale.inc:2429
+msgid "Sanskrit"
+msgstr "sanskrit"
+
+#: includes/locale.inc:2430
+msgid "Sardinian"
+msgstr "sardínčina"
+
+#: includes/locale.inc:2431
+msgid "Sindhi"
+msgstr "sindhčina"
+
+#: includes/locale.inc:2432
+msgid "Northern Sami"
+msgstr "severná saamčina"
+
+#: includes/locale.inc:2433
+msgid "Sango"
+msgstr "sango"
+
+#: includes/locale.inc:2434
+msgid "Serbo-Croatian"
+msgstr "srbochorvátčina"
+
+#: includes/locale.inc:2435
+msgid "Singhalese"
+msgstr "sinhalčina"
+
+#: includes/locale.inc:2436
+msgid "Slovak"
+msgstr "slovenčina"
+
+#: includes/locale.inc:2437
+msgid "Slovenian"
+msgstr "slovinčina"
+
+#: includes/locale.inc:2438
+msgid "Samoan"
+msgstr "samojčina"
+
+#: includes/locale.inc:2439
+msgid "Shona"
+msgstr "šona"
+
+#: includes/locale.inc:2440
+msgid "Somali"
+msgstr "somálčina"
+
+#: includes/locale.inc:2441
+msgid "Albanian"
+msgstr "albánčina"
+
+#: includes/locale.inc:2442
+msgid "Serbian"
+msgstr "srbčina"
+
+#: includes/locale.inc:2443
+msgid "Siswati"
+msgstr "swati"
+
+#: includes/locale.inc:2444
+msgid "Sesotho"
+msgstr "Soto"
+
+#: includes/locale.inc:2445
+msgid "Sudanese"
+msgstr "Sundčina"
+
+#: includes/locale.inc:2446
+msgid "Swedish"
+msgstr "švédčina"
+
+#: includes/locale.inc:2447
+msgid "Swahili"
+msgstr "svahilčina"
+
+#: includes/locale.inc:2448
+msgid "Tamil"
+msgstr "tamilčina"
+
+#: includes/locale.inc:2449
+msgid "Telugu"
+msgstr "telugčina"
+
+#: includes/locale.inc:2450
+msgid "Tajik"
+msgstr "tadžičtina"
+
+#: includes/locale.inc:2451
+msgid "Thai"
+msgstr "thajčina"
+
+#: includes/locale.inc:2452
+msgid "Tigrinya"
+msgstr "tirgriňa"
+
+#: includes/locale.inc:2453
+msgid "Turkmen"
+msgstr "turkménčina"
+
+#: includes/locale.inc:2454
+msgid "Tagalog"
+msgstr "tagalčina"
+
+#: includes/locale.inc:2455
+msgid "Setswana"
+msgstr "čwančina"
+
+#: includes/locale.inc:2456
+msgid "Tonga"
+msgstr "tonga"
+
+#: includes/locale.inc:2457
+msgid "Turkish"
+msgstr "turečtina"
+
+#: includes/locale.inc:2458
+msgid "Tsonga"
+msgstr "tsonga"
+
+#: includes/locale.inc:2459
+msgid "Tatar"
+msgstr "tatárčina"
+
+#: includes/locale.inc:2460
+msgid "Twi"
+msgstr "twi"
+
+#: includes/locale.inc:2461
+msgid "Tahitian"
+msgstr "tahitčina"
+
+#: includes/locale.inc:2462
+msgid "Uighur"
+msgstr "ujgurčina"
+
+#: includes/locale.inc:2463
+msgid "Ukrainian"
+msgstr "ukrajinčina"
+
+#: includes/locale.inc:2464
+msgid "Urdu"
+msgstr "urdčina"
+
+#: includes/locale.inc:2465
+msgid "Uzbek"
+msgstr "uzbečtina"
+
+#: includes/locale.inc:2466
+msgid "Venda"
+msgstr "venda"
+
+#: includes/locale.inc:2467
+msgid "Vietnamese"
+msgstr "vietnamčina"
+
+#: includes/locale.inc:2468
+msgid "Wolof"
+msgstr "wolof"
+
+#: includes/locale.inc:2469
+msgid "Xhosa"
+msgstr "xhosa"
+
+#: includes/locale.inc:2470
+msgid "Yiddish"
+msgstr "jidiš"
+
+#: includes/locale.inc:2471
+msgid "Yoruba"
+msgstr "jorubčina"
+
+#: includes/locale.inc:2472
+msgid "Zhuang"
+msgstr "čuangčina"
+
+#: includes/locale.inc:2473
+msgid "Chinese, Simplified"
+msgstr "čínština (zjednodušená)"
+
+#: includes/locale.inc:2474
+msgid "Chinese, Traditional"
+msgstr "čínština (tradičná)"
+
+#: includes/locale.inc:2475
+msgid "Zulu"
+msgstr "zuluština"
+
+#: includes/menu.inc:2423
+msgid "Operating in off-line mode."
+msgstr "Funguje v offline režime."
+
+#: includes/pager.inc:395,145
+msgid "« first"
+msgstr "« prvá"
+
+#: includes/pager.inc:396,146
+msgid "‹ previous"
+msgstr "‹ predchádzajúca"
+
+#: includes/pager.inc:397,147
+msgid "next ›"
+msgstr "nasledujúca ›"
+
+#: includes/pager.inc:398,148
+msgid "last »"
+msgstr "posledná »"
+
+#: includes/pager.inc:395
+msgid "Go to first page"
+msgstr "Prejsť na prvú stranu"
+
+#: includes/pager.inc:398
+msgid "Go to last page"
+msgstr "Prejsť na poslednú stranu"
+
+#: includes/pager.inc:405
+msgid "Go to page @number"
+msgstr "Prejsť na stranu @number"
+
+#: includes/tablesort.inc:71
+msgid "sort by @s"
+msgstr "triediť podľa @s"
+
+#: includes/theme.inc:1390,1387
+msgid "sort icon"
+msgstr "ikona zoradenia"
+
+#: includes/theme.inc:1387
+msgid "sort ascending"
+msgstr "zoradiť vzostupne"
+
+#: includes/theme.inc:1390
+msgid "sort descending"
+msgstr "zoradiť zostupne"
+
+#: includes/theme.inc:1428
+msgid "updated"
+msgstr "aktualizované"
+
+#: includes/theme.inc:1500
+msgid "[<a href=\"@link\">more help...</a>]"
+msgstr "[<a href=\"@link\">pomocník</a>]"
+
+#: includes/theme.inc:1513
+msgid "XML feed"
+msgstr "Kanál správ XML"
+
+#: includes/theme.inc:1527
+msgid "Syndicate content"
+msgstr "Syndikovať obsah"
+
+#: includes/theme.inc:1621
+msgid "not verified"
+msgstr "bez overenia"
+
+#: includes/unicode.inc:151
+msgid "Could not convert XML encoding %s to UTF-8."
+msgstr "Nie je možné  skonvertovať XML kódovanie '%s' na UTF-8."
+
+#: includes/unicode.inc:184
+msgid ""
+"Unsupported encoding %s. Please install iconv, GNU recode or mbstring for "
+"PHP."
+msgstr ""
+"Nepodporované kódovanie '%s'. Nainštalujte prosím iconv, GNU recode alebo "
+"mbstring pre PHP."
+
+#: includes/unicode.inc:48
+msgid ""
+"The PCRE library in your PHP installation is outdated. This will cause "
+"problems when handling Unicode text. If you are running PHP 4.3.3 or higher, "
+"make sure you are using the PCRE library supplied by PHP. Please refer to "
+"the <a href=\"@url\">PHP PCRE documentation</a> for more information."
+msgstr ""
+"PCRE knižnica v PHP je zastaralá. To spôsobuje problémy pri práci s Unicode "
+"textom. Pokiaľ používate PHP 4.3.3 alebo novší, uistite sa, že používate "
+"PCRE knižnicu dodanú s PHP. Viac informácií nájdete v <a href=\"@url"
+"\">dokumentácii PHP PCRE</a>."
+
+#: includes/unicode.inc:53
+msgid ""
+"Operations on Unicode strings are emulated on a best-effort basis. Install "
+"the <a href=\"@url\">PHP mbstring extension</a> for improved Unicode support."
+msgstr ""
+"Štandardné PHP: operácie s Unicode reťazcami sú emulované s maximálnou "
+"snahou. Pre lepšiu podporu Unicode nainštalujte <a href=\"@url\">PHP "
+"mbstring rozšírenie</a>."
+
+#: includes/unicode.inc:58
+msgid ""
+"Multibyte string function overloading in PHP is active and must be disabled. "
+"Check the php.ini <em>mbstring.func_overload</em> setting. Please refer to "
+"the <a href=\"@url\">PHP mbstring documentation</a> for more information."
+msgstr ""
+"Preťaženie funkcií pre prácu s viacbajtovými reťazcami je v PHP aktívne a je "
+"potrebné ho vypnúť. Skontrolujte nastavenie v php.ini <em>mbstring."
+"func_overload</em>. Viac informácií nájdete v <a href=\"@url\">dokumentácii "
+"PHP mbstring</a>."
+
+#: includes/unicode.inc:61
+msgid ""
+"Multibyte string input conversion in PHP is active and must be disabled. "
+"Check the php.ini <em>mbstring.encoding_translation</em> setting. Please "
+"refer to the <a href=\"@url\">PHP mbstring documentation</a> for more "
+"information."
+msgstr ""
+"Prevod viacbajtových reťazcov je v PHP aktívny a je potrebné ho vypnúť. "
+"Skontrolujte nastavenie v php.ini <em>mbstring.encoding_translation</em>. "
+"Viac informácií nájdete v <a href=\"@url\">dokumentácií PHP mbstring</a>."
+
+#: includes/unicode.inc:64
+msgid ""
+"Multibyte string input conversion in PHP is active and must be disabled. "
+"Check the php.ini <em>mbstring.http_input</em> setting. Please refer to the "
+"<a href=\"@url\">PHP mbstring documentation</a> for more information."
+msgstr ""
+"Prevod viacbajtových reťazcov je v PHP aktívny a je potrebné ho vypnúť. "
+"Skontrolujte nastavenie v php.ini <em>mbstring.http_input</em>. Viac "
+"informácií nájdete v <a href=\"@url\">dokumentácii PHP mbstring</a>."
+
+#: includes/unicode.inc:67
+msgid ""
+"Multibyte string output conversion in PHP is active and must be disabled. "
+"Check the php.ini <em>mbstring.http_output</em> setting. Please refer to the "
+"<a href=\"@url\">PHP mbstring documentation</a> for more information."
+msgstr ""
+"Prevod viacbajtových reťazcov je v PHP aktívny a je potrebné ho vypnúť. "
+"Skontrolujte nastavenie v php.ini <em>mbstring.http_output</em>. Viac "
+"informácií nájdete v <a href=\"@url\">dokumentácii PHP mbstring</a>."
+
+#: includes/unicode.inc:84
+msgid "Standard PHP"
+msgstr "Štandardné PHP"
+
+#: includes/unicode.inc:85
+msgid "PHP Mbstring Extension"
+msgstr "PHP Mbstring rozšírenie"
+
+#: includes/unicode.inc:96
+msgid "Unicode library"
+msgstr "Unicode knižnica"
+
+#: includes/xmlrpc.inc:455
+msgid "Parse error. Not well formed"
+msgstr "Chyba spracovania, nesprávny tvar"
+
+#: includes/xmlrpcs.inc:62
+msgid "Parse error. Request not well formed."
+msgstr "Chyba spracovania, nesprávny tvar požiadavky."
+
+#: includes/xmlrpcs.inc:65
+msgid "Server error. Invalid XML-RPC. Request must be a methodCall."
+msgstr "Chyba servera. Neplatné XML-RPC. Požiadavka musí byť methodCall."
+
+#: includes/xmlrpcs.inc:163
+msgid "Server error. Wrong number of method parameters."
+msgstr "Chyba servera. Nesprávny počet parametrov metódy."
+
+#: includes/xmlrpcs.inc:200
+msgid "Server error. Invalid method parameters."
+msgstr "Chyba servera. Neplatné parametre metódy."
+
+#: includes/xmlrpcs.inc:219
+msgid "Invalid syntax for system.multicall."
+msgstr "Chybná syntax pre system.multicall."
+
+#: includes/xmlrpcs.inc:225
+msgid "Recursive calls to system.multicall are forbidden."
+msgstr "Rekurzívne volania system.multicall sú zakázané."
+
+#: includes/locale.inc:403
+msgid "Are you sure you want to delete the language %name?"
+msgstr "Naozaj chcete odstrániť jazyk %name?"
+
+#: includes/locale.inc:423,422
+msgid "The language %locale has been removed."
+msgstr "Jazyk %locale bol odstránený."
+
+#: includes/common.inc:3575
+msgid "notice"
+msgstr "poznámka"
+
+#: includes/actions.inc:301
+msgid "Remove orphaned actions"
+msgstr "Odstrániť nezaradené akcie"
+
+#: includes/actions.inc:46
+msgid ""
+"Stack overflow: too many calls to actions_do(). Aborting to prevent infinite "
+"recursion."
+msgstr ""
+"Pretečenie zásobníka: príliš veľa volaní funkcie actions_do(). Prerušené, "
+"aby sa predišlo nekonečnej rekurzii."
+
+#: includes/actions.inc:275
+msgid "Action '%action' added."
+msgstr "Akcia '%action' bola pridaná."
+
+#: includes/actions.inc:297
+msgid "Removed orphaned action '%action' from database."
+msgstr "Nezaradená akcia '%action' bola odstránená z databázy."
+
+#: includes/actions.inc:329
+msgid "Action %action saved."
+msgstr "Akcia %action bola uložená."
+
+#: includes/actions.inc:337
+msgid "Action %action created."
+msgstr "Akcia %action bola vytvorená."
+
+#: includes/actions.inc:303
+msgid "One orphaned action (%orphans) exists in the actions table. !link"
+msgid_plural ""
+"@count orphaned actions (%orphans) exist in the actions table. !link"
+msgstr[0] "Existuje jedna nezaradená akcia (%orphans) v tabuľke akcií. !link"
+msgstr[1] "Existuje @count nezaradené akcie (%orphans) v tabuľke akcií. !link"
+msgstr[2] ""
+"Existuje @count nezaradených akcií (%orphans) v tabuľke akcií. !link"
+
+#: includes/batch.inc:100
+msgid "HTTP POST is required."
+msgstr "Je potrebný HTTP POST"
+
+#: includes/common.inc:361
+msgid "The requested page could not be found."
+msgstr "Vyžiadaná stránka nebola nájdená."
+
+#: includes/common.inc:430
+msgid "The server can't issue HTTP requests"
+msgstr "Server nemôže vydať HTTP požiadavky"
+
+#: includes/common.inc:3576
+msgid "info"
+msgstr "info"
+
+#: includes/common.inc:3577
+msgid "debug"
+msgstr "ladenie"
+
+#: includes/file.inc:380
+msgid "For security reasons, your upload has been renamed to %filename."
+msgstr ""
+"Z bezpečnostných dôvodov bol váš nahraný súbor premenovaný na %filename."
+
+#: includes/file.inc:504
+msgid ""
+"The file %file could not be saved, because it exceeds %maxsize, the maximum "
+"allowed size for uploads."
+msgstr ""
+"Súbor %file nebol uložený, pretože je veľký. Maximálna dovolená veľkosť pre "
+"ukladané súbory je  %maxsize."
+
+#: includes/file.inc:558
+msgid "The selected file %name could not be uploaded."
+msgstr "Vybraný súbor %name nemôže byť nahraný."
+
+#: includes/file.inc:603
+msgid ""
+"Its name exceeds the 255 characters limit. Please rename the file and try "
+"again."
+msgstr "Názov má viac ako 255 znakov. Zmeňte meno a skúste to znova."
+
+#: includes/file.inc:628
+msgid "Only files with the following extensions are allowed: %files-allowed."
+msgstr "Povolené sú len tieto typy súborov: %files-allowed."
+
+#: includes/file.inc:657
+msgid "The file is %filesize exceeding the maximum file size of %maxsize."
+msgstr ""
+"Veľkosť súboru je %filesize, ale maximálna veľkosť súborov, ktoré môžu byť "
+"uložené je %maxsize."
+
+#: includes/file.inc:662
+msgid "The file is %filesize which would exceed your disk quota of %quota."
+msgstr ""
+"Veľkosť súboru je %filesize, prekročili ste celkovú veľkosť vášho diskového "
+"priestoru, ktorá je %quota."
+
+#: includes/file.inc:681
+msgid "Only JPEG, PNG and GIF images are allowed."
+msgstr "Podporované sú iba formáty JPEG, PNG a GIF."
+
+#: includes/file.inc:716
+msgid ""
+"The image was resized to fit within the maximum allowed dimensions of %"
+"dimensions pixels."
+msgstr ""
+"Obrázku boli zmenené rozmery tak, aby sa zmestil do maximálnej dovolenej "
+"veľkosti %dimensions pixlov."
+
+#: includes/file.inc:724
+msgid "The image is too large; the maximum dimensions are %dimensions pixels."
+msgstr "Obrázok je veľmi veľký. Maximálne rozmery sú %dimensions bodov."
+
+#: includes/file.inc:733
+msgid "The image is too small; the minimum dimensions are %dimensions pixels."
+msgstr "Obrázok je veľmi malý. Minimálne rozmery sú %dimensions bodov."
+
+#: includes/file.inc:574
+msgid ""
+"Upload error. Could not move uploaded file %file to destination %destination."
+msgstr "Chyba pri nahrávaní. Nepodarilo sa uložiť súbor %file do %destination."
+
+#: includes/form.inc:2439
+msgid "Initializing."
+msgstr "Inicializujem"
+
+#: includes/form.inc:2440
+msgid "Remaining @remaining of @total."
+msgstr "Zostáva @remaining z @total."
+
+#: includes/form.inc:2441
+msgid "An error has occurred."
+msgstr "Vyskytla sa chyba"
+
+#: includes/form.inc:2514
+msgid "Please continue to <a href=\"@error_url\">the error page</a>"
+msgstr "Pokračujte na <a href=\"@error_url\">stránke chýb</a>"
+
+#: includes/image.gd.inc:18
+msgid "GD2 image manipulation toolkit"
+msgstr "Nástroj GD2 na spracovanie obrázkov"
+
+#: includes/image.gd.inc:28
+msgid "The GD toolkit is installed and working properly."
+msgstr "Nástroj GD je nainštalovaný a pracuje správne."
+
+#: includes/image.gd.inc:45
+msgid ""
+"The GD image toolkit requires that the GD module for PHP be installed and "
+"configured properly. For more information see <a href=\"@url\">PHP's image "
+"documentation</a>."
+msgstr ""
+"GD toolkit na spracovanie obrázkov vyžaduje dôkladne nainštalovaný a "
+"nakonfigurovaný GD PHP modul. Ak sa chcete dozvediet viac, pozrite si <a "
+"href=\"@url\">PHP's image documentation</a>."
+
+#: includes/locale.inc:279,48
+msgid "Right to left"
+msgstr "Sprava doľava"
+
+#: includes/locale.inc:279,48
+msgid "Left to right"
+msgstr "Zľava doprava"
+
+#: includes/locale.inc:90
+msgid "Native name"
+msgstr "Pôvodné meno"
+
+#: includes/locale.inc:275,90
+msgid "Direction"
+msgstr "Smer"
+
+#: includes/locale.inc:157
+msgid "Predefined language"
+msgstr "Preddefinovaný jazyk"
+
+#: includes/locale.inc:164
+msgid ""
+"Select the desired language and click the <em>Add language</em> button. (Use "
+"the <em>Custom language</em> options if your desired language does not "
+"appear in this list.)"
+msgstr ""
+"Označte želaný jazyk a potvrďte ho tlačidlom <em>Pridať jazyk</em>. Ak váš "
+"jazyk v zozname nenájdete, použite nastavenia <em>Vlastný jazyk</em>."
+
+#: includes/locale.inc:203
+msgid "Save language"
+msgstr "Uložiť jazyk"
+
+#: includes/locale.inc:245
+msgid ""
+"<a href=\"@rfc4646\">RFC 4646</a> compliant language identifier. Language "
+"codes typically use a country code, and optionally, a script or regional "
+"variant name. <em>Examples: \"en\", \"en-US\" and \"zh-Hant\".</em>"
+msgstr ""
+"Označenie jazyka podľa <a href=\"@rfc4646\">RFC 4646</a>. Kódy jazykov "
+"najčastejšie používajú kódy krajín, a voliteľne písmo alebo regionálne meno. "
+"<em>Príklady: \"en\", \"en-US\" a \"zh-Hant\".</em>"
+
+#: includes/locale.inc:253
+msgid ""
+"Name of the language in English. Will be available for translation in all "
+"languages."
+msgstr ""
+"Meno jazyka v angličtine. Bude dostupné na preklad vo všetkých jazykoch."
+
+#: includes/locale.inc:256
+msgid "Native language name"
+msgstr "Meno jazyka v danom jazyku"
+
+#: includes/locale.inc:260
+msgid "Name of the language in the language being added."
+msgstr "Meno jazyka v danom jazyku, ktorý idete pridať."
+
+#: includes/locale.inc:263
+msgid "Path prefix"
+msgstr "Predpona cesty"
+
+#: includes/locale.inc:266
+msgid ""
+"Language code or other custom string for pattern matching within the path. "
+"With language negotiation set to <em>Path prefix only</em> or <em>Path "
+"prefix with language fallback</em>, this site is presented in this language "
+"when the Path prefix value matches an element in the path. For the default "
+"language, this value may be left blank. <strong>Modifying this value will "
+"break existing URLs and should be used with caution in a production "
+"environment.</strong> <em>Example: Specifying \"deutsch\" as the path prefix "
+"for German results in URLs in the form \"www.example.com/deutsch/node\".</em>"
+msgstr ""
+"Kód jazyka alebo iný používateľom definovaný reťazec pre hľadanie vzorov v "
+"ceste. Ak je výber jazyka nastavený na <em>Len Prefix cesty</em> alebo "
+"<em>Prefix cesty s náhradným jazykom</em>, táto stránka sa zobrazí v danom "
+"jazyku, keď obsah premennej Prefix cesty sa zhoduje s niektorým prvkom v "
+"ceste. Pre predvolený jazyk môže zostať táto premenná prázdna. <strong>Zmena "
+"jej hodnoty zruší existujúce URL a musí sa používať opatrne v prevádzkovom "
+"prostredí.</strong> <em>Príklad: Zadanie \"deutsch\" ako Prefixu cesty pre "
+"nemčinu  vedie k URL v tvare \"www.example.com/deutsch/node\".</em>"
+
+#: includes/locale.inc:269
+msgid "Language domain"
+msgstr "Doména pre jazyk"
+
+#: includes/locale.inc:272
+msgid ""
+"Language-specific URL, with protocol. With language negotiation set to "
+"<em>Domain name only</em>, the site is presented in this language when the "
+"URL accessing the site references this domain. For the default language, "
+"this value may be left blank. <strong>This value must include a protocol as "
+"part of the string.</strong> <em>Example: Specifying \"http://example.de\" "
+"or \"http://de.example.com\" as language domains for German results in URLs "
+"in the forms \"http://example.de/node\" and \"http://de.example.com/node\", "
+"respectively.</em>"
+msgstr ""
+"Adresa URL aj s protokolom špecifická pre jazyk. Ak je pravidlo pre výber "
+"jazyka nastavené <em>Len meno domény</em>, stránka sa zobrazí v tomto "
+"jazyku, keď URL adresa bude v sebe obsahovať túto doménu. Ak chcete ponechať "
+"predvolený jazyk, nechajte túto hodnotu nevyplnenú. <strong>Táto hodnota "
+"musí obsahovať aj protokol.</strong> <em>Príklad: Ak zadáte ako doménu "
+"jazyka \"http://priklad.de\" alebo \"http://de.priklad.org\"  stránky s URL "
+"adresou ako \"http://priklad.de/node\" a \"http://de.priklad.org/node\" sa "
+"zobrazia v nemeckom jazyku.</em>"
+
+#: includes/locale.inc:277
+msgid "Direction that text in this language is presented."
+msgstr "Smer textu, aký sa používa v danom jazyku."
+
+#: includes/locale.inc:321,315
+msgid ""
+"The language %language has been created and can now be used. More "
+"information is available on the <a href=\"@locale-help\">help screen</a>."
+msgstr ""
+"Jazyk %language bol vytvorený a teraz sa  môže použiť. Viac informácií je "
+"dostupných v <a href=\"@locale-help\">pomocníkovi</a>."
+
+#: includes/locale.inc:339
+msgid "Domain and path prefix values should not be set at the same time."
+msgstr "Doména a predpona by nemali byť vyplnené súčasne."
+
+#: includes/locale.inc:342
+msgid "The domain (%domain) is already tied to a language (%language)."
+msgstr "Doména (%domain) je už použitá pre jazyk (%language)."
+
+#: includes/locale.inc:345
+msgid "Only the default language can have both the domain and prefix empty."
+msgstr "Len predvolený jazyk môže mať súčasne prázdnu doménu a prefix."
+
+#: includes/locale.inc:348
+msgid "The prefix (%prefix) is already tied to a language (%language)."
+msgstr "Prefix (%prefix) je už použitý pre jazyk (%language)."
+
+#: includes/locale.inc:386
+msgid "The English language cannot be deleted."
+msgstr "Anglický jazyk nemôže byť odstránený."
+
+#: includes/locale.inc:391
+msgid "The default language cannot be deleted."
+msgstr "Prednastavený jazyk nemôže byť odstránený."
+
+#: includes/locale.inc:403
+msgid ""
+"Deleting a language will remove all interface translations associated with "
+"it, and posts in this language will be set to be language neutral. This "
+"action cannot be undone."
+msgstr ""
+"Odstránenie jazyka spôsobí, že všetky preklady spojené s rozhraním, ktoré sú "
+"s jazykom asociované a všetky príspevky v tomto jazyku budú nastavené ako "
+"nezávislé od jazyka. Tento krok už nemožno vrátiť späť."
+
+#: includes/locale.inc:446
+msgid "Language negotiation"
+msgstr "Pravidlo pre výber jazyka"
+
+#: includes/locale.inc:449
+msgid "None."
+msgstr "Žiadne."
+
+#: includes/locale.inc:450
+msgid "Path prefix only."
+msgstr "Len prefix cesty."
+
+#: includes/locale.inc:451
+msgid "Path prefix with language fallback."
+msgstr "Prefix cesty s náhradným jazykom."
+
+#: includes/locale.inc:452
+msgid "Domain name only."
+msgstr "Len meno domény."
+
+#: includes/locale.inc:454
+msgid ""
+"Select the mechanism used to determine your site's presentation language. "
+"<strong>Modifying this setting may break all incoming URLs and should be "
+"used with caution in a production environment.</strong>"
+msgstr ""
+"Vyberte mechanizmus, ktorý sa použije na určenie jazyka pre web. "
+"<strong>Úpravou tohto nastavenia môžete znefunkčniť všetky odkazujúce adresy "
+"URL. Mali by ste túto možnosť použiť s ohľadom na vytvorené prostredie.</"
+"strong>"
+
+#: includes/locale.inc:468
+msgid "Language negotiation configuration saved."
+msgstr "Konfigurácia pravidla pre výber jazyka bola uložená."
+
+#: includes/locale.inc:501
+msgid "English (built-in)"
+msgstr "Angličtina (zabudovaná)"
+
+#: includes/locale.inc:549
+msgid "String contains"
+msgstr "Hľadať reťzec"
+
+#: includes/locale.inc:564
+msgid "Both translated and untranslated strings"
+msgstr "Preložené aj nepreložené reťazce"
+
+#: includes/locale.inc:568
+msgid "Limit search to"
+msgstr "Obmedziť hľadanie na"
+
+#: includes/locale.inc:570
+msgid "All text groups"
+msgstr "Všetky textové skupiny"
+
+#: includes/locale.inc:614
+msgid "A Gettext Portable Object (<em>.po</em>) file."
+msgstr "Súbor Gettext Portable Object (<em>.po</em>)."
+
+#: includes/locale.inc:620
+msgid ""
+"Choose the language you want to add strings into. If you choose a language "
+"which is not yet set up, it will be added."
+msgstr ""
+"Vyberte jazyk, do ktorého chcete pridať reťazce. Ak vyberiete jazyk, ktorý "
+"ešte nie je nastavený, automaticky bude pridaný."
+
+#: includes/locale.inc:2032,734,715,623
+msgid "Text group"
+msgstr "Skupiny textov"
+
+#: includes/locale.inc:626
+msgid "Imported translations will be added to this text group."
+msgstr "Naimportované preklady budú pridané do vybranej skupiny textov."
+
+#: includes/locale.inc:655
+msgid "The language %language has been created."
+msgstr "Bol vytvorený jazyk: %language"
+
+#: includes/locale.inc:666
+msgid "File to import not found."
+msgstr "Súbor, z ktorého sa má importovať, sa nepodarilo nájsť."
+
+#: includes/locale.inc:712
+msgid ""
+"Select the language to export in Gettext Portable Object (<em>.po</em>) "
+"format."
+msgstr ""
+"Vyberte jazyk, ktorý sa bude exportovať do formátu Gettext Portable Object "
+"(<em>.po</em>)"
+
+#: includes/locale.inc:731
+msgid ""
+"Generate a Gettext Portable Object Template (<em>.pot</em>) file with all "
+"strings from the Drupal locale database."
+msgstr ""
+"Generovať Gettext Portable Object Template (<em>.pot</em>), súbor so "
+"všetkými reťazcami z lokálnej databázy Drupalu."
+
+#: includes/locale.inc:1050
+msgid ""
+"The translation was successfully imported. There are %number newly created "
+"translated strings, %update strings were updated and %delete strings were "
+"removed."
+msgstr ""
+"Preklad bol úspešne importovaný. Bolo vytvorených %number nových reťazcov, %"
+"update reťazcov bolo aktualizovaných a %delete reťazcov bolo vymazaných."
+
+#: includes/locale.inc:2058
+msgid "No strings found for your search."
+msgstr "Nenašli sa žiadne zhodné reťazce."
+
+#: includes/locale.inc:2576
+msgid "Importing interface translations"
+msgstr "Importovanie prekladu rozhrania"
+
+#: includes/locale.inc:2577
+msgid "Starting import"
+msgstr "Spustiť import"
+
+#: includes/locale.inc:2578
+msgid "Error importing interface translations"
+msgstr "Chyba pri importovaní prekladu rozhrania"
+
+#: includes/locale.inc:994
+msgid "The %language language (%code) has been created."
+msgstr "Bol vytvorený jazyk %language(%code)."
+
+#: includes/locale.inc:1051
+msgid ""
+"Imported %file into %locale: %number new strings added, %update updated and %"
+"delete removed."
+msgstr ""
+"Bol naimportovaný %file do %locale: pridaných %number nových reťazcov, "
+"aktualizovaných %update a odstránených %delete."
+
+#: includes/locale.inc:2223
+msgid "Updated JavaScript translation file for the language %language."
+msgstr "Bol aktualizovaný JavaScript-ový prekladový súbor pre jazyk %language."
+
+#: includes/locale.inc:2226
+msgid "Created JavaScript translation file for the language %language."
+msgstr "Bol vytvorený JavaScript-ový prekladový súbor pre jazyk %language."
+
+#: includes/locale.inc:2229
+msgid ""
+"Removed JavaScript translation file for the language %language, because no "
+"translations currently exist for that language."
+msgstr ""
+"Bol vymazaný JavaScript súbor prekladu pre jazyk %language, pretože v "
+"súčasnej dobe neexistujú žiadne preklady pre tento jazyk."
+
+#: includes/locale.inc:2232
+msgid ""
+"An error occurred during creation of the JavaScript translation file for the "
+"language %language."
+msgstr ""
+"Počas vytvárania prekladového súboru JavaScript pre jazyk %language nastala "
+"chyba."
+
+#: includes/locale.inc:2616
+msgid "One translation file imported for the newly installed modules."
+msgid_plural ""
+"@count translation files imported for the newly installed modules."
+msgstr[0] "Novo nainštalované moduly importovali @count súbor s prekladom."
+msgstr[1] "Novo nainštalované moduly importovali @count súbory s prekladom."
+msgstr[2] "Novo nainštalované moduly importovali @count súborov s prekladom."
+
+#: includes/locale.inc:2626
+msgid "One translation file imported for the enabled modules."
+msgid_plural "@count translation files imported for the enabled modules."
+msgstr[0] "Zapnuté moduly importovali @count súbor s prekladom."
+msgstr[1] "Zapnuté moduly importovali @count súbory s prekladom."
+msgstr[2] "Zapnuté moduly importovali @count súborov s prekladom."
+
+#: includes/mail.inc:135
+msgid ""
+"Unable to send e-mail. Please contact the site admin, if the problem "
+"persists."
+msgstr ""
+"Nepodarilo sa poslať e-mail. Ak problém pretrváva, kontaktujte spávcu "
+"stránky."
+
+#: includes/mail.inc:134
+msgid "Error sending e-mail (from %from to %to)."
+msgstr "Chyba pri posielaní e-mailu (odosielateľ %from adresát %to)."
+
+#: includes/module.inc:200
+msgid ""
+"%module is part of a circular dependency. This is not supported and you will "
+"not be able to switch it on."
+msgstr ""
+"%module je súčasť kruhovej závislosti. To nie je podporované, a preto nemôže "
+"byť zapnutý."
+
+#: includes/theme.inc:1541
+msgid "<a href=\"@link\" title=\"@title\">more</a>"
+msgstr "<a href=\"@link\" title=\"@title\">viac</a>"
+
+#: includes/image.gd.inc:57
+msgid "JPEG quality must be a number between 0 and 100."
+msgstr "Kvalita JPEG musí byť číslo od 0 do 100."
+
+#: includes/locale.inc:919
+msgid "Are you sure you want to delete the string \"%source\"?"
+msgstr "Naozaj chcete odstrániť reťazec \"%source\"?"
+
+#: includes/locale.inc:919
+msgid ""
+"Deleting the string will remove all translations of this string in all "
+"languages. This action cannot be undone."
+msgstr ""
+"Vymazanie reťazca odstráni všetky preklady tohoto reťazca vo všetkých "
+"jazykoch. Túto akciu nie je možné vrátiť späť."
+
+#: includes/menu.inc:2284
+msgid "Menu router rebuild failed - some paths may not work correctly."
+msgstr ""
+"Prestavba menu router bola neúspešná - niektoré cesty možno nebudú fungovať "
+"správne."
+
+#: includes/xmlrpcs.inc:291,152
+msgid "Server error. Requested method @methodname not specified."
+msgstr "Chyba servera. Požadovaná metóda @methodname nebola špecifikovaná."
+
+#: includes/xmlrpcs.inc:206
+msgid "Server error. Requested function @method does not exist."
+msgstr "Chyba servera. Požadovaná funkcia @methodname neexistuje."
+
+#: includes/xmlrpcs.inc:294
+msgid "Server error. Requested method @methodname signature not specified."
+msgstr ""
+"Chyba servera. Popis požadovanej metódy @methodname nebol špecifikovaný."
+
+#: includes/locale.inc:851
+msgid "The submitted string contains disallowed HTML: %string"
+msgstr "Odoslaný reťazec obsahuje nepovolený HTML kód:  %string"
+
+#: includes/locale.inc:852
+msgid ""
+"Attempted submission of a translation string with disallowed HTML: %string"
+msgstr ""
+"Nevydarené odoslanie reťazca s prekladom, ktorý obsahuje nepovolený HTML "
+"kód: %string"
+
+#: includes/locale.inc:1053
+msgid "One translation string was skipped because it contains disallowed HTML."
+msgid_plural ""
+"@count translation strings were skipped because they contain disallowed HTML."
+msgstr[0] "Jeden preklad bol vynechaný, pretože obsahoval nepovolený HTML kód."
+msgstr[1] ""
+"@count preklady boli vynechané, pretože obsahovali nepovolený HTML kód."
+msgstr[2] ""
+"@count prekladov bolo vynechaných, pretože obsahovali nepovolený HTML kód."

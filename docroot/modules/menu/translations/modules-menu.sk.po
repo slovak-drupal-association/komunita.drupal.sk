@@ -1,0 +1,407 @@
+# Slovak translation of Drupal (6.8)
+# Copyright (c) 2009 by the Slovak translation team
+# Generated from files:
+#  menu.module,v 1.157.2.3 2008/05/10 06:53:53 dries
+#  menu.admin.inc,v 1.26.2.3 2008/02/11 15:12:53 goba
+#  menu.install,v 1.9 2008/01/30 20:27:28 goba
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Drupal (6.8)\n"
+"POT-Creation-Date: 2009-01-04 11:20+0100\n"
+"PO-Revision-Date: 2008-04-21 23:36+0200\n"
+"Language-Team: Slovak\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((n==1)?(0):(((n>=2)&&(n<=4))?(1):2));\n"
+
+#: modules/menu/menu.module:28
+msgid ""
+"Enter the name for your new menu. Remember to enable the newly created block "
+"in the <a href=\"@blocks\">blocks administration page</a>."
+msgstr ""
+"Zadajte názov pre nové menu. Nezabudnite povoliť novovytvorený blok na <a "
+"href=\"@blocks\">stránke administrácie blokov</a>."
+
+#: modules/menu/menu.module:48
+msgid "Menus"
+msgstr "Menu"
+
+#: modules/menu/menu.module:49
+msgid ""
+"Control your site's navigation menu, primary links and secondary links. as "
+"well as rename and reorganize menu items."
+msgstr ""
+"Nastavenie navigačného menu, primárne a sekundárne odkazy ako aj "
+"premenovanie a reorganizovanie menu."
+
+#: modules/menu/menu.module:120
+msgid "Edit menu item"
+msgstr "Upraviť položku menu"
+
+#: modules/menu/menu.module:128
+msgid "Reset menu item"
+msgstr "Obnoviť položku menu"
+
+#: modules/menu/menu.module:136
+msgid "Delete menu item"
+msgstr "Odstrániť položku menu"
+
+#: modules/menu/menu.module:63
+msgid "Add menu"
+msgstr "Pridať menu"
+
+#: modules/menu/menu.module:104
+msgid "Edit menu"
+msgstr "Upraviť menu"
+
+#: modules/menu/menu.module:112
+msgid "Delete menu"
+msgstr "Odstrániť menu"
+
+#: modules/menu/menu.admin.inc:289
+msgid "The description displayed when hovering over a menu item."
+msgstr "Popis, ktorý sa zobrazí pri prejdení kurzora myši nad položkou menu."
+
+#: modules/menu/menu.admin.inc:616
+msgid "No primary links"
+msgstr "Neexistujú žiadne primárne odkazy"
+
+#: modules/menu/menu.admin.inc:626
+msgid "No secondary links"
+msgstr "Žiadne sekundárne odkazy"
+
+#: modules/menu/menu.admin.inc:260
+msgid ""
+"The path this menu item links to. This can be an internal Drupal path such "
+"as %add-node or an external URL such as %drupal. Enter %front to link to the "
+"front page."
+msgstr ""
+"Cesta, na ktorú táto položka menu odkazuje. Môže to byť interná Drupal "
+"cesta, napr. %add-node, alebo externá URL, napr. %drupal. Pre titulnú "
+"stránku zadajte %front."
+
+#: modules/menu/menu.admin.inc:299,177
+msgid "Expanded"
+msgstr "Rozbalené"
+
+#: modules/menu/menu.admin.inc:301
+msgid ""
+"If selected and this menu item has children, the menu will always appear "
+"expanded."
+msgstr ""
+"Ak toto pole zaškrtnete a táto položka menu má potomkov, zobrazí sa vždy "
+"otvorená."
+
+#: modules/menu/menu.admin.inc:564
+msgid "Are you sure you want to delete the custom menu item %item?"
+msgstr "Naozaj chcete odstrániť vlastnú položku menu %item?"
+
+#: modules/menu/menu.admin.inc:574
+msgid "The menu item %title has been deleted."
+msgstr "Položka menu %title bola odstránená."
+
+#: modules/menu/menu.admin.inc:575
+msgid "Deleted menu item %title."
+msgstr "Odstránená položka menu %title."
+
+#: modules/menu/menu.admin.inc:584
+msgid "Are you sure you want to reset the item %item to its default values?"
+msgstr "Naozaj chcete znovu nastaviť položku %item na jej predvolené hodnoty?"
+
+#: modules/menu/menu.admin.inc:584
+msgid "Any customizations will be lost. This action cannot be undone."
+msgstr "Všetky úpravy budú stratené. Tento krok nie je možné vrátiť späť."
+
+#: modules/menu/menu.admin.inc:593
+msgid "The menu item was reset to its default settings."
+msgstr "Položka menu bola uvedená do predvolenej podoby."
+
+#: modules/menu/menu.admin.inc:175
+msgid "Menu item"
+msgstr "Položka menu"
+
+#: modules/menu/menu.module:96
+msgid "Add item"
+msgstr "Pridať položku"
+
+#: modules/menu/menu.admin.inc:104
+msgid "reset"
+msgstr "resetovať"
+
+#: modules/menu/menu.module:40
+msgid "administer menu"
+msgstr "administrácia menu"
+
+#: modules/menu/menu.admin.inc:54
+msgid "There are no menu items yet."
+msgstr "Neexistujú ešte žiadne položky menu."
+
+#: modules/menu/menu.admin.inc:281
+msgid ""
+"The link text corresponding to this item that should appear in the menu."
+msgstr ""
+"Text odkazu odpovedajúci tejto položke, ktorá by sa mala zobraziť v menu."
+
+#: modules/menu/menu.admin.inc:295
+msgid "Menu items that are not enabled will not be listed in any menu."
+msgstr "Položky menu, ktoré nie sú zapnuté, sa nezobrazia v žiadnom menu."
+
+#: modules/menu/menu.admin.inc:403
+msgid "Menu name"
+msgstr "Názov menu"
+
+#: modules/menu/menu.admin.inc:405
+msgid ""
+"The machine-readable name of this menu. This text will be used for "
+"constructing the URL of the <em>menu overview</em> page for this menu. This "
+"name must contain only lowercase letters, numbers, and hyphens, and must be "
+"unique."
+msgstr ""
+"Strojovo čitateľný názov menu. Tento text bude použitý pre zostavenie URL "
+"tohto menu z <em>prehľadu menu</em>. Tento názov môže obsahovať iba malé "
+"písmena, čísla, pomlčky, a musí byť jedinečný."
+
+#: modules/menu/menu.admin.inc:460
+msgid "Are you sure you want to delete the custom menu %title?"
+msgstr "Určite chcete odstrániť vlastné menu %title?"
+
+#: modules/menu/menu.admin.inc:492
+msgid "The custom menu %title has been deleted."
+msgstr "Vlastné menu %title bolo odstránené."
+
+#: modules/menu/menu.admin.inc:502
+msgid ""
+"The menu name may only consist of lowercase letters, numbers, and hyphens."
+msgstr "Meno menu môže obsahovať iba malé písmená, čísla a spojovník."
+
+#: modules/menu/menu.admin.inc:512
+msgid "The menu already exists."
+msgstr "Menu už existuje."
+
+#: modules/menu/menu.admin.inc:603
+msgid ""
+"The menu module allows on-the-fly creation of menu links in the content "
+"authoring forms. The following option sets the default menu in which a new "
+"link will be added."
+msgstr ""
+"Modul Menu umožňuje vo formulári na vytváranie obsahu priebežne vytvárať "
+"odkazy v menu. Nasledujúca voľba nastavuje predvolené menu, do ktorého sa "
+"pridá nový odkaz."
+
+#: modules/menu/menu.admin.inc:609
+msgid "Default menu for content"
+msgstr "Predvolené menu pre obsah"
+
+#: modules/menu/menu.admin.inc:612
+msgid ""
+"Choose the menu to be the default in the menu options in the content "
+"authoring form."
+msgstr ""
+"Výber predvoleného menu v menu nastavení formulára pre vytváranie obsahu."
+
+#: modules/menu/menu.admin.inc:629
+msgid "Source for the secondary links"
+msgstr "Zdroj pre sekundárne odkazy"
+
+#: modules/menu/menu.admin.inc:493
+msgid "Deleted custom menu %title and all its menu items."
+msgstr "Používateľské menu %title bolo vymazané aj so všetkými položkami."
+
+#: modules/menu/menu.admin.inc:457
+msgid ""
+"<strong>Warning:</strong> There is currently 1 menu item in %title. It will "
+"be deleted (system-defined items will be reset)."
+msgid_plural ""
+"<strong>Warning:</strong> There are currently @count menu items in %title. "
+"They will be deleted (system-defined items will be reset)."
+msgstr[0] ""
+"<strong>Upozornenie:</strong> Existuje 1 položka menu v %title. Bude "
+"odstránená (systémom definované položky budú znovu nastavené)."
+msgstr[1] ""
+"<strong>Upozornenie:</strong> Existujú @count položky menu v %title. Budú "
+"odstránené (systémom definované položky budú znovu nastavené)."
+msgstr[2] ""
+"<strong>Upozornenie:</strong> Existuje @count položiek menu v %title. Budú "
+"odstránené (systémom definované položky budú znovu nastavené)."
+
+#: modules/menu/menu.admin.inc:505
+msgid "The menu name can't be longer than 1 character."
+msgid_plural "The menu name can't be longer than @count characters."
+msgstr[0] "Názov menu nesmie byť dlhší ako @count znak."
+msgstr[1] "Názov menu nesmie byť dlhší ako @count znaky."
+msgstr[2] "Názov menu nesmie byť dlhší ako @count znakov."
+
+#: modules/menu/menu.module:21
+msgid ""
+"The menu module provides an interface to control and customize Drupal's "
+"powerful menu system. Menus are a hierarchical collection of links, or menu "
+"items, used to navigate a website, and are positioned and displayed using "
+"Drupal's flexible block system. By default, three menus are created during "
+"installation: <em>Navigation</em>, <em>Primary links</em>, and <em>Secondary "
+"links</em>. The <em>Navigation</em> menu contains most links necessary for "
+"working with and navigating your site, and is often displayed in either the "
+"left or right sidebar. Most Drupal themes also provide support for "
+"<em>Primary links</em> and <em>Secondary links</em>, by displaying them in "
+"either the header or footer of each page. By default, <em>Primary links</em> "
+"and <em>Secondary links</em> contain no menu items but may be configured to "
+"contain custom menu items specific to your site."
+msgstr ""
+"Modul Menu slúži k ovládaniu a úpravám systému menu Drupalu. Menu sú "
+"hierarchickou štruktúrou odkazov alebo položiek menu, používaných k "
+"navigácii na webe, a sú zobrazované a umiestňované pomocou flexibilného "
+"systému blokov. Pri inštalácii sú vytvorené tri základné menu: "
+"<em>Navigácia</em>, <em>Primárne odkazy</em> a <em>Sekundárne odkazy</em>. "
+"Menu <em>Navigácia</em> obsahuje väčšinu odkazov potrebných pre prácu a "
+"navigáciu na webe a často býva zobrazené ako ľavý alebo pravý bočný panel. "
+"Väčšina tém vzhľadu Drupalu tiež podporuje <em>Primárne odkazy</em> a "
+"<em>Sekundárne odkazy</em>, zobrazujú sa obyčajne v hlavičke alebo päte "
+"každej stránky. V predvolenom nastavení sú <em>Primárne odkazy</em> a "
+"<em>Sekundárne odkazy</em> prázdne, ale môžu byť nastavené aby obsahovali "
+"položky špecifické pre váš web."
+
+#: modules/menu/menu.module:22
+msgid ""
+"The <a href=\"@menu\">menus page</a> displays all menus currently available "
+"on your site. Select a menu from this list to add or edit a menu item, or to "
+"rearrange items within the menu. Create new menus using the <a href=\"@add-"
+"menu\">add menu page</a> (the block containing a new menu must also be "
+"enabled on the <a href=\"@blocks\">blocks administration page</a>)."
+msgstr ""
+"Stránka <a href=\"@menu\">Menu</a> zobrazuje všetky dostupné menu. Po "
+"vybraní menu z tohoto zoznamu môžete pridať alebo zmeniť položky menu, alebo "
+"zmeniť ich poradie. Na stránke <a href=\"@add-menu\">Pridať menu</a> je "
+"možné vytvoriť nové menu, ale aby bolo zobrazené, musí byť na stránke <a "
+"href=\"@blocks\">administrácie blokov</a> povolený blok obsahujúci toto menu."
+
+#: modules/menu/menu.module:23
+msgid ""
+"For more information, see the online handbook entry for <a href=\"@menu"
+"\">Menu module</a>."
+msgstr ""
+"Ďalšie informácie sa dozviete v online príručke v kapitole <a href=\"@filter"
+"\">modul Menu</a>."
+
+#: modules/menu/menu.module:26
+msgid ""
+"Menus are a collection of links (menu items) used to navigate a website. The "
+"menus currently available on your site are displayed below. Select a menu "
+"from this list to manage its menu items."
+msgstr ""
+"Menu sú zoskupenia odkazov, ktoré sa používajú ako navigácia po stránke. "
+"Menu, ktoré sú dostupné k tejto stránke, sú zobrazené nižšie. Vyberte menu "
+"zo zoznamu a môžete spravovať jeho položky."
+
+#: modules/menu/menu.module:30
+msgid ""
+"To rearrange menu items, grab a drag-and-drop handle under the <em>Menu "
+"item</em> column and drag the items (or group of items) to a new location in "
+"the list. (Grab a handle by clicking and holding the mouse while hovering "
+"over a handle icon.) Remember that your changes will not be saved until you "
+"click the <em>Save configuration</em> button at the bottom of the page."
+msgstr ""
+"Poradie položiek menu môžete meniť tak, že chytíte znak premiestnenia pod "
+"stĺpcom <em>Položka menu</em> a presuniete položku na nové miesto. (Kliknite "
+"na znak premiestnenia a počas presunu držte ľavé tlačidlo myši.) "
+"Nezabudnite, že zmeny sa neuložia pokiaľ nastavenia neuložíte tlačidlom "
+"<em>Uložiť nastavenia</em> na konci stránky."
+
+#: modules/menu/menu.module:32
+msgid "Enter the title and path for your new menu item."
+msgstr "Zadajte meno a cestu novej položky menu."
+
+#: modules/menu/menu.module:380
+msgid "Delete this menu item."
+msgstr "Odstrániť položku menu."
+
+#: modules/menu/menu.module:395
+msgid ""
+"The link text corresponding to this item that should appear in the menu. "
+"Leave blank if you do not wish to add this post to the menu."
+msgstr ""
+"Text, ktorý sa objaví ako nová položka v menu. Nechajte pole prázdne ak "
+"odkaz na tento príspevok nechcete zaradiť do menu."
+
+#: modules/menu/menu.module:57
+msgid "List menus"
+msgstr "Zoznam menu"
+
+#: modules/menu/menu.module:80
+msgid "Customize menu"
+msgstr "Prispôsobiť menu"
+
+#: modules/menu/menu.module:90
+msgid "List items"
+msgstr "Zoznam položiek"
+
+#: modules/menu/menu.install:31
+msgid ""
+"Holds definitions for top-level custom menus (for example, Primary Links)."
+msgstr ""
+"Uchováva definície hlavných používateľských menu (napr. Primárne odkazy)."
+
+#: modules/menu/menu.install:38
+msgid ""
+"Primary Key: Unique key for menu. This is used as a block delta so length is "
+"32."
+msgstr ""
+"Primárny kľúč: Jedinečný kľúč pre menu. Používa sa ako blok delta, preto je "
+"dĺžka 32."
+
+#: modules/menu/menu.install:45
+msgid "Menu title; displayed at top of block."
+msgstr "Nadpis menu; zobrazené na vrchu bloku."
+
+#: modules/menu/menu.install:50
+msgid "Menu description."
+msgstr "Popis menu."
+
+#: modules/menu/menu.install:12
+msgid ""
+"The navigation menu is provided by Drupal and is the main interactive menu "
+"for any site. It is usually the only menu that contains personalized links "
+"for authenticated users, and is often not even visible to anonymous users."
+msgstr ""
+"Navigačné menu poskytuje samotný Drupal a je hlavným interaktívnym menu pre "
+"každý web. Je to väčšinou jediné menu, ktoré obsahuje individuálne odkazy "
+"pre prihlásených používateľov a väčšinou sa vôbec nezobrazuje anonymným "
+"používateľom."
+
+#: modules/menu/menu.install:13
+msgid ""
+"Primary links are often used at the theme layer to show the major sections "
+"of a site. A typical representation for primary links would be tabs along "
+"the top."
+msgstr ""
+"Primárne odkazy sa používajú ako navigácia pre hlavné sekcie webu a sú "
+"obvykle umiestnené v hornej časti webu v podobe záložiek."
+
+#: modules/menu/menu.install:14
+msgid ""
+"Secondary links are often used for pages like legal notices, contact "
+"details, and other secondary navigation items that play a lesser role than "
+"primary links"
+msgstr ""
+"Sekundárne odkazy sú často používané pre stránky ako sú kontaktné "
+"informácie, kopírovacie práva a iné sekundárne navigačné položky, ktoré "
+"nemajú tak veľkú úlohu ako primárne odkazy"
+
+#: modules/menu/menu.admin.inc:619
+msgid "Source for the primary links"
+msgstr "Zdroj pre primárne linky."
+
+#: modules/menu/menu.admin.inc:623
+msgid "Select what should be displayed as the primary links."
+msgstr "Vybete čo sa má zobrazovať ako primárne linky."
+
+#: modules/menu/menu.admin.inc:633
+msgid ""
+"Select what should be displayed as the secondary links. You can choose the "
+"same menu for secondary links as for primary links (currently %primary). If "
+"you do this, the children of the active primary menu link will be displayed "
+"as secondary links."
+msgstr ""
+"Vyberte, aké položky sa zobrazia ako sekundárne odkazy. Môžete vyberať z "
+"rovnakého menu ako primárne odkazy (%primary). V tomto prípade se potomkovia "
+"aktínych primárnych odkazov zobrazia ako sekundárne linky."
