@@ -1,7 +1,0 @@
-<?php
-function anonymous_comment_form_alter(&$form, $form_state, $form_id){
-    if( $form_id == "comment_form" ){
-        if( isset($form['name']['#default_value'])) $form['name']['#default_value'] = '';
-    }
-}
-?>

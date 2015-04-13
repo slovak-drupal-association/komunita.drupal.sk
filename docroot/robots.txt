@@ -1,4 +1,3 @@
-# $Id: robots.txt,v 1.9.2.1 2008/12/10 20:12:19 goba Exp $
 #
 # robots.txt
 #
@@ -12,50 +11,36 @@
 # Ignored: http://example.com/site/robots.txt
 #
 # For more information about the robots.txt standard, see:
-# http://www.robotstxt.org/wc/robots.html
-#
-# For syntax checking, see:
-# http://www.sxw.org.uk/computing/robots/check.html
+# http://www.robotstxt.org/robotstxt.html
 
 User-agent: *
 Crawl-delay: 10
+# JS/CSS
+Allow: /core/*.css$
+Allow: /core/*.js$
 # Directories
-Disallow: /includes/
-Disallow: /misc/
-Disallow: /modules/
+Disallow: /core/
 Disallow: /profiles/
-Disallow: /scripts/
-Disallow: /sites/
-Disallow: /themes/
 # Files
-Disallow: /CHANGELOG.txt
-Disallow: /cron.php
-Disallow: /INSTALL.mysql.txt
-Disallow: /INSTALL.pgsql.txt
-Disallow: /install.php
-Disallow: /INSTALL.txt
-Disallow: /LICENSE.txt
-Disallow: /MAINTAINERS.txt
-Disallow: /update.php
-Disallow: /UPGRADE.txt
-Disallow: /xmlrpc.php
+Disallow: /README.txt
+Disallow: /web.config
 # Paths (clean URLs)
 Disallow: /admin/
 Disallow: /comment/reply/
-Disallow: /contact/
-Disallow: /logout/
+Disallow: /filter/tips/
 Disallow: /node/add/
 Disallow: /search/
 Disallow: /user/register/
 Disallow: /user/password/
 Disallow: /user/login/
+Disallow: /user/logout/
 # Paths (no clean URLs)
-Disallow: /?q=admin/
-Disallow: /?q=comment/reply/
-Disallow: /?q=contact/
-Disallow: /?q=logout/
-Disallow: /?q=node/add/
-Disallow: /?q=search/
-Disallow: /?q=user/password/
-Disallow: /?q=user/register/
-Disallow: /?q=user/login/
+Disallow: /index.php/admin/
+Disallow: /index.php/comment/reply/
+Disallow: /index.php/filter/tips/
+Disallow: /index.php/node/add/
+Disallow: /index.php/search/
+Disallow: /index.php/user/password/
+Disallow: /index.php/user/register/
+Disallow: /index.php/user/login/
+Disallow: /index.php/user/logout/
