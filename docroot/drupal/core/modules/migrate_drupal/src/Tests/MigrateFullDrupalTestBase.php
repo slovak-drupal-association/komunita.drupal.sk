@@ -1,0 +1,121 @@
+<?php
+
+/**
+ * @file
+ * Contains \Drupal\migrate_drupal\Tests\MigrateFullDrupalTestBase.
+ */
+
+namespace Drupal\migrate_drupal\Tests;
+
+use Drupal\migrate\MigrateExecutable;
+use Drupal\simpletest\TestBase;
+
+/**
+ * Test helper for running a complete Drupal migration.
+ */
+abstract class MigrateFullDrupalTestBase extends MigrateDrupalTestBase {
+
+  /**
+   * The test class which discovered migration tests must extend in order to be
+   * included in this test run.
+   */
+  const BASE_TEST_CLASS = 'Drupal\migrate_drupal\Tests\MigrateDrupalTestBase';
+
+  /**
+   * A list of fully-qualified test classes which should be ignored.
+   *
+   * @var string[]
+   */
+  protected static $blacklist = [];
+
+  /**
+   * Get the test classes that needs to be run for this test.
+   *
+   * @return array
+   *   The list of fully-classified test class names.
+   */
+  protected function getTestClassesList() {
+    $classes = [];
+
+    $discovery = \Drupal::getContainer()->get('test_discovery');
+    foreach (static::$modules as $module) {
+      foreach ($discovery->getTestClasses($module) as $group) {
+        foreach (array_keys($group) as $class) {
+          if (is_subclass_of($class, static::BASE_TEST_CLASS)) {
+            $classes[] = $class;
+          }
+        }
+      }
+    }
+    // Exclude blacklisted classes.
+    return array_diff($classes, static::$blacklist);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function tearDown() {
+    // Move the results of every class under ours. This is solely for
+    // reporting, the filename will guide developers.
+    self::getDatabaseConnection()
+      ->update('simpletest')
+      ->fields(array('test_class' => get_class($this)))
+      ->condition('test_id', $this->testId)
+      ->execute();
+    parent::tearDown();
+  }
+
+  /**
+   * Test the complete Drupal migration.
+   */
+  public function testDrupal() {
+    $classes = $this->getTestClassesList();
+    foreach ($classes as $class) {
+      if (is_subclass_of($class, '\Drupal\migrate\Tests\MigrateDumpAlterInterface')) {
+        $class::migrateDumpAlter($this);
+      }
+    }
+
+    // Run every migration in the order specified by the storage controller.
+    foreach (entity_load_multiple('migration', static::$migrations) as $migration) {
+      (new MigrateExecutable($migration, $this))->import();
+    }
+    foreach ($classes as $class) {
+      $test_object = new $class($this->testId);
+      $test_object->databasePrefix = $this->databasePrefix;
+      $test_object->container = $this->container;
+      // run() does a lot of setup and tear down work which we don't need:
+      // it would setup a new database connection and wouldn't find the
+      // Drupal dump. Also by skipping the setUp() methods there are no id
+      // mappings or entities prepared. The tests run against solely migrated
+      // data.
+      foreach (get_class_methods($test_object) as $method) {
+        if (strtolower(substr($method, 0, 4)) == 'test') {
+          // Insert a fail record. This will be deleted on completion to ensure
+          // that testing completed.
+          $method_info = new \ReflectionMethod($class, $method);
+          $caller = array(
+            'file' => $method_info->getFileName(),
+            'line' => $method_info->getStartLine(),
+            'function' => $class . '->' . $method . '()',
+          );
+          $completion_check_id = TestBase::insertAssert($this->testId, $class, FALSE, 'The test did not complete due to a fatal error.', 'Completion check', $caller);
+          // Run the test method.
+          try {
+            $test_object->$method();
+          }
+          catch (\Exception $e) {
+            $this->exceptionHandler($e);
+          }
+          // Remove the completion check record.
+          TestBase::deleteAssert($completion_check_id);
+        }
+      }
+      // Add the pass/fail/exception/debug results.
+      foreach ($this->results as $key => &$value) {
+        $value += $test_object->results[$key];
+      }
+    }
+  }
+
+}

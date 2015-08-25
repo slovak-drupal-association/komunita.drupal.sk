@@ -1,0 +1,12 @@
+name: Internal Page Cache
+type: module
+description: 'Caches pages for anonymous users. Works well for small to medium-sized websites.'
+package: Core
+# version: VERSION
+# core: 8.x
+
+# Information added by Drupal.org packaging script on 2015-08-25
+version: '8.0.0-beta14+265-dev'
+core: '8.x'
+project: 'drupal'
+datestamp: 1440490957
