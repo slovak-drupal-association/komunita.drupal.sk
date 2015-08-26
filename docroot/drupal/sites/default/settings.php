@@ -451,8 +451,8 @@ if ($settings['hash_salt']) {
  *
  * Value should be in PHP Octal Notation, with leading zero.
  */
-# $settings['file_chmod_directory'] = 0775;
-# $settings['file_chmod_file'] = 0664;
+$settings['file_chmod_directory'] = 0775;
+$settings['file_chmod_file'] = 0664;
 
 /**
  * Public file path:
@@ -461,7 +461,7 @@ if ($settings['hash_salt']) {
  * must exist and be writable by Drupal. This directory must be relative to
  * the Drupal installation directory and be accessible over the web.
  */
-# $settings['file_public_path'] = 'sites/default/files';
+$settings['file_public_path'] = '/home/slovakda/dev/sites/default/files';
 
 /**
  * Private file path:
@@ -535,7 +535,7 @@ if ($settings['hash_salt']) {
  * It is not allowed to have a trailing slash; Drupal will add it
  * for you.
  */
-# $base_url = 'http://www.example.com';  // NO trailing slash!
+$base_url = 'http://slovakdadev.prod.acquia-sites.com/drupal';  // NO trailing slash!
 
 /**
  * PHP settings:
