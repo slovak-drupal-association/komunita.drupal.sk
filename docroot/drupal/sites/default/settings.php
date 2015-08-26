@@ -461,7 +461,7 @@ $settings['file_chmod_file'] = 0664;
  * must exist and be writable by Drupal. This directory must be relative to
  * the Drupal installation directory and be accessible over the web.
  */
-$settings['file_public_path'] = '/home/slovakda/dev/sites/default/files';
+# $settings['file_public_path'] = 'sites/all/files';
 
 /**
  * Private file path:
@@ -535,7 +535,7 @@ $settings['file_public_path'] = '/home/slovakda/dev/sites/default/files';
  * It is not allowed to have a trailing slash; Drupal will add it
  * for you.
  */
-$base_url = 'http://slovakdadev.prod.acquia-sites.com/drupal';  // NO trailing slash!
+# $base_url = 'http://www.example.com';  // NO trailing slash!
 
 /**
  * PHP settings:
@@ -694,5 +694,7 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
 
 if (file_exists('/var/www/site-php')) {
   require '/var/www/site-php/slovakda/slovakda_d8-settings.inc';
+  $base_url = 'http://slovakdadev.prod.acquia-sites.com/drupal';
+  $settings['file_public_path'] = '/home/slovakda/dev/sites/default/files';
 }
 $settings['install_profile'] = 'standard';
