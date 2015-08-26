@@ -33,4 +33,4 @@ drush en migrate migrate_drupal migrate_tools migrate_plus -y
 
 sudo chmod 777 ./sites/default/files
 
-cd migration
+echo "End..."
