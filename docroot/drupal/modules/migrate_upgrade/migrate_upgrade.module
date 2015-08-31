@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Alert administrators before starting the import process.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function migrate_upgrade_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'migrate_upgrade.upgrade':
+      $output = '<p>' . t('This form is used for importing configuration and content from a previous version of your Drupal site. Make sure you have backups of your destination site before submitting this form. Also, ensure that the source database and files are accessible to the destination site. For more details, see <a href="!migrate">upgrading from previous versions</a>.', array('!migrate' => 'https://www.drupal.org/upgrade')) . '</p>';
+      return $output;
+  }
+}
