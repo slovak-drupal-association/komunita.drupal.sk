@@ -38,7 +38,7 @@ install_site: true
 # Settings for building a Drupal site from a makefile (if 'build_from_makefile'
 # is 'true').
 drupal_major_version: 8
-drupal_core_path: "/var/www"
+drupal_core_path: "/var/www/drupal"
 drupal_domain: "drupalsk.local"
 drupal_site_name: "Drupal Slovensko"
 drupal_install_profile: standard
@@ -48,6 +48,7 @@ drupal_account_pass: admin
 drupal_mysql_user: drupal
 drupal_mysql_password: drupal
 drupal_mysql_database: drupal
+drupal_decoupled_root: "/var/www" 
 
 # Cron jobs are added to the root user's crontab. Keys include name (required),
 # minute, hour, day, weekday, month, job (required), and state.
@@ -65,7 +66,7 @@ configure_local_drush_aliases: true
 # Apache VirtualHosts. Add one for each site you are running inside the VM. For
 # multisite deployments, you can point multiple servernames at one documentroot.
 apache_vhosts:
-  - {servername: "{{ drupal_domain }}", documentroot: "{{ drupal_core_path }}"}
+  - {servername: "{{ drupal_domain }}", documentroot: "{{ drupal_decoupled_root }}"}
   - {servername: "xhprof.drupalsk.local", documentroot: "/usr/share/php/xhprof_html"}
   - {servername: "pimpmylog.drupalsk.local", documentroot: "/usr/share/php/pimpmylog"}
 apache_remove_default_vhost: true
