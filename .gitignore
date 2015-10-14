@@ -1,2 +1,6 @@
+# Drupal user uploaded files.
 docroot/drupal/sites/*/files
 docroot/drupal/sites/*/settings.php
+
+# IDE files
+.idea
