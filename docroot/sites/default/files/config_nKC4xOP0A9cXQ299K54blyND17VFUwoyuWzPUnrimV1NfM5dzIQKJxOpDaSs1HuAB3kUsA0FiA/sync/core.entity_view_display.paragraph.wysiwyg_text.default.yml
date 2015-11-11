@@ -1,0 +1,23 @@
+uuid: 12a0a3f1-d0b1-41df-ac5e-944e132e38da
+langcode: sk
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wysiwyg_text.field_wysiwyg_text
+    - paragraphs.paragraphs_type.wysiwyg_text
+  module:
+    - text
+id: paragraph.wysiwyg_text.default
+targetEntityType: paragraph
+bundle: wysiwyg_text
+mode: default
+content:
+  field_wysiwyg_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+hidden:
+  created: true
+  uid: true

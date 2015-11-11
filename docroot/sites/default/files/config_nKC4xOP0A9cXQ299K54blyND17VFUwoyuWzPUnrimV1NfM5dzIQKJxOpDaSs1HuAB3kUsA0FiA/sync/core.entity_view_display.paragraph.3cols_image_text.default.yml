@@ -1,0 +1,25 @@
+uuid: 02238ab2-3ec5-4e21-8300-b9646d5265be
+langcode: sk
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.3cols_image_text.field_columns
+    - paragraphs.paragraphs_type.3cols_image_text
+  module:
+    - entity_reference_revisions
+id: paragraph.3cols_image_text.default
+targetEntityType: paragraph
+bundle: 3cols_image_text
+mode: default
+content:
+  field_columns:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

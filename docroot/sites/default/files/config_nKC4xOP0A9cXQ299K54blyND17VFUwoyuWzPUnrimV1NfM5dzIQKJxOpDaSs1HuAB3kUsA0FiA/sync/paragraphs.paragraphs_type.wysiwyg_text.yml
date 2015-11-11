@@ -1,0 +1,6 @@
+uuid: e7589f92-a266-4555-ac00-0af4bad32561
+langcode: sk
+status: true
+dependencies: {  }
+id: wysiwyg_text
+label: 'wysiwyg text'

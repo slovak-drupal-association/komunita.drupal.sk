@@ -1,0 +1,33 @@
+uuid: dae31ed2-3afe-4dd1-9100-fa1325d0c2cf
+langcode: sk
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraph
+    - node.type.basic_page
+  module:
+    - entity_reference_revisions
+id: node.basic_page.field_paragraph
+field_name: field_paragraph
+entity_type: node
+bundle: basic_page
+label: Paragraph
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      image: image
+      wysiwyg_text: wysiwyg_text
+    target_bundles_drag_drop:
+      image:
+        weight: 3
+        enabled: false
+      wysiwyg_text:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,6 @@
+uuid: 735408de-2ce6-47a3-8927-39e72faac379
+langcode: sk
+status: true
+dependencies: {  }
+id: wysiwyg_image
+label: wysiwyg/image

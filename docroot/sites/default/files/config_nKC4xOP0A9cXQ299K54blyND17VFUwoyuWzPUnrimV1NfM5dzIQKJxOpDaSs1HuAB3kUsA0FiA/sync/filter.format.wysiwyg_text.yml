@@ -1,0 +1,8 @@
+uuid: 27e94670-4df6-43ff-b32f-478db9c75daa
+langcode: sk
+status: true
+dependencies: {  }
+name: 'wysiwyg text'
+format: wysiwyg_text
+weight: 0
+filters: {  }
