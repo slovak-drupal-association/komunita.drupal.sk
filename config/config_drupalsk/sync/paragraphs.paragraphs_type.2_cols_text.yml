@@ -1,0 +1,6 @@
+uuid: c4430b26-aed2-428a-8700-fa2ab4ce3959
+langcode: sk
+status: true
+dependencies: {  }
+id: 2_cols_text
+label: '2 cols text'
