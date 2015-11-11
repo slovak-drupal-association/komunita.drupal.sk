@@ -3,5 +3,8 @@ docroot/sites/*/files
 !docroot/sites/*/files/config_*/sync
 docroot/sites/*/settings.php
 
+# DevDesktop
+docroot/sites/*.dd
+
 # IDE files
 .idea
