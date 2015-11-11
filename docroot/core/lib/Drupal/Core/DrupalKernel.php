@@ -22,14 +22,12 @@ use Drupal\Core\Extension\ExtensionDiscovery;
 use Drupal\Core\File\MimeType\MimeTypeGuesser;
 use Drupal\Core\Http\TrustedHostsRequestFactory;
 use Drupal\Core\Language\Language;
-use Drupal\Core\PageCache\RequestPolicyInterface;
 use Drupal\Core\Site\Settings;
 use Symfony\Cmf\Component\Routing\RouteObjectInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
@@ -823,6 +821,13 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
     // If there is no container and no cached container definition, build a new
     // one from scratch.
     if (!isset($container) && !isset($container_definition)) {
+      if (version_compare(phpversion(), '7.0.0-dev') >= 0) {
+        // The service graph implementation is prone to corruption during GC.
+        // Collect cycles now then disable the GC for the time of the compiler
+        // run.
+        // @see https://bugs.php.net/bug.php?id=70805
+        gc_collect_cycles();
+      }
       $container = $this->compileContainer();
 
       // Only dump the container if dumping is allowed. This is useful for
@@ -1388,7 +1393,7 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
    *   The request object
    *
    * @return bool
-   *   TRUE if the hostmame is valid, or FALSE otherwise.
+   *   TRUE if the hostname is valid, or FALSE otherwise.
    */
   public static function validateHostname(Request $request) {
     // $request->getHost() can throw an UnexpectedValueException if it
@@ -1414,7 +1419,7 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
    * is possible to create an attack vectors against a site by overriding this.
    * Symfony provides a mechanism for creating a list of trusted Host values.
    *
-   * Host patterns (as regular expressions) can be configured throught
+   * Host patterns (as regular expressions) can be configured through
    * settings.php for multisite installations, sites using ServerAlias without
    * canonical redirection, or configurations where the site responds to default
    * requests. For example,

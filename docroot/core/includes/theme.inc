@@ -14,7 +14,6 @@ use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Component\Render\MarkupInterface;
 use Drupal\Component\Utility\Unicode;
-use Drupal\Component\Utility\Xss;
 use Drupal\Core\Config\Config;
 use Drupal\Core\Config\StorageException;
 use Drupal\Core\Render\RenderableInterface;
@@ -386,7 +385,7 @@ function theme_get_setting($setting_name, $theme = NULL) {
  *   https://www.drupal.org/node/2575065
  */
 function theme_render_and_autoescape($arg) {
-  if ($arg instanceOf MarkupInterface) {
+  if ($arg instanceof MarkupInterface) {
     return (string) $arg;
   }
   $return = NULL;
@@ -864,9 +863,6 @@ function template_preprocess_image(&$variables) {
  *     rows.
  */
 function template_preprocess_table(&$variables) {
-  $is_sticky = !empty($variables['sticky']);
-  $is_responsive = !empty($variables['responsive']);
-
   // Format the table columns:
   if (!empty($variables['colgroups'])) {
     foreach ($variables['colgroups'] as &$colgroup) {
@@ -1578,7 +1574,7 @@ function template_preprocess_field_multiple_value_form(&$variables) {
         'data' => array(
           '#prefix' => '<h4' . $header_attributes . '>',
           'title' => array(
-            '#markup' => t($element['#title']),
+            '#markup' => $element['#title'],
           ),
           '#suffix' => '</h4>',
         ),
