@@ -1,0 +1,6 @@
+uuid: f730cb3f-94d3-4c29-9800-a943c334bc65
+langcode: sk
+status: true
+dependencies: {  }
+id: image_wysiwyg
+label: image/wysiwyg

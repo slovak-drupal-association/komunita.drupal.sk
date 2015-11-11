@@ -1,0 +1,33 @@
+uuid: 4d9fd4e9-45b4-4290-ab02-2f279cdcc828
+langcode: sk
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_wysiwyg.field_image
+    - field.field.paragraph.image_wysiwyg.field_wysiwyg_text
+    - paragraphs.paragraphs_type.image_wysiwyg
+  module:
+    - image
+    - text
+id: paragraph.image_wysiwyg.default
+targetEntityType: paragraph
+bundle: image_wysiwyg
+mode: default
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_wysiwyg_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+hidden:
+  created: true
+  uid: true

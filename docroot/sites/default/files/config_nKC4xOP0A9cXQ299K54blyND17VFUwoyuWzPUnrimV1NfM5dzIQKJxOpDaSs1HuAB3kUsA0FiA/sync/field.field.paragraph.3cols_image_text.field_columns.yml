@@ -1,0 +1,44 @@
+uuid: 66986569-3073-43bb-9006-6b49ac15a2d6
+langcode: sk
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_columns
+    - paragraphs.paragraphs_type.3cols_image_text
+  module:
+    - entity_reference_revisions
+id: paragraph.3cols_image_text.field_columns
+field_name: field_columns
+entity_type: paragraph
+bundle: 3cols_image_text
+label: Columns
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      image_wysiwyg: image_wysiwyg
+    target_bundles_drag_drop:
+      3cols_image_text:
+        weight: 7
+        enabled: false
+      image:
+        weight: 8
+        enabled: false
+      image_wysiwyg:
+        enabled: true
+        weight: 9
+      quote:
+        weight: 10
+        enabled: false
+      wysiwyg_image:
+        weight: 11
+        enabled: false
+      wysiwyg_text:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

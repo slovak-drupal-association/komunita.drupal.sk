@@ -1,0 +1,22 @@
+uuid: 29315594-4a00-4ce8-ad07-7ffea0b4e671
+langcode: sk
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quote.field_plain_text
+    - paragraphs.paragraphs_type.quote
+id: paragraph.quote.default
+targetEntityType: paragraph
+bundle: quote
+mode: default
+content:
+  field_plain_text:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  created: true
+  uid: true

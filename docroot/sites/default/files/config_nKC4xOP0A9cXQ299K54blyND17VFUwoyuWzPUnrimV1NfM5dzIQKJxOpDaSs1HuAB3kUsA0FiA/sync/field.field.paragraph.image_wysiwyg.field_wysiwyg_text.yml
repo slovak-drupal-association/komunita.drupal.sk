@@ -1,0 +1,21 @@
+uuid: 7f7ec7a1-29cc-458a-9c00-d9239e2ee82c
+langcode: sk
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_wysiwyg_text
+    - paragraphs.paragraphs_type.image_wysiwyg
+  module:
+    - text
+id: paragraph.image_wysiwyg.field_wysiwyg_text
+field_name: field_wysiwyg_text
+entity_type: paragraph
+bundle: image_wysiwyg
+label: 'wysiwyg text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
