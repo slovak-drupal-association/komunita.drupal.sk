@@ -1,0 +1,20 @@
+uuid: 046effdc-bc98-4c19-8b40-644def00562c
+langcode: sk
+status: false
+dependencies:
+  theme:
+    - bartik
+id: zalozky
+theme: bartik
+region: '-1'
+weight: -1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Záložky
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }
