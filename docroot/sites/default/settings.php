@@ -691,16 +691,5 @@ if (isset($_SERVER['DEVDESKTOP_DRUPAL_SETTINGS_DIR']) && file_exists($_SERVER['D
 }
 // </DDSETTINGS>
 
-$databases['default']['default'] = array (
-  'database' => 'dsk',
-  'username' => 'dsk',
-  'password' => '',
-  'prefix' => '',
-  'host' => '127.0.0.1',
-  'port' => 33067,
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysqli',
-);
-
 $settings['install_profile'] = 'drupalsk';
-$config_directories['sync'] = __DIR__ . '../../../config/config_drupalsk/sync';
+$config_directories['sync'] = __DIR__ . '/../../../config/config_drupalsk/sync';
