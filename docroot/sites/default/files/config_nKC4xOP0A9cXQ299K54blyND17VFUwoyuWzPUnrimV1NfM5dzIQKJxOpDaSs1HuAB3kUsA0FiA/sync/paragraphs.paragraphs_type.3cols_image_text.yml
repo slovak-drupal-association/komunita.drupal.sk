@@ -1,0 +1,6 @@
+uuid: 8699f077-4ae8-4458-b516-2230d6ee6f96
+langcode: sk
+status: true
+dependencies: {  }
+id: 3cols_image_text
+label: '3cols image/text'

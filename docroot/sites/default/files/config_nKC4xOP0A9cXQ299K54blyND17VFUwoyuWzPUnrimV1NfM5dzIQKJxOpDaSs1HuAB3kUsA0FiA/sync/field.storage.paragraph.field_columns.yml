@@ -1,0 +1,20 @@
+uuid: cc5b95b7-28b0-497a-b603-3f660a4e1512
+langcode: sk
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - paragraphs
+id: paragraph.field_columns
+field_name: field_columns
+entity_type: paragraph
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: 3
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

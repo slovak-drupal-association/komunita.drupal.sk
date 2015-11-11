@@ -1,0 +1,27 @@
+uuid: 6c11fb3e-e525-4ec4-a502-2dc9d74899b1
+langcode: sk
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.3cols_image_text.field_columns
+    - paragraphs.paragraphs_type.3cols_image_text
+  module:
+    - paragraphs
+id: paragraph.3cols_image_text.default
+targetEntityType: paragraph
+bundle: 3cols_image_text
+mode: default
+content:
+  field_columns:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

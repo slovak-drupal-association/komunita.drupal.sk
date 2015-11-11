@@ -10,3 +10,4 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'search content'
+  - 'use text format wysiwyg_text'
