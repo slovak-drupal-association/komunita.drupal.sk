@@ -1,0 +1,9 @@
+uuid: bee4eaf7-99e9-471e-9700-f06f4de0c5c5
+langcode: sk
+status: true
+dependencies: {  }
+id: zxx
+label: Neurčené
+direction: ltr
+weight: 3
+locked: true

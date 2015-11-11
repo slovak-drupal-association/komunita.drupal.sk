@@ -1,0 +1,10 @@
+uuid: c5e629fe-9d61-4ad1-8c00-e82b483f2d9a
+langcode: sk
+status: false
+dependencies:
+  module:
+    - node
+id: node.full
+label: 'Celý obsah'
+targetEntityType: node
+cache: true

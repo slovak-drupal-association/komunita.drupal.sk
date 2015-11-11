@@ -1,0 +1,11 @@
+uuid: f9de4838-3608-4050-8103-3ed69059f0aa
+langcode: sk
+status: true
+dependencies:
+  module:
+    - node
+id: node_save_action
+label: 'Uložiť obsah'
+type: node
+plugin: node_save_action
+configuration: {  }

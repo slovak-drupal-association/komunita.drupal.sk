@@ -1,0 +1,10 @@
+uuid: b0fe2c8a-7b01-432a-a800-f5d84a793b49
+langcode: sk
+status: true
+dependencies:
+  module:
+    - user
+id: user.register
+label: Registrovať
+targetEntityType: user
+cache: true

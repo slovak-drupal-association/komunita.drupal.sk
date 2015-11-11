@@ -1,0 +1,12 @@
+uuid: 16a79b5c-9ef5-424d-844d-77af2d84aaee
+langcode: sk
+status: true
+dependencies: {  }
+id: anonymous
+label: 'Anonymný používateľ'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'search content'

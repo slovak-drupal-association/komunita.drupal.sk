@@ -1,0 +1,11 @@
+uuid: 2afa0955-9176-48b7-b131-492fd1bd2c76
+langcode: sk
+status: true
+dependencies:
+  module:
+    - node
+id: node_make_unsticky_action
+label: 'Zrušiť prilepenie obsahu'
+type: node
+plugin: node_make_unsticky_action
+configuration: {  }

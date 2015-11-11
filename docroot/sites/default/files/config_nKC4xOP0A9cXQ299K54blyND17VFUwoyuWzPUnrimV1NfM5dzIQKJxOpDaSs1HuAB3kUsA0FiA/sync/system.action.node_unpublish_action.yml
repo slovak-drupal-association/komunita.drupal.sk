@@ -1,0 +1,11 @@
+uuid: 6c7ffc8a-2d1b-47af-9008-8c4e36ec8ecb
+langcode: sk
+status: true
+dependencies:
+  module:
+    - node
+id: node_unpublish_action
+label: 'Zrušiť zverejnenie obsahu'
+type: node
+plugin: node_unpublish_action
+configuration: {  }

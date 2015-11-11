@@ -1,0 +1,12 @@
+uuid: 7118bbf8-f2ee-4e88-8f40-649c1c8f1a1f
+name: 'Drupal Slovensko'
+mail: info@drupal.sk
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: sk
+default_langcode: sk

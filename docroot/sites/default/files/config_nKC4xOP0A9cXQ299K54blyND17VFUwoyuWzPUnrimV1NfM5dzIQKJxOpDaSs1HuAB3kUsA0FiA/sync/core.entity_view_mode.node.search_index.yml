@@ -1,0 +1,10 @@
+uuid: 81f6ab4e-9118-4832-8500-ea5b2e1ee2e1
+langcode: sk
+status: false
+dependencies:
+  module:
+    - node
+id: node.search_index
+label: 'Index vyhľadávania'
+targetEntityType: node
+cache: true

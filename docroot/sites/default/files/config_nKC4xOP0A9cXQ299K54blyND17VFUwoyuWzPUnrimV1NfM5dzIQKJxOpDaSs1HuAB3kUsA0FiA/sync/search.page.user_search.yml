@@ -1,0 +1,12 @@
+uuid: 86a428d4-f138-49fa-b200-f2061ef17903
+langcode: sk
+status: true
+dependencies:
+  module:
+    - user
+id: user_search
+label: Users
+path: user
+weight: 0
+plugin: user_search
+configuration: {  }

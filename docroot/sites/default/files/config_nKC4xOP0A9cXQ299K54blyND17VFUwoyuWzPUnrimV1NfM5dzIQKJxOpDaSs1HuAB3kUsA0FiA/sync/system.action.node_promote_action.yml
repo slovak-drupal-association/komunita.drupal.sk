@@ -1,0 +1,11 @@
+uuid: 4f462fd6-4cef-4b46-be60-96e34ab98caa
+langcode: sk
+status: true
+dependencies:
+  module:
+    - node
+id: node_promote_action
+label: 'Propagovať obsah na hlavnej stránke'
+type: node
+plugin: node_promote_action
+configuration: {  }

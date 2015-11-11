@@ -1,0 +1,8 @@
+uuid: 87349592-2b7b-4440-b809-9bd0162bcbcc
+langcode: sk
+status: true
+dependencies: {  }
+id: tools
+label: Nástroje
+description: 'User tool links, often added by modules'
+locked: true

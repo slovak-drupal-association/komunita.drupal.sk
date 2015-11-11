@@ -1,0 +1,13 @@
+uuid: 8b9c7a1f-2df5-4a9a-bc22-34f5eb2eea7a
+langcode: sk
+status: true
+dependencies:
+  module:
+    - node
+id: node_search
+label: Obsah
+path: node
+weight: -10
+plugin: node_search
+configuration:
+  rankings: {  }

@@ -1,0 +1,10 @@
+uuid: f26e8b1d-3353-47d5-ba00-0f78f624ab82
+langcode: sk
+status: true
+dependencies:
+  module:
+    - node
+id: node.teaser
+label: Upútavka
+targetEntityType: node
+cache: true

@@ -1,0 +1,8 @@
+uuid: 8eca0141-de67-47af-b400-bd784484c500
+langcode: sk
+status: true
+dependencies: {  }
+id: admin
+label: Administrácia
+description: 'Administrative task links'
+locked: true

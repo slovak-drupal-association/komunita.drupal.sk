@@ -1,0 +1,9 @@
+uuid: ad9912c5-7c5e-483c-a302-2aa080a7a504
+langcode: sk
+status: true
+dependencies: {  }
+id: personal
+label: 'Osobný kontaktný formulár'
+recipients: {  }
+reply: ''
+weight: 0
