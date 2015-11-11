@@ -6,6 +6,7 @@
 
 use Drupal\contact\Entity\ContactForm;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Extension\InfoParser;
 
 /**
  * Implements hook_form_FORM_ID_alter() for install_configure_form().
@@ -46,4 +47,20 @@ function drupalsk_form_install_configure_form_alter(&$form, FormStateInterface $
 function drupalsk_form_install_configure_submit($form, FormStateInterface $form_state) {
   $site_mail = $form_state->getValue('site_mail');
   ContactForm::load('feedback')->setRecipients([$site_mail])->trustData()->save();
+}
+
+/**
+ * Set the UUID of this website.
+ *
+ * By default, reinstalling a site will assign it a new random UUID, making
+ * it impossible to sync configuration with other instances. This function
+ * is called by site deployment module's .install hook.
+ *
+ * @param $uuid
+ *   A uuid string, for example 'e732b460-add4-47a7-8c00-e4dedbb42900'.
+ */
+function drupalsk_set_uuid($uuid) {
+  \Drupal::configFactory() ->getEditable('system.site')
+  ->set('uuid', $uuid)
+    ->save();
 }
