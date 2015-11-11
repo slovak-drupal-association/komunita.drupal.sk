@@ -1,6 +1,6 @@
 name: Drupal.sk
 type: profile
-description: 'Drupal.sk preseentation website.'
+description: 'Drupal.sk presentation website.'
 version: 8.x-1.0
 core: 8.x
 dependencies:
@@ -9,9 +9,7 @@ dependencies:
   - block
   - breakpoint
   - ckeditor
-  - color
   - config
-  - comment
   - contextual
   - contact
   - menu_link_content
@@ -29,17 +27,14 @@ dependencies:
   - taxonomy
   - dblog
   - search
-  - shortcut
   - toolbar
   - field_ui
   - file
   - rdf
   - views
   - views_ui
-  - tour
   - automated_cron
 themes:
   - bartik
   - seven
 distribution: true
-locale: sk
