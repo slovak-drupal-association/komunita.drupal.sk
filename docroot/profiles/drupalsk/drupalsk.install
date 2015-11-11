@@ -38,4 +38,7 @@ function drupalsk_install() {
 
   // Enable the admin theme.
   \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
+
+  // Set the uuid - this needs to be the last step.
+  drupalsk_set_uuid('7118bbf8-f2ee-4e88-8f40-649c1c8f1a1f');
 }
