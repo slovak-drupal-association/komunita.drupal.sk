@@ -53,3 +53,5 @@
  * @see \Drupal\Core\DrupalKernel::getSitePath()
  * @see https://www.drupal.org/documentation/install/multi-site
  */
+
+$site['8083.dsk.dd'] = 'dsk.dd';
