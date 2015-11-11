@@ -1,0 +1,23 @@
+uuid: 6a99ba79-9ca3-4379-9404-4acdd4225eab
+langcode: sk
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.2_cols_text.field_wysiwyg_text
+    - paragraphs.paragraphs_type.2_cols_text
+  module:
+    - text
+id: paragraph.2_cols_text.default
+targetEntityType: paragraph
+bundle: 2_cols_text
+mode: default
+content:
+  field_wysiwyg_text:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+hidden:
+  created: true
+  uid: true
