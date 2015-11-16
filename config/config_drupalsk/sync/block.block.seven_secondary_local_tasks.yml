@@ -1,10 +1,10 @@
-uuid: 7b5b17a6-d575-4e13-a200-0e3bb57e17e5
-langcode: sk
+uuid: 777903ea-6540-484e-903f-63716dc22134
+langcode: en
 status: true
 dependencies:
   theme:
     - seven
-id: zalozky_2
+id: seven_secondary_local_tasks
 theme: seven
 region: pre_content
 weight: 0
@@ -12,9 +12,9 @@ provider: null
 plugin: local_tasks_block
 settings:
   id: local_tasks_block
-  label: Záložky
+  label: 'Secondary tabs'
   provider: core
   label_display: '0'
-  primary: true
+  primary: false
   secondary: true
 visibility: {  }
