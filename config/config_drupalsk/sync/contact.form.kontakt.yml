@@ -1,0 +1,15 @@
+uuid: b0acf467-6b8a-4a38-872d-455204e840af
+langcode: sk
+status: true
+dependencies:
+  module:
+    - contact_storage
+third_party_settings:
+  contact_storage:
+    redirect_uri: kontakt
+id: kontakt
+label: 'Kontaktujte nás'
+recipients:
+  - info@drupal.sk
+reply: 'Ďakujeme za prejavený záujem o naše aktivity. Čoskoro Vás budeme kontaktovať.'
+weight: 0
