@@ -6,6 +6,7 @@ module:
   ckeditor: 0
   config: 0
   contact: 0
+  contact_storage: 0
   contextual: 0
   datetime: 0
   dblog: 0

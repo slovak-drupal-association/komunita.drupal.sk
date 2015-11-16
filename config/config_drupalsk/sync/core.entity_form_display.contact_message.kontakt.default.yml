@@ -1,0 +1,36 @@
+uuid: 2adb5427-b021-4e2e-8900-c163c0533771
+langcode: sk
+status: true
+dependencies:
+  config:
+    - contact.form.kontakt
+id: contact_message.kontakt.default
+targetEntityType: contact_message
+bundle: kontakt
+mode: default
+content:
+  mail:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+  message:
+    type: string_textarea
+    weight: 3
+    settings:
+      rows: 12
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  subject:
+    type: string_textfield
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  copy: true
+  langcode: true
