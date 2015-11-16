@@ -62,7 +62,7 @@
  */
 #}
 <header{{ navbar_attributes }} id="navbar" role="banner">
-  <div class="container">
+  <div class="{{ container_class }}">
     <div class="navbar-header">
       {{ page.header }}
 
@@ -84,7 +84,7 @@
   </div>
 </header>
 
-<div role="main" class="main-container container js-quickedit-main-content">
+<div role="main" class="main-container {{ container_class }} js-quickedit-main-content">
   <div class="row">
 
     {% if page.sidebar_first %}
@@ -120,7 +120,7 @@
 </div>
 
 {% if page.footer %}
-  <footer class="footer container" role="contentinfo">
+  <footer class="footer {{ container_class }}" role="contentinfo">
     {{ page.footer }}
   </footer>
 {% endif %}
