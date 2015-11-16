@@ -1,0 +1,18 @@
+uuid: 4c7fc53b-0a06-4431-be00-a99a2aceb17d
+langcode: en
+status: true
+dependencies:
+  theme:
+    - dsk
+id: dsk_local_actions
+theme: dsk
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }
