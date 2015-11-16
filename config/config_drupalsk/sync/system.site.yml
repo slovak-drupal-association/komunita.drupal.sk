@@ -10,3 +10,4 @@ admin_compact_mode: false
 weight_select_max: 100
 langcode: sk
 default_langcode: sk
+mail_notification: ''

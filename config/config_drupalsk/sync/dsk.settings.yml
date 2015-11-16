@@ -1,0 +1,76 @@
+features:
+  node_user_picture: true
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: 1
+favicon:
+  use_default: 1
+  path: ''
+bootstrap_fluid_container: 1
+bootstrap_button_size: ''
+bootstrap_button_colorize: 0
+bootstrap_button_iconize: 0
+bootstrap_forms_required_has_error: 0
+bootstrap_forms_smart_descriptions: 0
+bootstrap_forms_smart_descriptions_limit: ''
+bootstrap_forms_smart_descriptions_allowed_tags: ''
+bootstrap_image_shape: ''
+bootstrap_image_responsive: 0
+bootstrap_table_bordered: 0
+bootstrap_table_condensed: 0
+bootstrap_table_hover: 0
+table_striped: 0
+bootstrap_table_responsive: 0
+bootstrap_breadcrumb: '0'
+bootstrap_breadcrumb_home: 0
+bootstrap_breadcrumb_title: 0
+bootstrap_navbar_position: ''
+bootstrap_navbar_inverse: 0
+region_well-navigation: ''
+region_well-header: ''
+region_well-highlighted: ''
+region_well-help: ''
+region_well-content: ''
+region_well-sidebar_first: ''
+region_well-sidebar_second: ''
+region_well-footer: ''
+region_well-page_top: ''
+region_well-page_bottom: ''
+bootstrap_anchors_fix: 0
+bootstrap_anchors_smooth_scrolling: 0
+bootstrap_forms_has_error_value_toggle: 0
+bootstrap_popover_enabled: 0
+bootstrap_popover_animation: 0
+popover_html: 0
+bootstrap_popover_placement: top
+bootstrap_popover_selector: ''
+bootstrap_popover_trigger:
+  click: 0
+  hover: 0
+  focus: 0
+  manual: 0
+bootstrap_popover_trigger_autoclose: 0
+bootstrap_popover_title: ''
+bootstrap_popover_content: ''
+bootstrap_popover_delay: ''
+bootstrap_popover_container: ''
+bootstrap_tooltip_enabled: 0
+bootstrap_tooltip_animation: 0
+bootstrap_tooltip_html: 0
+bootstrap_tooltip_placement: top
+bootstrap_tooltip_selector: ''
+bootstrap_tooltip_trigger:
+  click: 0
+  hover: 0
+  focus: 0
+  manual: 0
+bootstrap_tooltip_delay: ''
+bootstrap_tooltip_container: ''
+bootstrap_toggle_jquery_error: 0
+bootstrap_cdn_provider: jsdelivr
+bootstrap_cdn_custom_css: ''
+bootstrap_cdn_custom_css_min: ''
+bootstrap_cdn_custom_js: ''
+bootstrap_cdn_custom_js_min: ''
+bootstrap_cdn_jsdelivr_version: 3.0.0
+bootstrap_cdn_jsdelivr_theme: bootstrap

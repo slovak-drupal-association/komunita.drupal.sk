@@ -4,8 +4,8 @@
  * Stub file for "page" theme hook [pre]process functions.
  */
 
-use Drupal\Core\Template\Attribute;
 use Drupal\Core\Menu\MenuTreeParameters;
+use Drupal\Core\Template\Attribute;
 
 /**
  * Pre-processes variables for the "page" theme hook.
@@ -30,10 +30,20 @@ function bootstrap_preprocess_page(&$variables) {
     $variables['content_column_attributes']['class'][] = 'col-sm-12';
   }
 
+  if (bootstrap_setting('fluid_container') === 1) {
+    $variables['container_class'] = 'container-fluid';
+  }
+  else {
+    $variables['container_class'] = 'container';
+  }
+
   $variables['navbar_attributes'] = new Attribute();
   $variables['navbar_attributes']['class'] = array('navbar');
   if (bootstrap_setting('navbar_position') !== '') {
     $variables['navbar_attributes']['class'][] = 'navbar-' . bootstrap_setting('navbar_position');
+  }
+  elseif (bootstrap_setting('fluid_container') === 1) {
+    $variables['navbar_classes_array'][] = 'container-fluid';
   }
   else {
     $variables['navbar_attributes']['class'][] = 'container';
@@ -63,6 +73,11 @@ function bootstrap_preprocess_page(&$variables) {
   // Render the top-level administration menu links.
   $parameters = new MenuTreeParameters();
   $tree = $menu_tree->load('account', $parameters);
+  $manipulators = array(
+    array('callable' => 'menu.default_tree_manipulators:checkAccess'),
+    array('callable' => 'menu.default_tree_manipulators:generateIndexAndSort'),
+  );
+  $tree = $menu_tree->transform($tree, $manipulators);
   $variables['secondary_nav'] = $menu_tree->build($tree);
   $variables['secondary_nav']['#attributes']['class'][] = 'navbar-nav';
   $variables['secondary_nav']['#attributes']['class'][] = 'secondary';
