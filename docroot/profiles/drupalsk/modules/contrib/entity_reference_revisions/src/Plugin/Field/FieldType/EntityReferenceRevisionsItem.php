@@ -37,8 +37,7 @@ use Drupal\Core\TypedData\OptionsProviderInterface;
  *   class = "\Drupal\entity_reference_revisions\Plugin\Field\FieldType\EntityReferenceRevisionsItem",
  *   list_class = "\Drupal\entity_reference_revisions\EntityReferenceRevisionsFieldItemList",
  *   default_formatter = "entity_reference_revisions_entity_view",
- *   default_widget = "entity_reference_revisions_autocomplete",
- *   constraints = {"ValidReference" = {}}
+ *   default_widget = "entity_reference_revisions_autocomplete"
  * )
  */
 class EntityReferenceRevisionsItem extends EntityReferenceItem implements OptionsProviderInterface, PreconfiguredFieldUiOptionsInterface {
